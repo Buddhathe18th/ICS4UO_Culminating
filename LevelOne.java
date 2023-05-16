@@ -7,9 +7,9 @@ class LevelOne extends JComponent {
 
     public LevelOne() {
         scenarios = 4;
-        images = new Image[scenarios];
+        images = new Image[scenarios*2];
         JFrame frame = new JFrame("Graphical Greeting");
-        frame.setSize(400,400);
+        frame.setSize(1920,1080);
         frame.add(new TextBox(0, 0, 400, 50, "qwertyuiopasdfghjklzxcvb"));
         frame.setVisible(true);
     }
