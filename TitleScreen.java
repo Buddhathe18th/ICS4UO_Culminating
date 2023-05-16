@@ -3,40 +3,22 @@ import java.awt.event.*;
 import javax.swing.*;
 
 public class TitleScreen {
-    
+
     Drawing draw = new Drawing();
 
-    public JInternalFrame test(){
-        
-        JInternalFrame frame = new JInternalFrame("",false,false,false,false);
+    public JInternalFrame test() {
+
+        JInternalFrame frame = new JInternalFrame("", false, false, false, false);
         frame.putClientProperty("JInternalFrame.isPalette", Boolean.TRUE);
         frame.setDefaultCloseOperation(JFrame.EXIT_ON_CLOSE);
         frame.getRootPane().setWindowDecorationStyle(0);
         frame.add(draw);
 
         
-
-        KeyListener k = new KeyListener() {
-            public void keyTyped(KeyEvent event) {
-                return;
-            }
-
-            public void keyReleased(KeyEvent event) {
-                return;
-            }
-
-            public void keyPressed(KeyEvent event) {
-                if (event.getKeyCode() == event.VK_ENTER) {
-                    Main.screenNum=2;
-                }
-            }
-        };
-        frame.addKeyListener(k);
         frame.setSize(1920, 1080);
         frame.setVisible(true);
         return frame;
     }
-
 
     class Drawing extends Canvas {
         public void paint(Graphics g) {
