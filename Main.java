@@ -2,8 +2,8 @@ import java.awt.*;
 import java.awt.event.*;
 import javax.swing.*;
 
-public class Main {
-    static int screenNum = 1;
+public class Main implements KeyListener{
+    static int screenNum = 2;
     JInternalFrame content = new JInternalFrame();
     boolean run = true;
     JFrame frame;
@@ -18,33 +18,19 @@ public class Main {
         frame.setDefaultCloseOperation(JFrame.EXIT_ON_CLOSE);
         frame.setSize(1920, 1080);
         frame.setFocusable(true);
-        System.out.println(frame.isDisplayable());//TODO: The JFrame is not displayable
-        System.out.println(frame.requestFocusInWindow());
+        frame.addKeyListener(this);
+
+        
         frame.setVisible(true);
+        
 
-        KeyListener k = new KeyListener() {
-            public void keyTyped(KeyEvent event) {
-                return;
-            }
-
-            public void keyReleased(KeyEvent event) {
-                return;
-            }
-
-            public void keyPressed(KeyEvent event) {
-                System.out.println("here");
-                if (event.getKeyCode() == KeyEvent.VK_ENTER&&screenNum==1) {
-                    screenNum = 2;
-                    frame.add(new JLabel("testdsfdsfds00"));
-                }
-            }
-        };
-        frame.addKeyListener(k);
+        
         
         
 
         while (run) {
             frame.getContentPane().removeAll();
+            frame.requestFocusInWindow();
 
             switch (screenNum) {
                 case 1: {
@@ -77,12 +63,30 @@ public class Main {
                     Thread.sleep(1000);
                     System.out.println(screenNum);
                     
-                } catch (Exception e) {//TODO: Current thread is not owner issue
+                } catch (Exception e) {
                     System.out.println("Broekn");
                 }
 
             }
         }
 
+    }
+
+    @Override
+    public void keyTyped(KeyEvent e) {
+        
+    }
+
+    @Override
+    public void keyPressed(KeyEvent e) {
+        
+    }
+
+    @Override
+    public void keyReleased(KeyEvent e) {
+        if (e.getKeyCode()==KeyEvent.VK_ENTER&&screenNum==1){
+            Main.screenNum=2;
+        }
+        
     }
 }

@@ -2,7 +2,7 @@ import java.awt.*;
 import java.awt.event.*;
 import javax.swing.*;
 
-public class MainMenu {
+public class MainMenu implements ActionListener{
     
 
     JButton level1 = new JButton("Level 1");
@@ -13,10 +13,11 @@ public class MainMenu {
 
 
     Drawing draw = new Drawing();
+    JInternalFrame frame;
 
     public JInternalFrame test(){
         
-        JInternalFrame frame = new JInternalFrame("",false,false,false,false);
+        frame = new JInternalFrame("",false,false,false,false);
         frame.putClientProperty("JInternalFrame.isPalette", Boolean.TRUE);
         frame.setDefaultCloseOperation(JFrame.EXIT_ON_CLOSE);
         frame.getRootPane().setWindowDecorationStyle(0);
@@ -31,6 +32,8 @@ public class MainMenu {
             frame.add(j);
         }
 
+        level1.addActionListener(this);
+
         frame.setSize(1920, 1080);
         frame.setVisible(true);
         return frame;
@@ -42,5 +45,10 @@ public class MainMenu {
             g.setFont(new Font("Courier New", Font.PLAIN, 80));
             g.drawString("Race Against Time", 0, 0);
         }
+    }
+
+    public void actionPerformed(ActionEvent e) {
+        if (e.getSource() == level1)
+            Main.screenNum=1;
     }
 }

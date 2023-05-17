@@ -2,7 +2,7 @@ import java.awt.*;
 import java.awt.event.*;
 import javax.swing.*;
 
-public class TitleScreen {
+public class TitleScreen implements KeyListener{
 
     Drawing draw = new Drawing();
 
@@ -17,6 +17,8 @@ public class TitleScreen {
         
         frame.setSize(1920, 1080);
         frame.setVisible(true);
+        draw.addKeyListener(this);
+        frame.addKeyListener(this);
         return frame;
     }
 
@@ -34,5 +36,27 @@ public class TitleScreen {
             g.drawString("Press enter to continue", 550, 600);
 
         }
+    }
+
+    @Override
+    public void keyTyped(KeyEvent e) {
+        if (e.getKeyCode()==KeyEvent.VK_ENTER){
+            Main.screenNum=2;
+        }
+    }
+
+    @Override
+    public void keyPressed(KeyEvent e) {
+        if (e.getKeyCode()==KeyEvent.VK_ENTER){
+            Main.screenNum=2;
+        }
+    }
+
+    @Override
+    public void keyReleased(KeyEvent e) {
+        if (e.getKeyCode()==KeyEvent.VK_ENTER){
+            Main.screenNum=2;
+        }
+        
     }
 }
