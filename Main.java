@@ -19,15 +19,8 @@ public class Main implements KeyListener{
         frame.setSize(1920, 1080);
         frame.setFocusable(true);
         frame.addKeyListener(this);
-
-        
         frame.setVisible(true);
-        
-
-        
-        
-        
-
+       
         while (run) {
             frame.getContentPane().removeAll();
             frame.requestFocusInWindow();
