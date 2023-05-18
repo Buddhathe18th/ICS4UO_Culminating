@@ -4,13 +4,20 @@ import java.awt.*;
 class LevelOne extends JComponent {
     private int scenarios;
     private Image[] images;
+    String initial;
+    String[] choices;
+    String info;
 
     public LevelOne() {
         scenarios = 4;
         images = new Image[scenarios*2];
         JFrame frame = new JFrame("Graphical Greeting");
         frame.setSize(1920,1080);
-        frame.add(new TextBox(0, 0, 400, 50, "qwertyuiopasdfghjklzxcvb"));
+        initial = "Johnny wants to go play basketball, but has a math assignment due tomorrow. Which choice should he make?";
+        choices = new String[] {"Incorrect! If Johnny has an assignment due tomorrow, delaying it further could be impeding his learning.", 
+                                "Correct! If Johnny has a math assignment due tomorrow, getting started on it will be the better choice."};
+        info = "Fun Fact! Sports are good for your mental health, but at times like these, commiting and working is still the overall best choice!";
+        frame.add(new Level1Scene(initial, choices, info));
         frame.setVisible(true);
     }
 
