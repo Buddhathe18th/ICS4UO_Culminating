@@ -1,17 +1,17 @@
 import javax.swing.*;
 import java.awt.*;
 
-class LevelOne extends JComponent {
+class Level1 extends JComponent {
     private int scenarios;
     private Image[] images;
     String initial;
     String[] choices;
     String info;
 
-    public LevelOne() {
+    public Level1() {
         scenarios = 4;
         images = new Image[scenarios*2];
-        JFrame frame = new JFrame("Graphical Greeting");
+        JFrame frame = new JFrame("Level 1");
         frame.setSize(1920,1080);
         initial = "Johnny wants to go play basketball, but has a math assignment due tomorrow. Which choice should he make?";
         choices = new String[] {"Incorrect! If Johnny has an assignment due tomorrow, delaying it further could be impeding his learning.", 
@@ -34,6 +34,6 @@ class LevelOne extends JComponent {
     }
 
     public static void main(String[] args) {
-        new LevelOne();
+        new Level1();
     }
 }

@@ -16,21 +16,22 @@ class TextBox extends JComponent {
         y = y1;
         width = w;
         fontSize = f;
-        textPerLine = (int)(w*1.6/fontSize);
+        textPerLine = (int)(w*1.4/fontSize);
         String[] text = t.split(" ");
         int maxLen = textPerLine;
-        int counter = 0;
         lines = new ArrayList<String>();
 
+        String temp = "";
         for (String l: text) {
             if (maxLen - l.length() < 0) {
                 maxLen = textPerLine;
-                counter++;
+                lines.add(temp);
+                temp = "";
             }
-            if (lines.get(counter) == null) lines.set(counter, "");
+            temp += l + " ";
             maxLen -= l.length();
-            lines.set(counter, lines.get(counter) + " " + l);
         }
+        lines.add(temp);
     }
 
     public int getFontSize() {

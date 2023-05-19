@@ -9,10 +9,10 @@ public class Level1Scene extends JComponent{
     public Level1Scene(/*Image[] i, */String initial, String[] choices, String info) {
         //images = i;
         textBoxes = new TextBox[4];
-        textBoxes[0] = new TextBox(0, 0, 1000, 25, initial);
-        textBoxes[1] = new TextBox(100, 500, 500, 25, choices[0]);
-        textBoxes[2] = new TextBox(800, 500, 500, 25, choices[1]);
-        textBoxes[3] = new TextBox(0, 700, 1000, 25, info);
+        textBoxes[0] = new TextBox(0, 0, 1280, 25, initial);
+        textBoxes[1] = new TextBox(100, 600, 500, 25, choices[0]);
+        textBoxes[2] = new TextBox(680, 600, 500, 25, choices[1]);
+        textBoxes[3] = new TextBox(0, 896, 1280, 25, info);
     }
 
     public void paint(Graphics g) {
