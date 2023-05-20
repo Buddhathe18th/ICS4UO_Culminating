@@ -2,6 +2,15 @@ import java.awt.*;
 import java.awt.event.*;
 import javax.swing.*;
 
+/**
+ * The MainMenu class will create the screen of the main menu
+ * Time Spent: 1 hour
+ * 
+ * @author Alex Zhu
+ * @version 0.1.0
+ * @date 05/16/2023
+ */
+
 public class MainMenu implements ActionListener{
     
 
@@ -15,14 +24,14 @@ public class MainMenu implements ActionListener{
     Drawing draw = new Drawing();
     JInternalFrame frame;
 
-    public JInternalFrame test(){
+    public JInternalFrame frame(){
         
         frame = new JInternalFrame("",false,false,false,false);
         frame.putClientProperty("JInternalFrame.isPalette", Boolean.TRUE);
         frame.setDefaultCloseOperation(JFrame.EXIT_ON_CLOSE);
         frame.getRootPane().setWindowDecorationStyle(0);
         
-        frame.setLayout(null);
+        frame.setLayout(new GridLayout(2, 3));
         
         JButton[] test = {level1, level2, level3, credits, exit};
 

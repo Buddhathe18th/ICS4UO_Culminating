@@ -2,11 +2,20 @@ import java.awt.*;
 import java.awt.event.*;
 import javax.swing.*;
 
+/**
+ * The TitleScreen class will create the screen for the title screen
+ * Time Spent: 45 minutes
+ * 
+ * @author Alex Zhu
+ * @version 0.1.0
+ * @date 05/15/2023
+ */
+
 public class TitleScreen implements KeyListener{
 
     Drawing draw = new Drawing();
 
-    public JInternalFrame test() {
+    public JInternalFrame frame() {
 
         JInternalFrame frame = new JInternalFrame("", false, false, false, false);
         frame.putClientProperty("JInternalFrame.isPalette", Boolean.TRUE);
