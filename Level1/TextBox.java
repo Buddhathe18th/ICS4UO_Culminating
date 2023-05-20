@@ -50,18 +50,34 @@ class TextBox extends JComponent {
         lines.add(temp);
     }
 
+    /**
+     * Gets the size of the font in the text box
+     * @return The size of the font in the text box 
+     */
     public int getFontSize() {
         return fontSize;
     }
 
+    /**
+     * Gets the coordinates of the top left corner of the text box
+     * @return Int array [x, y], the x and y coordinates of the text box
+     */
     public int[] getCoords() {
         return new int[] {x, y};
     }
 
+    /**
+     * Gets the width of the text box
+     * @return The width of the text box
+     */
     public int getWidth() {
         return width;
     }
 
+    /**
+     * Gets the lines of text in the text box
+     * @return The lines of text in the text box, seperated into different indices of an ArrayList
+     */
     public ArrayList<String> getText() {
         return lines;
     }
