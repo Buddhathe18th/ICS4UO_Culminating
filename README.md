@@ -2,7 +2,7 @@
 
 ## Version 0.1.0
 
-This version has three seperate sections, all invidually functional. The [Main.java](./Main.java) is runnable, showing the general structure of the game, but with only the [title](./TitleScreen.java) and [main menu](./MainMenu.java) screens. Both are not completely finished, only with the general structure down to show strucutre. 
+This version has four seperate sections, all invidually functional. The [Main.java](./Main.java) is runnable, showing the general structure of the game, but with only the [title](./TitleScreen.java) and [main menu](./MainMenu.java) screens. Both are not completely finished, only with the general structure down to show structure. On the Main Menu, since no other screens are fully completed yet, the button for level 1 will bring you to the Title Page.
 
 In the folder [Level1](./Level1/), the [Level1.java](./Level1/Level1.java) is runnable, to show how the Level 1 game would look like, ultilizing the [TextBox](./Level1/TextBox.java) class.
 
