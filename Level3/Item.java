@@ -12,7 +12,15 @@ import java.awt.*;
  */
 
 public class Item {
+
+    /**
+     * Image of the object
+     */
     private Image image;
+
+    /**
+     * If the item was collected or not
+     */
     private boolean collected;
 
     /**

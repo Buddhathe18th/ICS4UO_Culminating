@@ -13,10 +13,30 @@ import java.awt.*;
  */
 
 class Level1 extends JComponent {
+
+    /**
+     * Number of different situations the player will solve in Level 1
+     */
     private int scenarios;
+
+    /**
+     * The photos of objects the player will choose between
+     */
     private Image[] images;
+
+    /**
+     * Initial text that is shown to the user at the beginning of the game
+     */
     String[] initial;
+
+    /**
+     * The reaction messages the game will have depending on the user's choice
+     */
     String[] choices;
+
+    /**
+     * The fun fact displayed after each scenario
+     */
     String[] info;
 
     /**

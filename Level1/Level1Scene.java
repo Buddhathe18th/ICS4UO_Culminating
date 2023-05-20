@@ -14,7 +14,15 @@ import java.util.*;
  */
 
 public class Level1Scene extends JComponent{
+
+    /**
+     * Images used in the scene
+     */
     private Image[] images;
+
+    /**
+     * Textboxes in each scene
+     */
     private TextBox[] textBoxes;
 
     /**
@@ -33,6 +41,10 @@ public class Level1Scene extends JComponent{
         textBoxes[2] = new TextBox(680, 600, 500, 25, choices[1]);
         textBoxes[3] = new TextBox(0, 896, 1280, 25, info);
     }
+
+    /**
+     * Pain method to draw on all textboxes and images
+     */
 
     public void paint(Graphics g) {
         int fontSize;

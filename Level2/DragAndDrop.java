@@ -17,12 +17,31 @@ import javax.swing.border.*;
 
 public class DragAndDrop extends JComponent implements MouseListener, MouseMotionListener {
 
+  /**
+   * Absolute position of the mouse of the screen
+   */
   private int screenX = 0;
   private int screenY = 0;
+
+  /**
+   * Coordinates of the top left corner of the component
+   */
   private int x = 0;
   private int y = 0;
+
+  /**
+   * Image of the component
+   */
   private Image image;
+
+  /**
+   * Width of the image
+   */
   private int width;
+
+  /**
+   * Height of the image
+   */
   private int height;
 
   /**
@@ -89,7 +108,7 @@ public class DragAndDrop extends JComponent implements MouseListener, MouseMotio
     int changeX = e.getXOnScreen() - screenX;
     int changeY = e.getYOnScreen() - screenY;
 
-    //We move the component the amount the mouse moves when dragged
+    //Change the location of the component depending on the distance the mouse was moved
     setLocation(x + changeX, y + changeY);
   }
 

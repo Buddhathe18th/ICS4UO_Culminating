@@ -13,8 +13,18 @@ import javax.swing.*;
 
 public class TitleScreen implements KeyListener{
 
-    Drawing draw = new Drawing();
 
+    /**
+     * Elements that will be drawn on the JInternalFrame with the paint() method
+     */
+    private Drawing draw = new Drawing();
+
+
+    /**
+     * Makes all components and drawings that will be on the Title Screen
+     * 
+     * @return the JInternalFrame to add to the screen
+     */
     public JInternalFrame frame() {
 
         JInternalFrame frame = new JInternalFrame("", false, false, false, false);
@@ -31,6 +41,10 @@ public class TitleScreen implements KeyListener{
         return frame;
     }
 
+    /**
+     * Drawing class for painting text and images onto the Title Screen
+     */
+
     class Drawing extends Canvas {
         public void paint(Graphics g) {
             Toolkit t = Toolkit.getDefaultToolkit();
@@ -46,6 +60,10 @@ public class TitleScreen implements KeyListener{
 
         }
     }
+
+    /**
+     * Overidded KeyListener methods to listen for the enter key to change screens
+     */
 
     @Override
     public void keyTyped(KeyEvent e) {

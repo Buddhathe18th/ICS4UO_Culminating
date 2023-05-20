@@ -12,12 +12,37 @@ import java.util.*;
  */
 
 class TextBox extends JComponent {
+
+    /**
+     * The x-coordinate of the top left corner of the text box
+     */
     private int x;
+
+    /**
+     * The y-coordinate of the top left corner of the text box
+     */
     private int y;
+    
+    /**
+     * The width of the text box
+     */
     private int width;
+
+    /**
+     * The font size
+     */
     private int fontSize;
+
+    /**
+     * Maximum number of characters in each line
+     */
     private int textPerLine;
+
+    /**
+     * The lines of text that will be in each textbox
+     */
     private ArrayList<String> lines;
+    
     /**
      * Constructor for the TextBox class.
      * 

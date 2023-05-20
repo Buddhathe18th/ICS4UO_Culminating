@@ -16,10 +16,19 @@ import javax.swing.*;
 
 public class Level2 {
     
+    /**
+     * One drag and droppable item on the screen
+     */
     DragAndDrop i1;
-    DragAndDrop i2;
 
+    /**
+     * The screen to display on the JFrame
+     */
     JInternalFrame frame;
+
+    /**
+     * Constructor for the Level 2 class
+     */
 
     public Level2(){
         JFrame t = new JFrame();

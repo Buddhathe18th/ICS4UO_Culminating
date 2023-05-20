@@ -13,16 +13,29 @@ import javax.swing.*;
 
 public class MainMenu implements ActionListener{
     
-
+    /** 
+     *Buttons that will be on the Main Menu
+    */
     JButton level1 = new JButton("Level 1");
     JButton level2 = new JButton("Level 2");
     JButton level3 = new JButton("Level 3");
     JButton credits = new JButton("Credits");
     JButton exit = new JButton("Exit");
 
-
+    /**
+     *  The drawing that will be on the screen
+     */ 
     Drawing draw = new Drawing();
+
+    /**
+     * The frame that will be passed to the Main class
+     */
     JInternalFrame frame;
+
+    /**
+     * Returns the frame to be displayed on the main menu screen. Currently unfinished, button for Level 1 will bring you to the Title Screen
+     * @return the frame to be displayed
+     */
 
     public JInternalFrame frame(){
         
@@ -51,7 +64,9 @@ public class MainMenu implements ActionListener{
         return frame;
     }
 
-
+    /**
+     * Drawing class for paiting text onto the Main Menu screen
+     */
     class Drawing extends Canvas {
         public void paint(Graphics g) {
             g.setFont(new Font("Courier New", Font.PLAIN, 80));
@@ -60,6 +75,9 @@ public class MainMenu implements ActionListener{
         }
     }
 
+    /**
+     * Action listener for the button on level1
+     */
     public void actionPerformed(ActionEvent e) {
         if (e.getSource() == level1)
             Main.screenNum=1;

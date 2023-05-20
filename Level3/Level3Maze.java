@@ -13,6 +13,9 @@ import java.awt.*;
  */
 
 public class Level3Maze extends JComponent {
+    /**
+     * The items that are to be collected
+     */
     private Item[] items;
     public void paint(Graphics g) {
         g.drawLine(300, 300, 300, 500);
