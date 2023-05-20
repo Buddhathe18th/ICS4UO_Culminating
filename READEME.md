@@ -8,4 +8,4 @@ In the folder [Level1](./Level1/), the [Level1.java](./Level1/Level1.java) is ru
 
 In the folder [Level2](./Level2/), the [Level2Driver.java](./Level2/Level2Driver.java) is also runnable to show the drag and drop components used in the second level.
 
-In the folder [Level3](./Level3/), the [Level3.java](./Level3/Level3.java) is also runnable, to show a basic framework of the Level 3 game, ultilizing the [Item](./Level3/Item.java) class
+In the folder [Level3](./Level3/), the [Level3.java](./Level3/Level3.java) is also runnable, to show a basic framework of the Level 3 game, ultilizing the [Item](./Level3/Item.java) class.
