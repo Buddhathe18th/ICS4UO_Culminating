@@ -40,8 +40,8 @@ public class Level1Scene extends JComponent{
         images = i;
         textBoxes = new TextBox[4];
         textBoxes[0] = new TextBox(0, 0, 1280, 25, initial);
-        textBoxes[1] = new TextBox(100, 600, 500, 25, choices[0]);
-        textBoxes[2] = new TextBox(680, 600, 500, 25, choices[1]);
+        textBoxes[1] = new TextBox(200, 600, 300, 25, choices[0]);
+        textBoxes[2] = new TextBox(780, 600, 300, 25, choices[1]);
         textBoxes[3] = new TextBox(0, 896, 1280, 25, info);
     }
 
@@ -66,7 +66,7 @@ public class Level1Scene extends JComponent{
             // Draws the text in the text boxes, line by line
             for (int i = 0; i < text.size(); i++) g.drawString(text.get(i), coords[0], coords[1]+(i+1)*fontSize);
         }
-        g.drawImage(images[0], 200, 200, 100, 100, null);
-        g.drawImage(images[1], 600, 200, 100, 100, null);
+        g.drawImage(images[0], 200, 250, 300, 300, null);
+        g.drawImage(images[1], 780, 250, 300, 300, null);
     }
 }
