@@ -59,7 +59,7 @@ class Level1 extends JComponent {
         info = inf;
         images = im;
         for (int i = 0; i < initial.length; i++) {
-            frame.add(new Level1Scene(new Image[] {images[i*2], images[i*2+1]}, initial[i], new String[] {choices[i*2], choices[i*2+1]}, info[i]));    
+            frame.add(new Level1Scene(new Image[] {images[i*2], images[i*2+1]}, initial[i], new String[] {choices[i*2], choices[i*2+1]}, info[i]));
             frame.setVisible(true);
             //Pause until player goes to next scene
         }
@@ -76,7 +76,7 @@ class Level1 extends JComponent {
                     "Correct! If Johnny has a math assignment due tomorrow, getting started on it will be the better choice."};
         String[] inf = {"Fun Fact! Sports are good for your mental health, but at times like these, commiting and working is still the overall best choice!"};
         Toolkit tool = Toolkit.getDefaultToolkit();
-        Image i[] = {tool.getImage("Image\\atom.png"), tool.getImage("Image\\basketball.png"), 
+        Image[] i = {tool.getImage("Level1\\Image\\atom.png"), tool.getImage("Image\\basketball.png"), 
         tool.getImage("Image\\calculator.png"), tool.getImage("Image\\history.png"), 
         tool.getImage("Image\\ipad.png"), tool.getImage("Image\\pencil.png"), 
         tool.getImage("Image\\pillows.png"), tool.getImage("Image\\youtube.png")};
