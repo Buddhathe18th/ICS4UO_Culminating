@@ -36,8 +36,8 @@ public class Level1Scene extends JComponent{
      * @param choices The text blurbs show at the bottom of each choice after the player selects one, showing if they are correct or not 
      * @param info The info blurb show at the bottom of the screen after the player completes the scenario
      */
-    public Level1Scene(/*Image[] i, */String initial, String[] choices, String info) {
-        //images = i;
+    public Level1Scene(Image[] i, String initial, String[] choices, String info) {
+        images = i;
         textBoxes = new TextBox[4];
         textBoxes[0] = new TextBox(0, 0, 1280, 25, initial);
         textBoxes[1] = new TextBox(100, 600, 500, 25, choices[0]);
@@ -54,7 +54,7 @@ public class Level1Scene extends JComponent{
         int width;
         int[] coords;
         ArrayList<String> text;
-
+        
         // Draws the text boxes
         for (TextBox t: textBoxes) {
             fontSize = t.getFontSize();
@@ -67,5 +67,7 @@ public class Level1Scene extends JComponent{
             // Draws the text in the text boxes, line by line
             for (int i = 0; i < text.size(); i++) g.drawString(text.get(i), coords[0], coords[1]+(i+1)*fontSize);
         }
+        g.drawImage(images[0], 200, 200, 100, 100, null);
+        g.drawImage(images[1], 600, 200, 100, 100, null);
     }
 }

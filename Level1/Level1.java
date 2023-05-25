@@ -47,7 +47,7 @@ class Level1 extends JComponent {
      * @param c The text blurbs show at the bottom of each choice after the player selects one, showing if they are correct or not 
      * @param inf The info blurbs show at the bottom of the screen every time the player completes a scenario.
      */
-    public Level1(/*Image[] im, */String[] in, String[] c, String inf[]) {
+    public Level1(Image[] im, String[] in, String[] c, String inf[]) {
         scenarios = 4;
         images = new Image[scenarios*2];
         JFrame frame = new JFrame("Level 1");
@@ -57,12 +57,14 @@ class Level1 extends JComponent {
         initial = in;
         choices = c;
         info = inf;
-
+        images = im;
         for (int i = 0; i < initial.length; i++) {
-            frame.add(new Level1Scene(initial[i], new String[] {choices[i*2], choices[i*2+1]}, info[i]));
+            Level1Scene l1 = new Level1Scene(new Image[] {images[i*2], images[i*2+1]}, initial[i], new String[] {choices[i*2], choices[i*2+1]}, info[i]);
+            frame.add(l1);
             frame.setVisible(true);
             //Pause until player goes to next scene
         }
+        
     }
 
     /**
@@ -74,6 +76,11 @@ class Level1 extends JComponent {
         String[] c = {"Incorrect! If Johnny has an assignment due tomorrow, delaying it further could be impeding his learning.", 
                     "Correct! If Johnny has a math assignment due tomorrow, getting started on it will be the better choice."};
         String[] inf = {"Fun Fact! Sports are good for your mental health, but at times like these, commiting and working is still the overall best choice!"};
-        new Level1(init, c, inf);
-}
+        Toolkit tool = Toolkit.getDefaultToolkit();
+        Image i[] = {tool.getImage("Image\\atom.png"), tool.getImage("Image\\basketball.png"), 
+        tool.getImage("Image\\calculator.png"), tool.getImage("Image\\history.png"), 
+        tool.getImage("Image\\ipad.png"), tool.getImage("Image\\pencil.png"), 
+        tool.getImage("Image\\pillows.png"), tool.getImage("Image\\youtube.png")};
+        new Level1(i, init, c, inf);
     }
+}
