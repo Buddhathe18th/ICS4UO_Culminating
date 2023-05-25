@@ -1,5 +1,8 @@
 package Level1;
 import javax.swing.*;
+
+import Helper.TextBox;
+
 import java.awt.*;
 import java.util.*;
 
@@ -45,7 +48,6 @@ public class Level1Scene extends JComponent{
     /**
      * Pain method to draw on all textboxes and images
      */
-
     public void paint(Graphics g) {
         int fontSize;
         int width;

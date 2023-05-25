@@ -1,3 +1,4 @@
+package Main;
 import java.awt.*;
 import java.awt.event.*;
 import javax.swing.*;
@@ -56,6 +57,7 @@ public class MainMenu implements ActionListener{
         
 
         level1.addActionListener(this);
+        level2.addActionListener(this);
 
         frame.getContentPane().setBackground(Color.red);
 
@@ -81,5 +83,7 @@ public class MainMenu implements ActionListener{
     public void actionPerformed(ActionEvent e) {
         if (e.getSource() == level1)
             Main.screenNum=1;
+        else if (e.getSource() == level2)
+            Main.screenNum=10;
     }
 }
