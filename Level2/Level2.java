@@ -4,6 +4,8 @@ import java.awt.*;
 import java.awt.event.*;
 import javax.swing.*;
 
+import Helper.DragAndDrop;
+
 /**
  * Level 2 game class. So far includes just one draggable component.
  * Time Spent: 0.5 hours
@@ -38,7 +40,7 @@ public class Level2 {
         frame.getRootPane().setWindowDecorationStyle(0);
 
         Toolkit tool = Toolkit.getDefaultToolkit();
-        i1=new DragAndDrop(tool.getImage("a.png"),100,100);
+        i1=new DragAndDrop(tool.getImage("Level2\\a.png"),100,100);
 
         frame.add(i1);
         frame.setSize(1920, 1080);

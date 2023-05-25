@@ -1,4 +1,4 @@
-package Level2;
+package Helper;
 
 import java.awt.*;
 import java.awt.event.*;
@@ -64,16 +64,15 @@ public class DragAndDrop extends JComponent implements MouseListener, MouseMotio
     addMouseMotionListener(this);
   }
 
-  public void paint(Graphics g) {
+  public void paintComponent(Graphics g) {
     //Paint method just draws a 400 by 400 red square
-
-    // g.drawImage(image, 0, 0, width, height, null);
-    // int[] xCoord={100,100,300,300};
-    // int[] yCoord={100,300,300,100};
-    // g.fillPolygon(xCoord, yCoord, 4);
-    g.setColor(Color.RED);
-    g.drawRect(0, 0, 400, 400);
+    super.paintComponent(g);
+    g.setColor(new Color(255,0,0,177));
+    g.drawRect(0, 0, width, height);
+    g.drawString(String.valueOf(image==null),0,0);
+    System.out.println(g.drawImage(image, 0, 0, width, height, null));
   }
+    
 
   // MouseListener methods
 

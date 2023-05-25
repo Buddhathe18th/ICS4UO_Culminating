@@ -1,6 +1,10 @@
+package Level2;
+
 import java.awt.*;
 import java.awt.event.*;
 import javax.swing.*;
+
+import Helper.TextBox;
 
 /**
  * The TitleScreen class will create the screen for the title screen
@@ -11,7 +15,7 @@ import javax.swing.*;
  * @date 05/15/2023
  */
 
-public class TitleScreen implements KeyListener{
+public class Level2Rule implements KeyListener{
 
 
     /**
@@ -19,6 +23,11 @@ public class TitleScreen implements KeyListener{
      */
     private Drawing draw = new Drawing();
 
+    /**
+     * Textbox on the top of the page, with the rules of the level
+     */
+
+    public TextBox t = new TextBox(0,0,1920,25,"Now, Johnny is ready to work, but oh no! All of his belongings are on his table! Help Johnny by dragging and dropping each item on the table to the right bin! And remember, Johnny has to finish his work fast! You only have one minute to sort these. Each wrong item is a time penalty of 5 second!\nPress enter to continue");
 
     /**
      * Makes all components and drawings that will be on the Title Screen
@@ -26,18 +35,21 @@ public class TitleScreen implements KeyListener{
      * @return the JInternalFrame to add to the screen
      */
     public JInternalFrame frame() {
-
         JInternalFrame frame = new JInternalFrame("", false, false, false, false);
         frame.putClientProperty("JInternalFrame.isPalette", Boolean.TRUE);
         frame.setDefaultCloseOperation(JFrame.EXIT_ON_CLOSE);
         frame.getRootPane().setWindowDecorationStyle(0);
-        frame.add(draw);
-
-        
+              
         frame.setSize(1920, 1080);
         frame.setVisible(true);
         draw.addKeyListener(this);
         frame.addKeyListener(this);
+        frame.add(draw);
+        draw.setLocation(0,0);
+        frame.add(t);  
+        t.setLocation(0,0);
+
+        frame.add(new JLabel("test"));
         return frame;
     }
 
@@ -48,16 +60,11 @@ public class TitleScreen implements KeyListener{
     class Drawing extends Canvas {
         public void paint(Graphics g) {
             Toolkit t = Toolkit.getDefaultToolkit();
-            Image i = t.getImage("logo.png");
-            g.drawImage(i, 35, 52, this);
+            Image i = t.getImage("table.png");
+            g.drawImage(i, 0, 0, null);
+           
 
-            g.setFont(new Font("Courier New", Font.PLAIN, 80));
-            g.drawString("LC Studios Presents...", 325, 200);
-            g.setFont(new Font("Courier New", Font.PLAIN, 50));
-            g.drawString("Race Against Time", 475, 400);
-            g.setFont(new Font("Courier New", Font.PLAIN, 20));
-            g.drawString("Press enter to continue", 550, 600);
-
+            g.drawString("hi",0,0);
         }
     }
 
@@ -68,21 +75,21 @@ public class TitleScreen implements KeyListener{
     @Override
     public void keyTyped(KeyEvent e) {
         if (e.getKeyCode()==KeyEvent.VK_ENTER){
-            Main.screenNum=2;
+            Main.Main.screenNum=2;
         }
     }
 
     @Override
     public void keyPressed(KeyEvent e) {
         if (e.getKeyCode()==KeyEvent.VK_ENTER){
-            Main.screenNum=2;
+            Main.Main.screenNum=2;
         }
     }
 
     @Override
     public void keyReleased(KeyEvent e) {
         if (e.getKeyCode()==KeyEvent.VK_ENTER){
-            Main.screenNum=2;
+            Main.Main.screenNum=2;
         }
         
     }

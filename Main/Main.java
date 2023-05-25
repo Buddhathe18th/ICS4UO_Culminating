@@ -1,6 +1,9 @@
+package Main;
+
 import java.awt.*;
 import java.awt.event.*;
 import javax.swing.*;
+import Level2.Level2Rule;
 
 /**
  * The Main class is the class that runs and calls all other classes. This class has complete control on which screen to display.
@@ -13,7 +16,7 @@ import javax.swing.*;
 */
 
 public class Main implements KeyListener {
-    static int screenNum = 2;
+    public static int screenNum = 1;
     JInternalFrame content = new JInternalFrame();
     boolean run = true;
     JFrame frame;
@@ -55,9 +58,14 @@ public class Main implements KeyListener {
                     frame.add(test);
                     test.setLocation(0, -15);
                     break;
-
                 }
-
+                case 10: {
+                    Level2Rule t = new Level2Rule();
+                    JInternalFrame test = t.frame();
+                    frame.add(test);
+                    test.setLocation(0, -15);
+                    break;
+                }
             }
 
             int pastFrame = screenNum;
@@ -67,6 +75,7 @@ public class Main implements KeyListener {
                 try {
                     //Stops the program from running for 1 second to preserve computer power
                     Thread.sleep(1000);
+                    System.out.println(screenNum);
                 } catch (Exception e) {
                     System.out.println("Sleep method is broken");
                 }

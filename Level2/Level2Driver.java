@@ -1,4 +1,5 @@
 package Level2;
+
 /**
  * Main method to test Level 2 class.
  * Time Spent: 5 minutes
@@ -9,7 +10,6 @@ package Level2;
  */
 
 public class Level2Driver {
-
     /**
      * Temporary main method to run Level2
      */
