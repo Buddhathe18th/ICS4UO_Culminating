@@ -45,7 +45,6 @@ public class Level1Scene extends JComponent{
     /**
      * Pain method to draw on all textboxes and images
      */
-
     public void paint(Graphics g) {
         int fontSize;
         int width;

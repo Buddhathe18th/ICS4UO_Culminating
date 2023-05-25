@@ -1,6 +1,9 @@
 package Level1;
 import javax.swing.*;
+import javax.imageio.*;
 import java.awt.*;
+import java.io.File;
+import java.io.IOException;
 
 /**
  * Level 1 game and driver class for now. Includes 1 scenario so far without images.
@@ -63,8 +66,11 @@ class Level1 extends JComponent {
             frame.add(l1);
             frame.setVisible(true);
             //Pause until player goes to next scene
-        }
-        
+        }   
+    }
+
+    public int getScenarios() {
+        return scenarios;
     }
 
     /**
@@ -76,11 +82,20 @@ class Level1 extends JComponent {
         String[] c = {"Incorrect! If Johnny has an assignment due tomorrow, delaying it further could be impeding his learning.", 
                     "Correct! If Johnny has a math assignment due tomorrow, getting started on it will be the better choice."};
         String[] inf = {"Fun Fact! Sports are good for your mental health, but at times like these, commiting and working is still the overall best choice!"};
-        Toolkit tool = Toolkit.getDefaultToolkit();
-        Image i[] = {tool.getImage("Image\\atom.png"), tool.getImage("Image\\basketball.png"), 
-        tool.getImage("Image\\calculator.png"), tool.getImage("Image\\history.png"), 
-        tool.getImage("Image\\ipad.png"), tool.getImage("Image\\pencil.png"), 
-        tool.getImage("Image\\pillows.png"), tool.getImage("Image\\youtube.png")};
+        Image[] i = new Image[8];
+        try {
+            i[0] = ImageIO.read(new File("Image\\atom.png"));
+            i[1] = ImageIO.read(new File("Image\\basketball.png"));
+            i[2] = ImageIO.read(new File("Image\\calculator.png"));
+            i[3] = ImageIO.read(new File("Image\\history.png"));
+            i[4] = ImageIO.read(new File("Image\\ipad.png"));
+            i[5] = ImageIO.read(new File("Image\\pencil.png"));
+            i[6] = ImageIO.read(new File("Image\\pillows.png"));
+            i[7] = ImageIO.read(new File("Image\\youtube.png"));
+        }
+        catch (IOException e) {
+            e.printStackTrace();
+        }
         new Level1(i, init, c, inf);
     }
 }
