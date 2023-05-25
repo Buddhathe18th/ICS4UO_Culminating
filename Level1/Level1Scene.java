@@ -1,5 +1,8 @@
 package Level1;
 import javax.swing.*;
+
+import Helper.TextBox;
+
 import java.awt.*;
 import java.util.*;
 

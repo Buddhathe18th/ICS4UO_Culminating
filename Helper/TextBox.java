@@ -1,4 +1,5 @@
-package Level1;
+package Helper;
+
 import javax.swing.*;
 import java.util.*;
 
@@ -11,7 +12,7 @@ import java.util.*;
  * @date 05/15/2023
  */
 
-class TextBox extends JComponent {
+public class TextBox extends JComponent {
 
     /**
      * The x-coordinate of the top left corner of the text box
