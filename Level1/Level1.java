@@ -59,7 +59,8 @@ class Level1 extends JComponent {
         info = inf;
         images = im;
         for (int i = 0; i < initial.length; i++) {
-            frame.add(new Level1Scene(new Image[] {images[i*2], images[i*2+1]}, initial[i], new String[] {choices[i*2], choices[i*2+1]}, info[i]));    
+            Level1Scene l1 = new Level1Scene(new Image[] {images[i*2], images[i*2+1]}, initial[i], new String[] {choices[i*2], choices[i*2+1]}, info[i]);
+            frame.add(l1);
             frame.setVisible(true);
             //Pause until player goes to next scene
         }
