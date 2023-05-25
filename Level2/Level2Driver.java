@@ -1,5 +1,7 @@
 package Level2;
 
+import javax.swing.JFrame;
+
 /**
  * Main method to test Level 2 class.
  * Time Spent: 5 minutes
@@ -14,6 +16,15 @@ public class Level2Driver {
      * Temporary main method to run Level2
      */
     public static void main(String[] args){
-        new Level2();
+        Level2Rule t = new Level2Rule();
+
+        JFrame frame = new JFrame("Race Against Time");
+        frame.setLayout(null);
+        frame.setDefaultCloseOperation(JFrame.EXIT_ON_CLOSE);
+        frame.setSize(1920, 1080);
+        frame.setFocusable(true);
+        frame.setVisible(true);
+
+        frame.add(t.frame());
     }
 }
