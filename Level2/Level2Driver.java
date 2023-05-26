@@ -16,7 +16,7 @@ public class Level2Driver {
      * Temporary main method to run Level2
      */
     public static void main(String[] args){
-        Level2Rule t = new Level2Rule();
+        Level2 t = new Level2();
 
         JFrame frame = new JFrame("Race Against Time");
         frame.setLayout(null);

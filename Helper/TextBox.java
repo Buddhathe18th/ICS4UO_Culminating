@@ -16,7 +16,7 @@ import java.util.*;
  * @date 05/15/2023
  */
 
-public class TextBox extends JComponent {
+public class TextBox extends JPanel {
 
     /**
      * The x-coordinate of the top left corner of the text box

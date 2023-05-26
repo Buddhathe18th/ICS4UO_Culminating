@@ -53,11 +53,13 @@ public class DragAndDrop extends JComponent implements MouseListener, MouseMotio
    */
 
   public DragAndDrop(Image im, int xNew, int yNew) {
+
     width = xNew;
     height = yNew;
 
     image = im;// For when we have an image for the drag and drop
     setBounds(0, 0, width, height);
+    setSize(width, height);
     setOpaque(false);
 
     addMouseListener(this);
@@ -67,11 +69,25 @@ public class DragAndDrop extends JComponent implements MouseListener, MouseMotio
   public void paintComponent(Graphics g) {
     //Paint method just draws a 400 by 400 red square
     super.paintComponent(g);
+    g.setColor(getBackground());
+    
     g.setColor(new Color(255,0,0,177));
     g.drawRect(0, 0, width, height);
     g.drawString(String.valueOf(image==null),0,0);
-    System.out.println(g.drawImage(image, 0, 0, width, height, null));
+    g.drawImage(image, 0, 0, width, height, null);
   }
+
+  public boolean checkCollision(int binX, int binY, int binWidth, int binHeight){
+    System.out.println(x+" "+y+"   "+binX+" "+binY);
+    if(x>100){
+      return true;
+    }
+    return false;
+    // if(!((y+height<binY || y>binY+binHeight)&&(x+width<binX||x>binX+binWidth)))
+    //     return true;
+    // return false;
+  }
+
     
 
   // MouseListener methods
