@@ -47,17 +47,7 @@ public class Level2 {
         DragAndDrop i1 = new DragAndDrop(tool.getImage("Level2\\a.png"), 100, 100);
         drag[0]=i1;
 
-        while(true){
-            for( DragAndDrop d: drag){
-                if(d.checkCollision(t.getX(), t.getY()+500, 200, 180)||d.checkCollision(t.getX()+1720, t.getY()+500, 200, 180)){
-                    frame.remove(d);
-                    d.setVisible(false);
-                    objLeft--;
-                    t.repaint();
-                    
-                }
-            }
-        }
+        
     }
 
     public JInternalFrame frame() {

@@ -124,7 +124,11 @@ public class DragAndDrop extends JComponent implements MouseListener, MouseMotio
     int changeY = e.getYOnScreen() - screenY;
 
     //Change the location of the component depending on the distance the mouse was moved
+    if(!checkCollision(0, 500, 200, 180))
     setLocation(x + changeX, y + changeY);
+    else{
+      this.setVisible(false);
+    }
   }
 
   @Override
