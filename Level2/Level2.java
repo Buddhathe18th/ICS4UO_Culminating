@@ -4,6 +4,7 @@ import java.awt.*;
 import java.awt.event.*;
 import java.io.File;
 import java.io.IOException;
+import java.util.ArrayList;
 
 import javax.imageio.ImageIO;
 import javax.swing.*;
@@ -25,7 +26,8 @@ public class Level2 {
     /**
      * One drag and droppable item on the screen
      */
-    DragAndDrop[] drag=new DragAndDrop[1];
+    ArrayList<DragAndDrop> drag = new ArrayList<DragAndDrop>(1);
+    
 
     /**
      * The screen to display on the JFrame
@@ -45,7 +47,7 @@ public class Level2 {
 
         Toolkit tool = Toolkit.getDefaultToolkit();
         DragAndDrop i1 = new DragAndDrop(tool.getImage("Level2\\a.png"), 100, 100);
-        drag[0]=i1;
+        drag.add(i1);
 
         
     }
@@ -60,7 +62,7 @@ public class Level2 {
 
        
         t.setLayout(null);
-        t.add(drag[0]);
+        t.add(drag.get(0));
         // frame.add(new Drawing()).setLocation(0, 0);
 
         // frame.add(i1);

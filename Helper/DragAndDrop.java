@@ -7,7 +7,8 @@ import javax.swing.border.*;
 
 /**
  * Basic template for all components that are drag and droppable.
- * Basic idea from <a href="https://stackoverflow.com/questions/874360/swing-creating-a-draggable-component">StackExchange</a>
+ * Basic idea from <a href=
+ * "https://stackoverflow.com/questions/874360/swing-creating-a-draggable-component">StackExchange</a>
  * Spent around 1.5 hours on this class.
  * 
  * @author Alex Zhu
@@ -47,7 +48,7 @@ public class DragAndDrop extends JComponent implements MouseListener, MouseMotio
   /**
    * Constructor for the DragAndDrop class.
    * 
-   * @param im Image for the component to look like. Not implemented yet.
+   * @param im   Image for the component to look like. Not implemented yet.
    * @param xNew Width of the component
    * @param yNew Height of the component
    */
@@ -67,28 +68,26 @@ public class DragAndDrop extends JComponent implements MouseListener, MouseMotio
   }
 
   public void paintComponent(Graphics g) {
-    //Paint method just draws a 400 by 400 red square
+    // Paint method just draws a 400 by 400 red square
     super.paintComponent(g);
     g.setColor(getBackground());
-    
-    g.setColor(new Color(255,0,0,177));
+
+    g.setColor(new Color(255, 0, 0, 177));
     g.drawRect(0, 0, width, height);
-    g.drawString(String.valueOf(image==null),0,0);
+    g.drawString(String.valueOf(image == null), 0, 0);
     g.drawImage(image, 0, 0, width, height, null);
   }
 
-  public boolean checkCollision(int binX, int binY, int binWidth, int binHeight){
-    System.out.println(x+" "+y+"   "+binX+" "+binY);
-    if(x>100){
+  public boolean checkCollision(int binX, int binY, int binWidth, int binHeight) {
+    System.out.println(x + " " + y + "   " + binX + " " + binY);
+    if (x > 100) {
       return true;
     }
     return false;
     // if(!((y+height<binY || y>binY+binHeight)&&(x+width<binX||x>binX+binWidth)))
-    //     return true;
+    // return true;
     // return false;
   }
-
-    
 
   // MouseListener methods
 
@@ -123,12 +122,13 @@ public class DragAndDrop extends JComponent implements MouseListener, MouseMotio
     int changeX = e.getXOnScreen() - screenX;
     int changeY = e.getYOnScreen() - screenY;
 
-    //Change the location of the component depending on the distance the mouse was moved
-    if(!checkCollision(0, 500, 200, 180))
+    // Change the location of the component depending on the distance the mouse was
+    // moved
     setLocation(x + changeX, y + changeY);
-    else{
-      this.setVisible(false);
-    }
+    x = getX();
+    y = getY();
+    screenX = e.getXOnScreen();
+    screenY = e.getYOnScreen();
   }
 
   @Override

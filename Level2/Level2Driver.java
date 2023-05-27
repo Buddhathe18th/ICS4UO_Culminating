@@ -34,20 +34,22 @@ public class Level2Driver {
         frame.add(t.frame());
         JPanel h = t.t;
 
-        while (true) {
+        while (t.drag.size()>0) {
             for (DragAndDrop d : t.drag) {
+                try {
+                    Thread.sleep(1000);
+                } catch (InterruptedException e) {
+                    // TODO Auto-generated catch block
+                    e.printStackTrace();
+                }
+
                 if (d.checkCollision(h.getX(), h.getY() + 500, 200, 180)
                         || d.checkCollision(h.getX() + 1720, h.getY() + 500, 200, 180)) {
-                    try {
-                        Thread.sleep(1000);
-                    } catch (InterruptedException e) {
-                        // TODO Auto-generated catch block
-                        e.printStackTrace();
-                    }
+                    
 
                     h.remove(d);
-                    d.setVisible(false);
-                    d = null;
+                    t.drag.remove(d);//Error happening here, have to remove d outside of the for each
+                    d=null;
                     t.objLeft--;
                     h.revalidate();
                     t.frame.revalidate();
