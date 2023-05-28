@@ -34,28 +34,79 @@ public class Level2Driver {
         frame.add(t.frame());
         JPanel h = t.t;
 
-        while (t.drag.size()>0) {
-            for (DragAndDrop d : t.drag) {
+        while (t.drag.size() > 0) {
+            System.out.println(t.drag.size());
+            
+            for(int i = 0; i<t.drag.size();i++){
+                DragAndDrop d = t.drag.get(i);
+
                 try {
-                    Thread.sleep(1000);
+                    Thread.sleep(100);
                 } catch (InterruptedException e) {
                     // TODO Auto-generated catch block
                     e.printStackTrace();
                 }
+                
+                if (d.school) {
+                    if (d.checkCollision(h.getX(), h.getY() + 500, 200, 180)) {
+                        h.remove(d);
+                        d.del = true;
+                        d = null;
+                        t.objLeft--;
+                        h.revalidate();
+                        t.frame.revalidate();
+                        h.repaint();
+                        t.score++;
+                    } else if (d.checkCollision(h.getX() + 1220, h.getY() + 500, 200, 180)) {
+                        h.remove(d);
+                        d.del = true;
+                        d = null;
+                        t.objLeft--;
+                        h.revalidate();
+                        t.frame.revalidate();
+                        h.repaint();
+                        t.score--;
+                    }
+                } else {
+                    if (d.checkCollision(h.getX(), h.getY() + 500, 200, 180)) {
+                        h.remove(d);
+                        d.del = true;
+                        d = null;
+                        t.objLeft--;
+                        h.revalidate();
+                        t.frame.revalidate();
+                        h.repaint();
+                        t.score--;
+                    } else if (d.checkCollision(h.getX() + 1220, h.getY() + 500, 200, 180)) {
+                        h.remove(d);
+                        d.del = true;
+                        d = null;
+                        t.objLeft--;
+                        h.revalidate();
+                        t.frame.revalidate();
+                        h.repaint();
+                        t.score++;
+                    }
+                }
+            }
 
-                if (d.checkCollision(h.getX(), h.getY() + 500, 200, 180)
-                        || d.checkCollision(h.getX() + 1720, h.getY() + 500, 200, 180)) {
-                    
-
-                    h.remove(d);
-                    t.drag.remove(d);//Error happening here, have to remove d outside of the for each
-                    d=null;
-                    t.objLeft--;
-                    h.revalidate();
-                    t.frame.revalidate();
-                    h.repaint();
+            for (int i = 0; i < t.drag.size(); i++) {
+                if (t.drag.get(i).del) {
+                    t.drag.remove(i);
+                    i--;
                 }
             }
         }
     }
 }
+
+
+    
+
+    
+    
+        
+            
+            
+        
+    

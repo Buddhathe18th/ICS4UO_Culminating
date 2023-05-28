@@ -36,6 +36,12 @@ public class DragAndDrop extends JComponent implements MouseListener, MouseMotio
   private Image image;
 
   /**
+   * To be deleted on the next collision check
+   */
+
+   public boolean del = false;
+
+  /**
    * Width of the image
    */
   private int width;
@@ -45,6 +51,8 @@ public class DragAndDrop extends JComponent implements MouseListener, MouseMotio
    */
   private int height;
 
+  public boolean school;
+
   /**
    * Constructor for the DragAndDrop class.
    * 
@@ -53,10 +61,11 @@ public class DragAndDrop extends JComponent implements MouseListener, MouseMotio
    * @param yNew Height of the component
    */
 
-  public DragAndDrop(Image im, int xNew, int yNew) {
+  public DragAndDrop(Image im, int xNew, int yNew, boolean schoolRelated) {
 
     width = xNew;
     height = yNew;
+    school=schoolRelated;
 
     image = im;// For when we have an image for the drag and drop
     setBounds(0, 0, width, height);
@@ -80,13 +89,15 @@ public class DragAndDrop extends JComponent implements MouseListener, MouseMotio
 
   public boolean checkCollision(int binX, int binY, int binWidth, int binHeight) {
     System.out.println(x + " " + y + "   " + binX + " " + binY);
-    if (x > 100) {
-      return true;
-    }
-    return false;
-    // if(!((y+height<binY || y>binY+binHeight)&&(x+width<binX||x>binX+binWidth)))
-    // return true;
+    System.out.println(y+height<binY || y>binY+binHeight);
+    System.out.println((x+width<binX||x>binX+binWidth)+"\n");
+    // if (x > 100) {
+    //   return true;
+    // }
     // return false;
+    if(!((y+height<binY || y>binY+binHeight)||(x+width<binX||x>binX+binWidth)))
+    return true;
+    return false;
   }
 
   // MouseListener methods
