@@ -35,8 +35,10 @@ public class Level2Driver {
         JPanel h = t.t;
 
         while (t.drag.size() > 0) {
+            System.out.println(t.drag.size());
             
-            for (DragAndDrop d : t.drag) {
+            for(int i = 0; i<t.drag.size();i++){
+                DragAndDrop d = t.drag.get(i);
 
                 try {
                     Thread.sleep(100);
@@ -88,13 +90,23 @@ public class Level2Driver {
                 }
             }
 
-        }
-
-        for (int i = 0; i < t.drag.size(); i++) {
-            if (t.drag.get(i).del) {
-                t.drag.remove(i);
-                i--;
+            for (int i = 0; i < t.drag.size(); i++) {
+                if (t.drag.get(i).del) {
+                    t.drag.remove(i);
+                    i--;
+                }
             }
         }
     }
 }
+
+
+    
+
+    
+    
+        
+            
+            
+        
+    
