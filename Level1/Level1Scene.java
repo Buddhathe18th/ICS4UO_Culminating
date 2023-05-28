@@ -46,7 +46,7 @@ public class Level1Scene extends JComponent{
     }
 
     /**
-     * Pain method to draw on all textboxes and images
+     * Paint method to draw on all textboxes and images
      */
     public void paint(Graphics g) {
         int fontSize;
@@ -66,7 +66,5 @@ public class Level1Scene extends JComponent{
             // Draws the text in the text boxes, line by line
             for (int i = 0; i < text.size(); i++) g.drawString(text.get(i), coords[0], coords[1]+(i+1)*fontSize);
         }
-        g.drawImage(images[0], 200, 250, 300, 300, null);
-        g.drawImage(images[1], 780, 250, 300, 300, null);
     }
 }

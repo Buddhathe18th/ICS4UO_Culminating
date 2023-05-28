@@ -15,7 +15,7 @@ import java.io.IOException;
  * 
  */
 
-class Level1 extends JComponent {
+class Level1 extends JFrame {
 
     /**
      * Number of different situations the player will solve in Level 1
@@ -54,6 +54,7 @@ class Level1 extends JComponent {
         scenarios = 4;
         images = new Image[scenarios*2];
         JFrame frame = new JFrame("Level 1");
+        frame.setLayout(null);
         frame.setSize(1920,1080);
         
         images = im;
@@ -64,7 +65,23 @@ class Level1 extends JComponent {
             frame.add(new Level1Scene(new Image[] {images[i*2], images[i*2+1]}, initial[i], new String[] {choices[i*2], choices[i*2+1]}, info[i]));
             frame.setVisible(true);
             //Pause until player goes to next scene
-        }   
+        }
+        JButton button = createButton(images[0]);
+        
+        frame.add(button);
+    }
+
+    public JButton createButton(Image i) {
+        JButton button = new JButton();
+        button.setBounds(50, 50, i.getWidth(null), i.getHeight(null));
+        try {
+            button.setIcon(new ImageIcon(i));
+            return button;
+        }
+        catch (Exception e) {
+            System.out.println("Error: " + e);
+            return null;
+        }
     }
 
     public int getScenarios() {
@@ -82,14 +99,14 @@ class Level1 extends JComponent {
         String[] inf = {"Fun Fact! Sports are good for your mental health, but at times like these, commiting and working is still the overall best choice!"};
         Image[] i = new Image[8];
         try {
-            i[0] = ImageIO.read(new File("Level1\\Image\\atom.jpg"));
+            i[0] = ImageIO.read(new File("Level1\\Image\\atom.png"));
             i[1] = ImageIO.read(new File("Level1\\Image\\basketball.png"));
-            i[2] = ImageIO.read(new File("Level1\\Image\\calculator.jpg"));
-            i[3] = ImageIO.read(new File("Level1\\Image\\history.jpg"));
-            i[4] = ImageIO.read(new File("Level1\\Image\\ipad.jpg"));
-            i[5] = ImageIO.read(new File("Level1\\Image\\pencil.jpg"));
-            i[6] = ImageIO.read(new File("Level1\\Image\\pillows.png"));
-            i[7] = ImageIO.read(new File("Level1\\Image\\youtube.jpg"));
+            i[2] = ImageIO.read(new File("Level1\\Image\\calculator.png"));
+            i[3] = ImageIO.read(new File("Level1\\Image\\history.png"));
+            i[4] = ImageIO.read(new File("Level1\\Image\\ipad.png"));
+            i[5] = ImageIO.read(new File("Level1\\Image\\pencil.png"));
+            i[6] = ImageIO.read(new File("Level1\\Image\\pillow.png"));
+            i[7] = ImageIO.read(new File("Level1\\Image\\youtube.png"));
         }
         catch (IOException e) {
             e.printStackTrace();
