@@ -26,7 +26,7 @@ public class Level2 {
     /**
      * One drag and droppable item on the screen
      */
-    ArrayList<DragAndDrop> drag = new ArrayList<DragAndDrop>(1);
+    ArrayList<DragAndDrop> drag = new ArrayList<DragAndDrop>(6);
     
 
     /**
@@ -37,17 +37,34 @@ public class Level2 {
 
     test t = new test();;
 
-    int objLeft=1;
+    int objLeft=6;
+
+    int score = 0;
 
     /**
      * Constructor for the Level 2 class
      */
 
     public Level2(){
+        Image[] iArr = new Image[2];
+        try {
+            iArr[1] = ImageIO.read(new File("Level2\\table.png"));
+            iArr[0] = ImageIO.read(new File("Level2\\a.png"));
+        } catch (IOException e) {
+            System.out.println("broken");
+        }
 
-        Toolkit tool = Toolkit.getDefaultToolkit();
-        DragAndDrop i1 = new DragAndDrop(tool.getImage("Level2\\a.png"), 100, 100);
-        drag.add(i1);
+        for(int i = 1; i<=3;i++){
+            DragAndDrop i1 = new DragAndDrop(iArr[0], 100, 100,false);
+            drag.add(i1);
+        }
+
+        for(int i = 1; i<=3;i++){
+            DragAndDrop i1 = new DragAndDrop(iArr[0], 100, 100,true);
+            drag.add(i1);
+        }
+        
+        
 
         
     }
@@ -62,7 +79,12 @@ public class Level2 {
 
        
         t.setLayout(null);
-        t.add(drag.get(0));
+
+        for(int i = 1; i<=6;i++){
+            t.add(drag.get(i-1));;
+        }
+
+        
         // frame.add(new Drawing()).setLocation(0, 0);
 
         // frame.add(i1);
@@ -88,7 +110,7 @@ public class Level2 {
             }
 
             g.drawImage(iArr[0], 0, 500, 200, 180, null);
-            g.drawImage(iArr[0], 1720, 500, 200, 180, null);
+            g.drawImage(iArr[0], 1220, 500, 200, 180, null);
 
             Image[] iArr1 = new Image[1];
             try {
@@ -97,9 +119,9 @@ public class Level2 {
                 System.out.println("broken");
             }
 
-            g.drawImage(iArr1[0], 450, 130, 800, 600, null);
-
-            g.drawString(String.valueOf(objLeft), 0, 0);
+            g.drawImage(iArr1[0], 300, 130, 800, 600, null);
+            drag.trimToSize();
+            g.drawString(String.valueOf(drag.size()), 100, 100);
         }
     }
 
