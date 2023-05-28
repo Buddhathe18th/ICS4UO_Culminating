@@ -1,9 +1,6 @@
 package Level2;
 
 import java.awt.*;
-import java.awt.event.*;
-import java.util.ArrayList;
-
 import javax.swing.*;
 import javax.imageio.*;
 import java.io.*;
@@ -61,7 +58,6 @@ public class Level2Rule {
 
     class Drawing extends Canvas {
         public void paint(Graphics g) {
-            Toolkit tk = Toolkit.getDefaultToolkit();
             Image[] iArr = new Image[1];
             try {
                 iArr[0] = ImageIO.read(new File("Level2\\table.png"));

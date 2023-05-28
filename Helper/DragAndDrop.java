@@ -3,7 +3,6 @@ package Helper;
 import java.awt.*;
 import java.awt.event.*;
 import javax.swing.*;
-import javax.swing.border.*;
 
 /**
  * Basic template for all components that are drag and droppable.
@@ -11,23 +10,35 @@ import javax.swing.border.*;
  * "https://stackoverflow.com/questions/874360/swing-creating-a-draggable-component">StackExchange</a>
  * Spent around 1.5 hours on this class.
  * 
+ * <h2>Modification</h2>
+ * Added two new attributes, del and school, and one new method for checking for collisions
+ * Spent around 30 minutes
+ * 
  * @author Alex Zhu
- * @version 0.1.0
- * @date 05/18/2023
+ * @version 0.2.0
+ * @date 05/28/2023
  */
 
 public class DragAndDrop extends JComponent implements MouseListener, MouseMotionListener {
 
   /**
-   * Absolute position of the mouse of the screen
+   * Absolute x position of the mouse of the screen
    */
   private int screenX = 0;
+
+  /**
+   * Absolute y position of the mouse of the screen
+   */
   private int screenY = 0;
 
   /**
-   * Coordinates of the top left corner of the component
+   * X coordinates of the top left corner of the component
    */
   private int x = 0;
+
+  /**
+   * Y coordinates of the top left corner of the component
+   */
   private int y = 0;
 
   /**
@@ -39,7 +50,7 @@ public class DragAndDrop extends JComponent implements MouseListener, MouseMotio
    * To be deleted on the next collision check
    */
 
-   public boolean del = false;
+  public boolean del = false;
 
   /**
    * Width of the image
@@ -51,6 +62,9 @@ public class DragAndDrop extends JComponent implements MouseListener, MouseMotio
    */
   private int height;
 
+  /**
+   * If the item should be in the school-related bin or the unrelated bin
+   */
   public boolean school;
 
   /**
@@ -65,9 +79,9 @@ public class DragAndDrop extends JComponent implements MouseListener, MouseMotio
 
     width = xNew;
     height = yNew;
-    school=schoolRelated;
+    school = schoolRelated;
 
-    image = im;// For when we have an image for the drag and drop
+    image = im;
     setBounds(0, 0, width, height);
     setSize(width, height);
     setOpaque(false);
@@ -77,7 +91,7 @@ public class DragAndDrop extends JComponent implements MouseListener, MouseMotio
   }
 
   public void paintComponent(Graphics g) {
-    // Paint method just draws a 400 by 400 red square
+    // Paint method just draws a 400 by 400 red square, with image specified
     super.paintComponent(g);
     g.setColor(getBackground());
 
@@ -88,15 +102,12 @@ public class DragAndDrop extends JComponent implements MouseListener, MouseMotio
   }
 
   public boolean checkCollision(int binX, int binY, int binWidth, int binHeight) {
+    //Debuggin print statements, prints coordinates, and the boolean expressions for the two axis
     System.out.println(x + " " + y + "   " + binX + " " + binY);
-    System.out.println(y+height<binY || y>binY+binHeight);
-    System.out.println((x+width<binX||x>binX+binWidth)+"\n");
-    // if (x > 100) {
-    //   return true;
-    // }
-    // return false;
-    if(!((y+height<binY || y>binY+binHeight)||(x+width<binX||x>binX+binWidth)))
-    return true;
+    System.out.println(y + height < binY || y > binY + binHeight);
+    System.out.println((x + width < binX || x > binX + binWidth) + "\n");
+    if (!((y + height < binY || y > binY + binHeight) || (x + width < binX || x > binX + binWidth)))
+      return true;
     return false;
   }
 
