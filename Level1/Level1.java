@@ -7,11 +7,14 @@ import java.io.IOException;
 
 /**
  * Level 1 game and driver class for now. Includes 1 scenario so far without images.
- * Time Spent: 1.5 hours
+ * Time Spent: 3 hours
+ * 
+ * <h2>Modifications</h2>
+ * Drew new images and allowed the images to be clicked
  * 
  * @author Lukas Li
- * @version 0.1.0
- * @date 05/18/2023
+ * @version 0.2.0
+ * @date 05/28/2023
  * 
  */
 
@@ -66,11 +69,7 @@ class Level1 extends JComponent {
             //Pause until player goes to next scene
         }   
     }
-
-    public int getScenarios() {
-        return scenarios;
-    }
-
+    
     /**
      * Temporary main class used to test the scenarios.
      */

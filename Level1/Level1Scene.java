@@ -7,10 +7,13 @@ import java.util.ArrayList;
 
 /**
  * Level 1 scene class. Draws all the text boxes and buttons required for each scene.
- * Time Spent: 2 hours
+ * Time Spent: 3 hours
+ * 
+ * <h2>Modifications</h2>
+ * Added button functionality and methods allowing for the drawing of buttons
  * 
  * @author Lukas Li
- * @version 0.1.0
+ * @version 0.2.0
  * @date 05/15/2023
  */
 public class Level1Scene extends JComponent{
@@ -45,7 +48,12 @@ public class Level1Scene extends JComponent{
         textBoxes[3] = new TextBox(0, 896, 1280, 25, info);
     }
 
-
+    /**
+     * Allows for the easy creation of buttons with an image on it 
+     * 
+     * @param i Image to be inserted into the button
+     * @return button with the image on top of it
+     */
     public JButton createButton(Image i) {
         JButton button = new JButton();
         button.setBounds(50, 50, i.getWidth(null), i.getHeight(null));
@@ -67,7 +75,14 @@ public class Level1Scene extends JComponent{
         int width;
         int[] coords;
         ArrayList<String> text;
-        
+
+        // Draws the buttons
+        buttons[0].setBounds(200, 250, 300, 300);
+        buttons[1].setBounds(780, 250, 300, 300);
+        for (JButton button : buttons) {
+            add(button);
+        }
+
         // Draws the text boxes
         for (TextBox t: textBoxes) {
             fontSize = t.getFontSize();
@@ -83,11 +98,6 @@ public class Level1Scene extends JComponent{
             }
         }
         
-        // Draws the buttons
-        buttons[0].setBounds(200, 250, 300, 300);
-        buttons[1].setBounds(780, 250, 300, 300);
-        for (JButton button : buttons) {
-            add(button);
-        }
+        
     }
 }
