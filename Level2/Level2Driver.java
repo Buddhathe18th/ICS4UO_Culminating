@@ -78,6 +78,10 @@ public class Level2Driver {
                         // To delete this later to not run into a ConcurrentModification exception
                         d.del = true;
                     }
+                    l2.draggableArrayList.trimToSize();
+                    l2InnerPanel.revalidate();
+                    l2.frame.revalidate();
+                    l2InnerPanel.repaint();
                 } else {
                     if (d.checkCollision(l2InnerPanel.getX(), l2InnerPanel.getY() + 500, 200, 180)) {
                         // Removing and repainting the screens
@@ -104,6 +108,10 @@ public class Level2Driver {
                         // To delete this later to not run into a ConcurrentModification exception
                         d.del = true;
                     }
+                    l2.draggableArrayList.trimToSize();
+                    l2InnerPanel.revalidate();
+                    l2.frame.revalidate();
+                    l2InnerPanel.repaint();
                 }
             }
 
@@ -115,5 +123,7 @@ public class Level2Driver {
                 }
             }
         }
+
+
     }
 }
