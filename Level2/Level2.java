@@ -43,7 +43,7 @@ public class Level2 {
     /**
      * Panel containing all graphics
      */
-    Panel innerPanel = new Panel();;
+    Panel innerPanel = new Panel();
 
     /**
      * Number of objects left to sort
