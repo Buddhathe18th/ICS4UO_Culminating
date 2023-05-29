@@ -53,18 +53,18 @@ public class Level1Scene extends JComponent implements ActionListener {
      * @param info The info blurb shown at the bottom of the screen after the player completes the scenario.
      */
     public Level1Scene(Image[] images, String initial, String[] choices, String info) {
-        buttons = new JButton[2];
-        buttons[0] = createButton(images[0]);
-        buttons[1] = createButton(images[1]);
-        buttons[0].addActionListener(this);
-        buttons[1].addActionListener(this);
-        
         textBoxes = new TextBox[4];
         textBoxes[0] = new TextBox(0, 0, 1280, 25, initial);
         textBoxes[1] = new TextBox(150, 600, 400, 25, choices[0]);
         textBoxes[2] = new TextBox(730, 600, 400, 25, choices[1]);
         textBoxes[3] = new TextBox(0, 896, 1280, 25, info);
         shownBoxes.add(textBoxes[0]);
+        
+        buttons = new JButton[2];
+        buttons[0] = createButton(images[0]);
+        buttons[1] = createButton(images[1]);
+        buttons[0].addActionListener(this);
+        buttons[1].addActionListener(this);
     }
 
     /**
@@ -80,6 +80,11 @@ public class Level1Scene extends JComponent implements ActionListener {
 
         innerPanel.setLayout(null);
 
+        // Add the buttons to the innerPanel
+        for (JButton button : buttons) {
+            innerPanel.add(button);
+        }
+
         frame.add(innerPanel);
 
         frame.setSize(1920, 1080);
@@ -87,12 +92,20 @@ public class Level1Scene extends JComponent implements ActionListener {
         return frame;
     }
 
+
     public void actionPerformed(ActionEvent e) {
-        if (e.getSource() == buttons[0]) shownBoxes.add(textBoxes[1]);
-        if (e.getSource() == buttons[1]) shownBoxes.add(textBoxes[2]);
+        if (e.getSource() == buttons[0]) {
+            shownBoxes.add(textBoxes[1]);
+            shownBoxes.remove(textBoxes[2]);
+        }
+        if (e.getSource() == buttons[1]) {
+            shownBoxes.add(textBoxes[2]);
+            shownBoxes.remove(textBoxes[1]);
+        }
         shownBoxes.add(textBoxes[3]);
         repaint();
     }
+
 
     /**
      * Allows for the easy creation of buttons with an image on it 
@@ -122,6 +135,7 @@ public class Level1Scene extends JComponent implements ActionListener {
          * Paints the background onto the screen
          */
         protected void paintComponent(Graphics g) {
+            super.paintComponent(g);
             int fontSize;
             int width;
             int[] coords;
