@@ -40,8 +40,8 @@ public class Level1Scene extends JComponent{
         images = i;
         textBoxes = new TextBox[4];
         textBoxes[0] = new TextBox(0, 0, 1280, 25, initial);
-        textBoxes[1] = new TextBox(200, 600, 300, 25, choices[0]);
-        textBoxes[2] = new TextBox(780, 600, 300, 25, choices[1]);
+        textBoxes[1] = new TextBox(150, 600, 400, 25, choices[0]);
+        textBoxes[2] = new TextBox(730, 600, 400, 25, choices[1]);
         textBoxes[3] = new TextBox(0, 896, 1280, 25, info);
     }
 

@@ -58,7 +58,7 @@ public class TextBox extends JComponent {
         y = y1;
         width = w;
         fontSize = f;
-        textPerLine = (int)(w*1.4/fontSize);
+        textPerLine = (int)(w*1.43/fontSize);
         String[] text = t.split(" ");
         int maxLen = textPerLine;
         lines = new ArrayList<String>();
