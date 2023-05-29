@@ -15,7 +15,7 @@ import java.io.IOException;
  * 
  */
 
-class Level1 extends JFrame {
+class Level1 extends JComponent {
 
     /**
      * Number of different situations the player will solve in Level 1
@@ -54,7 +54,6 @@ class Level1 extends JFrame {
         scenarios = 4;
         images = new Image[scenarios*2];
         JFrame frame = new JFrame("Level 1");
-        frame.setLayout(null);
         frame.setSize(1920,1080);
         
         images = im;
@@ -65,23 +64,7 @@ class Level1 extends JFrame {
             frame.add(new Level1Scene(new Image[] {images[i*2], images[i*2+1]}, initial[i], new String[] {choices[i*2], choices[i*2+1]}, info[i]));
             frame.setVisible(true);
             //Pause until player goes to next scene
-        }
-        JButton button = createButton(images[0]);
-        
-        frame.add(button);
-    }
-
-    public JButton createButton(Image i) {
-        JButton button = new JButton();
-        button.setBounds(50, 50, i.getWidth(null), i.getHeight(null));
-        try {
-            button.setIcon(new ImageIcon(i));
-            return button;
-        }
-        catch (Exception e) {
-            System.out.println("Error: " + e);
-            return null;
-        }
+        }   
     }
 
     public int getScenarios() {
