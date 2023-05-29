@@ -7,11 +7,14 @@ import java.io.IOException;
 
 /**
  * Level 1 game and driver class for now. Includes 1 scenario so far without images.
- * Time Spent: 1.5 hours
+ * Time Spent: 3 hours
+ * 
+ * <h2>Modifications</h2>
+ * Drew new images and allowed the images to be clicked
  * 
  * @author Lukas Li
- * @version 0.1.0
- * @date 05/18/2023
+ * @version 0.2.0
+ * @date 05/28/2023
  * 
  */
 
@@ -56,22 +59,17 @@ class Level1 extends JComponent {
         JFrame frame = new JFrame("Level 1");
         frame.setSize(1920,1080);
         
-        //images = im;
+        images = im;
         initial = in;
         choices = c;
         info = inf;
-        images = im;
         for (int i = 0; i < initial.length; i++) {
             frame.add(new Level1Scene(new Image[] {images[i*2], images[i*2+1]}, initial[i], new String[] {choices[i*2], choices[i*2+1]}, info[i]));
             frame.setVisible(true);
             //Pause until player goes to next scene
         }   
     }
-
-    public int getScenarios() {
-        return scenarios;
-    }
-
+    
     /**
      * Temporary main class used to test the scenarios.
      */
@@ -89,7 +87,7 @@ class Level1 extends JComponent {
             i[3] = ImageIO.read(new File("Level1\\Image\\history.png"));
             i[4] = ImageIO.read(new File("Level1\\Image\\ipad.png"));
             i[5] = ImageIO.read(new File("Level1\\Image\\pencil.png"));
-            i[6] = ImageIO.read(new File("Level1\\Image\\pillows.png"));
+            i[6] = ImageIO.read(new File("Level1\\Image\\pillow.png"));
             i[7] = ImageIO.read(new File("Level1\\Image\\youtube.png"));
         }
         catch (IOException e) {

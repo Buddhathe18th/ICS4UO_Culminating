@@ -1,8 +1,9 @@
 package Level2;
 
 import java.awt.*;
-import java.awt.event.*;
 import javax.swing.*;
+import javax.imageio.*;
+import java.io.*;
 
 import Helper.TextBox;
 
@@ -15,19 +16,18 @@ import Helper.TextBox;
  * @date 05/15/2023
  */
 
-public class Level2Rule implements KeyListener{
-
+public class Level2Rule {
 
     /**
      * Elements that will be drawn on the JInternalFrame with the paint() method
      */
-    private Drawing draw = new Drawing();
+    Drawing draw = new Drawing();
 
     /**
-     * Textbox on the top of the page, with the rules of the level
+     * Textbox with rules
      */
 
-    public TextBox t = new TextBox(0,0,1920,25,"Now, Johnny is ready to work, but oh no! All of his belongings are on his table! Help Johnny by dragging and dropping each item on the table to the right bin! And remember, Johnny has to finish his work fast! You only have one minute to sort these. Each wrong item is a time penalty of 5 second!\nPress enter to continue");
+    private TextBox t = new TextBox(0, 0, 1000, 25, "test");;
 
     /**
      * Makes all components and drawings that will be on the Title Screen
@@ -35,21 +35,20 @@ public class Level2Rule implements KeyListener{
      * @return the JInternalFrame to add to the screen
      */
     public JInternalFrame frame() {
+
         JInternalFrame frame = new JInternalFrame("", false, false, false, false);
         frame.putClientProperty("JInternalFrame.isPalette", Boolean.TRUE);
         frame.setDefaultCloseOperation(JFrame.EXIT_ON_CLOSE);
         frame.getRootPane().setWindowDecorationStyle(0);
-              
-        frame.setSize(1920, 1080);
-        frame.setVisible(true);
-        draw.addKeyListener(this);
-        frame.addKeyListener(this);
         frame.add(draw);
-        draw.setLocation(0,0);
-        frame.add(t);  
-        t.setLocation(0,0);
 
-        frame.add(new JLabel("test"));
+        frame.add(t);
+        // frame.add(new JLabel("test"));
+
+        frame.setSize(1800, 1080);
+        frame.setVisible(true);
+        // draw.addKeyListener(this);
+        // frame.addKeyListener(this);
         return frame;
     }
 
@@ -59,38 +58,69 @@ public class Level2Rule implements KeyListener{
 
     class Drawing extends Canvas {
         public void paint(Graphics g) {
-            Toolkit t = Toolkit.getDefaultToolkit();
-            Image i = t.getImage("table.png");
-            g.drawImage(i, 0, 0, null);
-           
+            Image[] iArr = new Image[1];
+            try {
+                iArr[0] = ImageIO.read(new File("Level2\\table.png"));
+            } catch (IOException e) {
+                System.out.println("broken");
+            }
 
-            g.drawString("hi",0,0);
+            g.drawImage(iArr[0], 450, 130, 800, 600, null);
+
+            g.setFont(new Font("Courier New", Font.PLAIN, t.getFontSize()));
+            // Draws a rectangular box at specified coordinates
+            g.drawRect(t.getCoords()[0], t.getCoords()[1], t.getWidth(),
+                    (int) ((t.getText().size() + 0.25) * t.getFontSize()));
+            // Draws the text in the text boxes, line by line
+            for (int i = 0; i < t.getText().size(); i++)
+                g.drawString(t.getText().get(i), t.getCoords()[0], t.getCoords()[1] + (i + 1) * t.getFontSize());
+
+            // int fontSize = t.getFontSize();
+            // int width = t.getWidth();
+            // int[] coords = t.getCoords();
+            // ArrayList<String> text = t.getText();
+            // t.setFont(new Font("Courier New", Font.PLAIN, fontSize));
+            // // Draws a rectangular box at specified coordinates
+            // g.drawRect(coords[0], coords[1], width, (int) ((text.size() + 0.25) *
+            // fontSize));
+            // // Draws the text in the text boxes, line by line
+            // for (int j = 0; j < text.size(); j++)
+            // g.drawString(text.get(j), coords[0], coords[1] + (j + 1) * fontSize);
+
+            // g.setFont(new Font("Courier New", Font.PLAIN, 80));
+            // g.drawString("LC Studios Presents...", 325, 200);
+            // g.setFont(new Font("Courier New", Font.PLAIN, 50));
+            // g.drawString("Race Against Time", 475, 400);
+            // g.setFont(new Font("Courier New", Font.PLAIN, 20));
+            // g.drawString("Press enter to continue", 550, 600);
+
         }
+
     }
 
     /**
      * Overidded KeyListener methods to listen for the enter key to change screens
      */
 
-    @Override
-    public void keyTyped(KeyEvent e) {
-        if (e.getKeyCode()==KeyEvent.VK_ENTER){
-            Main.Main.screenNum=2;
-        }
-    }
+    // @Override
+    // public void keyTyped(KeyEvent e) {
+    // if (e.getKeyCode() == KeyEvent.VK_ENTER) {
+    // Main.Main.screenNum = 2;
+    // }
+    // }
 
-    @Override
-    public void keyPressed(KeyEvent e) {
-        if (e.getKeyCode()==KeyEvent.VK_ENTER){
-            Main.Main.screenNum=2;
-        }
-    }
+    // @Override
+    // public void keyPressed(KeyEvent e) {
+    // if (e.getKeyCode() == KeyEvent.VK_ENTER) {
+    // Main.Main.screenNum = 2;
+    // }
+    // }
 
-    @Override
-    public void keyReleased(KeyEvent e) {
-        if (e.getKeyCode()==KeyEvent.VK_ENTER){
-            Main.Main.screenNum=2;
-        }
-        
-    }
+    // @Override
+    // public void keyReleased(KeyEvent e) {
+    // if (e.getKeyCode() == KeyEvent.VK_ENTER) {
+    // Main.Main.screenNum = 2;
+    // }
+
+    // }
 }

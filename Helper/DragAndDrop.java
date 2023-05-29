@@ -3,36 +3,54 @@ package Helper;
 import java.awt.*;
 import java.awt.event.*;
 import javax.swing.*;
-import javax.swing.border.*;
 
 /**
  * Basic template for all components that are drag and droppable.
- * Basic idea from <a href="https://stackoverflow.com/questions/874360/swing-creating-a-draggable-component">StackExchange</a>
+ * Basic idea from <a href=
+ * "https://stackoverflow.com/questions/874360/swing-creating-a-draggable-component">StackExchange</a>
  * Spent around 1.5 hours on this class.
  * 
+ * <h2>Modification</h2>
+ * Added two new attributes, del and school, and one new method for checking for collisions
+ * Spent around 30 minutes
+ * 
  * @author Alex Zhu
- * @version 0.1.0
- * @date 05/18/2023
+ * @version 0.2.0
+ * @date 05/28/2023
  */
 
 public class DragAndDrop extends JComponent implements MouseListener, MouseMotionListener {
 
   /**
-   * Absolute position of the mouse of the screen
+   * Absolute x position of the mouse of the screen
    */
   private int screenX = 0;
+
+  /**
+   * Absolute y position of the mouse of the screen
+   */
   private int screenY = 0;
 
   /**
-   * Coordinates of the top left corner of the component
+   * X coordinates of the top left corner of the component
    */
   private int x = 0;
+
+  /**
+   * Y coordinates of the top left corner of the component
+   */
   private int y = 0;
 
   /**
    * Image of the component
    */
   private Image image;
+
+  /**
+   * To be deleted on the next collision check
+   */
+
+  public boolean del = false;
 
   /**
    * Width of the image
@@ -45,19 +63,27 @@ public class DragAndDrop extends JComponent implements MouseListener, MouseMotio
   private int height;
 
   /**
+   * If the item should be in the school-related bin or the unrelated bin
+   */
+  public boolean school;
+
+  /**
    * Constructor for the DragAndDrop class.
    * 
-   * @param im Image for the component to look like. Not implemented yet.
+   * @param im   Image for the component to look like. Not implemented yet.
    * @param xNew Width of the component
    * @param yNew Height of the component
    */
 
-  public DragAndDrop(Image im, int xNew, int yNew) {
+  public DragAndDrop(Image im, int xNew, int yNew, boolean schoolRelated) {
+
     width = xNew;
     height = yNew;
+    school = schoolRelated;
 
-    image = im;// For when we have an image for the drag and drop
+    image = im;
     setBounds(0, 0, width, height);
+    setSize(width, height);
     setOpaque(false);
 
     addMouseListener(this);
@@ -65,14 +91,25 @@ public class DragAndDrop extends JComponent implements MouseListener, MouseMotio
   }
 
   public void paintComponent(Graphics g) {
-    //Paint method just draws a 400 by 400 red square
+    // Paint method just draws a 400 by 400 red square, with image specified
     super.paintComponent(g);
-    g.setColor(new Color(255,0,0,177));
+    g.setColor(getBackground());
+
+    g.setColor(new Color(255, 0, 0, 177));
     g.drawRect(0, 0, width, height);
-    g.drawString(String.valueOf(image==null),0,0);
-    System.out.println(g.drawImage(image, 0, 0, width, height, null));
+    g.drawString(String.valueOf(image == null), 0, 0);
+    g.drawImage(image, 0, 0, width, height, null);
   }
-    
+
+  public boolean checkCollision(int binX, int binY, int binWidth, int binHeight) {
+    //Debuggin print statements, prints coordinates, and the boolean expressions for the two axis
+    System.out.println(x + " " + y + "   " + binX + " " + binY);
+    System.out.println(y + height < binY || y > binY + binHeight);
+    System.out.println((x + width < binX || x > binX + binWidth) + "\n");
+    if (!((y + height < binY || y > binY + binHeight) || (x + width < binX || x > binX + binWidth)))
+      return true;
+    return false;
+  }
 
   // MouseListener methods
 
@@ -107,8 +144,13 @@ public class DragAndDrop extends JComponent implements MouseListener, MouseMotio
     int changeX = e.getXOnScreen() - screenX;
     int changeY = e.getYOnScreen() - screenY;
 
-    //Change the location of the component depending on the distance the mouse was moved
+    // Change the location of the component depending on the distance the mouse was
+    // moved
     setLocation(x + changeX, y + changeY);
+    x = getX();
+    y = getY();
+    screenX = e.getXOnScreen();
+    screenY = e.getYOnScreen();
   }
 
   @Override
