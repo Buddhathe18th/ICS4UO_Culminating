@@ -11,6 +11,7 @@ import javax.imageio.ImageIO;
 import javax.swing.*;
 
 import Helper.DragAndDrop;
+import Helper.TextBox;
 
 /**
  * Level 2 game class. So far includes just one draggable component.
@@ -56,6 +57,9 @@ public class Level2Result implements ActionListener{
      */
     JButton mainMenu;
 
+    TextBox winText = new TextBox(0, 0, 1920, 25, "Success! You have successfully cleaned Johnny’s table. He’s now able to work on his homework without distractions!");
+    TextBox loseText = new TextBox(0, 0, 1920, 25, "Uh oh, you messed up a little bit. Next time, help Johnny clear his desk better so he can work!");
+
     /**
      * Constructor for the Level 2 class
      */
@@ -81,10 +85,19 @@ public class Level2Result implements ActionListener{
         frame.setSize(1920, 1080);
         frame.setVisible(true);
 
+        if(Level2.score>3){
+            innerPanel.add(winText);
+        }
+        else{
+            innerPanel.add(loseText);
+        }
+
         buttonL3 = new JButton("Level 3");
         mainMenu = new JButton("Main menu");
         buttonL3.addActionListener(this);
         mainMenu.addActionListener(this);
+
+
 
 
         innerPanel.add(buttonL3);

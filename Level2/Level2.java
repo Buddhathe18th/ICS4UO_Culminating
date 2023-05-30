@@ -53,13 +53,14 @@ public class Level2 {
     /**
      * Score of the player, goes up if sorted correctly, goes down if sorted wrong
      */
-    public int score = 0;
+    public static int score = 0;
 
     /**
      * Constructor for the Level 2 class
      */
 
     public Level2(){
+        score=0;
 
         //Image array of the images on the components, so far just one image
         Image[] iArr = new Image[1];
