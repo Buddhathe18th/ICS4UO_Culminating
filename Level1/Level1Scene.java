@@ -70,7 +70,7 @@ public class Level1Scene extends JPanel implements ActionListener {
             shownBoxes.remove(textBoxes[1]);
         }
         shownBoxes.add(textBoxes[3]);
-        revalidate();
+        repaint();
     }
 
     /**
