@@ -17,7 +17,7 @@ import java.util.*;
  * @version 0.2.0
  * @date 05/15/2023
  */
-public class Level1Scene extends JPanel implements ActionListener {
+public class Level1Scene extends Level1 implements ActionListener {
 
     /**
      * Buttons used in the scene
@@ -35,6 +35,19 @@ public class Level1Scene extends JPanel implements ActionListener {
     private TextBox[] textBoxes;
 
     /**
+     * If the key to change scenes is pressed
+     */
+    private boolean pressed;
+
+    
+    /**
+     * Panel containing all graphics
+     */
+    public Panel innerPanel = new Panel();
+
+    JInternalFrame frame;
+
+    /**
      * Constructor for the Level1Scene.
      * 
      * @param buttonTexts The texts to be displayed on the buttons.
@@ -43,6 +56,8 @@ public class Level1Scene extends JPanel implements ActionListener {
      * @param info The info blurb shown at the bottom of the screen after the player completes the scenario.
      */
     public Level1Scene(Image[] images, String initial, String[] choices, String info) {
+        super();
+        pressed = false;
         textBoxes = new TextBox[4];
         textBoxes[0] = new TextBox(0, 0, 1280, 25, initial);
         textBoxes[1] = new TextBox(150, 600, 400, 25, choices[0]);
@@ -53,26 +68,59 @@ public class Level1Scene extends JPanel implements ActionListener {
         buttons = new JButton[2];
         buttons[0] = createButton(images[0]);
         buttons[1] = createButton(images[1]);
+        innerPanel.getActionMap().put("changeScene", new AbstractAction() {
+            @Override
+            public void actionPerformed(ActionEvent e) {
+                if (pressed) {
+                    changeScene();
+                }
+            }
+        });
+        innerPanel.getInputMap(JComponent.WHEN_IN_FOCUSED_WINDOW).put(KeyStroke.getKeyStroke(KeyEvent.VK_ENTER, 0), "changeScene");
+
         // Add the buttons to the innerPanel
-        for (JButton button: buttons) add(button);
+        for (JButton button: buttons) innerPanel.add(button);
         
         buttons[0].addActionListener(this);
         buttons[1].addActionListener(this);
     }
 
-    public void actionPerformed(ActionEvent e) {
-        if (e.getSource() == buttons[0]) {
-            shownBoxes.add( textBoxes[1]);
-            shownBoxes.remove(textBoxes[2]);
-        }
-        if (e.getSource() == buttons[1]) {
-            shownBoxes.add(textBoxes[2]);
-            shownBoxes.remove(textBoxes[1]);
-        }
-        shownBoxes.add(textBoxes[3]);
-        repaint();
+    /**
+     *  Makes all components and drawings that will be on the Level 2 game screen
+     * 
+     * @return the JInternalFrame to add to the screen
+     */
+    public JInternalFrame frame() {
+        frame = new JInternalFrame("", false, false, false, false);
+        frame.putClientProperty("JInternalFrame.isPalette", Boolean.TRUE);
+        frame.setDefaultCloseOperation(JFrame.EXIT_ON_CLOSE);
+        frame.getRootPane().setWindowDecorationStyle(0);
+
+        innerPanel.setLayout(null);
+
+        frame.add(innerPanel);
+
+        frame.setSize(1920, 1080);
+        frame.setVisible(true);
+        return frame;
     }
 
+    public void actionPerformed(ActionEvent e) {
+        if (!pressed) {
+            if (e.getSource() == buttons[0]) {
+                shownBoxes.add( textBoxes[1]);
+                shownBoxes.remove(textBoxes[2]);
+            }
+            if (e.getSource() == buttons[1]) {
+                shownBoxes.add(textBoxes[2]);
+                shownBoxes.remove(textBoxes[1]);
+            }
+            shownBoxes.add(textBoxes[3]);
+            innerPanel.repaint();
+        }
+        pressed = true;
+    }
+    
     /**
      * Allows for the easy creation of buttons with an image on it 
      * 
@@ -93,32 +141,37 @@ public class Level1Scene extends JPanel implements ActionListener {
     }
 
     /**
-     * Draws the text boxes to the Game Panel.
-     *
-     * @param g the Graphics context in which to paint
+     * Panel class to hold all drawings and components
      */
-    protected void paintComponent(Graphics g) {
-        super.paintComponent(g);
-        int fontSize;
-        int width;
-        int[] coords;
-        ArrayList<String> text;
+    public class Panel extends JPanel {
+        /**
+         * Draws the text boxes to the Game Panel.
+         *
+         * @param g the Graphics context in which to paint
+         */
+        protected void paintComponent(Graphics g) {
+            super.paintComponent(g);
+            int fontSize;
+            int width;
+            int[] coords;
+            ArrayList<String> text;
 
-        // Draws the buttons
-        buttons[0].setBounds(200, 250, 300, 300);
-        buttons[1].setBounds(780, 250, 300, 300);
-        
-        // Draws the text boxes to be shown on screen
-        for (TextBox t: shownBoxes) {
-            fontSize = t.getFontSize();
-            width = t.getWidth();
-            coords = t.getCoords();
-            text = t.getText();
-            g.setFont(new Font("Courier New", Font.PLAIN, fontSize));
-            // Draws a rectangular box at specified coordinates
-            g.drawRect(coords[0], coords[1], width, (int)((text.size()+0.25)*fontSize));
-            // Draws the text in the text boxes, line by line
-            for (int i = 0; i < text.size(); i++) g.drawString(text.get(i), coords[0], coords[1]+(i+1)*fontSize);
+            // Draws the buttons
+            buttons[0].setBounds(200, 250, 300, 300);
+            buttons[1].setBounds(780, 250, 300, 300);
+            
+            // Draws the text boxes to be shown on screen
+            for (TextBox t: shownBoxes) {
+                fontSize = t.getFontSize();
+                width = t.getWidth();
+                coords = t.getCoords();
+                text = t.getText();
+                g.setFont(new Font("Courier New", Font.PLAIN, fontSize));
+                // Draws a rectangular box at specified coordinates
+                g.drawRect(coords[0], coords[1], width, (int)((text.size()+0.25)*fontSize));
+                // Draws the text in the text boxes, line by line
+                for (int i = 0; i < text.size(); i++) g.drawString(text.get(i), coords[0], coords[1]+(i+1)*fontSize);
+            }
         }
     }
 }
