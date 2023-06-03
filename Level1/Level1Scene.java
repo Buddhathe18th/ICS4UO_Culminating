@@ -8,14 +8,14 @@ import java.util.*;
 
 /**
  * Level 1 scene class. Draws all the text boxes and buttons required for each scene.
- * Time Spent: 3 hours
+ * Time Spent: 5 hours
  * 
  * <h2>Modifications</h2>
- * Added button functionality and methods allowing for the drawing of buttons
+ * Got buttons and keyboard events to work, simplified logic, and improved compatibility with the Level1 driver (Level1.java).
  * 
  * @author Lukas Li
- * @version 0.2.0
- * @date 05/15/2023
+ * @version 0.3.0
+ * @date 06/03/2023
  */
 public class Level1Scene extends Level1 implements ActionListener {
 
@@ -39,12 +39,14 @@ public class Level1Scene extends Level1 implements ActionListener {
      */
     private boolean pressed;
 
-    
     /**
      * Panel containing all graphics
      */
     public Panel innerPanel = new Panel();
 
+     /**
+     * The screen to display on the JFrame
+     */
     JInternalFrame frame;
 
     /**
@@ -68,6 +70,8 @@ public class Level1Scene extends Level1 implements ActionListener {
         buttons = new JButton[2];
         buttons[0] = createButton(images[0]);
         buttons[1] = createButton(images[1]);
+
+        // Maps a method to a keyboard key, here the "changeScene" key is mapped to the enter key and changes the scene when it is pressed after a button is pressed
         innerPanel.getActionMap().put("changeScene", new AbstractAction() {
             @Override
             public void actionPerformed(ActionEvent e) {
@@ -105,6 +109,11 @@ public class Level1Scene extends Level1 implements ActionListener {
         return frame;
     }
 
+    /**
+     * The action being performed when a button is pressed
+     * 
+     * @param e The action event coming from a button
+     */
     public void actionPerformed(ActionEvent e) {
         if (!pressed) {
             if (e.getSource() == buttons[0]) {

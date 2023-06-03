@@ -6,15 +6,15 @@ import java.io.File;
 import java.io.IOException;
 
 /**
- * Level 1 game and driver class for now. Includes 1 scenario so far without images.
- * Time Spent: 3 hours
+ * Level 1 game and driver class for now. Includes 4 functional scenarios with buttons and images.
+ * Time Spent: 4 hours
  * 
  * <h2>Modifications</h2>
- * Drew new images and allowed the images to be clicked
+ * Added more scenarios, added logic to allow for changing of scenarios
  * 
  * @author Lukas Li
- * @version 0.2.0
- * @date 05/28/2023
+ * @version 0.3.0
+ * @date 06/03/2023
  * 
  */
 
@@ -45,6 +45,9 @@ class Level1 extends JComponent {
      */
     String[] info;
 
+    /**
+     * If the scene is to be changed
+     */
     static boolean changed;
 
     public Level1() {}
@@ -52,7 +55,7 @@ class Level1 extends JComponent {
     /**
      * Constructor for the Level1 class.
      * 
-     * @param im Images to be displayed in the scenarios. Not implemented yet.
+     * @param im Images to be displayed in the scenarios.
      * @param in The initial text shown at the top of the screen in each scenario, introducing the scenario
      * @param c The text blurbs show at the bottom of each choice after the player selects one, showing if they are correct or not 
      * @param inf The info blurbs show at the bottom of the screen every time the player completes a scenario.
@@ -82,12 +85,15 @@ class Level1 extends JComponent {
     }
     
     /**
-     * Temporary main class used to test the scenarios.
+     * Changes the scene being displayed
      */
-
     public static void changeScene() {
         changed = true;
     }
+    
+    /**
+     * Temporary main class used to test the scenarios.
+     */
     public static void main(String[] args) {
         
         String[] init = {"Johnny wants to go play basketball, but has a math assignment due tomorrow. Which choice should he make?", 
