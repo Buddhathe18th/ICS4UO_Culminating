@@ -80,8 +80,12 @@ public class Level1Scene extends JComponent implements ActionListener {
 
         innerPanel.setLayout(null);
 
+        // Draws the buttons
+        buttons[0].setBounds(200, 250, 300, 300);
+        buttons[1].setBounds(780, 250, 300, 300);
+
         // Add the buttons to the innerPanel
-        for (JButton button : buttons) {
+        for (JButton button: buttons) {
             innerPanel.add(button);
         }
 
@@ -103,7 +107,7 @@ public class Level1Scene extends JComponent implements ActionListener {
             shownBoxes.remove(textBoxes[1]);
         }
         shownBoxes.add(textBoxes[3]);
-        repaint();
+        revalidate();
     }
 
 
@@ -140,11 +144,6 @@ public class Level1Scene extends JComponent implements ActionListener {
             int width;
             int[] coords;
             ArrayList<String> text;
-
-            // Draws the buttons
-            buttons[0].setBounds(200, 250, 300, 300);
-            buttons[1].setBounds(780, 250, 300, 300);
-            for (JButton button: buttons) add(button);
 
             // Draws the text boxes to be shown on screen
             for (TextBox t: shownBoxes) {
