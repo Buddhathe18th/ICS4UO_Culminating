@@ -81,14 +81,14 @@ class Level1 extends JComponent {
         String[] inf = {"Fun Fact! Sports are good for your mental health, but at times like these, commiting and working is still the overall best choice!"};
         Image[] i = new Image[8];
         try {
-            i[0] = ImageIO.read(new File("Level1\\Image\\atom.png"));
-            i[1] = ImageIO.read(new File("Level1\\Image\\basketball.png"));
-            i[2] = ImageIO.read(new File("Level1\\Image\\calculator.png"));
-            i[3] = ImageIO.read(new File("Level1\\Image\\history.png"));
-            i[4] = ImageIO.read(new File("Level1\\Image\\ipad.png"));
-            i[5] = ImageIO.read(new File("Level1\\Image\\pencil.png"));
-            i[6] = ImageIO.read(new File("Level1\\Image\\pillow.png"));
-            i[7] = ImageIO.read(new File("Level1\\Image\\youtube.png"));
+            i[0] = ImageIO.read(new File("Level1\\Images\\atom.png"));
+            i[1] = ImageIO.read(new File("Level1\\Images\\basketball.png"));
+            i[2] = ImageIO.read(new File("Level1\\Images\\calculator.png"));
+            i[3] = ImageIO.read(new File("Level1\\Images\\history.png"));
+            i[4] = ImageIO.read(new File("Level1\\Images\\ipad.png"));
+            i[5] = ImageIO.read(new File("Level1\\Images\\pencil.png"));
+            i[6] = ImageIO.read(new File("Level1\\Images\\pillow.png"));
+            i[7] = ImageIO.read(new File("Level1\\Images\\youtube.png"));
         }
         catch (IOException e) {
             e.printStackTrace();
