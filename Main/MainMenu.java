@@ -84,6 +84,6 @@ public class MainMenu implements ActionListener{
         if (e.getSource() == level1)
             Main.screenNum=1;
         else if (e.getSource() == level2)
-            Main.screenNum=10;
+            Main.screenNum=11;
     }
 }

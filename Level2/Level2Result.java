@@ -1,6 +1,8 @@
 package Level2;
 
 import java.awt.*;
+import java.awt.event.ActionEvent;
+import java.awt.event.ActionListener;
 import java.io.File;
 import java.io.IOException;
 import java.util.ArrayList;
@@ -11,7 +13,7 @@ import javax.swing.*;
 import Helper.DragAndDrop;
 
 /**
- * Level 2 game class
+ * Level 2 game class. So far includes just one draggable component.
  * Time Spent: 0.5 hours
  * 
  * <h2>Modifications</h2>
@@ -27,74 +29,38 @@ import Helper.DragAndDrop;
  * 
  */
 
-public class Level2 {
-
-    /**
-     * One drag and droppable item on the screen
-     */
-    public ArrayList<DragAndDrop> draggableArrayList = new ArrayList<DragAndDrop>(6);
-    
-
+public class Level2Result implements ActionListener{
     /**
      * The screen to display on the JFrame
      */
     JInternalFrame frame;
-
-    /**
-     * X coordinates of the character
-     */
-
-    public static int charX;
-
-    /**
-     * Y coordinates of the character
-     */
-
-    public static int charY;
     
     /**
      * Panel containing all graphics
      */
-    public Panel innerPanel = new Panel();
+    Panel innerPanel = new Panel();;
 
     /**
-     * Number of objects left to sort
+     * whether the user won the level 2 or not
      */
-    public int objLeft=6;
+    
+    boolean win;
 
     /**
-     * Score of the player, goes up if sorted correctly, goes down if sorted wrong
+     * Button for Level 3
      */
-    public int score = 0;
+    JButton buttonL3;
+
+    /**
+     * Button for main menu
+     */
+    JButton mainMenu;
 
     /**
      * Constructor for the Level 2 class
      */
 
-    public Level2(){
-
-        //Image array of the images on the components, so far just one image
-        Image[] iArr = new Image[1];
-        try {
-            iArr[0] = ImageIO.read(new File("Level2\\a.png"));
-        } catch (IOException e) {
-            e.printStackTrace();
-        }
-
-        //Adds all components that belong in non-school related bin
-        for(int i = 1; i<=3;i++){
-            DragAndDrop i1 = new DragAndDrop(iArr[0], 100, 100,false);
-            draggableArrayList.add(i1);
-            i1.setLocation(i*100, i*100);
-        }
-
-        //Add all components that belong in the school-related bin
-
-        for(int i = 1; i<=3;i++){
-            DragAndDrop i1 = new DragAndDrop(iArr[0], 100, 100,true);
-            draggableArrayList.add(i1);
-            i1.setLocation(300+i*100, i*100);
-        }
+    public Level2Result(){
     }
 
     /**
@@ -110,14 +76,24 @@ public class Level2 {
 
         innerPanel.setLayout(null);
 
-        for(int i = 1; i<=6;i++){
-            innerPanel.add(draggableArrayList.get(i-1));;
-        }
-
         frame.add(innerPanel);
 
         frame.setSize(1920, 1080);
         frame.setVisible(true);
+
+        buttonL3 = new JButton("Level 3");
+        mainMenu = new JButton("Main menu");
+        buttonL3.addActionListener(this);
+        mainMenu.addActionListener(this);
+
+
+        innerPanel.add(buttonL3);
+        innerPanel.add(mainMenu);
+        buttonL3.setSize(new Dimension(600, 50));
+        mainMenu.setSize(new Dimension(600,50));
+        buttonL3.setLocation(405, 300);
+        mainMenu.setLocation(405, 375);
+
         return frame;
     }
 
@@ -125,7 +101,6 @@ public class Level2 {
      * Panel class to hold all drawings and components
      */
     public class Panel extends JPanel {
-
         /**
          * Paints the background onto the screen
          */
@@ -154,12 +129,20 @@ public class Level2 {
             //The table
             g.drawImage(iArr1[0], 300, 130, 800, 600, null);
 
-            //Trim size of the arraylist to the size of the current amount of elements
-            draggableArrayList.trimToSize();
-
-            //On screen showing the number of components left
-            g.drawString("Objects remaining: " + String.valueOf(draggableArrayList.size()), 100, 100);
-            g.drawString("Score: "+String.valueOf(score),100,150);
+            g.setColor(new Color(238,238,238,140));
+            g.fillRect(0,0,1920,1080);
         }
+    }
+
+    @Override
+    public void actionPerformed(ActionEvent e) {
+        
+        if(e.getSource()==buttonL3){
+            Main.Main.screenNum=1;//TODO: change to level 3 number when implemented
+        }
+        else if(e.getSource()==mainMenu){
+            Main.Main.screenNum=2;//change screen to main menu
+        }
+        
     }
 }

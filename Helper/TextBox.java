@@ -1,8 +1,6 @@
 package Helper;
 
 import javax.swing.*;
-
-import java.awt.Canvas;
 import java.awt.Font;
 import java.awt.Graphics;
 import java.util.*;
@@ -16,7 +14,7 @@ import java.util.*;
  * @date 05/15/2023
  */
 
-public class TextBox extends JPanel {
+public class TextBox extends JComponent {
 
     /**
      * The x-coordinate of the top left corner of the text box
@@ -62,7 +60,7 @@ public class TextBox extends JPanel {
         y = y1;
         width = w;
         fontSize = f;
-        textPerLine = (int)(w*1.4/fontSize);
+        textPerLine = (int)(w*1.43/fontSize);
         String[] text = t.split(" ");
         int maxLen = textPerLine;
         lines = new ArrayList<String>();
@@ -78,7 +76,6 @@ public class TextBox extends JPanel {
             maxLen -= l.length();
         }
         lines.add(temp);
-        this.add(new Drawing());
     }
 
     /**
@@ -113,13 +110,34 @@ public class TextBox extends JPanel {
         return lines;
     }
     
-    class Drawing extends Canvas{
-        public void paint(Graphics g){
-            g.setFont(new Font("Courier New", Font.PLAIN, fontSize));
-            // Draws a rectangular box at specified coordinates
-            g.drawRect(getCoords()[0], getCoords()[1], width, (int)((getText().size()+0.25)*fontSize));
-            // Draws the text in the text boxes, line by line
-            for (int i = 0; i < getText().size(); i++) g.drawString(getText().get(i), getCoords()[0], getCoords()[1]+(i+1)*fontSize);
+    /**
+     * Sets the text to be shown in the text box.
+     * 
+     * @param text The text to be shown in the text box
+     */
+    public void setText(String text) {
+        lines.clear();
+        String[] words = text.split(" ");
+        int maxLen = textPerLine;
+        String temp = "";
+
+        for (String word : words) {
+            if (maxLen - word.length() < 0) {
+                maxLen = textPerLine;
+                lines.add(temp);
+                temp = "";
+            }
+            temp += word + " ";
+            maxLen -= word.length();
         }
+        lines.add(temp);
+    }
+    
+    public void paint(Graphics g){
+        g.setFont(new Font("Courier New", Font.PLAIN, fontSize));
+        // Draws a rectangular box at specified coordinates
+        g.drawRect(getCoords()[0], getCoords()[1], width, (int)((getText().size()+0.25)*fontSize));
+        // Draws the text in the text boxes, line by line
+        for (int i = 0; i < getText().size(); i++) g.drawString(getText().get(i), getCoords()[0], getCoords()[1]+(i+1)*fontSize);
     }
 }
