@@ -10,7 +10,6 @@ import Level1.Level1;
 
 import Helper.DragAndDrop;
 import Level2.Level2;
-import Level2.Level2Result;
 import Level2.Level2Rule;
 
 /**
@@ -57,8 +56,6 @@ public class Main implements KeyListener {
             frame.getContentPane().removeAll();
             frame.requestFocusInWindow();
 
-            int pastFrame = screenNum;
-
             // Depending on screenNum, different screen will be displayed
             switch (screenNum) {
                 case 1: { //Unfinished
@@ -66,12 +63,49 @@ public class Main implements KeyListener {
                     JInternalFrame test = t.frame();
                     frame.add(test);
                     test.setLocation(0, -15);
+                    break;
                 }
                 case 2: {
                     MainMenu t = new MainMenu();
                     JInternalFrame test = t.frame();
                     frame.add(test);
                     test.setLocation(0, -15);
+                    break;
+                }
+                case 5: {
+                    String[] init = {"Johnny wants to go play basketball, but has a math assignment due tomorrow. Which choice should he make?", 
+                        "Johnny has been playing Minecraft with his best friend, Bernie, for two hours now. Johnny also has to finish a journal for English. Which option should Johnny pick?", 
+                        "Johnny has a big science project due next week. However, he also has some history homework due tomorrow. Which assignment should he work on?   ", 
+                        "It’s 1am, and Johnny just finished his assignment. He has an urge to watch some Youtube. What should he do?"};
+                    String[] c = {"Incorrect! If Johnny has an assignment due tomorrow, delaying it further could be impeding his learning.", 
+                                "Correct! If Johnny has a math assignment due tomorrow, getting started on it will be the better choice.", 
+                                "Correct! If Johnny has an English assignment, he should prioritize doing it over playing video games.", 
+                                "Incorrect! If Johnny continues playing Minecraft with his friend, he would have less time to finish his homework.", 
+                                "Incorrect! Johnny should prioritize assignments that are due earlier.", 
+                                "Correct! Johnny should prioritize assignments that are due earlier, regardless of if he likes the subject or not.", 
+                                "Correct! Sleeping can help keep your body healthy and ready for the next day!", 
+                                "Incorrect! Without sleep, Johnny will be fatigued and very unfocused the next day.", 
+                            };
+                    String[] inf = {"Fun Fact! Sports are good for your mental health, but at times like these, commiting and working is still the overall best choice! Press enter to continue...", 
+                                    "Fun Fact! According to research from Brigham Young University, video game breaks can increase productivity by up to 20%. But make sure not to play too much! Too many video games can lead to many problems such as a reduced attention span. Press enter to continue...", 
+                                    "Fun Fact! According to research from Brigham Young University, video game breaks can increase productivity by up to 20%, but make sure not to play too much! Too many video games can lead to many problems such as a decreased attention span and eye strain. Press enter to continue...", 
+                                    "Fun Fact! Being sleep deprived will make you behave in similar ways to being drunk! According to Harvard Medical School, going 48 hours without sleep is equivalent to having a 0.1% blood alcohol content, which is higher than the legal amount to drive! Press enter to continue...", 
+                                    };
+                    Image[] i = new Image[8];
+                    try {
+                        i[0] = ImageIO.read(new File("Level1\\Images\\atom.png"));
+                        i[1] = ImageIO.read(new File("Level1\\Images\\basketball.png"));
+                        i[2] = ImageIO.read(new File("Level1\\Images\\calculator.png"));
+                        i[3] = ImageIO.read(new File("Level1\\Images\\history.png"));
+                        i[4] = ImageIO.read(new File("Level1\\Images\\ipad.png"));
+                        i[5] = ImageIO.read(new File("Level1\\Images\\pencil.png"));
+                        i[6] = ImageIO.read(new File("Level1\\Images\\pillow.png"));
+                        i[7] = ImageIO.read(new File("Level1\\Images\\youtube.png"));
+                    }
+                    catch (IOException e) {
+                        e.printStackTrace();
+                    }
+                    new Level1(frame, i, init, c, inf);
                     break;
                 }
                 case 10: {
@@ -180,18 +214,10 @@ public class Main implements KeyListener {
                         }
                     }
                     Main.screenNum++;
-                    break;
-                }
-                case 12:{
-                    Level2Result t = new Level2Result();
-                    JInternalFrame test = t.frame();
-                    frame.add(test);
-                    test.setLocation(0, -15);
-                    break;
                 }
             }
 
-            
+            int pastFrame = screenNum;
 
             // While the screen has not been changed by the user
             while (pastFrame == screenNum) {
