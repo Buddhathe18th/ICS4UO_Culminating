@@ -8,12 +8,12 @@ import java.io.*;
 import Helper.TextBox;
 
 /**
- * The TitleScreen class will create the screen for the title screen
+ * TWill show the rules and concepts used in Level 2
  * Time Spent: 45 minutes
  * 
  * @author Alex Zhu
- * @version 0.1.0
- * @date 05/15/2023
+ * @version 0.3.0
+ * @date 06/04/2023
  */
 
 public class Level2Rule {
@@ -30,7 +30,7 @@ public class Level2Rule {
     private TextBox t = new TextBox(0, 0, 1000, 25, "test");;
 
     /**
-     * Makes all components and drawings that will be on the Title Screen
+     * Makes all components and drawings that will be on the Rule page
      * 
      * @return the JInternalFrame to add to the screen
      */
@@ -53,7 +53,7 @@ public class Level2Rule {
     }
 
     /**
-     * Drawing class for painting text and images onto the Title Screen
+     * Drawing class for painting text and images onto the rule page
      */
 
     class Drawing extends Canvas {
