@@ -62,6 +62,8 @@ public class Level2 {
      */
     public int objLeft=6;
 
+    public Character hand = new Character();
+
     /**
      * Score of the player, goes up if sorted correctly, goes down if sorted wrong
      */
@@ -96,6 +98,8 @@ public class Level2 {
             draggableArrayList.add(i1);
             i1.setLocation(300+i*100, i*100);
         }
+
+        hand.setLocation(0, 0);
     }
 
     /**

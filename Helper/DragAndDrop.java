@@ -34,17 +34,19 @@ public class DragAndDrop extends JComponent implements MouseListener, MouseMotio
   /**
    * X coordinates of the top left corner of the component
    */
-  private int x = 0;
+  public int x = 0;
 
   /**
    * Y coordinates of the top left corner of the component
    */
-  private int y = 0;
+  public int y = 0;
 
   /**
    * Image of the component
    */
   private Image image;
+
+  public boolean grabbed = false;
 
   /**
    * To be deleted on the next collision check
@@ -76,7 +78,7 @@ public class DragAndDrop extends JComponent implements MouseListener, MouseMotio
    */
 
   public DragAndDrop(Image im, int xNew, int yNew, boolean schoolRelated) {
-
+    grabbed=false;
     width = xNew;
     height = yNew;
     school = schoolRelated;

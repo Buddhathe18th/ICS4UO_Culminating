@@ -2,6 +2,9 @@ package Level2;
 
 import javax.swing.JComponent;
 
+import Helper.DragAndDrop;
+
+import java.awt.Color;
 import java.awt.Graphics;
 import java.awt.event.*;
 
@@ -17,40 +20,42 @@ import java.awt.event.*;
  * 
  */
 
-public class Character extends JComponent implements KeyListener {
+public class Character extends JComponent{
 
     /**
      * Whether or not the character is grabbing an item
      */
-    boolean grab = false;
+    public boolean grab = false;
 
-    
+    public DragAndDrop grabbedObj;
 
     /**
-     * KeyListener methods
+     * X coordinates of the top left corner of the component
      */
+    public int x = 0;
 
-    @Override
-    public void keyTyped(KeyEvent e) {
+    /**
+     * Y coordinates of the top left corner of the component
+     */
+    public int y = 0;
 
-    }
-
-    @Override
-    public void keyPressed(KeyEvent e) {
-        if (e.getKeyCode() == KeyEvent.VK_RIGHT) {
-            Level2.charX = Level2.charX + 10;
-            revalidate();
-            repaint();
-        }
-    }
-
-    @Override
-    public void keyReleased(KeyEvent e) {
+    public Character() {
+        System.out.println("char");
+        setBounds(0, 0, 100, 100);
+        setSize(100, 100);
+        setOpaque(false);
 
     }
 
-    public void paintComponent(Graphics g){
+
+    public void paintComponent(Graphics g) {
+        // Paint method just draws a 400 by 400 red square, with image specified
         super.paintComponent(g);
+        g.setColor(getBackground());
+
+        g.setColor(new Color(255, 0, 0, 177));
+        g.setColor(Color.red);
+        g.drawRect(0, 0, 100, 100);
 
     }
 }
