@@ -10,6 +10,7 @@ import Level1.Level1;
 
 import Helper.DragAndDrop;
 import Level2.Level2;
+import Level2.Level2Result;
 import Level2.Level2Rule;
 
 /**
@@ -55,6 +56,8 @@ public class Main implements KeyListener {
             // Remove previous screens
             frame.getContentPane().removeAll();
             frame.requestFocusInWindow();
+
+            int pastFrame = screenNum;
 
             // Depending on screenNum, different screen will be displayed
             switch (screenNum) {
@@ -177,10 +180,18 @@ public class Main implements KeyListener {
                         }
                     }
                     Main.screenNum++;
+                    break;
+                }
+                case 12:{
+                    Level2Result t = new Level2Result();
+                    JInternalFrame test = t.frame();
+                    frame.add(test);
+                    test.setLocation(0, -15);
+                    break;
                 }
             }
 
-            int pastFrame = screenNum;
+            
 
             // While the screen has not been changed by the user
             while (pastFrame == screenNum) {
