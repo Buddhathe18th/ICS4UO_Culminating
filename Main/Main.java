@@ -1,6 +1,7 @@
 package Main;
 
 import java.awt.event.*;
+import java.awt.Image;
 import javax.swing.*;
 import javax.imageio.*;
 import java.io.*;
