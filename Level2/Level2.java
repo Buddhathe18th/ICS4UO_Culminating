@@ -11,7 +11,7 @@ import javax.swing.*;
 import Helper.DragAndDrop;
 
 /**
- * Level 2 game class. So far includes just one draggable component.
+ * Level 2 game class
  * Time Spent: 0.5 hours
  * 
  * <h2>Modifications</h2>
@@ -39,6 +39,18 @@ public class Level2 {
      * The screen to display on the JFrame
      */
     JInternalFrame frame;
+
+    /**
+     * X coordinates of the character
+     */
+
+    public static int charX;
+
+    /**
+     * Y coordinates of the character
+     */
+
+    public static int charY;
     
     /**
      * Panel containing all graphics
@@ -143,7 +155,7 @@ public class Level2 {
             g.drawImage(iArr1[0], 300, 130, 800, 600, null);
 
             //Trim size of the arraylist to the size of the current amount of elements
-            draggableArrayList.trimToSize();//TODO: call this another place to update number correctly
+            draggableArrayList.trimToSize();
 
             //On screen showing the number of components left
             g.drawString(String.valueOf(draggableArrayList.size()), 100, 100);

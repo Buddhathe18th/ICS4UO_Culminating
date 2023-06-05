@@ -78,7 +78,7 @@ public class MainMenu implements ActionListener{
     }
 
     /**
-     * Action listener for the button on level1
+     * Action listener for the button on level1, button for level 2 brings to the 2nd level
      */
     public void actionPerformed(ActionEvent e) {
         if (e.getSource() == level1)

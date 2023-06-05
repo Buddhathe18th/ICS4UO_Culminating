@@ -6,7 +6,7 @@ import javax.swing.JPanel;
 import Helper.DragAndDrop;
 
 /**
- * Main method to test Level 2 class.
+ * Main method to test Level 2 class. No longer needed, Level 2 can be run through the Main class
  * Time Spent: 5 minutes
  * 
  * <h2>Modifications</h2>

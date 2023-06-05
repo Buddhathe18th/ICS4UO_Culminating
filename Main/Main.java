@@ -1,6 +1,5 @@
 package Main;
 
-import java.awt.*;
 import java.awt.event.*;
 import javax.swing.*;
 import Level2.Level2Rule;
