@@ -38,7 +38,7 @@ public class Level2 {
     /**
      * The screen to display on the JFrame
      */
-    JInternalFrame frame;
+    public JInternalFrame frame;
 
     /**
      * X coordinates of the character
