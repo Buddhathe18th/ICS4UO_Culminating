@@ -1,8 +1,6 @@
 package Helper;
 
 import javax.swing.*;
-
-import java.awt.Canvas;
 import java.awt.Font;
 import java.awt.Graphics;
 import java.util.*;
@@ -110,6 +108,29 @@ public class TextBox extends JComponent {
      */
     public ArrayList<String> getText() {
         return lines;
+    }
+    
+    /**
+     * Sets the text to be shown in the text box.
+     * 
+     * @param text The text to be shown in the text box
+     */
+    public void setText(String text) {
+        lines.clear();
+        String[] words = text.split(" ");
+        int maxLen = textPerLine;
+        String temp = "";
+
+        for (String word : words) {
+            if (maxLen - word.length() < 0) {
+                maxLen = textPerLine;
+                lines.add(temp);
+                temp = "";
+            }
+            temp += word + " ";
+            maxLen -= word.length();
+        }
+        lines.add(temp);
     }
     
     public void paint(Graphics g){

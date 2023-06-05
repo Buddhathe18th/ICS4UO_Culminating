@@ -4,20 +4,20 @@ import javax.swing.*;
 import Helper.TextBox;
 import java.awt.*;
 import java.awt.event.*;
-import java.util.ArrayList;
+import java.util.*;
 
 /**
  * Level 1 scene class. Draws all the text boxes and buttons required for each scene.
- * Time Spent: 3 hours
+ * Time Spent: 5 hours
  * 
  * <h2>Modifications</h2>
- * Added button functionality and methods allowing for the drawing of buttons
- * 
+ * Got buttons and keyboard events to work, simplified logic, and improved compatibility with the Level1 driver (Level1.java).
+ *  
  * @author Lukas Li
- * @version 0.2.0
- * @date 05/15/2023
+ * @version 0.3.0
+ * @date 06/03/2023
  */
-public class Level1Scene extends JComponent implements ActionListener {
+public class Level1Scene extends Level1 implements ActionListener {
 
     /**
      * Buttons used in the scene
@@ -27,7 +27,7 @@ public class Level1Scene extends JComponent implements ActionListener {
     /**
      * Textboxes in each scene
      */
-    private ArrayList<TextBox> shownBoxes = new ArrayList<TextBox>(4);
+    private Set<TextBox> shownBoxes = new HashSet<TextBox>();
 
     /**
      * Textboxes in each scene
@@ -35,14 +35,19 @@ public class Level1Scene extends JComponent implements ActionListener {
     private TextBox[] textBoxes;
 
     /**
-     * The screen to display on the JFrame
+     * If the key to change scenes is pressed
      */
-    JInternalFrame frame;
+    private boolean pressed;
 
     /**
      * Panel containing all graphics
      */
-    Panel innerPanel = new Panel();
+    public Panel innerPanel = new Panel();
+
+     /**
+     * The screen to display on the JFrame
+     */
+    JInternalFrame frame;
 
     /**
      * Constructor for the Level1Scene.
@@ -53,6 +58,7 @@ public class Level1Scene extends JComponent implements ActionListener {
      * @param info The info blurb shown at the bottom of the screen after the player completes the scenario.
      */
     public Level1Scene(Image[] images, String initial, String[] choices, String info) {
+        pressed = false;
         textBoxes = new TextBox[4];
         textBoxes[0] = new TextBox(0, 0, 1280, 25, initial);
         textBoxes[1] = new TextBox(150, 600, 400, 25, choices[0]);
@@ -63,6 +69,20 @@ public class Level1Scene extends JComponent implements ActionListener {
         buttons = new JButton[2];
         buttons[0] = createButton(images[0]);
         buttons[1] = createButton(images[1]);
+
+        // Maps a method to a keyboard key, here the "changeScene" key is mapped to the enter key and changes the scene when it is pressed after a button is pressed
+        innerPanel.getActionMap().put("changeScene", new AbstractAction() {
+            @Override
+            public void actionPerformed(ActionEvent e) {
+                if (pressed) {
+                    changeScene();
+                }
+            }
+        });
+        innerPanel.getInputMap(JComponent.WHEN_IN_FOCUSED_WINDOW).put(KeyStroke.getKeyStroke(KeyEvent.VK_ENTER, 0), "changeScene");
+        // Add the buttons to the innerPanel
+        for (JButton button: buttons) innerPanel.add(button);
+        
         buttons[0].addActionListener(this);
         buttons[1].addActionListener(this);
     }
@@ -80,11 +100,6 @@ public class Level1Scene extends JComponent implements ActionListener {
 
         innerPanel.setLayout(null);
 
-        // Add the buttons to the innerPanel
-        for (JButton button : buttons) {
-            innerPanel.add(button);
-        }
-
         frame.add(innerPanel);
 
         frame.setSize(1920, 1080);
@@ -92,21 +107,27 @@ public class Level1Scene extends JComponent implements ActionListener {
         return frame;
     }
 
-
+    /**
+     * The action being performed when a button is pressed
+     * 
+     * @param e The action event coming from a button
+     */
     public void actionPerformed(ActionEvent e) {
-        if (e.getSource() == buttons[0]) {
-            shownBoxes.add(textBoxes[1]);
-            shownBoxes.remove(textBoxes[2]);
+        if (!pressed) {
+            if (e.getSource() == buttons[0]) {
+                shownBoxes.add( textBoxes[1]);
+                shownBoxes.remove(textBoxes[2]);
+            }
+            if (e.getSource() == buttons[1]) {
+                shownBoxes.add(textBoxes[2]);
+                shownBoxes.remove(textBoxes[1]);
+            }
+            shownBoxes.add(textBoxes[3]);
+            innerPanel.repaint();
         }
-        if (e.getSource() == buttons[1]) {
-            shownBoxes.add(textBoxes[2]);
-            shownBoxes.remove(textBoxes[1]);
-        }
-        shownBoxes.add(textBoxes[3]);
-        repaint();
+        pressed = true;
     }
-
-
+    
     /**
      * Allows for the easy creation of buttons with an image on it 
      * 
@@ -130,9 +151,10 @@ public class Level1Scene extends JComponent implements ActionListener {
      * Panel class to hold all drawings and components
      */
     public class Panel extends JPanel {
-
         /**
-         * Paints the background onto the screen
+         * Draws the text boxes to the Game Panel.
+         *
+         * @param g the Graphics context in which to paint
          */
         protected void paintComponent(Graphics g) {
             super.paintComponent(g);
@@ -144,8 +166,7 @@ public class Level1Scene extends JComponent implements ActionListener {
             // Draws the buttons
             buttons[0].setBounds(200, 250, 300, 300);
             buttons[1].setBounds(780, 250, 300, 300);
-            for (JButton button: buttons) add(button);
-
+            
             // Draws the text boxes to be shown on screen
             for (TextBox t: shownBoxes) {
                 fontSize = t.getFontSize();

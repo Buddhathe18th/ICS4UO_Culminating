@@ -11,7 +11,7 @@ import javax.swing.*;
 import Helper.DragAndDrop;
 
 /**
- * Level 2 game class. So far includes just one draggable component.
+ * Level 2 game class
  * Time Spent: 0.5 hours
  * 
  * <h2>Modifications</h2>
@@ -39,6 +39,18 @@ public class Level2 {
      * The screen to display on the JFrame
      */
     public JInternalFrame frame;
+
+    /**
+     * X coordinates of the character
+     */
+
+    public static int charX;
+
+    /**
+     * Y coordinates of the character
+     */
+
+    public static int charY;
     
     /**
      * Panel containing all graphics
