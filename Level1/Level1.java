@@ -18,7 +18,7 @@ import java.io.IOException;
  * 
  */
 
-class Level1 extends JComponent {
+public class Level1 extends JComponent {
 
     /**
      * Number of different situations the player will solve in Level 1
@@ -50,6 +50,9 @@ class Level1 extends JComponent {
      */
     static boolean changed;
 
+    /**
+     * Default constructor for the Level1 class.
+     */
     public Level1() {}
 
     /**
@@ -91,7 +94,7 @@ class Level1 extends JComponent {
         changed = true;
     }
     
-    /**
+    /** 
      * Temporary main class used to test the scenarios.
      */
     public static void main(String[] args) {
@@ -110,9 +113,9 @@ class Level1 extends JComponent {
                     "Incorrect! Without sleep, Johnny will be fatigued and very unfocused the next day.", 
                 };
         String[] inf = {"Fun Fact! Sports are good for your mental health, but at times like these, commiting and working is still the overall best choice! Press enter to continue...", 
-                        "Fun Fact! According to research from Brigham Young University, video game breaks can increase productivity by up to 20%. But make sure not to play too much! Too many video games can lead to many problems such as a reduced attention span.", 
-                        "Fun Fact! According to research from Brigham Young University, video game breaks can increase productivity by up to 20%, but make sure not to play too much! Too many video games can lead to many problems such as a decreased attention span and eye strain.", 
-                        "Fun Fact! Being sleep deprived will make you behave in similar ways to being drunk! According to Harvard Medical School, going 48 hours without sleep is equivalent to having a 0.1% blood alcohol content, which is higher than the legal amount to drive!", 
+                        "Fun Fact! According to research from Brigham Young University, video game breaks can increase productivity by up to 20%. But make sure not to play too much! Too many video games can lead to many problems such as a reduced attention span. Press enter to continue...", 
+                        "Fun Fact! According to research from Brigham Young University, video game breaks can increase productivity by up to 20%, but make sure not to play too much! Too many video games can lead to many problems such as a decreased attention span and eye strain. Press enter to continue...", 
+                        "Fun Fact! Being sleep deprived will make you behave in similar ways to being drunk! According to Harvard Medical School, going 48 hours without sleep is equivalent to having a 0.1% blood alcohol content, which is higher than the legal amount to drive! Press enter to continue...", 
                         };
         Image[] i = new Image[8];
         try {

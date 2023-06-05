@@ -7,14 +7,14 @@ import Helper.DragAndDrop;
 
 /**
  * Main method to test Level 2 class.
- * Time Spent: 5 minutes
+ * Time Spent: 25 minutes
  * 
  * <h2>Modifications</h2>
  * Checks for collisions of the components and the bins
  * Time spent: 3 hours
  * 
  * @author Alex Zhu
- * @version 0.2.0
+ * @version 0.3.0
  * @date 05/28/2023
  */
 

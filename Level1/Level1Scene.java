@@ -12,7 +12,7 @@ import java.util.*;
  * 
  * <h2>Modifications</h2>
  * Got buttons and keyboard events to work, simplified logic, and improved compatibility with the Level1 driver (Level1.java).
- * 
+ *  
  * @author Lukas Li
  * @version 0.3.0
  * @date 06/03/2023
@@ -58,7 +58,6 @@ public class Level1Scene extends Level1 implements ActionListener {
      * @param info The info blurb shown at the bottom of the screen after the player completes the scenario.
      */
     public Level1Scene(Image[] images, String initial, String[] choices, String info) {
-        super();
         pressed = false;
         textBoxes = new TextBox[4];
         textBoxes[0] = new TextBox(0, 0, 1280, 25, initial);
@@ -81,7 +80,6 @@ public class Level1Scene extends Level1 implements ActionListener {
             }
         });
         innerPanel.getInputMap(JComponent.WHEN_IN_FOCUSED_WINDOW).put(KeyStroke.getKeyStroke(KeyEvent.VK_ENTER, 0), "changeScene");
-
         // Add the buttons to the innerPanel
         for (JButton button: buttons) innerPanel.add(button);
         
