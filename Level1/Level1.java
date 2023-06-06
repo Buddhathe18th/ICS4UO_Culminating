@@ -33,22 +33,22 @@ public class Level1 extends JComponent {
     /**
      * Initial text that is shown to the user at the beginning of the game
      */
-    String[] initial;
+    private String[] initial;
 
     /**
      * The reaction messages the game will have depending on the user's choice
      */
-    String[] choices;
+    private String[] choices;
 
     /**
      * The fun fact displayed after each scenario
      */
-    String[] info;
+    private String[] info;
 
     /**
      * If the scene is to be changed
      */
-    static boolean changed;
+    private static boolean changed;
 
     /**
      * Default constructor for the Level1 class.
@@ -77,7 +77,7 @@ public class Level1 extends JComponent {
             if (changed) {
                 changed = false;
                 frame.getContentPane().removeAll();
-                frame.add(frame(new Level1Scene(new Image[] {images[scene*2], images[scene*2+1]}, initial[scene], new String[] {choices[scene*2], choices[scene*2+1]}, info[scene++]).getPanel()));
+                frame.add(new Level1Scene(new Image[] {images[scene*2], images[scene*2+1]}, initial[scene], new String[] {choices[scene*2], choices[scene*2+1]}, info[scene++]).frame());
                 frame.getContentPane().repaint();
             }
             System.out.print("");
@@ -89,26 +89,6 @@ public class Level1 extends JComponent {
      */
     public static void changeScene() {
         changed = true;
-    }
-
-    /**
-     *  Makes all components and drawings that will be on the Level 2 game screen
-     * 
-     * @return the JInternalFrame to add to the screen
-     */
-    public static JInternalFrame frame(Level1Scene.Panel innerPanel) {
-        JInternalFrame frame = new JInternalFrame("", false, false, false, false);
-        frame.putClientProperty("JInternalFrame.isPalette", Boolean.TRUE);
-        frame.setDefaultCloseOperation(JFrame.EXIT_ON_CLOSE);
-        frame.getRootPane().setWindowDecorationStyle(0);
-
-        innerPanel.setLayout(null);
-
-        frame.add(innerPanel);
-
-        frame.setSize(1920, 1080);
-        frame.setVisible(true);
-        return frame;
     }
     
     /** 
