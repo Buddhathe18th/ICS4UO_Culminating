@@ -13,13 +13,13 @@ import java.util.*;
  * 
  */
 
-public class Level3 extends JComponent{
+public class Level3 extends JComponent {
 
     /**
      * Constructor for the Level3 class. Not finished yet.
      */
     public Level3(JFrame frame) {
-        frame.add(new Level3Maze());
+        frame.add(new Level3Maze().frame());
     }
 
     /**

@@ -11,13 +11,51 @@ import java.awt.*;
  * @date 05/18/2023
  * 
  */
-
 public class Level3Maze extends JComponent {
+
     /**
      * The items that are to be collected
      */
     private Item[] items;
-    public void paint(Graphics g) {
-        g.drawLine(300, 300, 300, 500);
+
+    /**
+     * Panel containing all graphics
+     */
+    private Panel innerPanel = new Panel();
+
+    /**
+     *  Makes all components and drawings that will be on the Level 3 game screen
+     * 
+     * @return the JInternalFrame to add to the screen
+     */
+    public JInternalFrame frame() {
+        JInternalFrame frame = new JInternalFrame("", false, false, false, false);
+        frame.putClientProperty("JInternalFrame.isPalette", Boolean.TRUE);
+        frame.setDefaultCloseOperation(JFrame.EXIT_ON_CLOSE);
+        frame.getRootPane().setWindowDecorationStyle(0);
+
+        innerPanel.setLayout(null);
+
+        frame.add(innerPanel);
+
+        frame.setSize(1920, 1080);
+        frame.setVisible(true);
+        return frame;
     }
+
+    /**
+     * Panel class to hold all drawings and components
+     */
+    public class Panel extends JPanel {
+        /**
+         * Draws the text boxes to the Game Panel.
+         *
+         * @param g the Graphics context in which to paint
+         */
+        protected void paintComponent(Graphics g) {
+            super.paintComponent(g);
+            g.drawRect(100, 100, 25, 25);
+        }
+    }
+
 }
