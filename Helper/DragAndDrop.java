@@ -34,17 +34,19 @@ public class DragAndDrop extends JComponent implements MouseListener, MouseMotio
   /**
    * X coordinates of the top left corner of the component
    */
-  private int x = 0;
+  public int x = 0;
 
   /**
    * Y coordinates of the top left corner of the component
    */
-  private int y = 0;
+  public int y = 0;
 
   /**
    * Image of the component
    */
   private Image image;
+
+  public boolean grabbed = false;
 
   /**
    * To be deleted on the next collision check
@@ -76,7 +78,7 @@ public class DragAndDrop extends JComponent implements MouseListener, MouseMotio
    */
 
   public DragAndDrop(Image im, int xNew, int yNew, boolean schoolRelated) {
-
+    grabbed=false;
     width = xNew;
     height = yNew;
     school = schoolRelated;
@@ -103,9 +105,6 @@ public class DragAndDrop extends JComponent implements MouseListener, MouseMotio
 
   public boolean checkCollision(int binX, int binY, int binWidth, int binHeight) {
     //Debuggin print statements, prints coordinates, and the boolean expressions for the two axis
-    System.out.println(x + " " + y + "   " + binX + " " + binY);
-    System.out.println(y + height < binY || y > binY + binHeight);
-    System.out.println((x + width < binX || x > binX + binWidth) + "\n");
     if (!((y + height < binY || y > binY + binHeight) || (x + width < binX || x > binX + binWidth)))
       return true;
     return false;
