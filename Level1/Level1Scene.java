@@ -87,24 +87,8 @@ public class Level1Scene extends Level1 implements ActionListener {
         buttons[1].addActionListener(this);
     }
 
-    /**
-     *  Makes all components and drawings that will be on the Level 2 game screen
-     * 
-     * @return the JInternalFrame to add to the screen
-     */
-    public JInternalFrame frame() {
-        frame = new JInternalFrame("", false, false, false, false);
-        frame.putClientProperty("JInternalFrame.isPalette", Boolean.TRUE);
-        frame.setDefaultCloseOperation(JFrame.EXIT_ON_CLOSE);
-        frame.getRootPane().setWindowDecorationStyle(0);
-
-        innerPanel.setLayout(null);
-
-        frame.add(innerPanel);
-
-        frame.setSize(1920, 1080);
-        frame.setVisible(true);
-        return frame;
+    public Panel getPanel() {
+        return innerPanel;
     }
 
     /**

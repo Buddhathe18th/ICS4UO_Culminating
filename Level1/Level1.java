@@ -63,11 +63,9 @@ public class Level1 extends JComponent {
      * @param c The text blurbs show at the bottom of each choice after the player selects one, showing if they are correct or not 
      * @param inf The info blurbs show at the bottom of the screen every time the player completes a scenario.
      */
-    public Level1(Image[] im, String[] in, String[] c, String inf[]) {
+    public Level1(JFrame frame, Image[] im, String[] in, String[] c, String inf[]) {
         scenarios = 4;
         images = new Image[scenarios*2];
-        JFrame frame = new JFrame("Level 1");
-        frame.setSize(1920,1080);
         
         images = im;
         initial = in;
@@ -75,12 +73,11 @@ public class Level1 extends JComponent {
         info = inf;
         changed = true;
         int scene = 0;
-        frame.setVisible(true);
         while (scene < scenarios) {
             if (changed) {
                 changed = false;
                 frame.getContentPane().removeAll();
-                frame.add(new Level1Scene(new Image[] {images[scene*2], images[scene*2+1]}, initial[scene], new String[] {choices[scene*2], choices[scene*2+1]}, info[scene++]).frame());
+                frame.add(frame(new Level1Scene(new Image[] {images[scene*2], images[scene*2+1]}, initial[scene], new String[] {choices[scene*2], choices[scene*2+1]}, info[scene++]).getPanel()));
                 frame.getContentPane().repaint();
             }
             System.out.print("");
@@ -92,6 +89,26 @@ public class Level1 extends JComponent {
      */
     public static void changeScene() {
         changed = true;
+    }
+
+    /**
+     *  Makes all components and drawings that will be on the Level 2 game screen
+     * 
+     * @return the JInternalFrame to add to the screen
+     */
+    public static JInternalFrame frame(Level1Scene.Panel innerPanel) {
+        JInternalFrame frame = new JInternalFrame("", false, false, false, false);
+        frame.putClientProperty("JInternalFrame.isPalette", Boolean.TRUE);
+        frame.setDefaultCloseOperation(JFrame.EXIT_ON_CLOSE);
+        frame.getRootPane().setWindowDecorationStyle(0);
+
+        innerPanel.setLayout(null);
+
+        frame.add(innerPanel);
+
+        frame.setSize(1920, 1080);
+        frame.setVisible(true);
+        return frame;
     }
     
     /** 
@@ -131,6 +148,11 @@ public class Level1 extends JComponent {
         catch (IOException e) {
             e.printStackTrace();
         }
-        new Level1(i, init, c, inf);
+
+        JFrame frame = new JFrame("Level 1");
+        frame.setSize(1920,1080);
+        frame.setVisible(true);
+
+        new Level1(frame, i, init, c, inf);
     }
 }
