@@ -105,9 +105,6 @@ public class DragAndDrop extends JComponent implements MouseListener, MouseMotio
 
   public boolean checkCollision(int binX, int binY, int binWidth, int binHeight) {
     //Debuggin print statements, prints coordinates, and the boolean expressions for the two axis
-    System.out.println(x + " " + y + "   " + binX + " " + binY);
-    System.out.println(y + height < binY || y > binY + binHeight);
-    System.out.println((x + width < binX || x > binX + binWidth) + "\n");
     if (!((y + height < binY || y > binY + binHeight) || (x + width < binX || x > binX + binWidth)))
       return true;
     return false;

@@ -9,14 +9,18 @@ import java.util.ArrayList;
 
 import javax.imageio.ImageIO;
 import javax.swing.JFrame;
+import javax.swing.JInternalFrame;
 
-public class MoveFrame extends JFrame implements KeyListener{
-    public Character t;
+import Level2.CharacterHand;
+
+public class MoveFrame extends JInternalFrame implements KeyListener{
+    public CharacterHand hand;
 
     public ArrayList<DragAndDrop> draggableArrayList = new ArrayList<DragAndDrop>(1);
 
-    public MoveFrame() {
-        t= new Character();
+    public MoveFrame(CharacterHand h) {
+        super("",false,false,false,false);
+        hand= h;
         // Image array of the images on the components, so far just one image
         Image[] iArr = new Image[1];
         try {
@@ -42,64 +46,65 @@ public class MoveFrame extends JFrame implements KeyListener{
 
     @Override
     public void keyPressed(KeyEvent e) {
+        System.out.println("key");
         if (e.getKeyCode() == KeyEvent.VK_RIGHT) {
 
-            if(t.grab){
-                t.grabbedObj.setLocation(t.grabbedObj.x + 100, t.grabbedObj.y);
-                t.grabbedObj.x = t.grabbedObj.x + 100;
+            if(hand.grab){
+                hand.grabbedObj.setLocation(hand.grabbedObj.x + 100, hand.grabbedObj.y);
+                hand.grabbedObj.x = hand.grabbedObj.x + 100;
             }
             System.out.println("right");
-            t.setLocation(t.x + 100, t.y);
-            t.x = t.x + 100;
+            hand.setLocation(hand.x + 100, hand.y);
+            hand.x = hand.x + 100;
             revalidate();
             repaint();
         } else if (e.getKeyCode() == KeyEvent.VK_LEFT) {
 
-            if(t.grab){
-                t.grabbedObj.setLocation(t.grabbedObj.x - 100, t.grabbedObj.y);
-                t.grabbedObj.x = t.grabbedObj.x - 100;
+            if(hand.grab){
+                hand.grabbedObj.setLocation(hand.grabbedObj.x - 100, hand.grabbedObj.y);
+                hand.grabbedObj.x = hand.grabbedObj.x - 100;
             }
 
             System.out.println("left");
-            t.setLocation(t.x - 100, t.y);
-            t.x = t.x - 100;
+            hand.setLocation(hand.x - 100, hand.y);
+            hand.x = hand.x - 100;
             revalidate();
             repaint();
         } else if (e.getKeyCode() == KeyEvent.VK_UP) {
 
-            if(t.grab){
-                t.grabbedObj.setLocation(t.grabbedObj.x, t.grabbedObj.y-100);
-                t.grabbedObj.y = t.grabbedObj.y - 100;
+            if(hand.grab){
+                hand.grabbedObj.setLocation(hand.grabbedObj.x, hand.grabbedObj.y-100);
+                hand.grabbedObj.y = hand.grabbedObj.y - 100;
             }
 
             System.out.println("up");
-            t.setLocation(t.x, t.y - 100);
-            t.y = t.y - 100;
+            hand.setLocation(hand.x, hand.y - 100);
+            hand.y = hand.y - 100;
             revalidate();
             repaint();
         } else if (e.getKeyCode() == KeyEvent.VK_DOWN) {
 
-            if(t.grab){
-                t.grabbedObj.setLocation(t.grabbedObj.x, t.grabbedObj.y+100);
-                t.grabbedObj.y = t.grabbedObj.y + 100;
+            if(hand.grab){
+                hand.grabbedObj.setLocation(hand.grabbedObj.x, hand.grabbedObj.y+100);
+                hand.grabbedObj.y = hand.grabbedObj.y + 100;
             }
             System.out.println("down");
-            t.setLocation(t.x, t.y + 100);
-            t.y = t.y + 100;
+            hand.setLocation(hand.x, hand.y + 100);
+            hand.y = hand.y + 100;
             revalidate();
             repaint();
         }
 
         else if (e.getKeyCode() == KeyEvent.VK_SPACE) {
-            if (t.grab) {
-                t.grabbedObj.grabbed = false;
-                t.grab = false;
+            if (hand.grab) {
+                hand.grabbedObj.grabbed = false;
+                hand.grab = false;
             } else {
                 for (DragAndDrop d : draggableArrayList) {
-                    if (d.checkCollision(t.x, t.y, 100, 100)){
-                        t.grab=true;
+                    if (d.checkCollision(hand.x, hand.y, 100, 100)){
+                        hand.grab=true;
                         d.grabbed=true;
-                        t.grabbedObj=d;
+                        hand.grabbedObj=d;
                     }
                 }
             }

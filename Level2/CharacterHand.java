@@ -20,7 +20,7 @@ import java.awt.event.*;
  * 
  */
 
-public class Character extends JComponent{
+public class CharacterHand extends JComponent{
 
     /**
      * Whether or not the character is grabbing an item
@@ -39,7 +39,7 @@ public class Character extends JComponent{
      */
     public int y = 0;
 
-    public Character() {
+    public CharacterHand() {
         System.out.println("char");
         setBounds(0, 0, 100, 100);
         setSize(100, 100);

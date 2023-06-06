@@ -4,6 +4,7 @@ import javax.swing.JFrame;
 import javax.swing.JPanel;
 
 import Helper.DragAndDrop;
+import Helper.MoveFrame;
 
 /**
  * Main method to test Level 2 class.
@@ -25,19 +26,21 @@ public class Level2Driver {
     public static void main(String[] args) {
         Level2 l2 = new Level2();
 
-        JFrame frame = new JFrame("Race Against Time");
+        JFrame frame = new JFrame("test");
         frame.setLayout(null);
         frame.setDefaultCloseOperation(JFrame.EXIT_ON_CLOSE);
         frame.setSize(1920, 1080);
         frame.setFocusable(true);
         frame.setVisible(true);
 
+
         frame.add(l2.frame());
+        frame.addKeyListener(l2.frame);
         JPanel l2InnerPanel = l2.innerPanel;
 
         // While there still are elements to check for collisions
         while (l2.draggableArrayList.size() > 0) {
-            System.out.println(l2.draggableArrayList.size());
+            l2.frame.requestFocus();
 
             // Iterate through all DragAndDrop components
             for (int i = 0; i < l2.draggableArrayList.size(); i++) {
@@ -61,6 +64,7 @@ public class Level2Driver {
                         l2InnerPanel.revalidate();
                         l2.frame.revalidate();
                         l2InnerPanel.repaint();
+                        l2.frame.repaint();
                         l2.score++;
 
                         // To delete this later to not run into a ConcurrentModification exception
@@ -73,6 +77,7 @@ public class Level2Driver {
                         l2InnerPanel.revalidate();
                         l2.frame.revalidate();
                         l2InnerPanel.repaint();
+                        l2.frame.repaint();
                         l2.score--;
 
                         // To delete this later to not run into a ConcurrentModification exception
@@ -82,6 +87,7 @@ public class Level2Driver {
                     l2InnerPanel.revalidate();
                     l2.frame.revalidate();
                     l2InnerPanel.repaint();
+                    l2.frame.repaint();
                 } else {
                     if (d.checkCollision(l2InnerPanel.getX(), l2InnerPanel.getY() + 500, 200, 180)) {
                         // Removing and repainting the screens
@@ -91,6 +97,7 @@ public class Level2Driver {
                         l2InnerPanel.revalidate();
                         l2.frame.revalidate();
                         l2InnerPanel.repaint();
+                        l2.frame.repaint();
                         l2.score--;
 
                         // To delete this later to not run into a ConcurrentModification exception
@@ -103,6 +110,7 @@ public class Level2Driver {
                         l2InnerPanel.revalidate();
                         l2.frame.revalidate();
                         l2InnerPanel.repaint();
+                        l2.frame.repaint();
                         l2.score++;
 
                         // To delete this later to not run into a ConcurrentModification exception
@@ -112,6 +120,7 @@ public class Level2Driver {
                     l2InnerPanel.revalidate();
                     l2.frame.revalidate();
                     l2InnerPanel.repaint();
+                    l2.frame.repaint();
                 }
             }
 
@@ -122,8 +131,11 @@ public class Level2Driver {
                     i--;
                 }
             }
+            l2InnerPanel.revalidate();
+            l2InnerPanel.repaint();
+            l2.frame.revalidate();
+            l2.frame.repaint();
         }
-
 
     }
 }

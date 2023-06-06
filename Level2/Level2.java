@@ -9,6 +9,7 @@ import javax.imageio.ImageIO;
 import javax.swing.*;
 
 import Helper.DragAndDrop;
+import Helper.MoveFrame;
 
 /**
  * Level 2 game class
@@ -38,7 +39,7 @@ public class Level2 {
     /**
      * The screen to display on the JFrame
      */
-    public JInternalFrame frame;
+    public MoveFrame frame;
 
     /**
      * X coordinates of the character
@@ -62,7 +63,7 @@ public class Level2 {
      */
     public int objLeft=6;
 
-    public Character hand = new Character();
+    public CharacterHand hand = new CharacterHand();
 
     /**
      * Score of the player, goes up if sorted correctly, goes down if sorted wrong
@@ -108,21 +109,26 @@ public class Level2 {
      * @return the JInternalFrame to add to the screen
      */
     public JInternalFrame frame() {
-        frame = new JInternalFrame("", false, false, false, false);
+        
+        frame = new MoveFrame(hand);
         frame.putClientProperty("JInternalFrame.isPalette", Boolean.TRUE);
         frame.setDefaultCloseOperation(JFrame.EXIT_ON_CLOSE);
         frame.getRootPane().setWindowDecorationStyle(0);
 
         innerPanel.setLayout(null);
+        innerPanel.addKeyListener(frame);
 
         for(int i = 1; i<=6;i++){
             innerPanel.add(draggableArrayList.get(i-1));;
         }
-
+        frame.add(hand);
         frame.add(innerPanel);
+        
 
         frame.setSize(1920, 1080);
         frame.setVisible(true);
+        innerPanel.addKeyListener(frame);
+        
         return frame;
     }
 
