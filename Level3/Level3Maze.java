@@ -54,7 +54,6 @@ public class Level3Maze extends JComponent {
          */
         protected void paintComponent(Graphics g) {
             super.paintComponent(g);
-            g.drawRect(100, 100, 25, 25);
         }
     }
 
