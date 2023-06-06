@@ -76,6 +76,11 @@ public class TextBox extends JComponent {
             maxLen -= l.length();
         }
         lines.add(temp);
+
+        setBounds(x, y, width, (int) (getText().size()+0.25)*fontSize);
+        setLocation(x, y);
+    setSize(width, (int)(getText().size()+0.25)*fontSize);
+    setOpaque(false);
     }
 
     /**
@@ -133,7 +138,8 @@ public class TextBox extends JComponent {
         lines.add(temp);
     }
     
-    public void paint(Graphics g){
+    public void paintComponent(Graphics g){
+        super.paintComponent(g);
         g.setFont(new Font("Courier New", Font.PLAIN, fontSize));
         // Draws a rectangular box at specified coordinates
         g.drawRect(getCoords()[0], getCoords()[1], width, (int)((getText().size()+0.25)*fontSize));
