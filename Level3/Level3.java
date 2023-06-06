@@ -18,17 +18,17 @@ public class Level3 extends JComponent{
     /**
      * Constructor for the Level3 class. Not finished yet.
      */
-    public Level3() {
-        JFrame frame = new JFrame("Level 3");
-        frame.setSize(1920,1080);
+    public Level3(JFrame frame) {
         frame.add(new Level3Maze());
-        frame.setVisible(true);
     }
 
     /**
      * Temporary main class used to test the level.
      */
     public static void main(String[] args) {
-        new Level3();
+        JFrame frame = new JFrame("Level 3");
+        frame.setSize(1920,1080);
+        frame.setVisible(true);
+        new Level3(frame);
     }
 }
