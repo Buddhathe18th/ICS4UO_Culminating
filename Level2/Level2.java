@@ -109,25 +109,17 @@ public class Level2 {
      * @return the JInternalFrame to add to the screen
      */
     public JInternalFrame frame() {
-        
-        frame = new MoveFrame(hand);
-        frame.putClientProperty("JInternalFrame.isPalette", Boolean.TRUE);
-        frame.setDefaultCloseOperation(JFrame.EXIT_ON_CLOSE);
-        frame.getRootPane().setWindowDecorationStyle(0);
-
-        innerPanel.setLayout(null);
-        innerPanel.addKeyListener(frame);
-
-        for(int i = 1; i<=6;i++){
-            innerPanel.add(draggableArrayList.get(i-1));;
-        }
-        frame.add(hand);
-        frame.add(innerPanel);
-        
+        MoveFrame frame = new MoveFrame();
 
         frame.setSize(1920, 1080);
         frame.setVisible(true);
-        innerPanel.addKeyListener(frame);
+        frame.setLayout(null);
+        frame.setDefaultCloseOperation(JFrame.EXIT_ON_CLOSE);
+        frame.setSize(1920, 1080);
+        frame.setFocusable(true);
+        frame.setVisible(true);
+        frame.setFocusable(true);
+        frame.addKeyListener(frame);
         
         return frame;
     }

@@ -27,7 +27,7 @@ public class CharacterHand extends JComponent{
      */
     public boolean grab = false;
 
-    public DragAndDrop grabbedObj;
+    public static DragAndDrop grabbedObj;
 
     /**
      * X coordinates of the top left corner of the component
@@ -40,6 +40,7 @@ public class CharacterHand extends JComponent{
     public int y = 0;
 
     public CharacterHand() {
+        grabbedObj=null;
         System.out.println("char");
         setBounds(0, 0, 100, 100);
         setSize(100, 100);

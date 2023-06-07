@@ -118,6 +118,44 @@ public class TextBox extends JComponent {
     }
 
     /**
+     * Constructor for the TextBox class.
+     * 
+     * @param x1 The x-coordinate of the top left corner of the text box
+     * @param y1 The y-coordinate of the top left corner of the text box
+     * @param w The width of the text box
+     * @param f The size of the font
+     * @param t The text to be shown in the text box
+     */
+    public TextBox(int x1, int y1, int w, int f, String t, String or) {
+        x = x1;
+        y = y1;
+        width = w;
+        fontSize = f;
+        textPerLine = (int)(w*1.37/fontSize);
+        orientation = or;
+        String[] text = t.split(" ");
+        int maxLen = textPerLine;
+        lines = new ArrayList<String>();
+
+        String temp = "";
+        for (String l: text) {
+            if (maxLen - l.length() < 0) {
+                maxLen = textPerLine;
+                lines.add(temp);
+                temp = "";
+            }
+            temp += l + " ";
+            maxLen -= l.length();
+        }
+        lines.add(temp);
+
+        setBounds(x, y, width, (int) (getText().size()+0.25)*fontSize);
+        setLocation(x, y);
+    setSize(width, (int)(getText().size()+0.25)*fontSize);
+    setOpaque(false);
+    }
+
+    /**
      * Gets the size of the font in the text box
      * @return The size of the font in the text box 
      */
