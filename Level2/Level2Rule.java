@@ -27,8 +27,10 @@ public class Level2Rule {
      * Textbox with rules
      */
 
-    private TextBox t = new TextBox(0, 0, 1000, 25, "test");;
+    private TextBox t = new TextBox(0, 0, 1000, 25, "Uh oh, you ran out of time. Next time, help Johnny clear his desk faster so he has more time to work!");;
 
+    JButton level3;
+    JButton mainMenu;
     /**
      * Makes all components and drawings that will be on the Rule page
      * 

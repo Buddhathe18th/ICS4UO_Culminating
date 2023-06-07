@@ -1,4 +1,5 @@
 package Main;
+
 import java.awt.*;
 import java.awt.event.*;
 import javax.swing.*;
@@ -12,11 +13,11 @@ import javax.swing.*;
  * @date 05/16/2023
  */
 
-public class MainMenu implements ActionListener{
-    
-    /** 
-     *Buttons that will be on the Main Menu
-    */
+public class MainMenu implements ActionListener {
+
+    /**
+     * Buttons that will be on the Main Menu
+     */
     JButton level1 = new JButton("Level 1");
     JButton level2 = new JButton("Level 2");
     JButton level3 = new JButton("Level 3");
@@ -24,8 +25,8 @@ public class MainMenu implements ActionListener{
     JButton exit = new JButton("Exit");
 
     /**
-     *  The drawing that will be on the screen
-     */ 
+     * The drawing that will be on the screen
+     */
     Drawing draw = new Drawing();
 
     /**
@@ -34,30 +35,32 @@ public class MainMenu implements ActionListener{
     JInternalFrame frame;
 
     /**
-     * Returns the frame to be displayed on the main menu screen. Currently unfinished, button for Level 1 will bring you to the Title Screen
+     * Returns the frame to be displayed on the main menu screen. Currently
+     * unfinished, button for Level 1 will bring you to the Title Screen
+     * 
      * @return the frame to be displayed
      */
 
-    public JInternalFrame frame(){
-        
-        frame = new JInternalFrame("",false,false,false,false);
+    public JInternalFrame frame() {
+
+        frame = new JInternalFrame("", false, false, false, false);
         frame.putClientProperty("JInternalFrame.isPalette", Boolean.TRUE);
         frame.setDefaultCloseOperation(JFrame.EXIT_ON_CLOSE);
         frame.getRootPane().setWindowDecorationStyle(0);
-        
-        frame.setLayout(new GridLayout(2, 3));
-        
-        JButton[] test = {level1, level2, level3, credits, exit};
 
-        for( int i = 0; i<test.length;i++){
+        frame.setLayout(new GridLayout(2, 3));
+
+        JButton[] test = { level1, level2, level3, credits, exit };
+
+        for (int i = 0; i < test.length; i++) {
             frame.add(test[i]);
-            test[i].setLocation(100, 300+150*i);
+            test[i].setLocation(100, 300 + 150 * i);
         }
         frame.add(draw);
-        
 
         level1.addActionListener(this);
         level2.addActionListener(this);
+        level3.addActionListener(this);
 
         frame.getContentPane().setBackground(Color.red);
 
@@ -78,12 +81,15 @@ public class MainMenu implements ActionListener{
     }
 
     /**
-     * Action listener for the button on level1, button for level 2 brings to the 2nd level
+     * Action listener for the button on level1, button for level 2 brings to the
+     * 2nd level
      */
     public void actionPerformed(ActionEvent e) {
         if (e.getSource() == level1)
-            Main.screenNum=5;
+            Main.screenNum = 4;
         else if (e.getSource() == level2)
-            Main.screenNum=11;
+            Main.screenNum = 11;
+        else if (e.getSource() == level3)
+            Main.screenNum = 12;
     }
 }

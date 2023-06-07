@@ -19,27 +19,7 @@ import javax.swing.*;
  * @date 05/28/2023
  */
 
-public class DragAndDrop extends JComponent implements MouseListener, MouseMotionListener {
-
-  /**
-   * Absolute x position of the mouse of the screen
-   */
-  private int screenX = 0;
-
-  /**
-   * Absolute y position of the mouse of the screen
-   */
-  private int screenY = 0;
-
-  /**
-   * X coordinates of the top left corner of the component
-   */
-  public int x = 0;
-
-  /**
-   * Y coordinates of the top left corner of the component
-   */
-  public int y = 0;
+public class DragAndDrop extends JComponent{
 
   /**
    * Image of the component
@@ -87,9 +67,6 @@ public class DragAndDrop extends JComponent implements MouseListener, MouseMotio
     setBounds(0, 0, width, height);
     setSize(width, height);
     setOpaque(false);
-
-    addMouseListener(this);
-    addMouseMotionListener(this);
   }
 
   public void paintComponent(Graphics g) {
@@ -105,55 +82,8 @@ public class DragAndDrop extends JComponent implements MouseListener, MouseMotio
 
   public boolean checkCollision(int binX, int binY, int binWidth, int binHeight) {
     //Debuggin print statements, prints coordinates, and the boolean expressions for the two axis
-    if (!((y + height < binY || y > binY + binHeight) || (x + width < binX || x > binX + binWidth)))
+    if (!((getY() + height < binY || getY() > binY + binHeight) || (getX() + width < binX || getX() > binX + binWidth)))
       return true;
     return false;
   }
-
-  // MouseListener methods
-
-  @Override
-  public void mouseClicked(MouseEvent e) {
-  }
-
-  @Override
-  public void mousePressed(MouseEvent e) {
-    screenX = e.getXOnScreen();
-    screenY = e.getYOnScreen();
-    x = getX();
-    y = getY();
-  }
-
-  @Override
-  public void mouseReleased(MouseEvent e) {
-  }
-
-  @Override
-  public void mouseEntered(MouseEvent e) {
-  }
-
-  @Override
-  public void mouseExited(MouseEvent e) {
-  }
-
-  // MouseMotionListener methods
-
-  @Override
-  public void mouseDragged(MouseEvent e) {
-    int changeX = e.getXOnScreen() - screenX;
-    int changeY = e.getYOnScreen() - screenY;
-
-    // Change the location of the component depending on the distance the mouse was
-    // moved
-    setLocation(x + changeX, y + changeY);
-    x = getX();
-    y = getY();
-    screenX = e.getXOnScreen();
-    screenY = e.getYOnScreen();
-  }
-
-  @Override
-  public void mouseMoved(MouseEvent e) {
-  }
-
 }
