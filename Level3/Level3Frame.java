@@ -147,6 +147,8 @@ public class Level3Frame extends JInternalFrame implements KeyListener {
             repaint();
         }
 
+        level3Char.setLocation(level3Char.column*20, level3Char.row*20);
+
         System.out.println("("+level3Char.row+", "+level3Char.column+")");
     }
 
