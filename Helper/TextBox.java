@@ -32,6 +32,11 @@ public class TextBox extends JComponent {
     private int width;
 
     /**
+     * The way the text box is drawn
+     */
+    private String orientation;
+
+    /**
      * The font size
      */
     private int fontSize;
@@ -60,7 +65,41 @@ public class TextBox extends JComponent {
         y = y1;
         width = w;
         fontSize = f;
-        textPerLine = (int)(w*1.43/fontSize);
+        textPerLine = (int)(w*1.4/fontSize);
+        orientation = "topleft";
+        String[] text = t.split(" ");
+        int maxLen = textPerLine;
+        lines = new ArrayList<String>();
+
+        String temp = "";
+        for (String l: text) {
+            if (maxLen - l.length() < 0) {
+                maxLen = textPerLine;
+                lines.add(temp);
+                temp = "";
+            }
+            temp += l + " ";
+            maxLen -= l.length();
+        }
+        lines.add(temp);
+    }
+
+    /**
+     * Constructor for the TextBox class.
+     * 
+     * @param x1 The x-coordinate of the top left corner of the text box
+     * @param y1 The y-coordinate of the top left corner of the text box
+     * @param w The width of the text box
+     * @param f The size of the font
+     * @param t The text to be shown in the text box
+     */
+    public TextBox(int x1, int y1, int w, int f, String t, String or) {
+        x = x1;
+        y = y1;
+        width = w;
+        fontSize = f;
+        textPerLine = (int)(w*1.37/fontSize);
+        orientation = or;
         String[] text = t.split(" ");
         int maxLen = textPerLine;
         lines = new ArrayList<String>();
@@ -91,7 +130,8 @@ public class TextBox extends JComponent {
      * @return Int array [x, y], the x and y coordinates of the text box
      */
     public int[] getCoords() {
-        return new int[] {x, y};
+        if (orientation == "bottomleft") return new int[] {x, y-(int)((lines.size()+0.25)*fontSize)};
+        else return new int[] {x, y};
     }
 
     /**
@@ -131,13 +171,5 @@ public class TextBox extends JComponent {
             maxLen -= word.length();
         }
         lines.add(temp);
-    }
-    
-    public void paint(Graphics g){
-        g.setFont(new Font("Courier New", Font.PLAIN, fontSize));
-        // Draws a rectangular box at specified coordinates
-        g.drawRect(getCoords()[0], getCoords()[1], width, (int)((getText().size()+0.25)*fontSize));
-        // Draws the text in the text boxes, line by line
-        for (int i = 0; i < getText().size(); i++) g.drawString(getText().get(i), getCoords()[0], getCoords()[1]+(i+1)*fontSize);
     }
 }
