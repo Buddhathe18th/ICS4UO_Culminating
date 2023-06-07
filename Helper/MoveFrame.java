@@ -67,11 +67,15 @@ public class MoveFrame extends JInternalFrame implements KeyListener {
         }
     }
 
-    public MoveFrame(CharacterHand h) {
+    public MoveFrame() {
         super("", false, false, false, false);
+        this.putClientProperty("JInternalFrame.isPalette", Boolean.TRUE);
+        this.setDefaultCloseOperation(JFrame.EXIT_ON_CLOSE);
+        this.getRootPane().setWindowDecorationStyle(0);
+
         this.setLayout(null);
 
-        hand = h;
+        hand = new CharacterHand();
         // Image array of the images on the components, so far just one image
         Image[] iArr = new Image[1];
         try {
@@ -103,8 +107,9 @@ public class MoveFrame extends JInternalFrame implements KeyListener {
 
     @Override
     public void keyPressed(KeyEvent e) {
+        System.out.println(hand.grab);
         if (e.getKeyCode() == KeyEvent.VK_RIGHT) {
-
+            System.out.println("right");
             if (hand.grab) {
                 hand.grabbedObj.setLocation(hand.grabbedObj.getX() + 10, hand.grabbedObj.getY());
             }
@@ -113,7 +118,7 @@ public class MoveFrame extends JInternalFrame implements KeyListener {
             revalidate();
             repaint();
         } else if (e.getKeyCode() == KeyEvent.VK_LEFT) {
-
+            System.out.println("left");
             if (hand.grab) {
                 hand.grabbedObj.setLocation(hand.grabbedObj.getX() - 10, hand.grabbedObj.getY());
             }
@@ -122,7 +127,7 @@ public class MoveFrame extends JInternalFrame implements KeyListener {
             revalidate();
             repaint();
         } else if (e.getKeyCode() == KeyEvent.VK_UP) {
-
+            System.out.println("up");
             if (hand.grab) {
                 hand.grabbedObj.setLocation(hand.grabbedObj.getX(), hand.grabbedObj.getY() - 10);
             }
@@ -131,6 +136,7 @@ public class MoveFrame extends JInternalFrame implements KeyListener {
             revalidate();
             repaint();
         } else if (e.getKeyCode() == KeyEvent.VK_DOWN) {
+            System.out.println("down");
 
             if (hand.grab) {
                 hand.grabbedObj.setLocation(hand.grabbedObj.getX(), hand.grabbedObj.getY() + 10);
@@ -142,35 +148,73 @@ public class MoveFrame extends JInternalFrame implements KeyListener {
         }
 
         else if (e.getKeyCode() == KeyEvent.VK_SPACE) {
-            System.out.println("tes");
+            System.out.println("Space bar");
             if (hand.grab) {
-                if (hand.grabbedObj.checkCollision(innerPanel.getX(), innerPanel.getY() + 500, 200, 180)) {
+                if (hand.grabbedObj.school==true){
+                    if (hand.grabbedObj.checkCollision(innerPanel.getX(), innerPanel.getY() + 500, 200, 180)) {
 
-                    // Removing and repainting the screens
-                    innerPanel.remove(hand.grabbedObj);
-                    innerPanel.revalidate();
-                    revalidate();
-                    innerPanel.repaint();
-                    score++;
+                        // Removing and repainting the screens
+                        innerPanel.remove(hand.grabbedObj);
+                        innerPanel.revalidate();
+                        revalidate();
+                        innerPanel.repaint();
+                        score++;
+    
+                        // To delete this later to not run into a ConcurrentModification exception
+                        draggableArrayList.remove(hand.grabbedObj);
+                        draggableArrayList.trimToSize();
+                        hand.grabbedObj = null;
+                    } else if (hand.grabbedObj.checkCollision(innerPanel.getX() + 1220, innerPanel.getY() + 500, 200,
+                            180)) {
+                        innerPanel.remove(hand.grabbedObj);
+                        innerPanel.revalidate();
+                        revalidate();
+                        innerPanel.repaint();
+                        score--;
+                        draggableArrayList.remove(hand.grabbedObj);
+                        draggableArrayList.trimToSize();
+                        hand.grabbedObj = null;
+                    }
+                }
+                else{
+                    if (hand.grabbedObj.checkCollision(innerPanel.getX(), innerPanel.getY() + 500, 200, 180)) {
 
-                    // To delete this later to not run into a ConcurrentModification exception
-                    draggableArrayList.remove(hand.grabbedObj);
-                    hand.grabbedObj=null;
-                } else if (hand.grabbedObj.checkCollision(innerPanel.getX() + 1220, innerPanel.getY() + 500, 200,
-                        180)){
-                            innerPanel.remove(hand.grabbedObj);
-                            innerPanel.revalidate();
-                            revalidate();
-                            innerPanel.repaint();
-                            score++;
-                        }
-            }
+                        // Removing and repainting the screens
+                        innerPanel.remove(hand.grabbedObj);
+                        innerPanel.revalidate();
+                        revalidate();
+                        innerPanel.repaint();
+                        score--;
+    
+                        // To delete this later to not run into a ConcurrentModification exception
+                        draggableArrayList.remove(hand.grabbedObj);
+                        draggableArrayList.trimToSize();
+                        hand.grabbedObj = null;
+                    } else if (hand.grabbedObj.checkCollision(innerPanel.getX() + 1220, innerPanel.getY() + 500, 200,
+                            180)) {
+                        innerPanel.remove(hand.grabbedObj);
+                        innerPanel.revalidate();
+                        revalidate();
+                        innerPanel.repaint();
+                        score++;
+                        draggableArrayList.remove(hand.grabbedObj);
+                        draggableArrayList.trimToSize();
+                        hand.grabbedObj = null;
+                    }
+                }
+
+                if(draggableArrayList.size()<=0){
+                    Main.Main.screenNum++;
+                }
+
                 
-                hand.grab = false;
+                System.out.println("set value 1" + hand.grab);
+                hand.grab = !hand.grab;
                 hand.grabbedObj = null;
             } else {
                 for (DragAndDrop d : draggableArrayList) {
                     if (d.checkCollision(hand.x, hand.y, 100, 100)) {
+                        System.out.println("set value 2" + hand.grab);
                         hand.grab = true;
                         d.grabbed = true;
                         hand.grabbedObj = d;
@@ -178,7 +222,7 @@ public class MoveFrame extends JInternalFrame implements KeyListener {
                 }
             }
         }
-    
+    }
 
     @Override
     public void keyReleased(KeyEvent e) {

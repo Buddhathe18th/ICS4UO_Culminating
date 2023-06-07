@@ -7,9 +7,12 @@ import javax.imageio.*;
 import java.io.*;
 
 import Level1.Level1;
-
+import Level1.Level1Finish;
+import Level1.Level1Rule;
 import Helper.DragAndDrop;
+import Helper.MoveFrame;
 import Level2.Level2;
+import Level2.Level2Result;
 import Level2.Level2Rule;
 
 /**
@@ -66,7 +69,21 @@ public class Main implements KeyListener {
                     break;
                 }
                 case 2: {
+                    BackStory t = new BackStory();
+                    JInternalFrame test = t.frame();
+                    frame.add(test);
+                    test.setLocation(0, -15);
+                    break;
+                }
+                case 3: {
                     MainMenu t = new MainMenu();
+                    JInternalFrame test = t.frame();
+                    frame.add(test);
+                    test.setLocation(0, -15);
+                    break;
+                }
+                case 4: {
+                    Level1Rule t = new Level1Rule();
                     JInternalFrame test = t.frame();
                     frame.add(test);
                     test.setLocation(0, -15);
@@ -108,6 +125,15 @@ public class Main implements KeyListener {
                     new Level1(frame, i, init, c, inf);
                     break;
                 }
+
+                case 9: {
+                    Level1Finish t = new Level1Finish();
+                    JInternalFrame test = t.frame();
+                    frame.add(test);
+                    test.setLocation(0, -15);
+                    break;
+                }
+
                 case 10: {
                     Level2Rule t = new Level2Rule();
                     JInternalFrame test = t.frame();
@@ -116,104 +142,18 @@ public class Main implements KeyListener {
                     break;
                 }
                 case 11: {
-                    Level2 l2 = new Level2();
-                    JInternalFrame test = l2.frame();
+                    Level2 t = new Level2();
+                    JInternalFrame test = t.frame();
                     frame.add(test);
                     test.setLocation(0, -15);
-
-                    JPanel l2InnerPanel = l2.innerPanel;
-
-                    // While there still are elements to check for collisions
-                    while (l2.draggableArrayList.size() > 0) {
-                        System.out.println(l2.draggableArrayList.size());
-
-                        // Iterate through all DragAndDrop components
-                        for (int i = 0; i < l2.draggableArrayList.size(); i++) {
-                            DragAndDrop d = l2.draggableArrayList.get(i);
-
-                            // To slow down how often this is checked
-                            try {
-                                Thread.sleep(100);
-                            } catch (InterruptedException e) {
-                                e.printStackTrace();
-                            }
-
-                            // If it belongs in the left bin
-                            if (d.school) {
-                                if (d.checkCollision(l2InnerPanel.getX(), l2InnerPanel.getY() + 500, 200, 180)) {
-
-                                    // Removing and repainting the screens
-                                    l2InnerPanel.remove(d);
-
-                                    l2.objLeft--;
-                                    l2InnerPanel.revalidate();
-                                    l2.frame.revalidate();
-                                    l2InnerPanel.repaint();
-                                    l2.score++;
-
-                                    // To delete this later to not run into a ConcurrentModification exception
-                                    d.del = true;
-                                } else if (d.checkCollision(l2InnerPanel.getX() + 1220, l2InnerPanel.getY() + 500, 200,
-                                        180)) {
-                                    // Removing and repainting the screens
-                                    l2InnerPanel.remove(d);
-
-                                    l2.objLeft--;
-                                    l2InnerPanel.revalidate();
-                                    l2.frame.revalidate();
-                                    l2InnerPanel.repaint();
-                                    l2.score--;
-
-                                    // To delete this later to not run into a ConcurrentModification exception
-                                    d.del = true;
-                                }
-                                l2.draggableArrayList.trimToSize();
-                                l2InnerPanel.revalidate();
-                                l2.frame.revalidate();
-                                l2InnerPanel.repaint();
-                            } else {
-                                if (d.checkCollision(l2InnerPanel.getX(), l2InnerPanel.getY() + 500, 200, 180)) {
-                                    // Removing and repainting the screens
-                                    l2InnerPanel.remove(d);
-
-                                    l2.objLeft--;
-                                    l2InnerPanel.revalidate();
-                                    l2.frame.revalidate();
-                                    l2InnerPanel.repaint();
-                                    l2.score--;
-
-                                    // To delete this later to not run into a ConcurrentModification exception
-                                    d.del = true;
-                                } else if (d.checkCollision(l2InnerPanel.getX() + 1220, l2InnerPanel.getY() + 500, 200,
-                                        180)) {
-                                    // Removing and repainting the screens
-                                    l2InnerPanel.remove(d);
-
-                                    l2.objLeft--;
-                                    l2InnerPanel.revalidate();
-                                    l2.frame.revalidate();
-                                    l2InnerPanel.repaint();
-                                    l2.score++;
-
-                                    // To delete this later to not run into a ConcurrentModification exception
-                                    d.del = true;
-                                }
-                                l2.draggableArrayList.trimToSize();
-                                l2InnerPanel.revalidate();
-                                l2.frame.revalidate();
-                                l2InnerPanel.repaint();
-                            }
-                        }
-
-                        // Removing all components that should be deleted
-                        for (int i = 0; i < l2.draggableArrayList.size(); i++) {
-                            if (l2.draggableArrayList.get(i).del) {
-                                l2.draggableArrayList.remove(i);
-                                i--;
-                            }
-                        }
-                    }
-                    Main.screenNum++;
+                    break;
+                }
+                case 12: {
+                    Level2Result t = new Level2Result();
+                    JInternalFrame test = t.frame();
+                    frame.add(test);
+                    test.setLocation(0, -15);
+                    break;
                 }
             }
 
@@ -247,8 +187,8 @@ public class Main implements KeyListener {
 
     @Override
     public void keyReleased(KeyEvent e) {
-        if (e.getKeyCode() == KeyEvent.VK_ENTER && screenNum == 1) {
-            Main.screenNum = 2;
+        if (e.getKeyCode() == KeyEvent.VK_ENTER && (screenNum == 1||screenNum==2||screenNum==4)) {
+            Main.screenNum++;
         }
 
     }

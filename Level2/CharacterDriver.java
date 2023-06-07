@@ -13,6 +13,7 @@ import javax.swing.JComponent;
 import javax.swing.JFrame;
 import javax.swing.JPanel;
 import javax.swing.KeyStroke;
+import javax.swing.text.StyleConstants.CharacterConstants;
 
 import Helper.DragAndDrop;
 import Helper.MoveFrame;
@@ -22,6 +23,9 @@ public class CharacterDriver {
 
     public static void main(String[] args) {
 
+        int i = 0;
+        
+
         JFrame frame = new JFrame("test");
         frame.setLayout(null);
         frame.setDefaultCloseOperation(JFrame.EXIT_ON_CLOSE);
@@ -29,7 +33,7 @@ public class CharacterDriver {
         frame.setFocusable(true);
         frame.setVisible(true);
 
-        MoveFrame f = new MoveFrame(t);
+        MoveFrame f = new MoveFrame();
 
         f.setSize(1920, 1080);
         f.setVisible(true);
