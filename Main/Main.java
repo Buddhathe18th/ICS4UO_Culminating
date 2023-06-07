@@ -37,7 +37,7 @@ public class Main implements KeyListener {
     public static int screenNum = 1;
     JInternalFrame content = new JInternalFrame();
     boolean run = true;
-    JFrame frame;
+    static JFrame frame;
 
     public Level3Frame g = new Level3Frame();
 
