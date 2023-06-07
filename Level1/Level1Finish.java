@@ -137,5 +137,4 @@ public class Level1Finish implements ActionListener {
             g.fillRect(0,0,1920,1080);
         }
     }
-
 }
