@@ -59,6 +59,7 @@ public class Level1Finish implements ActionListener {
         frame.getRootPane().setWindowDecorationStyle(0);
 
         innerPanel.setLayout(null);
+        frame.getContentPane().setFocusable(false);
 
         frame.add(innerPanel);
 
@@ -69,6 +70,8 @@ public class Level1Finish implements ActionListener {
         mainMenu = new JButton("Main menu");
         buttonL2.addActionListener(this);
         mainMenu.addActionListener(this);
+
+        
 
         innerPanel.add(buttonL2);
         innerPanel.add(mainMenu);
@@ -137,5 +140,4 @@ public class Level1Finish implements ActionListener {
             g.fillRect(0,0,1920,1080);
         }
     }
-
 }

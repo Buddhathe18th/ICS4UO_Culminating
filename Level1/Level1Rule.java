@@ -42,6 +42,9 @@ public class Level1Rule implements KeyListener{
         frame.add(draw);
         
         frame.add(t);
+        
+        frame.getContentPane().setFocusable(false);
+        frame.setFocusable(false);
 
         frame.addKeyListener(this);
         
@@ -50,7 +53,6 @@ public class Level1Rule implements KeyListener{
 
         frame.setSize(1920, 1080);
         frame.setVisible(true);
-        frame.requestFocus();
         return frame;
     }
 

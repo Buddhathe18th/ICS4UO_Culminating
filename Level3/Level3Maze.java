@@ -23,7 +23,7 @@ public class Level3Maze extends JComponent {
      */
     private Panel innerPanel = new Panel();
 
-    private int[][] maze = {{1, 1, 1, 1, 1, 1, 1, 1, 1, 1, 1, 0, 1, 1, 1, 1, 1, 1, 1, 1, 1, 1, 1, 1, 1, 1},
+    public final static int[][] maze = {{1, 1, 1, 1, 1, 1, 1, 1, 1, 1, 1, 0, 1, 1, 1, 1, 1, 1, 1, 1, 1, 1, 1, 1, 1, 1},
                             {1, 0, 1, 0, 0, 0, 0, 0, 0, 0, 1, 0, 1, 0, 0, 0, 0, 0, 0, 1, 0, 0, 0, 0, 0, 1},
                             {1, 0, 1, 0, 1, 1, 0, 1, 1, 1, 1, 0, 1, 0, 1, 1, 1, 1, 0, 1, 1, 1, 1, 1, 0, 1},
                             {1, 0, 0, 0, 0, 1, 0, 0, 0, 0, 1, 0, 1, 0, 0, 0, 0, 1, 0, 0, 0, 0, 0, 0, 0, 1},
@@ -50,45 +50,25 @@ public class Level3Maze extends JComponent {
                             {1, 1, 1, 1, 1, 1, 1, 1, 1, 1, 1, 1, 1, 1, 1, 1, 1, 1, 1, 1, 1, 1, 1, 1, 1, 1}};
 
 
+                            public Level3Char level3Char;
 
     /**
      *  Makes all components and drawings that will be on the Level 3 game screen
      * 
      * @return the JInternalFrame to add to the screen
      */
-    public JInternalFrame frame() {
-        JInternalFrame frame = new JInternalFrame("", false, false, false, false);
-        frame.putClientProperty("JInternalFrame.isPalette", Boolean.TRUE);
-        frame.setDefaultCloseOperation(JFrame.EXIT_ON_CLOSE);
-        frame.getRootPane().setWindowDecorationStyle(0);
+    public Level3Frame frame() {
+        level3Char=new Level3Char();
+        Level3Frame frame = new Level3Frame(innerPanel, level3Char);
 
         innerPanel.setLayout(null);
 
-        frame.add(innerPanel);
-
         frame.setSize(1920, 1080);
         frame.setVisible(true);
+
         return frame;
     }
 
-    /**
-     * Panel class to hold all drawings and components
-     */
-    public class Panel extends JPanel {
-        /**
-         * Draws the text boxes to the Game Panel.
-         *
-         * @param g the Graphics context in which to paint
-         */
-        protected void paintComponent(Graphics g) {
-            super.paintComponent(g);
-            for (int row = 0; row < maze.length; row++) {
-                for (int col = 0; col < maze[row].length; col++) {
-                    if (maze[row][col] == 1) {
-                        g.setColor(Color.BLACK);
-                    } else {
-                        g.setColor(Color.WHITE);
-                    }
     
                     int x = col * 20;
                     int y = row * 20;

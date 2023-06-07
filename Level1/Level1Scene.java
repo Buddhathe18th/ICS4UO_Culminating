@@ -54,16 +54,26 @@ public class Level1Scene extends Level1 implements ActionListener {
      */
     public Level1Scene(Image[] images, String initial, String[] choices, String info) {
         pressed = false;
-        textBoxes = new TextBox[4];
-        textBoxes[0] = new TextBox(0, 0, 1280, 25, initial);
+        textBoxes = new TextBox[6];
+        textBoxes[0] = new TextBox(0, 0, 1180, 25, initial);
         textBoxes[1] = new TextBox(150, 600, 400, 25, choices[0]);
         textBoxes[2] = new TextBox(730, 600, 400, 25, choices[1]);
-        textBoxes[3] = new TextBox(0, 896, 1280, 25, info);
+        textBoxes[3] = new TextBox(0, 900, 1180, 25, info, "bottomleft", false);
+        textBoxes[4] = new TextBox(150, 225, 400, 25, "Play Basketball", "bottomleft", false);
+        textBoxes[5] = new TextBox(730, 225, 400, 25, "Do math", "bottomleft", true);
         shownBoxes.add(textBoxes[0]);
         
+        // Create and add buttons
         buttons = new JButton[2];
-        buttons[0] = createButton(images[0]);
-        buttons[1] = createButton(images[1]);
+        for (int i = 0; i < buttons.length; i++) {
+            buttons[i] = createButton(images[i]);
+            buttons[i].addActionListener(this);
+            buttons[i].setBorderPainted(false); 
+            buttons[i].setContentAreaFilled(false); 
+            buttons[i].setFocusPainted(false); 
+            buttons[i].setOpaque(false);
+            innerPanel.add(buttons[i]);
+        }
 
         // Maps a method to a keyboard key, here the "changeScene" key is mapped to the enter key and changes the scene when it is pressed after a button is pressed
         innerPanel.getActionMap().put("changeScene", new AbstractAction() {
@@ -75,11 +85,6 @@ public class Level1Scene extends Level1 implements ActionListener {
             }
         });
         innerPanel.getInputMap(JComponent.WHEN_IN_FOCUSED_WINDOW).put(KeyStroke.getKeyStroke(KeyEvent.VK_ENTER, 0), "changeScene");
-        // Add the buttons to the innerPanel
-        for (JButton button: buttons) innerPanel.add(button);
-        
-        buttons[0].addActionListener(this);
-        buttons[1].addActionListener(this);
     }
 
     /**
@@ -92,12 +97,13 @@ public class Level1Scene extends Level1 implements ActionListener {
         frame.putClientProperty("JInternalFrame.isPalette", Boolean.TRUE);
         frame.setDefaultCloseOperation(JFrame.EXIT_ON_CLOSE);
         frame.getRootPane().setWindowDecorationStyle(0);
+        frame.getContentPane().setBackground(Color.WHITE);
 
         innerPanel.setLayout(null);
 
         frame.add(innerPanel);
 
-        frame.setSize(1920, 1080);
+        frame.setSize(1200, 900);
         frame.setVisible(true);
         return frame;
     }
@@ -111,13 +117,17 @@ public class Level1Scene extends Level1 implements ActionListener {
         if (!pressed) {
             if (e.getSource() == buttons[0]) {
                 shownBoxes.add( textBoxes[1]);
+                shownBoxes.add(textBoxes[4]);
                 shownBoxes.remove(textBoxes[2]);
             }
             if (e.getSource() == buttons[1]) {
                 shownBoxes.add(textBoxes[2]);
+                shownBoxes.add(textBoxes[5]);
                 shownBoxes.remove(textBoxes[1]);
             }
             shownBoxes.add(textBoxes[3]);
+            
+            
             innerPanel.repaint();
         }
         pressed = true;
@@ -146,6 +156,12 @@ public class Level1Scene extends Level1 implements ActionListener {
      * Panel class to hold all drawings and components
      */
     public class Panel extends JPanel {
+
+        public Panel() {
+            setSize(1200,900);
+            setOpaque(true);
+            setBackground(Color.WHITE);
+        }
         /**
          * Draws the text boxes to the Game Panel.
          *
