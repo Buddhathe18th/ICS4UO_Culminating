@@ -1,7 +1,10 @@
 package Main;
 
 import java.awt.event.*;
+import java.awt.AWTException;
 import java.awt.Image;
+import java.awt.Robot;
+
 import javax.swing.*;
 import javax.imageio.*;
 import java.io.*;
@@ -147,6 +150,18 @@ public class Main implements KeyListener {
                     JInternalFrame test = t.frame();
                     frame.add(test);
                     test.setLocation(0, -15);
+
+                    try{
+                        Robot bot = new Robot();
+                        bot.mouseMove(100, 100);    
+                        bot.mousePress(InputEvent.BUTTON1_DOWN_MASK);
+                        bot.mouseRelease(InputEvent.BUTTON1_DOWN_MASK);
+                        System.out.println("clicked screen");
+                    }
+                    catch (AWTException e){
+                        e.printStackTrace();
+                    }
+
                     break;
                 }
                 case 12: {

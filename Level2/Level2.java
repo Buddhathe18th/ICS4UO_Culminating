@@ -1,6 +1,7 @@
 package Level2;
 
 import java.awt.*;
+import java.awt.event.InputEvent;
 import java.io.File;
 import java.io.IOException;
 import java.util.ArrayList;
@@ -111,6 +112,8 @@ public class Level2 {
     public JInternalFrame frame() {
         MoveFrame frame = new MoveFrame();
 
+        
+
         frame.setSize(1920, 1080);
         frame.setVisible(true);
         frame.setLayout(null);
@@ -118,7 +121,7 @@ public class Level2 {
         frame.setSize(1920, 1080);
         frame.setFocusable(true);
         frame.setVisible(true);
-        frame.setFocusable(true);
+        frame.requestFocus();
         frame.addKeyListener(frame);
         
         return frame;
