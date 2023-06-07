@@ -50,6 +50,8 @@ public class TextBox extends JComponent {
      * The lines of text that will be in each textbox
      */
     private ArrayList<String> lines;
+
+    private boolean centered;
     
     /**
      * Constructor for the TextBox class.
@@ -92,23 +94,31 @@ public class TextBox extends JComponent {
      * @param w The width of the text box
      * @param f The size of the font
      * @param t The text to be shown in the text box
+     * @param or The orientation of the text box
      */
-    public TextBox(int x1, int y1, int w, int f, String t, String or) {
+    public TextBox(int x1, int y1, int w, int f, String t, String or, boolean c) {
         x = x1;
         y = y1;
         width = w;
         fontSize = f;
         textPerLine = (int)(w*1.37/fontSize);
         orientation = or;
+        centered = c;
         String[] text = t.split(" ");
         int maxLen = textPerLine;
         lines = new ArrayList<String>();
+        String buffer;
 
         String temp = "";
         for (String l: text) {
             if (maxLen - l.length() < 0) {
+                buffer = "";
+                if (centered) {
+                    for (int i = 0; i < maxLen/2; i++) buffer += " ";
+                }
                 maxLen = textPerLine;
-                lines.add(temp);
+                lines.add("   asdf" + temp + buffer);
+                
                 temp = "";
             }
             temp += l + " ";
@@ -160,11 +170,17 @@ public class TextBox extends JComponent {
         String[] words = text.split(" ");
         int maxLen = textPerLine;
         String temp = "";
+        String buffer = "";
 
         for (String word : words) {
             if (maxLen - word.length() < 0) {
+                buffer = "";
+                if (centered) {
+                    for (int i = 0; i < maxLen/2; i++) buffer += " ";
+                }
                 maxLen = textPerLine;
-                lines.add(temp);
+                lines.add("   asdf" + temp + buffer);
+                
                 temp = "";
             }
             temp += word + " ";
