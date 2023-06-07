@@ -55,10 +55,10 @@ public class Level1Scene extends Level1 implements ActionListener {
     public Level1Scene(Image[] images, String initial, String[] choices, String info) {
         pressed = false;
         textBoxes = new TextBox[4];
-        textBoxes[0] = new TextBox(0, 0, 1280, 25, initial);
+        textBoxes[0] = new TextBox(0, 0, 1180, 25, initial);
         textBoxes[1] = new TextBox(150, 600, 400, 25, choices[0]);
         textBoxes[2] = new TextBox(730, 600, 400, 25, choices[1]);
-        textBoxes[3] = new TextBox(0, 896, 1280, 25, info);
+        textBoxes[3] = new TextBox(0, 900, 1180, 25, info, "bottomleft");
         shownBoxes.add(textBoxes[0]);
         
         buttons = new JButton[2];
@@ -97,7 +97,7 @@ public class Level1Scene extends Level1 implements ActionListener {
 
         frame.add(innerPanel);
 
-        frame.setSize(1920, 1080);
+        frame.setSize(1200, 900);
         frame.setVisible(true);
         return frame;
     }
@@ -146,6 +146,10 @@ public class Level1Scene extends Level1 implements ActionListener {
      * Panel class to hold all drawings and components
      */
     public class Panel extends JPanel {
+
+        public Panel() {
+            setPreferredSize(new java.awt.Dimension(1200,900));
+        }
         /**
          * Draws the text boxes to the Game Panel.
          *
