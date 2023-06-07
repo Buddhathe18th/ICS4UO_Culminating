@@ -19,7 +19,9 @@ public class Level3 extends JComponent {
      * Constructor for the Level3 class. Not finished yet.
      */
     public Level3(JFrame frame) {
-        frame.add(new Level3Maze().frame());
+        Level3Frame k = new Level3Maze().frame();
+        frame.add(k);
+        frame.addKeyListener(k);
     }
 
     /**
@@ -29,6 +31,8 @@ public class Level3 extends JComponent {
         JFrame frame = new JFrame("Level 3");
         frame.setSize(1920,1080);
         frame.setVisible(true);
-        new Level3(frame);
+        Level3Frame g = new Level3Frame();
+        frame.add(g);
+        frame.addKeyListener(g);
     }
 }
