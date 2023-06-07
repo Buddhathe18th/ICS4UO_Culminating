@@ -16,15 +16,6 @@ import java.util.*;
 public class Level3 extends JComponent {
 
     /**
-     * Constructor for the Level3 class. Not finished yet.
-     */
-    public Level3(JFrame frame) {
-        Level3Frame k = new Level3Maze().frame();
-        frame.add(k);
-        frame.addKeyListener(k);
-    }
-
-    /**
      * Temporary main class used to test the level.
      */
     public static void main(String[] args) {

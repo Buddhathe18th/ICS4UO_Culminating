@@ -26,6 +26,32 @@ public class Level3Frame extends JInternalFrame implements KeyListener {
 
     public ArrayList<Item> itemsLeft = new ArrayList<Item>(6);
 
+    public final static int[][] maze = {{1, 1, 1, 1, 1, 1, 1, 1, 1, 1, 1, 0, 1, 1, 1, 1, 1, 1, 1, 1, 1, 1, 1, 1, 1, 1},
+                            {1, 0, 1, 0, 0, 0, 0, 0, 0, 0, 1, 0, 1, 0, 0, 0, 0, 0, 0, 1, 0, 0, 0, 0, 0, 1},
+                            {1, 0, 1, 0, 1, 1, 0, 1, 1, 1, 1, 0, 1, 0, 1, 1, 1, 1, 0, 1, 1, 1, 1, 1, 0, 1},
+                            {1, 0, 0, 0, 0, 1, 0, 0, 0, 0, 1, 0, 1, 0, 0, 0, 0, 1, 0, 0, 0, 0, 0, 0, 0, 1},
+                            {1, 0, 1, 1, 0, 1, 1, 1, 1, 0, 1, 0, 1, 1, 1, 1, 0, 1, 1, 1, 1, 1, 1, 1, 0, 1},
+                            {1, 0, 0, 1, 0, 0, 0, 0, 1, 0, 1, 0, 0, 0, 0, 0, 0, 1, 0, 0, 0, 0, 0, 1, 0, 1},
+                            {1, 0, 1, 1, 0, 1, 1, 0, 1, 0, 1, 1, 1, 0, 1, 1, 0, 1, 1, 1, 1, 1, 0, 1, 0, 1},
+                            {1, 0, 0, 0, 0, 0, 1, 0, 1, 0, 0, 0, 1, 0, 1, 0, 0, 0, 0, 0, 0, 0, 0, 1, 0, 1},
+                            {1, 1, 1, 1, 0, 1, 1, 0, 1, 1, 1, 0, 1, 0, 1, 0, 1, 1, 1, 1, 1, 1, 0, 1, 0, 1},
+                            {1, 0, 0, 0, 0, 0, 1, 0, 1, 0, 1, 0, 1, 0, 1, 0, 1, 0, 0, 0, 0, 1, 0, 1, 0, 1},
+                            {1, 1, 1, 0, 1, 1, 1, 0, 1, 0, 1, 0, 1, 0, 1, 1, 1, 0, 1, 1, 0, 1, 0, 1, 0, 1},
+                            {1, 0, 0, 0, 0, 0, 1, 0, 1, 0, 1, 0, 0, 0, 1, 0, 0, 0, 0, 1, 0, 1, 0, 1, 0, 1},
+                            {1, 0, 1, 1, 1, 1, 1, 0, 1, 0, 1, 1, 1, 0, 1, 1, 1, 1, 1, 1, 0, 1, 0, 1, 0, 1},
+                            {1, 0, 0, 0, 0, 0, 1, 0, 1, 0, 0, 0, 1, 0, 0, 0, 0, 0, 0, 0, 0, 1, 0, 1, 0, 1},
+                            {1, 0, 1, 1, 0, 1, 1, 0, 1, 0, 1, 0, 1, 0, 1, 1, 1, 1, 1, 1, 0, 1, 1, 1, 0, 1},
+                            {1, 0, 0, 1, 0, 0, 0, 0, 1, 0, 1, 0, 1, 0, 1, 0, 0, 1, 0, 0, 0, 0, 0, 1, 0, 1},
+                            {1, 1, 1, 1, 0, 1, 1, 1, 1, 0, 1, 0, 1, 0, 1, 1, 0, 1, 1, 1, 1, 1, 1, 1, 0, 1},
+                            {1, 0, 0, 0, 0, 0, 0, 0, 1, 0, 1, 0, 1, 0, 0, 0, 0, 1, 0, 0, 0, 0, 0, 0, 0, 1},
+                            {1, 0, 1, 1, 1, 1, 1, 0, 1, 1, 1, 0, 1, 0, 1, 0, 1, 1, 1, 1, 1, 1, 1, 1, 0, 1},
+                            {1, 0, 0, 1, 0, 0, 0, 0, 1, 0, 1, 0, 0, 0, 1, 0, 0, 0, 0, 0, 0, 0, 0, 1, 0, 1},
+                            {1, 1, 1, 1, 0, 1, 1, 0, 1, 0, 1, 1, 1, 0, 1, 1, 0, 1, 1, 1, 1, 1, 1, 1, 0, 1},
+                            {1, 0, 0, 0, 0, 0, 1, 0, 1, 0, 0, 0, 1, 0, 1, 0, 0, 1, 0, 0, 0, 0, 0, 1, 0, 1},
+                            {1, 0, 1, 1, 1, 1, 1, 0, 1, 0, 1, 0, 1, 0, 1, 0, 1, 1, 1, 1, 0, 1, 0, 1, 0, 1},
+                            {1, 0, 0, 0, 0, 0, 0, 0, 1, 0, 1, 0, 0, 0, 1, 0, 1, 0, 0, 0, 0, 1, 0, 0, 0, 0},
+                            {1, 1, 1, 1, 1, 1, 1, 1, 1, 1, 1, 1, 1, 1, 1, 1, 1, 1, 1, 1, 1, 1, 1, 1, 1, 1}};
+
     public Level3Frame() {
         super("", false, false, false, false);
 
@@ -82,7 +108,7 @@ public class Level3Frame extends JInternalFrame implements KeyListener {
         if (e.getKeyCode() == KeyEvent.VK_RIGHT) {
             System.out.println("right");
             if (level3Char.column + 1 < 25
-                    && Level3Maze.maze[level3Char.row][level3Char.column + 1] == 0) {
+                    && maze[level3Char.row][level3Char.column + 1] == 0) {
                 level3Char.column++;
             }
             innerPanel.revalidate();
@@ -92,7 +118,7 @@ public class Level3Frame extends JInternalFrame implements KeyListener {
         } else if (e.getKeyCode() == KeyEvent.VK_LEFT) {
             System.out.println("left");
             if (level3Char.column - 1 > -1
-                    && Level3Maze.maze[level3Char.row][level3Char.column - 1] == 0) {
+                    && maze[level3Char.row][level3Char.column - 1] == 0) {
                 level3Char.column--;
             }
             innerPanel.revalidate();
@@ -102,7 +128,7 @@ public class Level3Frame extends JInternalFrame implements KeyListener {
         } else if (e.getKeyCode() == KeyEvent.VK_UP) {
             System.out.println("up");
             if (level3Char.row-1 >-1
-                    && Level3Maze.maze[level3Char.row-1][level3Char.column] == 0) {
+                    && maze[level3Char.row-1][level3Char.column] == 0) {
                 level3Char.row--;
             }
             innerPanel.revalidate();
@@ -112,7 +138,7 @@ public class Level3Frame extends JInternalFrame implements KeyListener {
         } else if (e.getKeyCode() == KeyEvent.VK_DOWN) {
             System.out.println("down");
             if (level3Char.row+1 <25
-                    && Level3Maze.maze[level3Char.row+1][level3Char.column] == 0) {
+                    && maze[level3Char.row+1][level3Char.column] == 0) {
                 level3Char.row++;
             }
             innerPanel.revalidate();
@@ -140,9 +166,9 @@ public class Level3Frame extends JInternalFrame implements KeyListener {
          */
         protected void paintComponent(Graphics g) {
             super.paintComponent(g);
-            for (int row = 0; row < Level3Maze.maze.length; row++) {
-                for (int col = 0; col < Level3Maze.maze[row].length; col++) {
-                    if (Level3Maze.maze[row][col] == 1) {
+            for (int row = 0; row < maze.length; row++) {
+                for (int col = 0; col < maze[row].length; col++) {
+                    if (maze[row][col] == 1) {
                         g.setColor(Color.BLACK);
                     } else {
                         g.setColor(Color.WHITE);
