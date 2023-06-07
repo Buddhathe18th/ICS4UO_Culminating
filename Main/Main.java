@@ -123,6 +123,7 @@ public class Main implements KeyListener {
                         e.printStackTrace();
                     }
                     new Level1(frame, i, init, c, inf);
+                    screenNum=9;
                     break;
                 }
 
