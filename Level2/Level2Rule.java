@@ -44,6 +44,11 @@ public class Level2Rule {
         frame.getRootPane().setWindowDecorationStyle(0);
         frame.add(draw);
 
+
+        
+        frame.getContentPane().setFocusable(false);
+        frame.setFocusable(false);
+        
         frame.add(t);
         // frame.add(new JLabel("test"));
 

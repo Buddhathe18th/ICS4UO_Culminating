@@ -43,7 +43,11 @@ public class BackStory implements KeyListener{
         frame.add(draw);
         
         frame.add(t);
-
+        
+        
+        frame.getContentPane().setFocusable(false);
+        frame.setFocusable(false);
+        
         frame.addKeyListener(this);
         draw.addKeyListener(this);
         t.addKeyListener(this);
