@@ -120,7 +120,7 @@ public class Level2Result implements ActionListener{
 
             Image[] iArr = new Image[1];
             try {
-                iArr[0] = ImageIO.read(new File("Level2\\bin.png"));
+                iArr[0] = ImageIO.read(new File("Level2\\Images\\bin.png"));
             } catch (IOException e) {
                 e.printStackTrace();
             }
@@ -132,7 +132,7 @@ public class Level2Result implements ActionListener{
 
             Image[] iArr1 = new Image[1];
             try {
-                iArr1[0] = ImageIO.read(new File("Level2\\table.png"));
+                iArr1[0] = ImageIO.read(new File("Level2\\Images\\table.png"));
             } catch (IOException e) {
                 System.out.println("broken");
             }
@@ -149,10 +149,10 @@ public class Level2Result implements ActionListener{
     public void actionPerformed(ActionEvent e) {
         
         if(e.getSource()==buttonL3){
-            Main.Main.screenNum=1;//TODO: change to level 3 number when implemented
+            Main.Main.screenNum=15;//TODO: change to level 3 number when implemented
         }
         else if(e.getSource()==mainMenu){
-            Main.Main.screenNum=2;//change screen to main menu
+            Main.Main.screenNum=3;//change screen to main menu
         }
         
     }

@@ -67,7 +67,7 @@ public class Level2Rule {
         public void paint(Graphics g) {
             Image[] iArr = new Image[1];
             try {
-                iArr[0] = ImageIO.read(new File("Level2\\table.png"));
+                iArr[0] = ImageIO.read(new File("Level2\\Images\\table.png"));
             } catch (IOException e) {
                 System.out.println("broken");
             }
@@ -78,56 +78,9 @@ public class Level2Rule {
             // Draws a rectangular box at specified coordinates
             g.drawRect(t.getCoords()[0], t.getCoords()[1], t.getWidth(),
                     (int) ((t.getText().size() + 0.25) * t.getFontSize()));
-            // Draws the text in the text boxes, line by line
-            for (int i = 0; i < t.getText().size(); i++)
-                g.drawString(t.getText().get(i), t.getCoords()[0], t.getCoords()[1] + (i + 1) * t.getFontSize());
-
-            // int fontSize = t.getFontSize();
-            // int width = t.getWidth();
-            // int[] coords = t.getCoords();
-            // ArrayList<String> text = t.getText();
-            // t.setFont(new Font("Courier New", Font.PLAIN, fontSize));
-            // // Draws a rectangular box at specified coordinates
-            // g.drawRect(coords[0], coords[1], width, (int) ((text.size() + 0.25) *
-            // fontSize));
-            // // Draws the text in the text boxes, line by line
-            // for (int j = 0; j < text.size(); j++)
-            // g.drawString(text.get(j), coords[0], coords[1] + (j + 1) * fontSize);
-
-            // g.setFont(new Font("Courier New", Font.PLAIN, 80));
-            // g.drawString("LC Studios Presents...", 325, 200);
-            // g.setFont(new Font("Courier New", Font.PLAIN, 50));
-            // g.drawString("Race Against Time", 475, 400);
-            // g.setFont(new Font("Courier New", Font.PLAIN, 20));
-            // g.drawString("Press enter to continue", 550, 600);
+        
 
         }
 
     }
-
-    /**
-     * Overidded KeyListener methods to listen for the enter key to change screens
-     */
-
-    // @Override
-    // public void keyTyped(KeyEvent e) {
-    // if (e.getKeyCode() == KeyEvent.VK_ENTER) {
-    // Main.Main.screenNum = 2;
-    // }
-    // }
-
-    // @Override
-    // public void keyPressed(KeyEvent e) {
-    // if (e.getKeyCode() == KeyEvent.VK_ENTER) {
-    // Main.Main.screenNum = 2;
-    // }
-    // }
-
-    // @Override
-    // public void keyReleased(KeyEvent e) {
-    // if (e.getKeyCode() == KeyEvent.VK_ENTER) {
-    // Main.Main.screenNum = 2;
-    // }
-
-    // }
 }
