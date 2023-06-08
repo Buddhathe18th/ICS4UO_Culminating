@@ -207,8 +207,7 @@ public class TextBoxCentered extends TextBox {
         super.paintComponent(g);
         g.setFont(new Font("Courier New", Font.PLAIN, fontSize));
         // Draws a rectangular box at specified coordinates
-        if (visible)
-            g.drawRect(getCoords()[0], getCoords()[1], width, (int) ((getText().size() + 0.25) * fontSize));
+        if (visible) g.drawRect(getCoords()[0], getCoords()[1], width, (int) ((getText().size() + 0.25) * fontSize));
         // Draws the text in the text boxes, line by line
         for (int i = 0; i < getText().size(); i++)
             g.drawString(getText().get(i), getCoords()[0], getCoords()[1] + (i + 1) * fontSize);
