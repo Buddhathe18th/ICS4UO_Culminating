@@ -39,7 +39,7 @@ public class Level1Rule implements KeyListener{
         frame.setDefaultCloseOperation(JFrame.EXIT_ON_CLOSE);
         frame.getRootPane().setWindowDecorationStyle(0);
         frame.setLayout(null);
-        frame.add(draw);
+        
         
         frame.add(t);
         
@@ -50,6 +50,7 @@ public class Level1Rule implements KeyListener{
         
 
         frame.getContentPane().setBackground(Color.red);
+        frame.add(draw);
 
         frame.setSize(1920, 1080);
         frame.setVisible(true);

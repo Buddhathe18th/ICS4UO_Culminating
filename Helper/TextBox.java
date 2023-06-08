@@ -35,7 +35,7 @@ public class TextBox extends JComponent {
      * The way the text box is drawn
      */
     private String orientation;
-
+    
     /**
      * The font size
      */
@@ -136,7 +136,7 @@ public class TextBox extends JComponent {
         }
         lines.add(temp);
     }
-    
+
     /**
      * Gets the size of the font in the text box
      * @return The size of the font in the text box 
@@ -150,8 +150,7 @@ public class TextBox extends JComponent {
      * @return Int array [x, y], the x and y coordinates of the text box
      */
     public int[] getCoords() {
-        if (orientation == "bottomleft") return new int[] {x, y-(int)((lines.size()+0.25)*fontSize)};
-        else return new int[] {x, y};
+        return new int[] {x, y};
     }
 
     /**
@@ -184,7 +183,6 @@ public class TextBox extends JComponent {
         String[] words = text.split(" ");
         int maxLen = textPerLine;
         String temp = "";
-        String buffer = "";
 
         for (String l : words) {
             if (maxLen - l.length() < 0) {
@@ -194,6 +192,7 @@ public class TextBox extends JComponent {
                     buffer = "";
                 }
                 maxLen = textPerLine;
+                lines.add(temp);
                 lines.add(temp);
                 temp = "";
             }
@@ -205,5 +204,14 @@ public class TextBox extends JComponent {
             temp = buffer + temp;
         }
         lines.add(temp);
+    }
+    
+    public void paintComponent(Graphics g){
+        super.paintComponent(g);
+        g.setFont(new Font("Courier New", Font.PLAIN, fontSize));
+        // Draws a rectangular box at specified coordinates
+        g.drawRect(getCoords()[0], getCoords()[1], width, (int)((getText().size()+0.25)*fontSize));
+        // Draws the text in the text boxes, line by line
+        for (int i = 0; i < getText().size(); i++) g.drawString(getText().get(i), getCoords()[0], getCoords()[1]+(i+1)*fontSize);
     }
 }

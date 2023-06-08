@@ -27,15 +27,17 @@ public class Level3 extends JComponent {
         frame.addKeyListener(g);
         while(true){
             try {
+                
                 // Stops the program from running for 1 second to preserve computer power
                 Thread.sleep(1000);
+                System.out.println(g.timeLeft+" "+g.win);
                 if(g.timeLeft>=0&&!g.win){
                     g.timeLeft--;
                     g.revalidate();
                     g.repaint();
                 }
                 else{
-                    System.exit(0);
+                    System.out.println("winning teh game");
                     break;
                     
                 }
