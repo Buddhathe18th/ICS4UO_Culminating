@@ -25,11 +25,6 @@ public class MainMenu implements ActionListener {
     JButton exit = new JButton("Exit");
 
     /**
-     * The drawing that will be on the screen
-     */
-    Drawing draw = new Drawing();
-
-    /**
      * The frame that will be passed to the Main class
      */
     JInternalFrame frame;
@@ -90,20 +85,11 @@ public class MainMenu implements ActionListener {
     public class Panel extends JPanel{
         public void paintComponent(Graphics g){
             super.paintComponent(g);
-            g.drawString("Main Menu",300,200);
+            g.setFont(new Font("Courier New", Font.PLAIN, 100));
+            g.drawString("Main Menu",380,200);
         }
     }
 
-    /**
-     * Drawing class for paiting text onto the Main Menu screen
-     */
-    class Drawing extends Canvas {
-        public void paint(Graphics g) {
-            g.setFont(new Font("Courier New", Font.PLAIN, 80));
-            g.drawString("Main Menu", 0, 100);
-            g.setColor(new Color(255, 190, 50));
-        }
-    }
 
     /**
      * Action listener for the button on level1, button for level 2 brings to the
