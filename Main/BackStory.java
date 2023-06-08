@@ -34,10 +34,8 @@ public class BackStory implements ActionListener {
      */
     JInternalFrame frame;
 
-    TextBox t = new TextBox(0, 0, 1920, 25,
-            "On the screen, two items will pop up, one will be helpful to Johnny for school work, and the other will be a distraction. Click on the items that are helpful to Johnny!\nPress enter to continue");
-
-
+    TextBox t = new TextBox(0, 0, 1280, 25,
+            "Johnny is an 8th grade student at Silver Oak Middle School. Each day he spends hours playing video games. He’s currently plagued by the greatest disease of this generation… PROCRASTINATION                                                     Press enter to continue");            
     public BackStory() {
         
     }
@@ -77,6 +75,16 @@ public class BackStory implements ActionListener {
      */
     class Drawing extends Canvas {
         public void paint(Graphics g) {
+            Image[] iArr = new Image[1];
+            try {
+                iArr[0] = ImageIO.read(new File("\\gaming.png"));
+            } catch (IOException e) {
+                e.printStackTrace();
+            }
+
+            //The two bins
+
+            g.drawImage(iArr[0], 0, 500, 200, 180, null);
             g.setFont(new Font("Courier New", Font.PLAIN, 80));
             g.drawString("Race Against Time", 0, 0);
             g.setColor(new Color(255, 190, 50));
@@ -95,30 +103,21 @@ public class BackStory implements ActionListener {
         protected void paintComponent(Graphics g) {
             super.paintComponent(g);
 
-            Image[] iArr = new Image[1];
+            Image[] iArr = new Image[4];
             try {
-                iArr[0] = ImageIO.read(new File("Level2\\Images\\bin.png"));
+                iArr[0] = ImageIO.read(new File("Level2\\Images\\basketball.png"));
+                iArr[1] = ImageIO.read(new File("Level2\\Images\\laptop.png"));
+                iArr[2] = ImageIO.read(new File("Level2\\Images\\nitendoSwitch.png"));
+                iArr[3] = ImageIO.read(new File("Level2\\Images\\phone.png"));
             } catch (IOException e) {
                 e.printStackTrace();
             }
 
-            //The two bins
-
-            g.drawImage(iArr[0], 0, 500, 200, 180, null);
-            g.drawImage(iArr[0], 1220, 500, 200, 180, null);
-
-            Image[] iArr1 = new Image[1];
-            try {
-                iArr1[0] = ImageIO.read(new File("Level2\\Images\\table.png"));
-            } catch (IOException e) {
-                System.out.println("broken");
+            for(int i = 0; i<20; i++){
+                int k =(int)(Math.random()*400)+150;
+                g.drawImage(iArr[i%4], (int)(Math.random()*1280)-k, k+(int)(Math.random()*600),k,k,null);
             }
 
-            //The table
-            g.drawImage(iArr1[0], 300, 130, 800, 600, null);
-
-            g.setColor(new Color(238,238,238,140));
-            g.fillRect(0,0,1920,1080);
         }
     }
 }

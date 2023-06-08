@@ -66,6 +66,29 @@ public class TextBoxCentered extends TextBox {
      */
     public TextBoxCentered(int x1, int y1, int w, int f, String t) {
         super(x1, y1, w, f, t);
+
+        x = x1;
+        y = y1;
+        width = w;
+        fontSize = f;
+        textPerLine = (int) (w * 1.4 / fontSize);
+        orientation = "topleft";
+        visible = true;
+        String[] text = t.split(" ");
+        int maxLen = textPerLine;
+        lines = new ArrayList<String>();
+
+        String temp = "";
+        for (String l : text) {
+            if (maxLen - l.length() < 0) {
+                maxLen = textPerLine;
+                lines.add(temp);
+                temp = "";
+            }
+            temp += l + " ";
+            maxLen -= l.length();
+        }
+        lines.add(temp);
     }
 
     /**
@@ -119,9 +142,9 @@ public class TextBoxCentered extends TextBox {
         }
         lines.add(temp);
 
-        setBounds(x, y, width, (int) (getText().size() + 0.25) * fontSize);
+        setBounds(x, y, width, (int) (lines.size() + 0.25) * fontSize);
         setLocation(x, y);
-        setSize(width, (int) (getText().size() + 0.25) * fontSize);
+        setSize(width, (int) (lines.size() + 0.25) * fontSize);
         setOpaque(false);
     }
 
