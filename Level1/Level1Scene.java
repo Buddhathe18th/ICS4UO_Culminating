@@ -164,6 +164,7 @@ public class Level1Scene extends Level1 implements ActionListener {
             setOpaque(true);
             setBackground(Color.WHITE);
         }
+        
         /**
          * Draws the text boxes to the Game Panel.
          *
