@@ -1,9 +1,47 @@
 package Main;
 import java.awt.*;
+import java.awt.event.ActionEvent;
+import java.awt.event.ActionListener;
+import java.io.File;
+import java.io.IOException;
 
+import javax.imageio.ImageIO;
 import javax.swing.*;
 
-public class Credits {
+public class Credits implements ActionListener {
+
+    public JInternalFrame frame;
+
+    public Panel innerPanel;
+    
+    JButton mainMenu;
+
+    public JInternalFrame frame(){
+        frame = new JInternalFrame("", false, false, false, false);
+        frame.putClientProperty("JInternalFrame.isPalette", Boolean.TRUE);
+        frame.setDefaultCloseOperation(JFrame.EXIT_ON_CLOSE);
+        frame.getRootPane().setWindowDecorationStyle(0);
+innerPanel = new Panel();
+        innerPanel.setLayout(null);
+
+        frame.add(innerPanel);
+
+
+        frame.setSize(1920, 1080);
+        frame.setVisible(true);
+
+        mainMenu = new JButton("Main Menu");
+        mainMenu.addActionListener(this);
+
+
+        innerPanel.add(mainMenu);
+        mainMenu.setSize(new Dimension(600,50));
+        mainMenu.setLocation(405, 375);
+
+        return frame;
+    }
+
+
     /**
      * Panel class to hold all drawings and components
      */
@@ -21,10 +59,21 @@ public class Credits {
          */
         protected void paintComponent(Graphics g) {
             super.paintComponent(g);
+
+            Image[] iArr = new Image[1];
+            try {
+                iArr[0] = ImageIO.read(new File("Main\\logo.png"));
+            } catch (IOException e) {
+                e.printStackTrace();
+            }
+
+            g.drawImage(iArr[0], 200, 300,200,200, null);
         }
     }
 
-    public static void main(String[] args) {
-        new Credits();
+    @Override
+    public void actionPerformed(ActionEvent e) {
+        Main.screenNum=3;
+        
     }
 }
