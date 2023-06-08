@@ -109,13 +109,16 @@ public class Main implements KeyListener {
                                 "Incorrect! Johnny should prioritize assignments that are due earlier. He has plenty of time to finish his science project.", 
                                 "Correct! Johnny should prioritize assignments that are due earlier, regardless of if he likes the subject or not.", 
                                 "Correct! Sleeping can help keep your body healthy and ready for the next day!", 
-                                "Incorrect! Without sleep, Johnny will be fatigued and very unfocused the next day.", 
-                            };
+                                "Incorrect! Without sleep, Johnny will be fatigued and very unfocused the next day.", };
                     String[] inf = {"Fun Fact! Sports are good for your mental health, but at times like these, commiting and working is still the overall best choice! Press enter to continue...", 
                                     "Fun Fact! According to research from Brigham Young University, video game breaks can increase productivity by up to 20%. But make sure not to play too much! Too many video games can lead to many problems such as a reduced attention span. Press enter to continue...", 
                                     "Fun Fact! According to research from Brigham Young University, video game breaks can increase productivity by up to 20%, but make sure not to play too much! Too many video games can lead to many problems such as a decreased attention span and eye strain. Press enter to continue...", 
-                                    "Fun Fact! Being sleep deprived will make you behave in similar ways to being drunk! According to Harvard Medical School, going 48 hours without sleep is equivalent to having a 0.1% blood alcohol content, which is higher than the legal amount to drive! Press enter to continue...", 
-                                    };
+                                    "Fun Fact! Being sleep deprived will make you behave in similar ways to being drunk! According to Harvard Medical School, going 48 hours without sleep is equivalent to having a 0.1% blood alcohol content, which is higher than the legal amount to drive! Press enter to continue...", };
+                    
+                    String[] txt = {"Play basketball", "Do math", 
+                                    "Do english", "Play Minecraft", 
+                                    "Work on science", "Work on history", 
+                                    "Sleep", "Watch Youtube"};
                     Image[] i = new Image[8];
                     try {
                         i[0] = ImageIO.read(new File("Level1\\Images\\basketball.png"));
@@ -130,7 +133,7 @@ public class Main implements KeyListener {
                     catch (IOException e) {
                         e.printStackTrace();
                     }
-                    new Level1(frame, i, init, c, inf);
+                    new Level1(frame, i, init, c, inf, txt);
                     screenNum=9;
                     break;
                 }

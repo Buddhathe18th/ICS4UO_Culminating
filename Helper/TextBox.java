@@ -52,6 +52,8 @@ public class TextBox extends JComponent {
     private ArrayList<String> lines;
 
     private boolean centered;
+
+    private boolean visible;
     
     /**
      * Constructor for the TextBox class.
@@ -69,6 +71,7 @@ public class TextBox extends JComponent {
         fontSize = f;
         textPerLine = (int)(w*1.4/fontSize);
         orientation = "topleft";
+        visible = true;
         String[] text = t.split(" ");
         int maxLen = textPerLine;
         lines = new ArrayList<String>();
@@ -95,8 +98,10 @@ public class TextBox extends JComponent {
      * @param f The size of the font
      * @param t The text to be shown in the text box
      * @param or The orientation of the text box
+     * @param c If the text is centered or not
+     * @param v If the text box borders are visible or not
      */
-    public TextBox(int x1, int y1, int w, int f, String t, String or, boolean c) {
+    public TextBox(int x1, int y1, int w, int f, String t, String or, boolean c, boolean v) {
         x = x1;
         y = y1;
         width = w;
@@ -104,25 +109,30 @@ public class TextBox extends JComponent {
         textPerLine = (int)(w*1.37/fontSize);
         orientation = or;
         centered = c;
+        visible = v;
         String[] text = t.split(" ");
         int maxLen = textPerLine;
         lines = new ArrayList<String>();
-        String buffer;
+        String buffer = "";
 
         String temp = "";
-        for (String l: text) {
+        for (String l : text) {
             if (maxLen - l.length() < 0) {
-                buffer = "";
                 if (centered) {
-                    for (int i = 0; i < maxLen/2; i++) buffer += " ";
+                    for (int i = 0; i < maxLen/2+2; i++) buffer += " ";
+                    temp = buffer + temp;
+                    buffer = "";
                 }
                 maxLen = textPerLine;
-                lines.add(buffer + temp + buffer);
-                
+                lines.add(temp);
                 temp = "";
             }
             temp += l + " ";
             maxLen -= l.length();
+        }
+        if (centered) {
+            for (int i = 0; i < maxLen/2+2; i++) buffer += " ";
+            temp = buffer + temp;
         }
         lines.add(temp);
     }
@@ -159,6 +169,10 @@ public class TextBox extends JComponent {
     public ArrayList<String> getText() {
         return lines;
     }
+
+    public boolean isVisible() {
+        return visible;
+    }
     
     /**
      * Sets the text to be shown in the text box.
@@ -172,19 +186,23 @@ public class TextBox extends JComponent {
         String temp = "";
         String buffer = "";
 
-        for (String word : words) {
-            if (maxLen - word.length() < 0) {
-                buffer = "";
+        for (String l : words) {
+            if (maxLen - l.length() < 0) {
                 if (centered) {
-                    for (int i = 0; i < maxLen/2; i++) buffer += " ";
+                    for (int i = 0; i < maxLen/2+2; i++) buffer += " ";
+                    temp = buffer + temp;
+                    buffer = "";
                 }
                 maxLen = textPerLine;
-                lines.add(buffer + temp + buffer);
-                
+                lines.add(temp);
                 temp = "";
             }
-            temp += word + " ";
-            maxLen -= word.length();
+            temp += l + " ";
+            maxLen -= l.length();
+        }
+        if (centered) {
+            for (int i = 0; i < maxLen/2+2; i++) buffer += " ";
+            temp = buffer + temp;
         }
         lines.add(temp);
     }

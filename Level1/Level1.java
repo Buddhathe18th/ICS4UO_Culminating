@@ -69,7 +69,7 @@ public class Level1 extends JComponent {
      * @param inf The info blurbs show at the bottom of the screen every time the
      *            player completes a scenario.
      */
-    public Level1(JFrame frame, Image[] im, String[] in, String[] c, String inf[]) {
+    public Level1(JFrame frame, Image[] im, String[] in, String[] c, String inf[], String[] choiceNames) {
         scenarios = 4;
         images = new Image[scenarios * 2];
 
@@ -84,7 +84,7 @@ public class Level1 extends JComponent {
                 changed = false;
                 frame.getContentPane().removeAll();
                 frame.add(new Level1Scene(new Image[] { images[scene * 2], images[scene * 2 + 1] }, initial[scene],
-                        new String[] { choices[scene * 2], choices[scene * 2 + 1] }, info[scene++]).frame());
+                        new String[] { choices[scene * 2], choices[scene * 2 + 1] }, info[scene], new String[] { choiceNames[scene * 2], choiceNames[scene++ * 2 + 1] }).frame());
                 frame.getContentPane().repaint();
             }
             System.out.print("");
@@ -126,6 +126,16 @@ public class Level1 extends JComponent {
                 "Fun Fact! According to research from Brigham Young University, video game breaks can increase productivity by up to 20%, but make sure not to play too much! Too many video games can lead to many problems such as a decreased attention span and eye strain. Press enter to continue...",
                 "Fun Fact! Being sleep deprived will make you behave in similar ways to being drunk! According to Harvard Medical School, going 48 hours without sleep is equivalent to having a 0.1% blood alcohol content, which is higher than the legal amount to drive! Press enter to continue...",
         };
+
+        String[] txt = {"Play basketball", 
+                        "Do math", 
+                        "Do english", 
+                        "Play Minecraft", 
+                        "Work on science", 
+                        "Work on history", 
+                        "Sleep", 
+                        "Watch Youtube"};
+
         Image[] i = new Image[8];
         try {
             i[0] = ImageIO.read(new File("Level1\\Images\\basketball.png"));
@@ -145,6 +155,6 @@ public class Level1 extends JComponent {
         frame.setVisible(true);
         frame.setResizable(false);
 
-        new Level1(frame, i, init, c, inf);
+        new Level1(frame, i, init, c, inf, txt);
     }
 }
