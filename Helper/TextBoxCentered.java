@@ -140,7 +140,8 @@ public class TextBoxCentered extends TextBox {
      * @return Int array [x, y], the x and y coordinates of the text box
      */
     public int[] getCoords() {
-        return new int[] { x, y };
+        if (orientation == "bottomleft") return new int[] {x, y-(int)((lines.size()+0.25)*fontSize)};
+        else return new int[] {x, y};
     }
 
     /**

@@ -79,18 +79,24 @@ public class Level1 extends JComponent {
         info = inf;
         changed = true;
         int scene = 0;
-        while (scene < scenarios) {
+        while (scene < scenarios+1) {
             if (changed) {
-                changed = false;
-                frame.getContentPane().removeAll();
-                frame.add(new Level1Scene(new Image[] { images[scene * 2], images[scene * 2 + 1] }, initial[scene],
-                        new String[] { choices[scene * 2], choices[scene * 2 + 1] }, info[scene], new String[] { choiceNames[scene * 2], choiceNames[scene++ * 2 + 1] }).frame());
-                frame.getContentPane().repaint();
+                if (scene < scenarios) {
+                    changed = false;
+                    frame.getContentPane().removeAll();
+                    frame.add(new Level1Scene(new Image[] { images[scene * 2], images[scene * 2 + 1] }, initial[scene],
+                            new String[] { choices[scene * 2], choices[scene * 2 + 1] }, info[scene], new String[] { choiceNames[scene * 2], choiceNames[scene++ * 2 + 1] }).frame());
+                    frame.getContentPane().repaint();
+                }
+                else {
+                    changed = false;
+                    frame.getContentPane().removeAll();
+                    frame.getContentPane().repaint();
+                    frame.requestFocusInWindow();
+                }
             }
             System.out.print("");
         }
-        frame.getContentPane().removeAll();
-        frame.requestFocusInWindow();
     }
 
     /**
