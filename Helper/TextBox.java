@@ -117,7 +117,7 @@ public class TextBox extends JComponent {
                     for (int i = 0; i < maxLen/2; i++) buffer += " ";
                 }
                 maxLen = textPerLine;
-                lines.add("   asdf" + temp + buffer);
+                lines.add(buffer + temp + buffer);
                 
                 temp = "";
             }
@@ -179,7 +179,7 @@ public class TextBox extends JComponent {
                     for (int i = 0; i < maxLen/2; i++) buffer += " ";
                 }
                 maxLen = textPerLine;
-                lines.add("   asdf" + temp + buffer);
+                lines.add(buffer + temp + buffer);
                 
                 temp = "";
             }

@@ -56,6 +56,7 @@ public class Main implements KeyListener {
         frame.setDefaultCloseOperation(JFrame.EXIT_ON_CLOSE);
         frame.setSize(1920, 1080);
         frame.setFocusable(true);
+        frame.setResizable(false);
         frame.addKeyListener(this);
         frame.setVisible(true);
 

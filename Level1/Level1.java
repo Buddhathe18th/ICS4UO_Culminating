@@ -143,6 +143,7 @@ public class Level1 extends JComponent {
         JFrame frame = new JFrame("Level 1");
         frame.setSize(1200, 960);
         frame.setVisible(true);
+        frame.setResizable(false);
 
         new Level1(frame, i, init, c, inf);
     }
