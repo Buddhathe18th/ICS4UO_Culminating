@@ -17,6 +17,8 @@ import Helper.MoveFrame;
 import Level2.Level2;
 import Level2.Level2Result;
 import Level2.Level2Rule;
+import Level3.Level3Frame;
+import Level3.Level3Result;
 
 /**
  * The Main class is the class that runs and calls all other classes. This class
@@ -36,7 +38,9 @@ public class Main implements KeyListener {
     public static int screenNum = 1;
     JInternalFrame content = new JInternalFrame();
     boolean run = true;
-    JFrame frame;
+    static JFrame frame;
+
+    public Level3Frame g = new Level3Frame();
 
     public static void main(String[] args) {
         new Main();
@@ -171,6 +175,19 @@ public class Main implements KeyListener {
                     test.setLocation(0, -15);
                     break;
                 }
+
+                case 15:{
+                    frame.add(g);
+                    g.setLocation(0,-15);
+                    frame.addKeyListener(g);
+                }
+                case 16: {
+                    Level3Result t = new Level3Result();
+                    JInternalFrame test = t.frame();
+                    frame.add(test);
+                    test.setLocation(0, -15);
+                    break;
+                }
             }
 
             int pastFrame = screenNum;
@@ -185,6 +202,10 @@ public class Main implements KeyListener {
                     System.out.println("Sleep method is broken");
                 }
 
+            }
+
+            if(pastFrame==15){
+                frame.removeKeyListener(g);
             }
         }
     }

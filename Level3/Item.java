@@ -35,6 +35,10 @@ public class Item extends JComponent {
     public Item(Image i) {
         image = i;
         collected = false;
+
+        setBounds(0, 0, 20, 20);
+        setSize(20, 20);
+        setOpaque(false);
     }
 
     /**
@@ -49,9 +53,6 @@ public class Item extends JComponent {
     protected void paintComponent(Graphics g) {
         super.paintComponent(g);
         g.setColor(getBackground());
-
-        g.setColor(new Color(255, 0, 0, 177));
-        g.drawRect(0, 0, image.getWidth(null), image.getHeight(null));
-        g.drawImage(image, 0, 0, 100, 100, null);
+        g.drawImage(image, 0, 0, 20, 20, null);
     }
 }

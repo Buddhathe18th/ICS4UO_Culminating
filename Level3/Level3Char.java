@@ -40,7 +40,7 @@ public class Level3Char extends JComponent{
         setBounds(0, 0, 100, 100);
         setSize(100, 100);
         setOpaque(false);
-        setLocation(column*20,row*20);
+        setLocation(column*20,row*20+250);
     }
 
 

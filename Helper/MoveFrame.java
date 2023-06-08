@@ -38,7 +38,7 @@ public class MoveFrame extends JInternalFrame implements KeyListener {
 
             Image[] iArr = new Image[1];
             try {
-                iArr[0] = ImageIO.read(new File("Level2\\bin.png"));
+                iArr[0] = ImageIO.read(new File("Level2\\Images\\bin.png"));
             } catch (IOException e) {
                 e.printStackTrace();
             }
@@ -50,7 +50,7 @@ public class MoveFrame extends JInternalFrame implements KeyListener {
 
             Image[] iArr1 = new Image[1];
             try {
-                iArr1[0] = ImageIO.read(new File("Level2\\table.png"));
+                iArr1[0] = ImageIO.read(new File("Level2\\Images\\table.png"));
             } catch (IOException e) {
                 System.out.println("broken");
             }
@@ -77,18 +77,35 @@ public class MoveFrame extends JInternalFrame implements KeyListener {
 
         hand = new CharacterHand();
         // Image array of the images on the components, so far just one image
-        Image[] iArr = new Image[1];
+        Image[] iArr = new Image[5];
         try {
-            iArr[0] = ImageIO.read(new File("Level2\\a.png"));
+            iArr[0] = ImageIO.read(new File("Level2\\Images\\nitendoSwitch.png"));
+            iArr[1] = ImageIO.read(new File("Level2\\Images\\laptop.png"));
+            iArr[2] = ImageIO.read(new File("Level2\\Images\\phone.png"));
+            iArr[3] = ImageIO.read(new File("Level2\\Images\\basketball.png"));
+
+            iArr[4] = ImageIO.read(new File("Level2\\Images\\calculator.png"));
+            // iArr[5] = ImageIO.read(new File("Level2\\Images\\laptop.png"));
+            // iArr[6] = ImageIO.read(new File("Level2\\Images\\phone.png"));
+            // iArr[7] = ImageIO.read(new File("Level2\\Images\\basketball.png"));
         } catch (IOException e) {
             e.printStackTrace();
         }
 
-        // Adds all components that belong in non-school related bin
-        for (int i = 1; i <= 6; i++) {
-            DragAndDrop i1 = new DragAndDrop(iArr[0], 100, 100, false);
+        //Adds all components that belong in non-school related bin
+        for(int i = 0; i<=3;i++){
+            DragAndDrop i1 = new DragAndDrop(iArr[i], 100, 100,false);
             draggableArrayList.add(i1);
-            i1.setLocation(i * 100, i * 100);
+            i1.setLocation(i*100, i*100);
+            innerPanel.add(i1);
+        }
+
+        //Add all components that belong in the school-related bin
+
+        for(int i = 4; i<=4;i++){
+            DragAndDrop i1 = new DragAndDrop(iArr[i], 100, 100,true);
+            draggableArrayList.add(i1);
+            i1.setLocation(300+i*100, i*100);
             innerPanel.add(i1);
         }
 

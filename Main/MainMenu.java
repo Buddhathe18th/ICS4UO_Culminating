@@ -61,6 +61,7 @@ public class MainMenu implements ActionListener {
         level1.addActionListener(this);
         level2.addActionListener(this);
         level3.addActionListener(this);
+        exit.addActionListener(this);
 
         frame.getContentPane().setBackground(Color.red);
 
@@ -88,8 +89,10 @@ public class MainMenu implements ActionListener {
         if (e.getSource() == level1)
             Main.screenNum = 4;
         else if (e.getSource() == level2)
-            Main.screenNum = 11;
+            Main.screenNum = 10;
         else if (e.getSource() == level3)
-            Main.screenNum = 12;
+            Main.screenNum = 15;
+        else if(e.getSource() == exit)
+            System.exit(0);
     }
 }

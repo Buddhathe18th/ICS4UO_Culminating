@@ -1,4 +1,4 @@
-package Level2;
+package Level3;
 
 import java.awt.*;
 import java.awt.event.ActionEvent;
@@ -28,7 +28,7 @@ import Helper.TextBox;
  * 
  */
 
-public class Level2Result implements ActionListener{
+public class Level3Result implements ActionListener{
     /**
      * The screen to display on the JFrame
      */
@@ -62,7 +62,7 @@ public class Level2Result implements ActionListener{
      * Constructor for the Level 2 class
      */
 
-    public Level2Result(){
+    public Level3Result(){
     }
 
     /**
@@ -83,7 +83,7 @@ public class Level2Result implements ActionListener{
         frame.setSize(1920, 1080);
         frame.setVisible(true);
 
-        if(Level2.score>3){
+        if(Level3Frame.win){
             innerPanel.add(winText);
         }
         else{
