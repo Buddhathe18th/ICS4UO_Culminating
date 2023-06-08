@@ -215,6 +215,13 @@ public class Main implements KeyListener {
                     test.setLocation(0, -15);
                     break;
                 }
+                case 18: {
+                    Credits t = new Credits();
+                    JInternalFrame test = t.frame();
+                    frame.add(test);
+                    test.setLocation(0, -15);
+                    break;
+                }
             }
 
             int pastFrame = screenNum;

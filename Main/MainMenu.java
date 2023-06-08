@@ -102,6 +102,8 @@ public class MainMenu implements ActionListener {
             Main.screenNum = 10;
         else if (e.getSource() == level3)
             Main.screenNum = 15;
+        else if ( e.getSource()==credits)
+            Main.screenNum=18;
         else if (e.getSource() == exit)
             System.exit(0);
     }
