@@ -47,9 +47,9 @@ public class Level3Frame extends JInternalFrame implements KeyListener {
             { 1, 0, 0, 0, 0, 0, 1, 0, 1, 0, 1, 0, 0, 0, 1, 0, 0, 0, 0, 1, 0, 1, 0, 1, 0, 1 },
             { 1, 0, 1, 1, 1, 1, 1, 0, 1, 0, 1, 1, 1, 0, 1, 1, 1, 1, 1, 1, 0, 1, 0, 1, 0, 1 },
             { 1, 0, 0, 0, 0, 0, 1, 0, 1, 0, 0, 0, 1, 0, 0, 0, 0, 0, 0, 0, 0, 1, 0, 1, 0, 1 },
-            { 1, 0, 1, 1, 0, 1, 1, 0, 1, 0, 1, 0, 1, 0, 1, 1, 1, 1, 1, 1, 0, 1, 1, 1, 0, 1 },
+            { 1, 1, 1, 1, 0, 1, 1, 0, 1, 0, 1, 0, 1, 0, 1, 1, 1, 1, 1, 1, 0, 1, 1, 1, 0, 1 },
             { 1, 0, 0, 1, 0, 0, 0, 0, 1, 0, 1, 0, 1, 0, 1, 0, 0, 1, 0, 0, 0, 0, 0, 1, 0, 1 },
-            { 1, 1, 1, 1, 0, 1, 1, 1, 1, 0, 1, 0, 1, 0, 1, 1, 0, 1, 1, 1, 1, 1, 1, 1, 0, 1 },
+            { 1, 0, 1, 1, 0, 1, 1, 1, 1, 0, 1, 0, 1, 0, 1, 1, 0, 1, 1, 1, 1, 1, 1, 1, 0, 1 },
             { 1, 0, 0, 0, 0, 0, 0, 0, 1, 0, 1, 0, 1, 0, 0, 0, 0, 1, 0, 0, 0, 0, 0, 0, 0, 1 },
             { 1, 0, 1, 1, 1, 1, 1, 0, 1, 1, 1, 0, 1, 0, 1, 0, 1, 1, 1, 1, 1, 1, 1, 1, 0, 1 },
             { 1, 0, 0, 1, 0, 0, 0, 0, 1, 0, 1, 0, 0, 0, 1, 0, 0, 0, 0, 0, 0, 0, 0, 1, 0, 1 },
@@ -123,7 +123,7 @@ public class Level3Frame extends JInternalFrame implements KeyListener {
     @Override
     public void keyPressed(KeyEvent e) {
         if (e.getKeyCode() == KeyEvent.VK_RIGHT) {
-            if (level3Char.column == 25) {
+            if (level3Char.column == 23) {
                 if (itemsLeft.size() == 0) {
                     win = true;
                 }
@@ -185,11 +185,6 @@ public class Level3Frame extends JInternalFrame implements KeyListener {
 
     }
 
-    @Override
-    public void keyReleased(KeyEvent e) {
-
-    }
-
     /**
      * Panel class to hold all drawings and components
      */
@@ -201,9 +196,9 @@ public class Level3Frame extends JInternalFrame implements KeyListener {
          */
         protected void paintComponent(Graphics g) {
             super.paintComponent(g);
-            for (int row = 0; row < Level3Maze.maze.length; row++) {
-                for (int col = 0; col < Level3Maze.maze[row].length; col++) {
-                    if (Level3Maze.maze[row][col] == 1) g.setColor(Color.BLACK);
+            for (int row = 0; row < maze.length; row++) {
+                for (int col = 0; col < maze[row].length; col++) {
+                    if (maze[row][col] == 1) g.setColor(Color.BLACK);
                     else g.setColor(Color.WHITE);
     
                     int x = col * 20;
@@ -215,8 +210,16 @@ public class Level3Frame extends JInternalFrame implements KeyListener {
             g.drawString("Objects left: " + itemsLeft.size(), 0, 100);
             g.drawString("Time left: " + timeLeft, 0, 200);
 
-            g.setColor(Color.BLACK);
-            g.fillPolygon(new int[] { 0, 500, 250 }, new int[] { 0, 0, -200 }, 3);
+            g.setColor(Color.blue);
+            g.fillPolygon(new int[] { 0, 520, 260 }, new int[] { 250, 250, 50 }, 3);
+
+            g.setColor(getBackground());
+            g.fillPolygon(new int[] { 20, 500, 260 }, new int[] { 240, 240, 60 }, 3);
         }
+    }
+
+    @Override
+    public void keyReleased(KeyEvent e) {
+        
     }
 }

@@ -29,9 +29,17 @@ public class Level3 extends JComponent {
             try {
                 // Stops the program from running for 1 second to preserve computer power
                 Thread.sleep(1000);
-                g.timeLeft--;
-                g.revalidate();
-                g.repaint();
+                if(g.timeLeft>=0&&!g.win){
+                    g.timeLeft--;
+                    g.revalidate();
+                    g.repaint();
+                }
+                else{
+                    System.exit(0);
+                    break;
+                    
+                }
+                
             } catch (Exception e) {
                 System.out.println("Sleep method is broken");
             }
