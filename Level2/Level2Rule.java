@@ -41,17 +41,19 @@ public class Level2Rule implements KeyListener{//TODO: Keylistener not workin
         frame.setDefaultCloseOperation(JFrame.EXIT_ON_CLOSE);
         frame.getRootPane().setWindowDecorationStyle(0);
         frame.setLayout(null);
-        frame.add(draw);
+        
         
         frame.add(t);
         frame.add(k);
-        t.setVisible(true);
-        k.setVisible(true);
+        
         frame.getContentPane().setFocusable(false);
         frame.setFocusable(false);
 
         frame.addKeyListener(this);
         
+
+        frame.getContentPane().setBackground(Color.red);
+        frame.add(draw);
 
         frame.setSize(1920, 1080);
         frame.setVisible(true);

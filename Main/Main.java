@@ -69,7 +69,7 @@ public class Main implements KeyListener {
 
             // Depending on screenNum, different screen will be displayed
             switch (screenNum) {
-                case 1: { //Unfinished
+                case 1: { // Unfinished
                     TitleScreen t = new TitleScreen();
                     JInternalFrame test = t.frame();
                     frame.add(test);
@@ -98,24 +98,27 @@ public class Main implements KeyListener {
                     break;
                 }
                 case 5: {
-                    String[] init = {"Johnny wants to go play basketball, but has a math assignment due tomorrow. Which choice should he make?", 
-                        "Johnny has been playing Minecraft with his best friend, Bernie, for two hours now. Johnny also has to finish a journal for English. Which option should Johnny pick?", 
-                        "Johnny has a big science project due next week, which he is already 3/4 done. However, he also has some history homework due tomorrow that he hasn't started. Which assignment should he work on?   ", 
-                        "It’s 1am, and Johnny just finished his assignment. He has an urge to watch some Youtube. What should he do?"};
-                    String[] c = {"Incorrect! If Johnny has an assignment due tomorrow, delaying it further could be impeding his learning.", 
-                                "Correct! If Johnny has a math assignment due tomorrow, getting started on it will be the better choice.", 
-                                "Correct! If Johnny has an English assignment, he should prioritize doing it over playing video games.", 
-                                "Incorrect! If Johnny continues playing Minecraft with his friend, he would have less time to finish his homework.", 
-                                "Incorrect! Johnny should prioritize assignments that are due earlier. He has plenty of time to finish his science project.", 
-                                "Correct! Johnny should prioritize assignments that are due earlier, regardless of if he likes the subject or not.", 
-                                "Correct! Sleeping can help keep your body healthy and ready for the next day!", 
-                                "Incorrect! Without sleep, Johnny will be fatigued and very unfocused the next day.", 
-                            };
-                    String[] inf = {"Fun Fact! Sports are good for your mental health, but at times like these, commiting and working is still the overall best choice! Press enter to continue...", 
-                                    "Fun Fact! According to research from Brigham Young University, video game breaks can increase productivity by up to 20%. But make sure not to play too much! Too many video games can lead to many problems such as a reduced attention span. Press enter to continue...", 
-                                    "Fun Fact! According to research from Brigham Young University, video game breaks can increase productivity by up to 20%, but make sure not to play too much! Too many video games can lead to many problems such as a decreased attention span and eye strain. Press enter to continue...", 
-                                    "Fun Fact! Being sleep deprived will make you behave in similar ways to being drunk! According to Harvard Medical School, going 48 hours without sleep is equivalent to having a 0.1% blood alcohol content, which is higher than the legal amount to drive! Press enter to continue...", 
-                                    };
+                    String[] init = {
+                            "Johnny wants to go play basketball, but has a math assignment due tomorrow. Which choice should he make?",
+                            "Johnny has been playing Minecraft with his best friend, Bernie, for two hours now. Johnny also has to finish a journal for English. Which option should Johnny pick?",
+                            "Johnny has a big science project due next week, which he is already 3/4 done. However, he also has some history homework due tomorrow that he hasn't started. Which assignment should he work on?   ",
+                            "It’s 1am, and Johnny just finished his assignment. He has an urge to watch some Youtube. What should he do?" };
+                    String[] c = {
+                            "Incorrect! If Johnny has an assignment due tomorrow, delaying it further could be impeding his learning.",
+                            "Correct! If Johnny has a math assignment due tomorrow, getting started on it will be the better choice.",
+                            "Correct! If Johnny has an English assignment, he should prioritize doing it over playing video games.",
+                            "Incorrect! If Johnny continues playing Minecraft with his friend, he would have less time to finish his homework.",
+                            "Incorrect! Johnny should prioritize assignments that are due earlier. He has plenty of time to finish his science project.",
+                            "Correct! Johnny should prioritize assignments that are due earlier, regardless of if he likes the subject or not.",
+                            "Correct! Sleeping can help keep your body healthy and ready for the next day!",
+                            "Incorrect! Without sleep, Johnny will be fatigued and very unfocused the next day.",
+                    };
+                    String[] inf = {
+                            "Fun Fact! Sports are good for your mental health, but at times like these, commiting and working is still the overall best choice! Press enter to continue...",
+                            "Fun Fact! According to research from Brigham Young University, video game breaks can increase productivity by up to 20%. But make sure not to play too much! Too many video games can lead to many problems such as a reduced attention span. Press enter to continue...",
+                            "Fun Fact! According to research from Brigham Young University, video game breaks can increase productivity by up to 20%, but make sure not to play too much! Too many video games can lead to many problems such as a decreased attention span and eye strain. Press enter to continue...",
+                            "Fun Fact! Being sleep deprived will make you behave in similar ways to being drunk! According to Harvard Medical School, going 48 hours without sleep is equivalent to having a 0.1% blood alcohol content, which is higher than the legal amount to drive! Press enter to continue...",
+                    };
                     Image[] i = new Image[8];
                     try {
                         i[0] = ImageIO.read(new File("Level1\\Images\\basketball.png"));
@@ -126,12 +129,11 @@ public class Main implements KeyListener {
                         i[5] = ImageIO.read(new File("Level1\\Images\\history.png"));
                         i[6] = ImageIO.read(new File("Level1\\Images\\pillow.png"));
                         i[7] = ImageIO.read(new File("Level1\\Images\\youtube.png"));
-                    }
-                    catch (IOException e) {
+                    } catch (IOException e) {
                         e.printStackTrace();
                     }
                     new Level1(frame, i, init, c, inf);
-                    screenNum=9;
+                    screenNum = 9;
                     break;
                 }
 
@@ -156,14 +158,13 @@ public class Main implements KeyListener {
                     frame.add(test);
                     test.setLocation(0, -15);
 
-                    try{
+                    try {
                         Robot bot = new Robot();
-                        bot.mouseMove(100, 100);    
+                        bot.mouseMove(100, 100);
                         bot.mousePress(InputEvent.BUTTON1_DOWN_MASK);
                         bot.mouseRelease(InputEvent.BUTTON1_DOWN_MASK);
                         System.out.println("clicked screen");
-                    }
-                    catch (AWTException e){
+                    } catch (AWTException e) {
                         e.printStackTrace();
                     }
 
@@ -177,10 +178,35 @@ public class Main implements KeyListener {
                     break;
                 }
 
-                case 15:{
+                case 15: {
                     frame.add(g);
-                    g.setLocation(0,-15);
+                    g.setLocation(0, -15);
                     frame.addKeyListener(g);
+
+                    while (true) {
+                        try {
+
+                            // Stops the program from running for 1 second to preserve computer power
+                            Thread.sleep(1000);
+                            System.out.println(g.timeLeft + " " + g.win);
+                            if (g.timeLeft >= 0 && !g.win) {
+                                g.timeLeft--;
+                                g.revalidate();
+                                g.repaint();
+                            } else {
+                                System.out.println("winning teh game");
+                                break;
+
+                            }
+
+                        } catch (Exception e) {
+                            System.out.println("Sleep method is broken");
+                        }
+
+                    }
+
+                    frame.getContentPane().removeAll();
+                    frame.requestFocusInWindow();
                 }
                 case 16: {
                     Level3Result t = new Level3Result();
@@ -205,10 +231,11 @@ public class Main implements KeyListener {
 
             }
 
-            if(pastFrame==15){
+            if (pastFrame == 15) {
                 frame.removeKeyListener(g);
             }
         }
+
     }
 
     @Override
@@ -225,7 +252,7 @@ public class Main implements KeyListener {
 
     @Override
     public void keyReleased(KeyEvent e) {
-        if (e.getKeyCode() == KeyEvent.VK_ENTER && (screenNum == 1||screenNum==2||screenNum==4)) {
+        if (e.getKeyCode() == KeyEvent.VK_ENTER && (screenNum == 1 || screenNum == 2 || screenNum == 4 || screenNum==10)) {
             Main.screenNum++;
         }
 

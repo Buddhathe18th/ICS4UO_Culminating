@@ -32,11 +32,6 @@ public class TextBox extends JComponent {
     private int width;
 
     /**
-     * The way the text box is drawn
-     */
-    private String orientation;
-
-    /**
      * The font size
      */
     private int fontSize;
@@ -50,8 +45,6 @@ public class TextBox extends JComponent {
      * The lines of text that will be in each textbox
      */
     private ArrayList<String> lines;
-
-    private boolean centered;
     
     /**
      * Constructor for the TextBox class.
@@ -67,8 +60,7 @@ public class TextBox extends JComponent {
         y = y1;
         width = w;
         fontSize = f;
-        textPerLine = (int)(w*1.4/fontSize);
-        orientation = "topleft";
+        textPerLine = (int)(w*1.43/fontSize);
         String[] text = t.split(" ");
         int maxLen = textPerLine;
         lines = new ArrayList<String>();
@@ -84,49 +76,13 @@ public class TextBox extends JComponent {
             maxLen -= l.length();
         }
         lines.add(temp);
+
+        setBounds(x, y, width, (int) (getText().size()+0.25)*fontSize);
+        setLocation(x, y);
+    setSize(width, (int)(getText().size()+0.25)*fontSize);
+    setOpaque(false);
     }
 
-    /**
-     * Constructor for the TextBox class.
-     * 
-     * @param x1 The x-coordinate of the top left corner of the text box
-     * @param y1 The y-coordinate of the top left corner of the text box
-     * @param w The width of the text box
-     * @param f The size of the font
-     * @param t The text to be shown in the text box
-     * @param or The orientation of the text box
-     */
-    public TextBox(int x1, int y1, int w, int f, String t, String or, boolean c) {
-        x = x1;
-        y = y1;
-        width = w;
-        fontSize = f;
-        textPerLine = (int)(w*1.37/fontSize);
-        orientation = or;
-        centered = c;
-        String[] text = t.split(" ");
-        int maxLen = textPerLine;
-        lines = new ArrayList<String>();
-        String buffer;
-
-        String temp = "";
-        for (String l: text) {
-            if (maxLen - l.length() < 0) {
-                buffer = "";
-                if (centered) {
-                    for (int i = 0; i < maxLen/2; i++) buffer += " ";
-                }
-                maxLen = textPerLine;
-                lines.add(buffer + temp + buffer);
-                
-                temp = "";
-            }
-            temp += l + " ";
-            maxLen -= l.length();
-        }
-        lines.add(temp);
-    }
-    
     /**
      * Gets the size of the font in the text box
      * @return The size of the font in the text box 
@@ -140,8 +96,7 @@ public class TextBox extends JComponent {
      * @return Int array [x, y], the x and y coordinates of the text box
      */
     public int[] getCoords() {
-        if (orientation == "bottomleft") return new int[] {x, y-(int)((lines.size()+0.25)*fontSize)};
-        else return new int[] {x, y};
+        return new int[] {x, y};
     }
 
     /**
@@ -170,22 +125,25 @@ public class TextBox extends JComponent {
         String[] words = text.split(" ");
         int maxLen = textPerLine;
         String temp = "";
-        String buffer = "";
 
         for (String word : words) {
             if (maxLen - word.length() < 0) {
-                buffer = "";
-                if (centered) {
-                    for (int i = 0; i < maxLen/2; i++) buffer += " ";
-                }
                 maxLen = textPerLine;
-                lines.add(buffer + temp + buffer);
-                
+                lines.add(temp);
                 temp = "";
             }
             temp += word + " ";
             maxLen -= word.length();
         }
         lines.add(temp);
+    }
+    
+    public void paintComponent(Graphics g){
+        super.paintComponent(g);
+        g.setFont(new Font("Courier New", Font.PLAIN, fontSize));
+        // Draws a rectangular box at specified coordinates
+        g.drawRect(getCoords()[0], getCoords()[1], width, (int)((getText().size()+0.25)*fontSize));
+        // Draws the text in the text boxes, line by line
+        for (int i = 0; i < getText().size(); i++) g.drawString(getText().get(i), getCoords()[0], getCoords()[1]+(i+1)*fontSize);
     }
 }

@@ -1,61 +1,75 @@
 package Main;
-import java.awt.*;
-import java.awt.event.*;
-import javax.swing.*;
+
+import java.awt.Canvas;
+import java.awt.Color;
+import java.awt.Dimension;
+import java.awt.Font;
+import java.awt.Graphics;
+import java.awt.Image;
+import java.awt.event.ActionEvent;
+import java.awt.event.ActionListener;
+import java.io.File;
+import java.io.IOException;
+
+import javax.imageio.ImageIO;
+import javax.swing.JButton;
+import javax.swing.JFrame;
+import javax.swing.JInternalFrame;
+import javax.swing.JPanel;
 
 import Helper.TextBox;
+import Main.Main;
 
-/**
- * The MainMenu class will create the screen of the main menu
- * Time Spent: 1 hour
- * 
- * @author Alex Zhu
- * @version 0.1.0
- * @date 05/16/2023
- */
-
-public class BackStory implements KeyListener{
+public class BackStory implements ActionListener {
 
     /**
-     *  The drawing that will be on the screen
-     */ 
+     * The drawing that will be on the screen
+     */
     Drawing draw = new Drawing();
+
+    Panel innerPanel = new Panel();
 
     /**
      * The frame that will be passed to the Main class
      */
     JInternalFrame frame;
 
-    TextBox t = new TextBox(0, 0, 1920, 25, "Johnny is an 8th grade student at Silver Oak Middle School. Each day he spends hours and hours playing video games. He’s currently plagued by the greatest disease of this generation…\n\nPROCRASTINATION                                                     Press enter to continue\n");
+    TextBox t = new TextBox(0, 0, 1920, 25,
+            "On the screen, two items will pop up, one will be helpful to Johnny for school work, and the other will be a distraction. Click on the items that are helpful to Johnny!\nPress enter to continue");
+
+
+    public BackStory() {
+        
+    }
 
     /**
-     * Returns the frame to be displayed on the main menu screen. Currently unfinished, button for Level 1 will bring you to the Title Screen
+     * Returns the frame to be displayed on the main menu screen. Currently
+     * unfinished, button for Level 1 will bring you to the Title Screen
+     * 
      * @return the frame to be displayed
      */
 
-    public JInternalFrame frame(){
-        
-        frame = new JInternalFrame("",false,false,false,false);
+    public JInternalFrame frame() {
+
+        frame = new JInternalFrame("", false, false, false, false);
         frame.putClientProperty("JInternalFrame.isPalette", Boolean.TRUE);
         frame.setDefaultCloseOperation(JFrame.EXIT_ON_CLOSE);
         frame.getRootPane().setWindowDecorationStyle(0);
-        frame.setLayout(null);
-        frame.add(draw);
-        
-        frame.add(t);
-        
-        
+
+        innerPanel.setLayout(null);
         frame.getContentPane().setFocusable(false);
-        frame.setFocusable(false);
-        
-        frame.addKeyListener(this);
-        draw.addKeyListener(this);
-        t.addKeyListener(this);
-        
+
+        frame.add(innerPanel);
+        innerPanel.add(t);
+
         frame.setSize(1920, 1080);
         frame.setVisible(true);
-        frame.requestFocus();
+        
+
+        
+
         return frame;
+
     }
 
     /**
@@ -70,27 +84,41 @@ public class BackStory implements KeyListener{
     }
 
     @Override
-    public void keyTyped(KeyEvent e) {
-        System.out.println("next");
-       if (e.getKeyCode()==KeyEvent.VK_ENTER){
-        Main.screenNum++;
-       }
+    public void actionPerformed(ActionEvent e) {
+        
     }
 
-    @Override
-    public void keyPressed(KeyEvent e) {
-        System.out.println("next");
-       if (e.getKeyCode()==KeyEvent.VK_ENTER){
-        Main.screenNum++;
-       }
-    }
+    public class Panel extends JPanel {
+        /**
+         * Paints the background onto the screen
+         */
+        protected void paintComponent(Graphics g) {
+            super.paintComponent(g);
 
-    @Override
-    public void keyReleased(KeyEvent e) {
+            Image[] iArr = new Image[1];
+            try {
+                iArr[0] = ImageIO.read(new File("Level2\\Images\\bin.png"));
+            } catch (IOException e) {
+                e.printStackTrace();
+            }
 
-        System.out.println("next");
-       if (e.getKeyCode()==KeyEvent.VK_ENTER){
-        Main.screenNum++;
-       }
+            //The two bins
+
+            g.drawImage(iArr[0], 0, 500, 200, 180, null);
+            g.drawImage(iArr[0], 1220, 500, 200, 180, null);
+
+            Image[] iArr1 = new Image[1];
+            try {
+                iArr1[0] = ImageIO.read(new File("Level2\\Images\\table.png"));
+            } catch (IOException e) {
+                System.out.println("broken");
+            }
+
+            //The table
+            g.drawImage(iArr1[0], 300, 130, 800, 600, null);
+
+            g.setColor(new Color(238,238,238,140));
+            g.fillRect(0,0,1920,1080);
+        }
     }
 }

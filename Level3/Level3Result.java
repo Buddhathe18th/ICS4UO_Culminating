@@ -54,6 +54,7 @@ public class Level3Result implements ActionListener{
      * Button for main menu
      */
     JButton mainMenu;
+    boolean level3Win=false;
 
     TextBox winText = new TextBox(0, 0, 1920, 25, "Success! You have successfully cleaned Johnny’s table. He’s now able to work on his homework without distractions!");
     TextBox loseText = new TextBox(0, 0, 1920, 25, "Uh oh, you messed up a little bit. Next time, help Johnny clear his desk better so he can work!");
@@ -63,6 +64,11 @@ public class Level3Result implements ActionListener{
      */
 
     public Level3Result(){
+        Level3Frame.itemsLeft.trimToSize();
+        if(Level3Frame.itemsLeft.size()<=0){
+            level3Win=true;
+        }
+
     }
 
     /**
@@ -83,7 +89,7 @@ public class Level3Result implements ActionListener{
         frame.setSize(1920, 1080);
         frame.setVisible(true);
 
-        if(Level3Frame.win){
+        if(level3Win){
             innerPanel.add(winText);
         }
         else{
