@@ -85,6 +85,5 @@ public class TitleScreen implements KeyListener{
         if (e.getKeyCode()==KeyEvent.VK_ENTER){
             Main.screenNum=2;
         }
-        
     }
 }

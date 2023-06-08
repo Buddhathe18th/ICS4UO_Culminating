@@ -142,11 +142,8 @@ public class Level3Frame extends JInternalFrame implements KeyListener {
             super.paintComponent(g);
             for (int row = 0; row < Level3Maze.maze.length; row++) {
                 for (int col = 0; col < Level3Maze.maze[row].length; col++) {
-                    if (Level3Maze.maze[row][col] == 1) {
-                        g.setColor(Color.BLACK);
-                    } else {
-                        g.setColor(Color.WHITE);
-                    }
+                    if (Level3Maze.maze[row][col] == 1) g.setColor(Color.BLACK);
+                    else g.setColor(Color.WHITE);
     
                     int x = col * 20;
                     int y = row * 20;
