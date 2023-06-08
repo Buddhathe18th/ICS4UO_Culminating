@@ -66,12 +66,12 @@ public class MainMenu implements ActionListener {
         level2.setSize(new Dimension(600, 50));
         level1.setLocation(405, 300);
         level2.setLocation(405, 375);
-
-        addButton(level1, 405, 300);
-        addButton(level2, 405, 375);
-        addButton(level3, 405, 450);
-        addButton(credits,405, 525);
-        addButton(exit, 405, 600);
+        
+        addButton(level1, 280, 300);
+        addButton(level2, 280, 375);
+        addButton(level3, 280, 450);
+        addButton(credits,280, 525);
+        addButton(exit, 280, 600);
 
         return frame;
     }
@@ -86,7 +86,7 @@ public class MainMenu implements ActionListener {
         public void paintComponent(Graphics g){
             super.paintComponent(g);
             g.setFont(new Font("Courier New", Font.PLAIN, 100));
-            g.drawString("Main Menu",380,200);
+            g.drawString("Main Menu",310,200);
         }
     }
 
