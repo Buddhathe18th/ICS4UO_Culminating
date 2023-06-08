@@ -71,7 +71,7 @@ public class Level3Frame extends JInternalFrame implements KeyListener {
         innerPanel = new Panel();
         innerPanel.setLocation(300, 0);
 
-        this.setSize(1920, 1080);
+        this.setSize(1200, 900);
         this.setVisible(true);
 
         innerPanel.add(level3Char);
@@ -99,7 +99,7 @@ public class Level3Frame extends JInternalFrame implements KeyListener {
 
         innerPanel.setLayout(null);
         innerPanel.setVisible(true);
-        innerPanel.setSize(1920, 1080);
+        innerPanel.setSize(1200, 900);
         this.add(innerPanel);
         this.addKeyListener(this);
         innerPanel.addKeyListener(this);
