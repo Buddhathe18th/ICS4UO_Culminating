@@ -18,6 +18,7 @@ import Level2.Level2;
 import Level2.Level2Result;
 import Level2.Level2Rule;
 import Level3.Level3Frame;
+import Level3.Level3Result;
 
 /**
  * The Main class is the class that runs and calls all other classes. This class
@@ -179,6 +180,13 @@ public class Main implements KeyListener {
                     frame.add(g);
                     g.setLocation(0,-15);
                     frame.addKeyListener(g);
+                }
+                case 16: {
+                    Level3Result t = new Level3Result();
+                    JInternalFrame test = t.frame();
+                    frame.add(test);
+                    test.setLocation(0, -15);
+                    break;
                 }
             }
 

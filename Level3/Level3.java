@@ -25,5 +25,16 @@ public class Level3 extends JComponent {
         Level3Frame g = new Level3Frame();
         frame.add(g);
         frame.addKeyListener(g);
+        while(true){
+            try {
+                // Stops the program from running for 1 second to preserve computer power
+                Thread.sleep(1000);
+                g.timeLeft--;
+                g.revalidate();
+                g.repaint();
+            } catch (Exception e) {
+                System.out.println("Sleep method is broken");
+            }
+        }
     }
 }
