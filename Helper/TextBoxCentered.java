@@ -14,7 +14,7 @@ import java.util.*;
  * @date 05/15/2023
  */
 
-public class TextBox extends JComponent {
+public class TextBoxCentered extends JComponent {
 
     /**
      * The x-coordinate of the top left corner of the text box
@@ -25,7 +25,7 @@ public class TextBox extends JComponent {
      * The y-coordinate of the top left corner of the text box
      */
     private int y;
-    
+
     /**
      * The width of the text box
      */
@@ -54,22 +54,22 @@ public class TextBox extends JComponent {
     private boolean centered;
 
     private boolean visible;
-    
+
     /**
      * Constructor for the TextBox class.
      * 
      * @param x1 The x-coordinate of the top left corner of the text box
      * @param y1 The y-coordinate of the top left corner of the text box
-     * @param w The width of the text box
-     * @param f The size of the font
-     * @param t The text to be shown in the text box
+     * @param w  The width of the text box
+     * @param f  The size of the font
+     * @param t  The text to be shown in the text box
      */
-    public TextBox(int x1, int y1, int w, int f, String t) {
+    public TextBoxCentered(int x1, int y1, int w, int f, String t) {
         x = x1;
         y = y1;
         width = w;
         fontSize = f;
-        textPerLine = (int)(w*1.4/fontSize);
+        textPerLine = (int) (w * 1.4 / fontSize);
         orientation = "topleft";
         visible = true;
         String[] text = t.split(" ");
@@ -77,7 +77,7 @@ public class TextBox extends JComponent {
         lines = new ArrayList<String>();
 
         String temp = "";
-        for (String l: text) {
+        for (String l : text) {
             if (maxLen - l.length() < 0) {
                 maxLen = textPerLine;
                 lines.add(temp);
@@ -94,19 +94,19 @@ public class TextBox extends JComponent {
      * 
      * @param x1 The x-coordinate of the top left corner of the text box
      * @param y1 The y-coordinate of the top left corner of the text box
-     * @param w The width of the text box
-     * @param f The size of the font
-     * @param t The text to be shown in the text box
+     * @param w  The width of the text box
+     * @param f  The size of the font
+     * @param t  The text to be shown in the text box
      * @param or The orientation of the text box
-     * @param c If the text is centered or not
-     * @param v If the text box borders are visible or not
+     * @param c  If the text is centered or not
+     * @param v  If the text box borders are visible or not
      */
-    public TextBox(int x1, int y1, int w, int f, String t, String or, boolean c, boolean v) {
+    public TextBoxCentered(int x1, int y1, int w, int f, String t, String or, boolean c, boolean v) {
         x = x1;
         y = y1;
         width = w;
         fontSize = f;
-        textPerLine = (int)(w*1.37/fontSize);
+        textPerLine = (int) (w * 1.37 / fontSize);
         orientation = or;
         centered = c;
         visible = v;
@@ -119,8 +119,10 @@ public class TextBox extends JComponent {
         for (String l : text) {
             if (maxLen - l.length() < 0) {
                 if (centered) {
-                    for (int i = 0; i < maxLen/2+2; i++) buffer += " ";
+                    for (int i = 0; i < maxLen / 2 + 2; i++)
+                        buffer += " ";
                     temp = buffer + temp;
+                    
                     buffer = "";
                 }
                 maxLen = textPerLine;
@@ -131,15 +133,22 @@ public class TextBox extends JComponent {
             maxLen -= l.length();
         }
         if (centered) {
-            for (int i = 0; i < maxLen/2+2; i++) buffer += " ";
+            for (int i = 0; i < maxLen / 2 + 2; i++)
+                buffer += " ";
             temp = buffer + temp;
         }
         lines.add(temp);
+
+        setBounds(x, y, width, (int) (getText().size() + 0.25) * fontSize);
+        setLocation(x, y);
+        setSize(width, (int) (getText().size() + 0.25) * fontSize);
+        setOpaque(false);
     }
 
     /**
      * Gets the size of the font in the text box
-     * @return The size of the font in the text box 
+     * 
+     * @return The size of the font in the text box
      */
     public int getFontSize() {
         return fontSize;
@@ -147,14 +156,16 @@ public class TextBox extends JComponent {
 
     /**
      * Gets the coordinates of the top left corner of the text box
+     * 
      * @return Int array [x, y], the x and y coordinates of the text box
      */
     public int[] getCoords() {
-        return new int[] {x, y};
+        return new int[] { x, y };
     }
 
     /**
      * Gets the width of the text box
+     * 
      * @return The width of the text box
      */
     public int getWidth() {
@@ -163,7 +174,9 @@ public class TextBox extends JComponent {
 
     /**
      * Gets the lines of text in the text box
-     * @return The lines of text in the text box, seperated into different indices of an ArrayList
+     * 
+     * @return The lines of text in the text box, seperated into different indices
+     *         of an ArrayList
      */
     public ArrayList<String> getText() {
         return lines;
@@ -172,7 +185,7 @@ public class TextBox extends JComponent {
     public boolean isVisible() {
         return visible;
     }
-    
+
     /**
      * Sets the text to be shown in the text box.
      * 
@@ -188,7 +201,8 @@ public class TextBox extends JComponent {
         for (String l : words) {
             if (maxLen - l.length() < 0) {
                 if (centered) {
-                    for (int i = 0; i < maxLen/2+2; i++) buffer += " ";
+                    for (int i = 0; i < maxLen / 2 + 2; i++)
+                        buffer += " ";
                     temp = buffer + temp;
                     buffer = "";
                 }
@@ -201,18 +215,21 @@ public class TextBox extends JComponent {
             maxLen -= l.length();
         }
         if (centered) {
-            for (int i = 0; i < maxLen/2+2; i++) buffer += " ";
+            for (int i = 0; i < maxLen / 2 + 2; i++)
+                buffer += " ";
             temp = buffer + temp;
         }
         lines.add(temp);
     }
-    
-    public void paintComponent(Graphics g){
+
+    public void paintComponent(Graphics g) {
         super.paintComponent(g);
         g.setFont(new Font("Courier New", Font.PLAIN, fontSize));
         // Draws a rectangular box at specified coordinates
-        if (visible) g.drawRect(getCoords()[0], getCoords()[1], width, (int)((getText().size()+0.25)*fontSize));
+        if (visible)
+            g.drawRect(getCoords()[0], getCoords()[1], width, (int) ((getText().size() + 0.25) * fontSize));
         // Draws the text in the text boxes, line by line
-        for (int i = 0; i < getText().size(); i++) g.drawString(getText().get(i), getCoords()[0], getCoords()[1]+(i+1)*fontSize);
+        for (int i = 0; i < getText().size(); i++)
+            g.drawString(getText().get(i), getCoords()[0], getCoords()[1] + (i + 1) * fontSize);
     }
 }
