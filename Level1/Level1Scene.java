@@ -52,16 +52,18 @@ public class Level1Scene extends Level1 implements ActionListener {
      * @param choices The text blurbs shown at the bottom of each choice after the player selects one, indicating if they are correct or not.
      * @param info The info blurb shown at the bottom of the screen after the player completes the scenario.
      */
-    public Level1Scene(Image[] images, String initial, String[] choices, String info) {
+    public Level1Scene(Image[] images, String initial, String[] choices, String info, String[] choiceNames) {
         pressed = false;
         textBoxes = new TextBox[6];
         textBoxes[0] = new TextBox(0, 0, 1180, 25, initial);
         textBoxes[1] = new TextBox(150, 600, 400, 25, choices[0]);
         textBoxes[2] = new TextBox(730, 600, 400, 25, choices[1]);
-        textBoxes[3] = new TextBox(0, 900, 1180, 25, info, "bottomleft", false);
-        textBoxes[4] = new TextBox(150, 225, 400, 25, "Play Basketball", "bottomleft", false);
-        textBoxes[5] = new TextBox(730, 225, 400, 25, "Do math", "bottomleft", true);
+        textBoxes[3] = new TextBox(0, 900, 1180, 25, info, "bottomleft", false, true);
+        textBoxes[4] = new TextBox(150, 225, 400, 25, choiceNames[0], "bottomleft", true, false);
+        textBoxes[5] = new TextBox(730, 225, 400, 25, choiceNames[1], "bottomleft", true, false);
         shownBoxes.add(textBoxes[0]);
+        shownBoxes.add(textBoxes[4]);
+        shownBoxes.add(textBoxes[5]);
         
         // Create and add buttons
         buttons = new JButton[2];
@@ -117,12 +119,10 @@ public class Level1Scene extends Level1 implements ActionListener {
         if (!pressed) {
             if (e.getSource() == buttons[0]) {
                 shownBoxes.add( textBoxes[1]);
-                shownBoxes.add(textBoxes[4]);
                 shownBoxes.remove(textBoxes[2]);
             }
             if (e.getSource() == buttons[1]) {
                 shownBoxes.add(textBoxes[2]);
-                shownBoxes.add(textBoxes[5]);
                 shownBoxes.remove(textBoxes[1]);
             }
             shownBoxes.add(textBoxes[3]);
@@ -186,7 +186,7 @@ public class Level1Scene extends Level1 implements ActionListener {
                 text = t.getText();
                 g.setFont(new Font("Courier New", Font.PLAIN, fontSize));
                 // Draws a rectangular box at specified coordinates
-                g.drawRect(coords[0], coords[1], width, (int)((text.size()+0.25)*fontSize));
+                if (t.isVisible()) g.drawRect(coords[0], coords[1], width, (int)((text.size()+0.25)*fontSize));
                 // Draws the text in the text boxes, line by line
                 for (int i = 0; i < text.size(); i++) g.drawString(text.get(i), coords[0], coords[1]+(i+1)*fontSize);
             }
