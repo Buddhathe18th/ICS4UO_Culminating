@@ -77,10 +77,10 @@ public class TextBox extends JComponent {
         }
         lines.add(temp);
 
-        setBounds(x, y, width, (int) (getText().size()+0.25)*fontSize);
+        setBounds(x, y, width, (int) (lines.size()+0.25)*fontSize);
         setLocation(x, y);
-    setSize(width, (int)(getText().size()+0.25)*fontSize);
-    setOpaque(false);
+        setSize(width, (int)(lines.size()+0.25)*fontSize);
+        setOpaque(false);
     }
 
     /**
