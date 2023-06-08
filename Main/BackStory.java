@@ -115,7 +115,7 @@ public class BackStory implements ActionListener {
 
             for(int i = 0; i<20; i++){
                 int k =(int)(Math.random()*400)+150;
-                g.drawImage(iArr[i%4], (int)(Math.random()*1280)-k, k+(int)(Math.random()*600),k,k,null);
+                g.drawImage(iArr[(int)(Math.random()*4)], (i%4)*320+(int)(Math.random()*20), (i/4)*320+(int)(Math.random()*20),k,k,null);
             }
 
         }

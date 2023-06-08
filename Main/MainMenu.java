@@ -34,6 +34,8 @@ public class MainMenu implements ActionListener {
      */
     JInternalFrame frame;
 
+    Panel innerPanel;
+
     /**
      * Returns the frame to be displayed on the main menu screen. Currently
      * unfinished, button for Level 1 will bring you to the Title Screen
@@ -42,32 +44,54 @@ public class MainMenu implements ActionListener {
      */
 
     public JInternalFrame frame() {
-
         frame = new JInternalFrame("", false, false, false, false);
         frame.putClientProperty("JInternalFrame.isPalette", Boolean.TRUE);
         frame.setDefaultCloseOperation(JFrame.EXIT_ON_CLOSE);
         frame.getRootPane().setWindowDecorationStyle(0);
 
-        frame.setLayout(new GridLayout(2, 3));
+        innerPanel = new Panel();
+        innerPanel.setLayout(null);
 
-        JButton[] test = { level1, level2, level3, credits, exit };
+        frame.add(innerPanel);
 
-        for (int i = 0; i < test.length; i++) {
-            frame.add(test[i]);
-            test[i].setLocation(100, 300 + 150 * i);
-        }
-        frame.add(draw);
+        frame.setSize(1920, 1080);
+        frame.setVisible(true);
 
         level1.addActionListener(this);
         level2.addActionListener(this);
         level3.addActionListener(this);
+        credits.addActionListener(this);
         exit.addActionListener(this);
 
-        frame.getContentPane().setBackground(Color.red);
 
-        frame.setSize(1920, 1080);
-        frame.setVisible(true);
+
+        innerPanel.add(level1);
+        innerPanel.add(level2);
+        level1.setSize(new Dimension(600, 50));
+        level2.setSize(new Dimension(600, 50));
+        level1.setLocation(405, 300);
+        level2.setLocation(405, 375);
+
+        addButton(level1, 405, 300);
+        addButton(level2, 405, 375);
+        addButton(level3, 405, 450);
+        addButton(credits,405, 525);
+        addButton(exit, 405, 600);
+
         return frame;
+    }
+
+    public void addButton(JButton jb, int x, int y){
+        innerPanel.add(jb);
+        jb.setSize(new Dimension(600, 50));
+        jb.setLocation(x,y);
+    }
+
+    public class Panel extends JPanel{
+        public void paintComponent(Graphics g){
+            super.paintComponent(g);
+            g.drawString("Main Menu",300,200);
+        }
     }
 
     /**
@@ -76,7 +100,7 @@ public class MainMenu implements ActionListener {
     class Drawing extends Canvas {
         public void paint(Graphics g) {
             g.setFont(new Font("Courier New", Font.PLAIN, 80));
-            g.drawString("Race Against Time", 0, 0);
+            g.drawString("Main Menu", 0, 100);
             g.setColor(new Color(255, 190, 50));
         }
     }
@@ -92,7 +116,7 @@ public class MainMenu implements ActionListener {
             Main.screenNum = 10;
         else if (e.getSource() == level3)
             Main.screenNum = 15;
-        else if(e.getSource() == exit)
+        else if (e.getSource() == exit)
             System.exit(0);
     }
 }
