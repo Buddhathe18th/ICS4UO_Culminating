@@ -14,7 +14,7 @@ import java.util.*;
  * @date 05/15/2023
  */
 
-public class TextBoxCentered extends JComponent {
+public class TextBoxCentered extends TextBox {
 
     /**
      * The x-coordinate of the top left corner of the text box
@@ -65,28 +65,7 @@ public class TextBoxCentered extends JComponent {
      * @param t  The text to be shown in the text box
      */
     public TextBoxCentered(int x1, int y1, int w, int f, String t) {
-        x = x1;
-        y = y1;
-        width = w;
-        fontSize = f;
-        textPerLine = (int) (w * 1.4 / fontSize);
-        orientation = "topleft";
-        visible = true;
-        String[] text = t.split(" ");
-        int maxLen = textPerLine;
-        lines = new ArrayList<String>();
-
-        String temp = "";
-        for (String l : text) {
-            if (maxLen - l.length() < 0) {
-                maxLen = textPerLine;
-                lines.add(temp);
-                temp = "";
-            }
-            temp += l + " ";
-            maxLen -= l.length();
-        }
-        lines.add(temp);
+        super(x1, y1, w, f, t);
     }
 
     /**
@@ -102,6 +81,7 @@ public class TextBoxCentered extends JComponent {
      * @param v  If the text box borders are visible or not
      */
     public TextBoxCentered(int x1, int y1, int w, int f, String t, String or, boolean c, boolean v) {
+        super(x1, y1, w, f, t);
         x = x1;
         y = y1;
         width = w;
