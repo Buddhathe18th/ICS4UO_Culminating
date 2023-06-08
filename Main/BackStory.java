@@ -6,6 +6,7 @@ import java.awt.Dimension;
 import java.awt.Font;
 import java.awt.Graphics;
 import java.awt.Image;
+import java.awt.TextField;
 import java.awt.event.ActionEvent;
 import java.awt.event.ActionListener;
 import java.io.File;
@@ -34,8 +35,10 @@ public class BackStory implements ActionListener {
      */
     JInternalFrame frame;
 
+    // TextField t = new TextField("Johnny is an 8th grade student at Silver Oak Middle School. Each day he spends hours playing video games. He’s currently plagued by the greatest disease of this generation… PROCRASTINATION                                                     Press enter to continue",3);
+    
     TextBox t = new TextBox(0, 0, 1280, 25,
-            "Johnny is an 8th grade student at Silver Oak Middle School. Each day he spends hours playing video games. He’s currently plagued by the greatest disease of this generation… PROCRASTINATION                                                     Press enter to continue");            
+            "Johnny is an 8th grade student at Silver Oak Middle School. Each day he spends hours playing video games. He’s currently plagued by the greatest disease of this generation… newLine newLine PROCRASTINATION                                            Press enter to continue");            
     public BackStory() {
         
     }
@@ -105,18 +108,30 @@ public class BackStory implements ActionListener {
 
             Image[] iArr = new Image[4];
             try {
-                iArr[0] = ImageIO.read(new File("Level2\\Images\\basketball.png"));
-                iArr[1] = ImageIO.read(new File("Level2\\Images\\laptop.png"));
-                iArr[2] = ImageIO.read(new File("Level2\\Images\\nitendoSwitch.png"));
-                iArr[3] = ImageIO.read(new File("Level2\\Images\\phone.png"));
+                iArr[0] = ImageIO.read(new File("Main\\gaming.png"));
+            
             } catch (IOException e) {
                 e.printStackTrace();
             }
 
-            for(int i = 0; i<20; i++){
-                int k =(int)(Math.random()*400)+150;
-                g.drawImage(iArr[(int)(Math.random()*4)], (i%4)*320+(int)(Math.random()*20), (i/4)*320+(int)(Math.random()*20),k,k,null);
-            }
+            g.drawImage(iArr[0], 140, 130,1280,680,null);
+
+
+
+            // Image[] iArr = new Image[4];
+            // try {
+            //     iArr[0] = ImageIO.read(new File("Level2\\Images\\basketball.png"));
+            //     iArr[1] = ImageIO.read(new File("Level2\\Images\\laptop.png"));
+            //     iArr[2] = ImageIO.read(new File("Level2\\Images\\nitendoSwitch.png"));
+            //     iArr[3] = ImageIO.read(new File("Level2\\Images\\phone.png"));
+            // } catch (IOException e) {
+            //     e.printStackTrace();
+            // }
+
+            // for(int i = 0; i<20; i++){
+            //     int k =(int)(Math.random()*400)+150;
+            //     g.drawImage(iArr[(int)(Math.random()*4)], (i%4)*320+(int)(Math.random()*20), (i/4)*320+(int)(Math.random()*20),k,k,null);
+            // }
 
         }
     }
