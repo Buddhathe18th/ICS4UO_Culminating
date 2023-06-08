@@ -35,7 +35,7 @@ public class TextBox extends JComponent {
      * The way the text box is drawn
      */
     private String orientation;
-    
+
     /**
      * The font size
      */
@@ -183,6 +183,7 @@ public class TextBox extends JComponent {
         String[] words = text.split(" ");
         int maxLen = textPerLine;
         String temp = "";
+        String buffer = "";
 
         for (String l : words) {
             if (maxLen - l.length() < 0) {
@@ -210,7 +211,7 @@ public class TextBox extends JComponent {
         super.paintComponent(g);
         g.setFont(new Font("Courier New", Font.PLAIN, fontSize));
         // Draws a rectangular box at specified coordinates
-        g.drawRect(getCoords()[0], getCoords()[1], width, (int)((getText().size()+0.25)*fontSize));
+        if (visible) g.drawRect(getCoords()[0], getCoords()[1], width, (int)((getText().size()+0.25)*fontSize));
         // Draws the text in the text boxes, line by line
         for (int i = 0; i < getText().size(); i++) g.drawString(getText().get(i), getCoords()[0], getCoords()[1]+(i+1)*fontSize);
     }
