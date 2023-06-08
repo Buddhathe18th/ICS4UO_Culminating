@@ -62,9 +62,9 @@ public class Level1Rule implements KeyListener{
      */
     class Drawing extends Canvas {
         public void paint(Graphics g) {
-            g.setFont(new Font("Courier New", Font.PLAIN, 80));
-            g.drawString("Race Against Time", 0, 0);
-            g.setColor(new Color(255, 190, 50));
+            // g.setFont(new Font("Courier New", Font.PLAIN, 80));
+            // g.drawString("Race Against Time", 0, 0);
+            // g.setColor(new Color(255, 190, 50));
         }
     }
 
