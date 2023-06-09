@@ -234,6 +234,13 @@ public class Level3Frame extends JInternalFrame implements KeyListener {
      * Panel class to hold all drawings and components
      */
     public class Panel extends JPanel {
+
+        /**
+         * Default constructor for the Panel class
+         */
+        public Panel() {
+        }
+
         /**
          * Draws the text boxes to the Game Panel.
          *

@@ -165,10 +165,10 @@ public class Level1Scene extends Level1 implements ActionListener {
      */
     public class Panel extends JPanel {
 
+        /**
+         * Default constructor for the Panel class
+         */
         public Panel() {
-            setSize(1200,900);
-            setOpaque(true);
-            setBackground(Color.WHITE);
         }
 
         /**

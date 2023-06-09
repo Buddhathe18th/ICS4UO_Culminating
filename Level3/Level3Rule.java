@@ -81,6 +81,13 @@ public class Level3Rule implements KeyListener{
      * Panel class to hold all of the items, maze and character
      */
     public class Panel extends JPanel {
+
+        /**
+         * Default constructor for the Panel class
+         */
+        public Panel() {
+        }
+
         /**
          * Draws the text boxes to the Game Panel.
          *

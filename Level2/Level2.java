@@ -160,6 +160,12 @@ public class Level2 {
     public class Panel extends JPanel {
 
         /**
+         * Default constructor for the Panel class
+         */
+        public Panel() {
+        }
+
+        /**
          * Paints the background onto the screen
          */
         protected void paintComponent(Graphics g) {
