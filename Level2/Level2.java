@@ -119,11 +119,11 @@ public class Level2 {
      */
     public JInternalFrame frame() {
         MoveFrame frame = new MoveFrame();
-        
+
         frame.setVisible(true);
         frame.setLayout(null);
         frame.setDefaultCloseOperation(JFrame.EXIT_ON_CLOSE);
-        frame.setSize(1200, 900);
+        frame.setSize(1200, 960);
         frame.setFocusable(true);
         frame.setVisible(true);
         frame.requestFocus();

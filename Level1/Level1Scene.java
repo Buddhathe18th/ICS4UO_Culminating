@@ -107,7 +107,7 @@ public class Level1Scene extends Level1 implements ActionListener {
 
         frame.add(innerPanel);
 
-        frame.setSize(1200, 900);
+        frame.setSize(1200, 960);
         frame.setVisible(true);
         return frame;
     }
@@ -164,7 +164,7 @@ public class Level1Scene extends Level1 implements ActionListener {
             setOpaque(true);
             setBackground(Color.WHITE);
         }
-        
+
         /**
          * Draws the text boxes to the Game Panel.
          *

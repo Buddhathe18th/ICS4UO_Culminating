@@ -54,7 +54,7 @@ public class Main implements KeyListener {
         frame = new JFrame("Race Against Time");
         frame.setLayout(null);
         frame.setDefaultCloseOperation(JFrame.EXIT_ON_CLOSE);
-        frame.setSize(1200, 900);
+        frame.setSize(1200, 960);
         frame.setFocusable(true);
         frame.setResizable(false);
         frame.addKeyListener(this);
