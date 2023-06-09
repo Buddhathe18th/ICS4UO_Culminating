@@ -96,7 +96,7 @@ public class BackStory {
 
             Image[] iArr = new Image[4];
             try {
-                iArr[0] = ImageIO.read(new File("Main\\gaming.png"));
+                iArr[0] = ImageIO.read(getClass().getResource("..\\Main\\gaming.png"));
 
             } catch (IOException e) {
                 e.printStackTrace();

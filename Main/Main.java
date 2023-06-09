@@ -156,14 +156,14 @@ public class Main implements KeyListener {
                                     "Sleep", "Watch Youtube"};
                     Image[] i = new Image[8];
                     try {
-                        i[0] = ImageIO.read(new File("Level1\\Images\\basketball.png"));
-                        i[1] = ImageIO.read(new File("Level1\\Images\\calculator.png"));
-                        i[2] = ImageIO.read(new File("Level1\\Images\\pencil.png"));
-                        i[3] = ImageIO.read(new File("Level1\\Images\\ipad.png"));
-                        i[4] = ImageIO.read(new File("Level1\\Images\\atom.png"));
-                        i[5] = ImageIO.read(new File("Level1\\Images\\history.png"));
-                        i[6] = ImageIO.read(new File("Level1\\Images\\pillow.png"));
-                        i[7] = ImageIO.read(new File("Level1\\Images\\youtube.png"));
+                        i[0] = ImageIO.read(getClass().getResource("..\\Level1\\Images\\basketball.png"));
+                        i[1] = ImageIO.read(getClass().getResource("..\\Level1\\Images\\calculator.png"));
+                        i[2] = ImageIO.read(getClass().getResource("..\\Level1\\Images\\pencil.png"));
+                        i[3] = ImageIO.read(getClass().getResource("..\\Level1\\Images\\ipad.png"));
+                        i[4] = ImageIO.read(getClass().getResource("..\\Level1\\Images\\atom.png"));
+                        i[5] = ImageIO.read(getClass().getResource("..\\Level1\\Images\\history.png"));
+                        i[6] = ImageIO.read(getClass().getResource("..\\Level1\\Images\\pillow.png"));
+                        i[7] = ImageIO.read(getClass().getResource("..\\Level1\\Images\\youtube.png"));
                     } catch (IOException e) {
                         e.printStackTrace();
                     }
@@ -185,7 +185,7 @@ public class Main implements KeyListener {
                 }
 
                 case 10: {
-                    System.out.println("LEvel 2 rule");
+                    System.out.println("Level 2 rule");
                     Level2Rule t = new Level2Rule();
                     JInternalFrame test = t.frame();
                     frame.add(test);
