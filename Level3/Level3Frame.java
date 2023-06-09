@@ -63,7 +63,7 @@ public class Level3Frame extends JInternalFrame implements KeyListener {
         super("", false, false, false, false);
 
         Calendar calendar = Calendar.getInstance();
-        timeLeft=200;
+        timeLeft=100;
         setFocusable(false);
         this.getContentPane().setFocusable(false);
 
