@@ -41,6 +41,10 @@ public class Main implements KeyListener {
     boolean run = true;
     static JFrame frame;
 
+    public static boolean win1;
+    public static boolean win2;
+    public static boolean win3;
+
     public Level3Frame g = new Level3Frame();
 
     public static void main(String[] args) {
@@ -52,6 +56,9 @@ public class Main implements KeyListener {
      * displayed on the JFrame
      */
     public Main() {
+        win1=true;
+        win2=true;
+        win3=true;
         frame = new JFrame("Race Against Time");
         frame.setLayout(null);
         frame.setDefaultCloseOperation(JFrame.EXIT_ON_CLOSE);
@@ -143,6 +150,7 @@ public class Main implements KeyListener {
                     JInternalFrame test = t.frame();
                     frame.add(test);
                     test.setLocation(0, -15);
+                    win1=true;
                     break;
                 }
 
@@ -224,6 +232,19 @@ public class Main implements KeyListener {
                     test.setLocation(0, -15);
                     break;
                 }
+                case 17: {
+                    if(win1&&win2&&win3){
+                        WinCredits t = new WinCredits();
+                        JInternalFrame test = t.frame();
+                        frame.add(test);
+                        test.setLocation(0, -15);
+                        break;
+                    }
+                    else{
+                        screenNum++;
+                    }
+                    
+                }
                 case 18: {
                     Credits t = new Credits();
                     JInternalFrame test = t.frame();
@@ -268,7 +289,7 @@ public class Main implements KeyListener {
 
     @Override
     public void keyReleased(KeyEvent e) {
-        if (e.getKeyCode() == KeyEvent.VK_ENTER && (screenNum == 1 || screenNum == 2 || screenNum == 4 || screenNum==10||screenNum==14)) {
+        if (e.getKeyCode() == KeyEvent.VK_ENTER && (screenNum == 1 || screenNum == 2 || screenNum == 4 || screenNum==10||screenNum==14||screenNum==17)) {
             Main.screenNum++;
         }
 

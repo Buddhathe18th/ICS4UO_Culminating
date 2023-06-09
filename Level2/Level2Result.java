@@ -63,6 +63,7 @@ public class Level2Result implements ActionListener{
      */
 
     public Level2Result(){
+        
     }
 
     /**
@@ -85,6 +86,7 @@ public class Level2Result implements ActionListener{
 
         if(Level2.score>0){
             innerPanel.add(winText);
+            Main.Main.win2=true;
         }
         else{
             innerPanel.add(loseText);

@@ -91,6 +91,7 @@ public class Level3Result implements ActionListener{
 
         if(level3Win){
             innerPanel.add(winText);
+            Main.Main.win3=true;
         }
         else{
             innerPanel.add(loseText);
