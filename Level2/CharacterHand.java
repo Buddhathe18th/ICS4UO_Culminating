@@ -6,7 +6,6 @@ import Helper.DragAndDrop;
 
 import java.awt.Color;
 import java.awt.Graphics;
-import java.awt.event.*;
 
 /**
  * Character class that will be on screen for the Level 2
@@ -19,7 +18,6 @@ import java.awt.event.*;
  * @date 06/04/2023
  * 
  */
-
 public class CharacterHand extends JComponent{
 
     /**
@@ -71,7 +69,5 @@ public class CharacterHand extends JComponent{
             g.setColor(Color.blue);
             g.fillRect(0, 0, 100, 100);
         }
-        
-
     }
 }

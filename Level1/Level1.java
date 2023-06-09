@@ -1,25 +1,21 @@
 package Level1;
 
 import javax.swing.*;
-import javax.imageio.*;
 import java.awt.*;
-import java.io.File;
-import java.io.IOException;
 
 /**
  * Level 1 game and driver class for now. Includes 4 functional scenarios with
  * buttons and images.
- * Time Spent: 4 hours
+ * Time Spent: 6 hours
  * 
  * <h2>Modifications</h2>
- * Added more scenarios, added logic to allow for changing of scenarios
+ * Cleaned up code, added more text, and allowed the level to be displayed on a specified JFrame
  * 
  * @author Lukas Li
- * @version 0.3.0
+ * @version 1.0.0
  * @date 06/03/2023
  * 
  */
-
 public class Level1 extends JComponent {
 
     /**
@@ -113,63 +109,5 @@ public class Level1 extends JComponent {
      */
     public static void changeScene() {
         changed = true;
-    }
-
-    /**
-     * Temporary main class used to test the scenarios.
-     */
-    public static void main(String[] args) {
-
-        String[] init = {
-                "Johnny wants to go play basketball, but has a math assignment due tomorrow. Which choice should he make?",
-                "Johnny has been playing Minecraft with his best friend, Bernie, for two hours now. Johnny also has to finish a journal for English. Which option should Johnny pick?",
-                "Johnny has a big science project due next week, which he is already 3/4 done. However, he also has some history homework due tomorrow that he hasn't started. Which assignment should he work on?   ",
-                "It’s 1am, and Johnny just finished his assignment. He has an urge to watch some Youtube. What should he do?" };
-        String[] c = {
-                "Incorrect! If Johnny has an assignment due tomorrow, delaying it further could be impeding his learning.",
-                "Correct! If Johnny has a math assignment due tomorrow, getting started on it will be the better choice.",
-                "Correct! If Johnny has an English assignment, he should prioritize doing it over playing video games.",
-                "Incorrect! If Johnny continues playing Minecraft with his friend, he would have less time to finish his homework.",
-                "Incorrect! Johnny should prioritize assignments that are due earlier. He has plenty of time to finish his science project.",
-                "Correct! Johnny should prioritize assignments that are due earlier, regardless of if he likes the subject or not.",
-                "Correct! Sleeping can help keep your body healthy and ready for the next day!",
-                "Incorrect! Without sleep, Johnny will be fatigued and very unfocused the next day.",
-        };
-        String[] inf = {
-                "Fun Fact! Sports are good for your mental health, but at times like these, commiting and working is still the overall best choice! Press enter to continue...",
-                "Fun Fact! According to research from Brigham Young University, video game breaks can increase productivity by up to 20%. But make sure not to play too much! Too many video games can lead to many problems such as a reduced attention span. Press enter to continue...",
-                "Fun Fact! According to research from Brigham Young University, video game breaks can increase productivity by up to 20%, but make sure not to play too much! Too many video games can lead to many problems such as a decreased attention span and eye strain. Press enter to continue...",
-                "Fun Fact! Being sleep deprived will make you behave in similar ways to being drunk! According to Harvard Medical School, going 48 hours without sleep is equivalent to having a 0.1% blood alcohol content, which is higher than the legal amount to drive! Press enter to continue...",
-        };
-
-        String[] txt = {"Play basketball", 
-                        "Do math", 
-                        "Do english", 
-                        "Play Minecraft", 
-                        "Work on science", 
-                        "Work on history", 
-                        "Sleep", 
-                        "Watch Youtube"};
-
-        Image[] i = new Image[8];
-        try {
-            i[0] = ImageIO.read(new File("Level1\\Images\\basketball.png"));
-            i[1] = ImageIO.read(new File("Level1\\Images\\calculator.png"));
-            i[2] = ImageIO.read(new File("Level1\\Images\\pencil.png"));
-            i[3] = ImageIO.read(new File("Level1\\Images\\ipad.png"));
-            i[4] = ImageIO.read(new File("Level1\\Images\\atom.png"));
-            i[5] = ImageIO.read(new File("Level1\\Images\\history.png"));
-            i[6] = ImageIO.read(new File("Level1\\Images\\pillow.png"));
-            i[7] = ImageIO.read(new File("Level1\\Images\\youtube.png"));
-        } catch (IOException e) {
-            e.printStackTrace();
-        }
-
-        JFrame frame = new JFrame("Level 1");
-        frame.setSize(1200, 960);
-        frame.setVisible(true);
-        frame.setResizable(false);
-
-        new Level1(frame, i, init, c, inf, txt);
     }
 }

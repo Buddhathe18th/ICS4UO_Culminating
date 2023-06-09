@@ -10,13 +10,13 @@ import java.util.*;
 
 /**
  * Level 1 scene class. Draws all the text boxes and buttons required for each scene.
- * Time Spent: 5 hours
+ * Time Spent: 6 hours
  * 
  * <h2>Modifications</h2>
- * Got buttons and keyboard events to work, simplified logic, and improved compatibility with the Level1 driver (Level1.java).
+ * Added more text to each scene, fixed textbox positioning
  *  
  * @author Lukas Li
- * @version 0.3.0
+ * @version 1.0.0
  * @date 06/03/2023
  */
 public class Level1Scene extends Level1 implements ActionListener {
