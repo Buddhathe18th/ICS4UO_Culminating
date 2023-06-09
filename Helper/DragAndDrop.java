@@ -85,6 +85,15 @@ public class DragAndDrop extends JComponent{
     g.drawImage(image, 0, 0, width, height, null);
   }
 
+  /**
+   * Checks if the current elemnt is overlapping with the element specified
+   * @param binX The top left x coordinate of the other object
+   * @param binY The top left y coordinate of the other object
+   * @param binWidth the width of the object
+   * @param binHeight the height of the object
+   * @return a boolean if the object is overlapping
+   */
+
   public boolean checkCollision(int binX, int binY, int binWidth, int binHeight) {
     //Debuggin print statements, prints coordinates, and the boolean expressions for the two axis
     if (!((getY() + height < binY || getY() > binY + binHeight) || (getX() + width < binX || getX() > binX + binWidth)))
