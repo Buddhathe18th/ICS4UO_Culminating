@@ -6,15 +6,15 @@ import javax.swing.*;
 import Helper.TextBox;
 
 /**
- * The MainMenu class will create the screen of the main menu
- * Time Spent: 1 hour
+ * The Level2Rule will explain how to play level 2 to the user
+ * Time Spent: 3 hour
  * 
  * @author Alex Zhu
- * @version 0.1.0
- * @date 05/16/2023
+ * @version 1.0.0
+ * @date 06/09/2023
  */
 
-public class Level2Rule implements KeyListener{//TODO: Keylistener not workin
+public class Level2Rule implements KeyListener{
 
     /**
      *  The drawing that will be on the screen
@@ -25,6 +25,10 @@ public class Level2Rule implements KeyListener{//TODO: Keylistener not workin
      * The frame that will be passed to the Main class
      */
     JInternalFrame frame;
+
+    /**
+     * Textbox on the top of the screen
+     */
 
     TextBox t = new TextBox(0, 1, 1185, 25, "Now, Johnny is ready to work, but oh no! All of his belongings are on his table! Help Johnny by moving his character with arrow keys and clicking space to grab the items. Move all of the school-related items to the school bin and distractions to the non-school bin! newLine newLine Press enter to continue");
     /**
@@ -65,6 +69,10 @@ public class Level2Rule implements KeyListener{//TODO: Keylistener not workin
             g.setColor(new Color(255, 190, 50));
         }
     }
+
+    /**
+     * Key Listener methods
+     */
 
     @Override
     public void keyTyped(KeyEvent e) {

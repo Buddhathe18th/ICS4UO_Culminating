@@ -23,7 +23,9 @@ import Main.Main;
 
 public class BackStory {
 
-
+    /**
+     * Inner panel to hold all content
+     */
     Panel innerPanel = new Panel();
 
     /**
@@ -31,13 +33,12 @@ public class BackStory {
      */
     JInternalFrame frame;
 
-    // TextField t = new TextField("Johnny is an 8th grade student at Silver Oak Middle School. Each day he spends hours playing video games. He’s currently plagued by the greatest disease of this generation… PROCRASTINATION                                                     Press enter to continue",3);
-    
+    /**
+     * Textbox to hold the information
+     */
     TextBox t = new TextBox(1, 0, 1185, 25,
-            "Johnny is an 8th grade student at Silver Oak Middle School. Each day he spends hours playing video games. He’s currently plagued by the greatest disease of this generation… newLine newLine PROCRASTINATION                                      Press enter to continue");            
-    public BackStory() {
-        
-    }
+            "Johnny is an 8th grade student at Silver Oak Middle School. Each day he spends hours playing video games. He’s currently plagued by the greatest disease of this generation… newLine newLine PROCRASTINATION                                      Press enter to continue");
+
 
     /**
      * Returns the frame to be displayed on the main menu screen. Currently
@@ -61,9 +62,6 @@ public class BackStory {
 
         frame.setSize(1920, 1080);
         frame.setVisible(true);
-        
-
-        
 
         return frame;
 
@@ -82,12 +80,12 @@ public class BackStory {
             Image[] iArr = new Image[4];
             try {
                 iArr[0] = ImageIO.read(new File("Main\\gaming.png"));
-            
+
             } catch (IOException e) {
                 e.printStackTrace();
             }
 
-            g.drawImage(iArr[0], 140, 130,1280,680,null);
+            g.drawImage(iArr[0], 140, 130, 1280, 680, null);
 
         }
     }

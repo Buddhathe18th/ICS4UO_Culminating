@@ -6,11 +6,11 @@ import javax.swing.*;
 
 /**
  * The MainMenu class will create the screen of the main menu
- * Time Spent: 1 hour
+ * Time Spent: 2 hour
  * 
  * @author Alex Zhu
- * @version 0.1.0
- * @date 05/16/2023
+ * @version 1.0.0
+ * @date 06/09/2023
  */
 
 public class MainMenu implements ActionListener {
@@ -29,6 +29,9 @@ public class MainMenu implements ActionListener {
      */
     JInternalFrame frame;
 
+    /**
+     * Panel to display everything
+     */
     Panel innerPanel;
 
     /**
@@ -76,12 +79,21 @@ public class MainMenu implements ActionListener {
         return frame;
     }
 
+    /**
+     * Add button methods
+     * @param jb JButton to add
+     * @param x Top left coordinate of x
+     * @param y Top left coordinate of y
+     */
     public void addButton(JButton jb, int x, int y){
         innerPanel.add(jb);
         jb.setSize(new Dimension(600, 50));
         jb.setLocation(x,y);
     }
 
+    /**
+     * JPanel class to have all drawing and components
+     */
     public class Panel extends JPanel{
         public void paintComponent(Graphics g){
             super.paintComponent(g);

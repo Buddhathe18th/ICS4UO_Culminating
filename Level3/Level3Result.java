@@ -12,19 +12,14 @@ import javax.swing.*;
 import Helper.TextBox;
 
 /**
- * Level 2 game class. So far includes just one draggable component.
- * Time Spent: 0.5 hours
+ * Level 3 result page
+ * Time Spent: 2 hours
  * 
- * <h2>Modifications</h2>
- * Changed layout of drag and drop items into an arraylist, so far just has the 6 out of the 10 needed
- * Panel class to contain all of the graphics stops some issues with the JFrame
- * There are also more attributes such as objLeft and score to be implemented better with the actual game
- * Spent around 3 hours
  * 
  * 
  * @author Alex Zhu
- * @version 0.2.0
- * @date 05/28/2023
+ * @version 1.0.0
+ * @date 06/09/2023
  * 
  */
 
@@ -59,11 +54,18 @@ public class Level3Result implements ActionListener{
      */
     boolean level3Win=false;
 
+    /**
+     * Winning textbox
+     */
     TextBox winText = new TextBox(0, 0, 1920, 25, "Success! You have successfully cleaned Johnny’s table. He’s now able to work on his homework without distractions!");
+    
+    /**
+     * Losing textbox
+     */
     TextBox loseText = new TextBox(0, 0, 1920, 25, "Uh oh, you messed up a little bit. Next time, help Johnny clear his desk better so he can work!");
 
     /**
-     * Constructor for the Level 2 class
+     * Constructor for the Level 3 result
      */
     public Level3Result(){
         Level3Frame.itemsLeft.trimToSize();
@@ -154,6 +156,9 @@ public class Level3Result implements ActionListener{
         }
     }
 
+    /**
+     * Action listener methods
+     */
     @Override
     public void actionPerformed(ActionEvent e) {
         

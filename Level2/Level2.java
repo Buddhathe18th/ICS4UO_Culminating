@@ -14,7 +14,7 @@ import Helper.MoveFrame;
 
 /**
  * Level 2 game class
- * Time Spent: 0.5 hours
+ * Time Spent: 2 hours
  * 
  * <h2>Modifications</h2>
  * Changed layout of drag and drop items into an arraylist, so far just has the 6 out of the 10 needed
@@ -22,10 +22,14 @@ import Helper.MoveFrame;
  * There are also more attributes such as objLeft and score to be implemented better with the actual game
  * Spent around 3 hours
  * 
+ * <h2> Modifications</h2>
+ * 
+ * Final 8 drag and drops are added, changed collision to the correct bins
+ * 
  * 
  * @author Alex Zhu
- * @version 0.2.0
- * @date 05/28/2023
+ * @version 1.0.0
+ * @date 06/09/2023
  * 
  */
 
@@ -64,6 +68,9 @@ public class Level2 {
      */
     public int objLeft=6;
 
+    /**
+     * The hand that grabs items
+     */
     public CharacterHand hand = new CharacterHand();
 
     /**
@@ -111,6 +118,16 @@ public class Level2 {
         hand.setLocation(0, 0);
     }
 
+    /**
+     * Method to add a new DragAndDrop item to the screen
+     * @param i Image the item would be
+     * @param w width of the item
+     * @param h height of the item
+     * @param school whether or not the item should belong in the school bin
+     * @param x the x coordinates of the top left corner
+     * @param y the y coordinates of the top left corner
+     */
+    
     public void addDrag(Image i,int w, int h, boolean school,int x, int y){
         DragAndDrop d = new DragAndDrop(i, w, h,school);
             draggableArrayList.add(d);
