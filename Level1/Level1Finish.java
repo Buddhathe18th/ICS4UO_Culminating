@@ -57,7 +57,6 @@ public class Level1Finish implements ActionListener {
         frame.putClientProperty("JInternalFrame.isPalette", Boolean.TRUE);
         frame.setDefaultCloseOperation(JFrame.EXIT_ON_CLOSE);
         frame.getRootPane().setWindowDecorationStyle(0);
-
         
         innerPanel.setLayout(null);
 

@@ -56,9 +56,10 @@ public class DragAndDrop extends JComponent{
   /**
    * Constructor for the DragAndDrop class.
    * 
-   * @param im   Image for the component to look like. Not implemented yet.
+   * @param im Image for the component to look like. Not implemented yet.
    * @param xNew Width of the component
    * @param yNew Height of the component
+   * @param schoolRelated Whether or not it belongs in the school bin
    */
 
   public DragAndDrop(Image im, int xNew, int yNew, boolean schoolRelated) {
