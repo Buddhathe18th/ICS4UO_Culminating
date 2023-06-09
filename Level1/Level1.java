@@ -48,12 +48,17 @@ public class Level1 extends JComponent {
     private String[] info;
 
     /**
+     * The names of the choices displayed in each scenario
+     */
+    private String[] choiceNames;
+
+    /**
      * If the scene is to be changed
      */
     private static boolean changed;
 
     /**
-     * Default constructor for the Level1 class.
+     * Default empty constructor for the Level1 class.
      */
     public Level1() {
     }
@@ -61,6 +66,7 @@ public class Level1 extends JComponent {
     /**
      * Constructor for the Level1 class.
      * 
+     * @param f   The JFrame on which all the scenes are displayed
      * @param im  Images to be displayed in the scenarios.
      * @param in  The initial text shown at the top of the screen in each scenario,
      *            introducing the scenario
@@ -68,8 +74,9 @@ public class Level1 extends JComponent {
      *            selects one, showing if they are correct or not
      * @param inf The info blurbs show at the bottom of the screen every time the
      *            player completes a scenario.
+     * @param cN  The names of the choices to be used in the scene
      */
-    public Level1(JFrame frame, Image[] im, String[] in, String[] c, String inf[], String[] choiceNames) {
+    public Level1(JFrame f, Image[] im, String[] in, String[] c, String inf[], String[] cN) {
         scenarios = 4;
         images = new Image[scenarios * 2];
 
@@ -78,22 +85,23 @@ public class Level1 extends JComponent {
         choices = c;
         info = inf;
         changed = true;
+        choiceNames = cN;
         int scene = 0;
         while (scene < scenarios+1) {
             if (changed) {
                 if (scene < scenarios) {
                     changed = false;
-                    frame.getContentPane().removeAll();
-                    frame.add(new Level1Scene(new Image[] { images[scene * 2], images[scene * 2 + 1] }, initial[scene],
+                    f.getContentPane().removeAll();
+                    f.add(new Level1Scene(new Image[] { images[scene * 2], images[scene * 2 + 1] }, initial[scene],
                             new String[] { choices[scene * 2], choices[scene * 2 + 1] }, info[scene], new String[] { choiceNames[scene * 2], choiceNames[scene++ * 2 + 1] }).frame());
-                    frame.getContentPane().repaint();
+                    f.getContentPane().repaint();
                 }
                 else {
                     changed = false;
-                    frame.getContentPane().removeAll();
-                    frame.add(new Level1Finish().frame());
-                    frame.getContentPane().repaint();
-                    frame.requestFocusInWindow();
+                    f.getContentPane().removeAll();
+                    f.add(new Level1Finish().frame());
+                    f.getContentPane().repaint();
+                    f.requestFocusInWindow();
                 }
             }
             System.out.print("");

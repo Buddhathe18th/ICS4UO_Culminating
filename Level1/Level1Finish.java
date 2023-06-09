@@ -27,6 +27,9 @@ public class Level1Finish implements ActionListener {
      */
     Drawing draw = new Drawing();
 
+    /**
+     * Panel containing all graphics
+     */
     Panel innerPanel = new Panel();
 
     /**
@@ -107,6 +110,9 @@ public class Level1Finish implements ActionListener {
         }
     }
 
+    /**
+     * Panel class to hold all drawings and components
+     */
     public class Panel extends JPanel {
         /**
          * Paints the background onto the screen

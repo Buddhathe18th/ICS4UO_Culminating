@@ -154,6 +154,11 @@ public class TextBox extends JComponent {
         lines.add(temp);
     }
     
+    /**
+     * Draws the text boxes to the Game Panel.
+     *
+     * @param g the Graphics context in which to paint
+     */
     public void paintComponent(Graphics g){
         super.paintComponent(g);
         g.setColor(Color.lightGray);

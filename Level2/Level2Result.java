@@ -37,7 +37,7 @@ public class Level2Result implements ActionListener{
     /**
      * Panel containing all graphics
      */
-    Panel innerPanel = new Panel();;
+    Panel innerPanel = new Panel();
 
     /**
      * whether the user won the level 2 or not

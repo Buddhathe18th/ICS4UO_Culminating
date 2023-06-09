@@ -50,6 +50,11 @@ public class Item extends JComponent {
         // Make image transparent and unable to be picked up
     }
 
+    /**
+     * Draws the items to the Game Panel.
+     *
+     * @param g the Graphics context in which to paint
+     */
     protected void paintComponent(Graphics g) {
         super.paintComponent(g);
         g.setColor(getBackground());
