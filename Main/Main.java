@@ -101,6 +101,7 @@ public class Main implements KeyListener {
             frame.getContentPane().removeAll();
             frame.requestFocusInWindow();
 
+            int pastFrame = screenNum;
             // Depending on screenNum, different screen will be displayed
             switch (screenNum) {
                 case 1: { // Unfinished
@@ -175,12 +176,16 @@ public class Main implements KeyListener {
                     Level1Finish t = new Level1Finish();
                     JInternalFrame test = t.frame();
                     frame.add(test);
+                    System.out.println(screenNum);
                     test.setLocation(0, -15);
                     win1=true;
+                    
                     break;
+                    
                 }
 
                 case 10: {
+                    System.out.println("LEvel 2 rule");
                     Level2Rule t = new Level2Rule();
                     JInternalFrame test = t.frame();
                     frame.add(test);
@@ -283,7 +288,7 @@ public class Main implements KeyListener {
                 }
             }
 
-            int pastFrame = screenNum;
+            
 
             // While the screen has not been changed by the user
             while (pastFrame == screenNum) {

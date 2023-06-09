@@ -85,7 +85,7 @@ public class Level3Result implements ActionListener{
         frame.setSize(1920, 1080);
         frame.setVisible(true);
 
-        if(Level3.score>0){
+        if(Level3.score>=4){
             innerPanel.add(winText);
             Main.Main.win2=true;
         }

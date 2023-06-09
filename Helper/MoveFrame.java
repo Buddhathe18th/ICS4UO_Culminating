@@ -227,7 +227,6 @@ public class MoveFrame extends JInternalFrame implements KeyListener {
                         innerPanel.revalidate();
                         revalidate();
                         innerPanel.repaint();
-                        score--;
                         draggableArrayList.remove(hand.grabbedObj);
                         draggableArrayList.trimToSize();
                         hand.grabbedObj = null;
@@ -240,7 +239,6 @@ public class MoveFrame extends JInternalFrame implements KeyListener {
                         innerPanel.revalidate();
                         revalidate();
                         innerPanel.repaint();
-                        score--;
 
                         // To delete this later to not run into a ConcurrentModification exception
                         draggableArrayList.remove(hand.grabbedObj);
