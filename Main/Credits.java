@@ -16,12 +16,17 @@ public class Credits implements ActionListener {
     
     JButton mainMenu;
 
+    /**
+     *  Makes all components and drawings that will be on the Level 1 game screen
+     * 
+     * @return the JInternalFrame to add to the screen
+     */
     public JInternalFrame frame(){
         frame = new JInternalFrame("", false, false, false, false);
         frame.putClientProperty("JInternalFrame.isPalette", Boolean.TRUE);
         frame.setDefaultCloseOperation(JFrame.EXIT_ON_CLOSE);
         frame.getRootPane().setWindowDecorationStyle(0);
-innerPanel = new Panel();
+        innerPanel = new Panel();
         innerPanel.setLayout(null);
 
         frame.add(innerPanel);
@@ -47,6 +52,9 @@ innerPanel = new Panel();
      */
     public class Panel extends JPanel {
 
+        /**
+         * No argument constructor for the Panel class 
+         */
         public Panel() {
             setSize(1200,900);
             setOpaque(true);

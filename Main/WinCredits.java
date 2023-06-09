@@ -26,12 +26,15 @@ public class WinCredits implements KeyListener{//TODO: Keylistener not workin
      */
     JInternalFrame frame;
 
+    /**
+     * The info text telling what happens after the events of the game
+     */
     TextBox t = new TextBox(0, 1, 1185, 25, "Twenty years later… after keeping up the work habits he developed in 8th grade and prioritizing activities that matter to him, Johnny has progressed a long way. Now, Johnny is the CEO of Apple!");
+    
     /**
      * Returns the frame to be displayed on the main menu screen. Currently unfinished, button for Level 1 will bring you to the Title Screen
      * @return the frame to be displayed
      */
-
     public JInternalFrame frame(){
         
         frame = new JInternalFrame("",false,false,false,false);
@@ -59,6 +62,11 @@ public class WinCredits implements KeyListener{//TODO: Keylistener not workin
      * Drawing class for paiting text onto the Main Menu screen
      */
     class Drawing extends Canvas {
+        /**
+         * Draws the win credits scene to the Game Panel.
+         *
+         * @param g the Graphics context in which to paint
+         */
         public void paint(Graphics g) {
             g.setFont(new Font("Courier New", Font.PLAIN, 80));
             g.drawString("Race Against Time", 0, 0);
@@ -80,6 +88,6 @@ public class WinCredits implements KeyListener{//TODO: Keylistener not workin
     public void keyReleased(KeyEvent e) {
         if (e.getKeyCode()==KeyEvent.VK_ENTER){
             Main.screenNum++;
-           }
+        }
     }
 }

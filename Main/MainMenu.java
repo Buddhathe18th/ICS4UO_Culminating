@@ -76,13 +76,28 @@ public class MainMenu implements ActionListener {
         return frame;
     }
 
+    /**
+     *  Adds a button to the innerPanel
+     * 
+     * @param jb the button to be added to the innerPanel
+     * @param x the x-coordinate of the upper left corner of the button
+     * @param y the y-coordinate of the upper left corner of the button
+     */
     public void addButton(JButton jb, int x, int y){
         innerPanel.add(jb);
         jb.setSize(new Dimension(600, 50));
         jb.setLocation(x,y);
     }
 
+    /**
+     * Panel class to hold all drawings and components
+     */
     public class Panel extends JPanel{
+        /**
+         * Draws the main menu text to the Game Panel.
+         *
+         * @param g the Graphics context in which to paint
+         */
         public void paintComponent(Graphics g){
             super.paintComponent(g);
             g.setFont(new Font("Courier New", Font.PLAIN, 100));
@@ -94,6 +109,8 @@ public class MainMenu implements ActionListener {
     /**
      * Action listener for the button on level1, button for level 2 brings to the
      * 2nd level
+     * 
+     * @param e the action event coming from the menu buttons
      */
     public void actionPerformed(ActionEvent e) {
         if (e.getSource() == level1)

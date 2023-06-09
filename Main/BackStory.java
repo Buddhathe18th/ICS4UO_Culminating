@@ -45,7 +45,6 @@ public class BackStory {
      * 
      * @return the frame to be displayed
      */
-
     public JInternalFrame frame() {
 
         frame = new JInternalFrame("", false, false, false, false);

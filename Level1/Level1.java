@@ -58,7 +58,7 @@ public class Level1 extends JComponent {
     private static boolean changed;
 
     /**
-     * Default empty constructor for the Level1 class.
+     * No argument constructor for the Level1 class.
      */
     public Level1() {
     }
