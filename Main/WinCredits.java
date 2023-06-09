@@ -19,7 +19,7 @@ public class WinCredits implements KeyListener {
     /**
      * The drawing that will be on the screen
      */
-    Drawing draw = new Drawing();
+    Drawing draw = new Drawing(); 
 
     /**
      * The frame that will be passed to the Main class
