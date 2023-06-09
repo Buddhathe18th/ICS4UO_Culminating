@@ -55,8 +55,8 @@ public class Level2Result implements ActionListener{
      */
     JButton mainMenu;
 
-    TextBox winText = new TextBox(0, 0, 1920, 25, "Success! You have successfully cleaned Johnny’s table. He’s now able to work on his homework without distractions!");
-    TextBox loseText = new TextBox(0, 0, 1920, 25, "Uh oh, you messed up a little bit. Next time, help Johnny clear his desk better so he can work!");
+    TextBox winText = new TextBox(1, 0, 1185, 25, "Success! You have successfully cleaned Johnny’s table. He’s now able to work on his homework without distractions!");
+    TextBox loseText = new TextBox(1, 0, 1185, 25, "Uh oh, you messed up a little bit. Next time, help Johnny clear his desk better so he can work!");
 
     /**
      * Constructor for the Level 2 class
@@ -83,7 +83,7 @@ public class Level2Result implements ActionListener{
         frame.setSize(1920, 1080);
         frame.setVisible(true);
 
-        if(Level2.score>3){
+        if(Level2.score>0){
             innerPanel.add(winText);
         }
         else{
@@ -116,8 +116,6 @@ public class Level2Result implements ActionListener{
          * Paints the background onto the screen
          */
         protected void paintComponent(Graphics g) {
-            super.paintComponent(g);
-
             Image[] iArr = new Image[1];
             try {
                 iArr[0] = ImageIO.read(new File("Level2\\Images\\bin.png"));
@@ -125,10 +123,10 @@ public class Level2Result implements ActionListener{
                 e.printStackTrace();
             }
 
-            //The two bins
+            // The two bins
 
-            g.drawImage(iArr[0], 0, 500, 200, 180, null);
-            g.drawImage(iArr[0], 1220, 500, 200, 180, null);
+            g.drawImage(iArr[0], 0, 600, 200, 180, null);
+            g.drawImage(iArr[0], 950, 600, 200, 180, null);
 
             Image[] iArr1 = new Image[1];
             try {
@@ -137,8 +135,8 @@ public class Level2Result implements ActionListener{
                 System.out.println("broken");
             }
 
-            //The table
-            g.drawImage(iArr1[0], 300, 130, 800, 600, null);
+            // The table
+            g.drawImage(iArr1[0], 250, 130, 700, 525, null);
 
             g.setColor(new Color(238,238,238,140));
             g.fillRect(0,0,1920,1080);

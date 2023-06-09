@@ -79,7 +79,7 @@ public class Level2 {
         score=0;
 
         //Image array of the images on the components, so far just one image
-        Image[] iArr = new Image[5];
+        Image[] iArr = new Image[8];
         try {
             iArr[0] = ImageIO.read(new File("Level2\\Images\\nitendoSwitch.png"));
             iArr[1] = ImageIO.read(new File("Level2\\Images\\laptop.png"));
@@ -87,29 +87,34 @@ public class Level2 {
             iArr[3] = ImageIO.read(new File("Level2\\Images\\basketball.png"));
 
             iArr[4] = ImageIO.read(new File("Level2\\Images\\calculator.png"));
-            // iArr[5] = ImageIO.read(new File("Level2\\Images\\laptop.png"));
-            // iArr[6] = ImageIO.read(new File("Level2\\Images\\phone.png"));
-            // iArr[7] = ImageIO.read(new File("Level2\\Images\\basketball.png"));
+            iArr[5] = ImageIO.read(new File("Level2\\Images\\pencil.png"));
+            iArr[6] = ImageIO.read(new File("Level2\\Images\\backPack.png"));
+            iArr[7] = ImageIO.read(new File("Level2\\Images\\binder.png"));
         } catch (IOException e) {
             e.printStackTrace();
         }
 
-        //Adds all components that belong in non-school related bin
-        for(int i = 0; i<=3;i++){
-            DragAndDrop i1 = new DragAndDrop(iArr[i], 100, 100,false);
-            draggableArrayList.add(i1);
-            i1.setLocation(i*100, i*100);
-        }
+        addDrag(iArr[0], 100, 50, false, 400, 325);
+        addDrag(iArr[1], 200, 200, false, 800, 325);
+        addDrag(iArr[2], 80, 80, false, 200, 625);
+        addDrag(iArr[3], 120, 120, false, 900, 625);
+
 
         //Add all components that belong in the school-related bin
 
-        for(int i = 4; i<=4;i++){
+        for(int i = 4; i<=7;i++){
             DragAndDrop i1 = new DragAndDrop(iArr[i], 100, 100,true);
             draggableArrayList.add(i1);
             i1.setLocation(300+i*100, i*100);
         }
 
         hand.setLocation(0, 0);
+    }
+
+    public void addDrag(Image i,int w, int h, boolean school,int x, int y){
+        DragAndDrop d = new DragAndDrop(i, w, h,school);
+            draggableArrayList.add(d);
+            d.setLocation(x,y);
     }
 
     /**

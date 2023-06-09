@@ -26,9 +26,7 @@ public class Level2Rule implements KeyListener{//TODO: Keylistener not workin
      */
     JInternalFrame frame;
 
-    TextBox t = new TextBox(0, 0, 1920, 25, "Now, Johnny is ready to work, but oh no! All of his belongings are on his table! Help Johnny by moving his character with arrow keys and clicking space to grab the items.Move all of the items to the right bin! Press enter to continue");
-    
-    TextBox k = new TextBox(100, 100, 100, 100, "Test");
+    TextBox t = new TextBox(0, 1, 1185, 25, "Now, Johnny is ready to work, but oh no! All of his belongings are on his table! Help Johnny by moving his character with arrow keys and clicking space to grab the items. Move all of the school-related items to the school bin and distractions to the non-school bin! newLine newLine Press enter to continue");
     /**
      * Returns the frame to be displayed on the main menu screen. Currently unfinished, button for Level 1 will bring you to the Title Screen
      * @return the frame to be displayed
@@ -44,15 +42,12 @@ public class Level2Rule implements KeyListener{//TODO: Keylistener not workin
         
         
         frame.add(t);
-        frame.add(k);
         
         frame.getContentPane().setFocusable(false);
         frame.setFocusable(false);
 
         frame.addKeyListener(this);
         
-
-        frame.getContentPane().setBackground(Color.red);
         frame.add(draw);
 
         frame.setSize(1920, 1080);

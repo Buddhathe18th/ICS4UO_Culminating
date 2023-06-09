@@ -1,6 +1,8 @@
 package Helper;
 
 import javax.swing.*;
+
+import java.awt.Color;
 import java.awt.Font;
 import java.awt.Graphics;
 import java.util.*;
@@ -60,7 +62,7 @@ public class TextBox extends JComponent {
         y = y1;
         width = w;
         fontSize = f;
-        textPerLine = (int)(w*1.43/fontSize);
+        textPerLine = (int)(w*1.43/fontSize)-5;
         String[] text = t.split(" ");
         int maxLen = textPerLine;
         lines = new ArrayList<String>();
@@ -83,9 +85,9 @@ public class TextBox extends JComponent {
         }
         lines.add(temp);
 
-        setBounds(x, y, width, (int) (lines.size()+0.25)*fontSize);
+        setBounds(x, y, width+1000, (int) (lines.size()+0.25)*fontSize+10);
         setLocation(x, y);
-        setSize(width, (int)(lines.size()+0.25)*fontSize);
+        setSize(width, (int)(lines.size()+0.25)*fontSize+10);
         setOpaque(false);
     }
 
@@ -154,9 +156,10 @@ public class TextBox extends JComponent {
     
     public void paintComponent(Graphics g){
         super.paintComponent(g);
+        g.setColor(Color.lightGray);
+        g.fillRect(0, 0, width, (int)((getText().size()+0.25)*fontSize)+10);
         g.setFont(new Font("Courier New", Font.PLAIN, fontSize));
-        // Draws a rectangular box at specified coordinates
-        g.drawRect(getCoords()[0], getCoords()[1], width, (int)((getText().size()+0.25)*fontSize));
+        g.setColor(Color.black);
         // Draws the text in the text boxes, line by line
         for (int i = 0; i < getText().size(); i++) g.drawString(getText().get(i), getCoords()[0], getCoords()[1]+(i+1)*fontSize);
     }

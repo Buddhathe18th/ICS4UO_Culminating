@@ -1,6 +1,10 @@
 package Main;
 import java.awt.*;
 import java.awt.event.*;
+import java.io.File;
+import java.io.IOException;
+
+import javax.imageio.ImageIO;
 import javax.swing.*;
 
 /**
@@ -48,16 +52,20 @@ public class TitleScreen implements KeyListener{
 
     class Drawing extends Canvas {
         public void paint(Graphics g) {
-            Toolkit t = Toolkit.getDefaultToolkit();
-            Image i = t.getImage("logo.png");
-            g.drawImage(i, 35, 52, this);
+            Image[] iArr = new Image[1];
+            try {
+                iArr[0] = ImageIO.read(new File("Main\\logo.png"));
+            } catch (IOException e) {
+                e.printStackTrace();
+            }
+            g.drawImage(iArr[0], 30, 82,190,150, null);
 
-            g.setFont(new Font("Courier New", Font.PLAIN, 80));
-            g.drawString("LC Studios Presents...", 325, 200);
+            g.setFont(new Font("Courier New", Font.PLAIN, 70));
+            g.drawString("LC Studios Presents...", 200, 200);
             g.setFont(new Font("Courier New", Font.PLAIN, 50));
-            g.drawString("Race Against Time", 475, 400);
+            g.drawString("Race Against Time", 315, 400);
             g.setFont(new Font("Courier New", Font.PLAIN, 20));
-            g.drawString("Press enter to continue", 550, 600);
+            g.drawString("Press enter to continue", 400, 600);
 
         }
     }
