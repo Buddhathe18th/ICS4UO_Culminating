@@ -26,12 +26,15 @@ public class Level3Rule implements KeyListener{
      */
     JInternalFrame frame;
 
+    /**
+     * The info text displayed before the maze
+     */
     TextBox t = new TextBox(0, 1, 1185, 25, "Almost there! Johnny is at his door, ready to leave, but he needs to pack himself up to go to school, but where is his stuff? He’s left it all around his house, and his belongings are all around the floor! Use the arrow keys to move around, you have 100 seconds to collect all of Johnny’s items and then leave the house. Can you help Johnny navigate the room to collect all of the things on his checklist? newLine newLine Press enter to continue…");
+    
     /**
      * Returns the frame to be displayed on the main menu screen. Currently unfinished, button for Level 1 will bring you to the Title Screen
      * @return the frame to be displayed
      */
-
     public JInternalFrame frame(){
         
         frame = new JInternalFrame("",false,false,false,false);

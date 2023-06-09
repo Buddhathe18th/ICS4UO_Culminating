@@ -72,6 +72,11 @@ public class DragAndDrop extends JComponent{
     setOpaque(false);
   }
 
+  /**
+   * Draws the drag and drop object to the Game Panel.
+   *
+   * @param g the Graphics context in which to paint
+   */
   public void paintComponent(Graphics g) {
     // Paint method just draws a 400 by 400 red square, with image specified
     super.paintComponent(g);

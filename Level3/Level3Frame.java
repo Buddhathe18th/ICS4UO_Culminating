@@ -21,17 +21,39 @@ import Level2.CharacterHand;
 
 public class Level3Frame extends JInternalFrame implements KeyListener {
 
+    /**
+     * If the player has won yet
+     */
     public static boolean win = false;
 
+    /**
+     * The amount of time the player has left
+     */
     public int timeLeft;
 
+    /**
+     * Panel containing all graphics
+     */
     public Panel innerPanel;
+
+    /**
+     * The amount of items the character has collected
+     */
     public int score = 0;
 
+    /**
+     * The character in the maze
+     */
     public Level3Char level3Char;
 
+    /**
+     * The amount of items left to be collected
+     */
     public static ArrayList<Item> itemsLeft;
 
+    /**
+     * The boolean array fpr the maze, tells where the character can and can't go
+     */
     public final static int[][] maze = {
               { 1, 1, 1, 1, 1, 1, 1, 1, 1, 1, 1, 0, 1, 1, 1, 1, 1, 1, 1, 1, 1, 1, 1, 1, 1, 1 },
             { 1, 0, 1, 0, 0, 0, 0, 0, 0, 0, 1, 0, 1, 0, 0, 0, 0, 0, 0, 1, 0, 0, 0, 0, 0, 1 },
@@ -57,8 +79,9 @@ public class Level3Frame extends JInternalFrame implements KeyListener {
             { 1, 0, 0, 0, 0, 0, 1, 0, 1, 0, 0, 0, 1, 0, 1, 0, 0, 1, 0, 0, 0, 0, 0, 1, 0, 1 },
             { 1, 0, 1, 1, 1, 1, 1, 0, 1, 0, 1, 0, 1, 0, 1, 0, 1, 1, 1, 1, 0, 1, 0, 1, 0, 1 },
             { 1, 0, 0, 0, 0, 0, 0, 0, 1, 0, 1, 0, 0, 0, 1, 0, 1, 0, 0, 0, 0, 1, 0, 0, 0, 0 },
-            { 1, 1, 1, 1, 1, 1, 1, 1, 1, 1, 1, 1, 1, 1, 1, 1, 1, 1, 1, 1, 1, 1, 1, 1, 1, 1 } };
+            { 1, 1, 1, 1, 1, 1, 1, 1, 1, 1, 1, 1, 1, 1, 1, 1, 1, 1, 1, 1, 1, 1, 1, 1, 1, 1 }};
 
+    
     public Level3Frame() {
         super("", false, false, false, false);
         win=false;

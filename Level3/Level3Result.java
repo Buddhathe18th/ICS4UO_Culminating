@@ -40,9 +40,8 @@ public class Level3Result implements ActionListener{
     Panel innerPanel = new Panel();
 
     /**
-     * whether the user won the level 2 or not
+     * whether the character has reached the maze exit
      */
-    
     boolean win;
 
     /**
@@ -54,6 +53,10 @@ public class Level3Result implements ActionListener{
      * Button for main menu
      */
     JButton mainMenu;
+
+    /**
+     * If the player has won level 3
+     */
     boolean level3Win=false;
 
     TextBox winText = new TextBox(0, 0, 1920, 25, "Success! You have successfully cleaned Johnny’s table. He’s now able to work on his homework without distractions!");
@@ -62,7 +65,6 @@ public class Level3Result implements ActionListener{
     /**
      * Constructor for the Level 2 class
      */
-
     public Level3Result(){
         Level3Frame.itemsLeft.trimToSize();
         if(Level3Frame.itemsLeft.size()<=0){

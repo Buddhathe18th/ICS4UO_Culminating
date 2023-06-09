@@ -82,6 +82,11 @@ public class Level1Scene extends Level1 implements ActionListener {
         // Maps a method to a keyboard key, here the "changeScene" key is mapped to the enter key and changes the scene when it is pressed after a button is pressed
         innerPanel.getActionMap().put("changeScene", new AbstractAction() {
             @Override
+            /**
+             * The action being performed when the enter key is pressed
+             * 
+             * @param e The action event coming from the keyboard
+             */
             public void actionPerformed(ActionEvent e) {
                 if (pressed) {
                     changeScene();
@@ -112,6 +117,7 @@ public class Level1Scene extends Level1 implements ActionListener {
         return frame;
     }
 
+    @Override
     /**
      * The action being performed when a button is pressed
      * 

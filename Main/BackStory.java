@@ -74,6 +74,9 @@ public class BackStory implements ActionListener {
         
     }
 
+    /**
+     * Panel class to hold all drawings and components
+     */
     public class Panel extends JPanel {
         /**
          * Paints the background onto the screen

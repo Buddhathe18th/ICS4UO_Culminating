@@ -50,45 +50,15 @@ public class TextBoxCentered extends TextBox {
      */
     private ArrayList<String> lines;
 
+    /**
+     * If the text on the text box is centered
+     */
     private boolean centered;
 
-    private boolean visible;
-
     /**
-     * Constructor for the TextBox class.
-     * 
-     * @param x1 The x-coordinate of the top left corner of the text box
-     * @param y1 The y-coordinate of the top left corner of the text box
-     * @param w  The width of the text box
-     * @param f  The size of the font
-     * @param t  The text to be shown in the text box
+     * If the borders of the text box are visible
      */
-    public TextBoxCentered(int x1, int y1, int w, int f, String t) {
-        super(x1, y1, w, f, t);
-
-        x = x1;
-        y = y1;
-        width = w;
-        fontSize = f;
-        textPerLine = (int) (w * 1.4 / fontSize);
-        orientation = "topleft";
-        visible = true;
-        String[] text = t.split(" ");
-        int maxLen = textPerLine;
-        lines = new ArrayList<String>();
-
-        String temp = "";
-        for (String l : text) {
-            if (maxLen - l.length() < 0) {
-                maxLen = textPerLine;
-                lines.add(temp);
-                temp = "";
-            }
-            temp += l + " ";
-            maxLen -= l.length();
-        }
-        lines.add(temp);
-    }
+    private boolean visible;
 
     /**
      * Constructor for the TextBox class.
@@ -185,6 +155,11 @@ public class TextBoxCentered extends TextBox {
         return lines;
     }
 
+    /**
+     * Gets if the text box is visible or not
+     * 
+     * @return If the text box is visible
+     */
     public boolean isVisible() {
         return visible;
     }
@@ -225,6 +200,11 @@ public class TextBoxCentered extends TextBox {
         lines.add(temp);
     }
 
+    /**
+     * Draws the text boxes to the Game Panel.
+     *
+     * @param g the Graphics context in which to paint
+     */
     public void paintComponent(Graphics g) {
         super.paintComponent(g);
         g.setFont(new Font("Courier New", Font.PLAIN, fontSize));
