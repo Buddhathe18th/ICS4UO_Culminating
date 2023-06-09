@@ -287,7 +287,7 @@ public class Main implements KeyListener {
             while (pastFrame == screenNum) {
                 try {
                     // Stops the program from running for 50 milliseconds to preserve computer power
-                    Thread.sleep(50);
+                    Thread.sleep(1000);
                     System.out.println(screenNum);
                 } catch (Exception e) {
                     System.out.println("Sleep method is broken");
