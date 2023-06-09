@@ -19,6 +19,14 @@ import java.util.*;
 
 import Level2.CharacterHand;
 
+/**
+ * Level 3 class
+ * This class is a JInternalFrame, that can allow for the Level3Char to move from the arrow keys
+ * Time spent: 4 hours
+ * 
+ * @author Alex Zhu
+ * @version 1.0.0
+ */
 public class Level3Frame extends JInternalFrame implements KeyListener {
 
     /**
