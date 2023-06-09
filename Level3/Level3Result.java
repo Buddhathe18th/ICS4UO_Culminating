@@ -123,6 +123,13 @@ public class Level3Result implements ActionListener{
      * Panel class to hold all drawings and components
      */
     public class Panel extends JPanel {
+        
+        /**
+         * Default constructor for the Panel class
+         */
+        public Panel() {
+        }
+
         /**
          * Paints the background onto the screen
          */

@@ -13,7 +13,6 @@ import javax.swing.*;
  * 
  * @author Alex Zhu
  * @version 1.0.0
- * @date 06/09/2023
  */
 
 public class TitleScreen implements KeyListener{

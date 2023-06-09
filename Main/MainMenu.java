@@ -10,19 +10,14 @@ import javax.swing.*;
  * 
  * @author Alex Zhu
  * @version 1.0.0
- * @date 06/09/2023
  */
-
+   
 public class MainMenu implements ActionListener {
 
     /**
      * Buttons that will be on the Main Menu
      */
-    JButton level1 = new JButton("Level 1");
-    JButton level2 = new JButton("Level 2");
-    JButton level3 = new JButton("Level 3");
-    JButton credits = new JButton("Credits");
-    JButton exit = new JButton("Exit");
+    JButton level1 = new JButton("Level 1"), level2 = new JButton("Level 2"), level3 = new JButton("Level 3"), credits = new JButton("Credits"), exit = new JButton("Exit");
 
     /**
      * The frame that will be passed to the Main class
@@ -33,6 +28,11 @@ public class MainMenu implements ActionListener {
      * Panel to display everything
      */
     Panel innerPanel;
+    
+    /**
+      * Default constructor for the MainMenu class
+      */
+    public MainMenu() {}
 
     /**
      * Returns the frame to be displayed on the main menu screen. Currently
@@ -40,7 +40,6 @@ public class MainMenu implements ActionListener {
      * 
      * @return the frame to be displayed
      */
-
     public JInternalFrame frame() {
         frame = new JInternalFrame("", false, false, false, false);
         frame.putClientProperty("JInternalFrame.isPalette", Boolean.TRUE);
@@ -95,6 +94,13 @@ public class MainMenu implements ActionListener {
      * JPanel class to have all drawing and components
      */
     public class Panel extends JPanel{
+
+        /**
+         * Default constructor for the Panel class
+         */
+        public Panel() {
+        }
+
         public void paintComponent(Graphics g){
             super.paintComponent(g);
             g.setFont(new Font("Courier New", Font.PLAIN, 100));

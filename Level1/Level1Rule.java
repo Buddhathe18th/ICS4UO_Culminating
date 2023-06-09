@@ -58,7 +58,7 @@ public class Level1Rule implements KeyListener{
     }
 
     /**
-     * Drawing class for paiting text onto the Main Menu screen
+     * Drawing class for painting text onto the Main Menu screen
      */
     class Drawing extends Canvas {
         public void paint(Graphics g) {
