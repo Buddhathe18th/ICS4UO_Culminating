@@ -28,7 +28,7 @@ public class Level2Rule implements KeyListener{
     /**
      * The info text displayed before the maze
      */
-    TextBox t = new TextBox(0, 1, 1185, 25, "Almost there! Johnny is at his door, ready to leave, but he needs to pack himself up to go to school, but where is his stuff? He’s left it all around his house, and his belongings are all around the floor! Use the arrow keys to move around, you have 100 seconds to collect all of Johnny’s items and then leave the house. Can you help Johnny navigate the room to collect all of the things on his checklist? newLine newLine Press enter to continue…");
+    TextBox t = new TextBox(0, 1, 1185, 25, "Almost there! Johnny is at his door, ready to leave, but he needs to pack himself up to go to school, but where is his stuff? He’s left it all around his house, and his belongings are all around the floor! Use the arrow keys to move around, you have 100 seconds to collect all of Johnny’s items and then leave the house. Can you help Johnny navigate the room to collect all of the things on his checklist? newLine newLine Press enter to continue...");
     
     /**
      * Default constructor for the Level3Rule class
