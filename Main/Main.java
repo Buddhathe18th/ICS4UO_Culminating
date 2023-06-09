@@ -29,7 +29,6 @@ import Level3.Level3Rule;
  * 
  * @author Alex Zhu, Lukas Li
  * @version 1.0.0
- * @date 06/09/2023
  * 
  */
 
@@ -38,11 +37,6 @@ public class Main implements KeyListener {
      * Screen number that is going to be displayed
      */
     public static int screenNum = 1;
-
-    /**
-     * The JInternal frame to be displayed
-     */
-    private JInternalFrame content = new JInternalFrame();
 
     /**
      * If the program is to be running
@@ -77,6 +71,7 @@ public class Main implements KeyListener {
 
     /**
      * Main method
+     * @param args The command line arguments.
      */
     public static void main(String[] args) {
         new Main();
