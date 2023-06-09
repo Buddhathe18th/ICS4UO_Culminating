@@ -21,14 +21,16 @@ import javax.swing.*;
  * @version 1.0.0
  * @date 06/09/2023
  */
-
 public class DragAndDrop extends JComponent{
 
   /**
    * Image of the component
    */
   private Image image;
-
+  
+  /**
+   * If the object is being grabbed
+   */
   public boolean grabbed = false;
 
   /**
