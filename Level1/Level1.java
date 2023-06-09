@@ -79,7 +79,7 @@ public class Level1 extends JComponent {
         info = inf;
         changed = true;
         int scene = 0;
-        while (scene < scenarios) {
+        while (scene < scenarios+1) {
             if (changed) {
                 if (scene < scenarios) {
                     changed = false;
@@ -91,15 +91,13 @@ public class Level1 extends JComponent {
                 else {
                     changed = false;
                     frame.getContentPane().removeAll();
+                    frame.add(new Level1Finish().frame());
                     frame.getContentPane().repaint();
                     frame.requestFocusInWindow();
                 }
             }
             System.out.print("");
         }
-        frame.getContentPane().removeAll();
-                    frame.getContentPane().repaint();
-                    frame.requestFocusInWindow();
     }
 
     /**
