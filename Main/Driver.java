@@ -29,10 +29,11 @@ import Level3.Level3Rule;
  * 
  * @author Alex Zhu, Lukas Li
  * @version 0.3.0
+ * @date 06/03/2023
  * 
  */
 
-public class Main implements KeyListener {
+public class Driver implements KeyListener {
     public static int screenNum = 1;
     JInternalFrame content = new JInternalFrame();
     boolean run = true;
@@ -52,7 +53,7 @@ public class Main implements KeyListener {
      * The Main class has a JFrame and each screen is returned as a JInternalFrame,
      * displayed on the JFrame
      */
-    public Main() {
+    public Driver() {
         win1=true;
         win2=true;
         win3=true;
