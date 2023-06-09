@@ -48,10 +48,11 @@ public class Level1Scene extends Level1 implements ActionListener {
     /**
      * Constructor for the Level1Scene.
      * 
-     * @param buttonTexts The texts to be displayed on the buttons.
+     * @param images The images to be displayed on the buttons.
      * @param initial The initial text shown at the top of the screen, introducing the player to the scenario.
      * @param choices The text blurbs shown at the bottom of each choice after the player selects one, indicating if they are correct or not.
      * @param info The info blurb shown at the bottom of the screen after the player completes the scenario.
+     * @param choiceNames The names of the choices for the options
      */
     public Level1Scene(Image[] images, String initial, String[] choices, String info, String[] choiceNames) {
         pressed = false;
@@ -168,6 +169,8 @@ public class Level1Scene extends Level1 implements ActionListener {
          * Default constructor for the Panel class
          */
         public Panel() {
+         setOpaque(true);
+         setBackground(Color.WHITE);
         }
 
         /**

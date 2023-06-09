@@ -25,7 +25,7 @@ import Main.Main;
  * Backstory class generates the screen for the Backtory screen
  * Time spent: 30 minutes
  * 
- * @author Alex Zhu & Lukas Li
+ * @author Alex Zhu, Lukas Li
  * @version 1.0.0
  */
 public class BackStory {

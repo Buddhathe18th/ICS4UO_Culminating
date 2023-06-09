@@ -9,7 +9,7 @@ import Helper.TextBox;
  * Level 3 rule page to explain how to play level 3
  * Time Spent: 1 hour
  * 
- * @author Alex Zhu & Lukas Li
+ * @author Alex Zhu, Lukas Li
  * @version 1.0.0
  */
 

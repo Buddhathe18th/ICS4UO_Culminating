@@ -71,7 +71,6 @@ public class Level2Result implements ActionListener{
         if(Level2Frame.itemsLeft.size()<=0){
             level3Win=true;
         }
-
     }
 
     /**

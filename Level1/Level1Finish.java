@@ -80,9 +80,6 @@ public class Level1Finish implements ActionListener {
         buttonL2.setLocation(305, 300);
         mainMenu.setLocation(305, 375);
         
-
-        
-
         return frame;
 
     }
