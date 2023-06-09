@@ -1,4 +1,4 @@
-package Level3;
+package Level2;
 
 import javax.swing.JComponent;
 
@@ -19,7 +19,7 @@ import java.awt.event.*;
  * 
  */
 
-public class Level3Char extends JComponent{
+public class Level2Char extends JComponent{
     /**
      * X coordinates of the top left corner of the component
      */
@@ -43,7 +43,7 @@ public class Level3Char extends JComponent{
     /**
      * Constructor for the Level3Char class
      */
-    public Level3Char() {
+    public Level2Char() {
         row=0;
         column=11;
         setBounds(0, 0, 100, 100);

@@ -1,4 +1,4 @@
-package Level3;
+package Level2;
 
 import java.awt.Color;
 import java.awt.Graphics;
@@ -14,10 +14,11 @@ import javax.imageio.ImageIO;
 import javax.swing.JFrame;
 import javax.swing.JInternalFrame;
 import javax.swing.JPanel;
+
+import Level3.CharacterHand;
+
 import java.time.*;
 import java.util.*;
-
-import Level2.CharacterHand;
 
 /**
  * Level 3 class
@@ -27,7 +28,7 @@ import Level2.CharacterHand;
  * @author Alex Zhu
  * @version 1.0.0
  */
-public class Level3Frame extends JInternalFrame implements KeyListener {
+public class Level2Frame extends JInternalFrame implements KeyListener {
 
     /**
      * If the player has won yet
@@ -52,7 +53,7 @@ public class Level3Frame extends JInternalFrame implements KeyListener {
     /**
      * The character in the maze
      */
-    public Level3Char level3Char;
+    public Level2Char level3Char;
 
     /**
      * The amount of items left to be collected
@@ -92,7 +93,7 @@ public class Level3Frame extends JInternalFrame implements KeyListener {
     /**
      * Constructor for the Level3Frame class
      */
-    public Level3Frame() {
+    public Level2Frame() {
         super("", false, false, false, false);
         win = false;
 
@@ -103,7 +104,7 @@ public class Level3Frame extends JInternalFrame implements KeyListener {
         setFocusable(false);
         this.getContentPane().setFocusable(false);
 
-        level3Char = new Level3Char();
+        level3Char = new Level2Char();
         innerPanel = new Panel();
         innerPanel.setLocation(300, 0);
 
@@ -120,7 +121,7 @@ public class Level3Frame extends JInternalFrame implements KeyListener {
         // Image array of the images on the components, so far just one image
         Image[] iArr = new Image[1];
         try {
-            iArr[0] = ImageIO.read(new File("Level2\\Images\\a.png"));
+            iArr[0] = ImageIO.read(new File("Level3\\Images\\a.png"));
         } catch (IOException e) {
             e.printStackTrace();
         }

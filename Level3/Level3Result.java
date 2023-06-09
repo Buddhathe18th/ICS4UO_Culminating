@@ -12,9 +12,12 @@ import javax.swing.*;
 import Helper.TextBox;
 
 /**
- * Level 3 result page
- * Time Spent: 2 hours
+ * Level 2 result class, displays if the user wins or loses
+ * Time Spent: 1 hours
  * 
+ * <h2>Modifications</h2>
+ * Works with boolean of the Level 2 win
+ * Time Spent: 1 hours
  * 
  * 
  * @author Alex Zhu
@@ -34,8 +37,9 @@ public class Level3Result implements ActionListener{
     Panel innerPanel = new Panel();
 
     /**
-     * whether the character has reached the maze exit
+     * whether the user won the level 2 or not
      */
+    
     boolean win;
 
     /**
@@ -49,30 +53,19 @@ public class Level3Result implements ActionListener{
     JButton mainMenu;
 
     /**
-     * If the player has won level 3
+     * Textbox of wining
      */
-    boolean level3Win=false;
-
-    /**
-     * Winning textbox
-     */
-    TextBox winText = new TextBox(0, 0, 1920, 25, "Success! You have successfully cleaned Johnny’s table. He’s now able to work on his homework without distractions!");
+    TextBox winText = new TextBox(1, 0, 1185, 25, "Success! You have successfully cleaned Johnny’s table. He’s now able to work on his homework without distractions!");
     
     /**
-     * Losing textbox
+     * Textbox of losing
      */
-    TextBox loseText = new TextBox(0, 0, 1920, 25, "Uh oh, you messed up a little bit. Next time, help Johnny clear his desk better so he can work!");
+    TextBox loseText = new TextBox(1, 0, 1185, 25, "Uh oh, you messed up a little bit. Next time, help Johnny clear his desk better so he can work!");
 
     /**
-     * Constructor for the Level 3 result
+     * Default constructor for the Level 2 class
      */
-    public Level3Result(){
-        Level3Frame.itemsLeft.trimToSize();
-        if(Level3Frame.itemsLeft.size()<=0){
-            level3Win=true;
-        }
-
-    }
+    public Level3Result() {}
 
     /**
      *  Makes all components and drawings that will be on the Level 2 game screen
@@ -92,9 +85,9 @@ public class Level3Result implements ActionListener{
         frame.setSize(1920, 1080);
         frame.setVisible(true);
 
-        if(level3Win){
+        if(Level3.score>0){
             innerPanel.add(winText);
-            Main.Main.win3=true;
+            Main.Main.win2=true;
         }
         else{
             innerPanel.add(loseText);
@@ -122,7 +115,7 @@ public class Level3Result implements ActionListener{
      * Panel class to hold all drawings and components
      */
     public class Panel extends JPanel {
-        
+
         /**
          * Default constructor for the Panel class
          */
@@ -134,10 +127,11 @@ public class Level3Result implements ActionListener{
          */
         protected void paintComponent(Graphics g) {
             super.paintComponent(g);
-
-            Image[] iArr = new Image[1];
+            
+            Image[] iArr = new Image[2];
             try {
-                iArr[0] = ImageIO.read(new File("Level2\\Images\\bin.png"));
+                iArr[0] = ImageIO.read(new File("Level3\\Images\\schoolBin.png"));
+                iArr[0] = ImageIO.read(new File("Level3\\Images\\nonschoolBin.png"));
             } catch (IOException e) {
                 e.printStackTrace();
             }
@@ -145,17 +139,17 @@ public class Level3Result implements ActionListener{
             //The two bins
 
             g.drawImage(iArr[0], 0, 500, 200, 180, null);
-            g.drawImage(iArr[0], 1220, 500, 200, 180, null);
+            g.drawImage(iArr[1], 1220, 500, 200, 180, null);
 
             Image[] iArr1 = new Image[1];
             try {
-                iArr1[0] = ImageIO.read(new File("Level2\\Images\\table.png"));
+                iArr1[0] = ImageIO.read(new File("Level3\\Images\\table.png"));
             } catch (IOException e) {
                 System.out.println("broken");
             }
 
-            //The table
-            g.drawImage(iArr1[0], 300, 130, 800, 600, null);
+            // The table
+            g.drawImage(iArr1[0], 250, 130, 700, 525, null);
 
             g.setColor(new Color(238,238,238,140));
             g.fillRect(0,0,1920,1080);
@@ -163,8 +157,9 @@ public class Level3Result implements ActionListener{
     }
 
     /**
-     * Action listener methods
+     * Button action listener to prompt buttons
      */
+
     @Override
     public void actionPerformed(ActionEvent e) {
         

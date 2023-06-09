@@ -1,4 +1,4 @@
-package Level2;
+package Level3;
 
 import java.awt.*;
 import java.awt.event.InputEvent;
@@ -32,7 +32,7 @@ import Helper.MoveFrame;
  * 
  */
 
-public class Level2 {
+public class Level3 {
 
     /**
      * One drag and droppable item on the screen
@@ -80,21 +80,21 @@ public class Level2 {
     /**
      * Constructor for the Level 2 class
      */
-    public Level2(){
+    public Level3(){
         score=0;
 
         //Image array of the images on the components, so far just one image
         Image[] iArr = new Image[8];
         try {
-            iArr[0] = ImageIO.read(new File("Level2\\Images\\nitendoSwitch.png"));
-            iArr[1] = ImageIO.read(new File("Level2\\Images\\laptop.png"));
-            iArr[2] = ImageIO.read(new File("Level2\\Images\\phone.png"));
-            iArr[3] = ImageIO.read(new File("Level2\\Images\\basketball.png"));
+            iArr[0] = ImageIO.read(new File("Level3\\Images\\nitendoSwitch.png"));
+            iArr[1] = ImageIO.read(new File("Level3\\Images\\laptop.png"));
+            iArr[2] = ImageIO.read(new File("Level3\\Images\\phone.png"));
+            iArr[3] = ImageIO.read(new File("Level3\\Images\\basketball.png"));
 
-            iArr[4] = ImageIO.read(new File("Level2\\Images\\calculator.png"));
-            iArr[5] = ImageIO.read(new File("Level2\\Images\\pencil.png"));
-            iArr[6] = ImageIO.read(new File("Level2\\Images\\backPack.png"));
-            iArr[7] = ImageIO.read(new File("Level2\\Images\\binder.png"));
+            iArr[4] = ImageIO.read(new File("Level3\\Images\\calculator.png"));
+            iArr[5] = ImageIO.read(new File("Level3\\Images\\pencil.png"));
+            iArr[6] = ImageIO.read(new File("Level3\\Images\\backPack.png"));
+            iArr[7] = ImageIO.read(new File("Level3\\Images\\binder.png"));
         } catch (IOException e) {
             e.printStackTrace();
         }
@@ -171,8 +171,8 @@ public class Level2 {
 
             Image[] iArr = new Image[2];
             try {
-                iArr[0] = ImageIO.read(new File("Level2\\Images\\schoolBin.png"));
-                iArr[0] = ImageIO.read(new File("Level2\\Images\\nonschoolBin.png"));
+                iArr[0] = ImageIO.read(new File("Level3\\Images\\schoolBin.png"));
+                iArr[0] = ImageIO.read(new File("Level3\\Images\\nonschoolBin.png"));
             } catch (IOException e) {
                 e.printStackTrace();
             }
@@ -184,7 +184,7 @@ public class Level2 {
 
             Image[] iArr1 = new Image[1];
             try {
-                iArr1[0] = ImageIO.read(new File("Level2\\Images\\table.png"));
+                iArr1[0] = ImageIO.read(new File("Level3\\Images\\table.png"));
             } catch (IOException e) {
                 System.out.println("broken");
             }

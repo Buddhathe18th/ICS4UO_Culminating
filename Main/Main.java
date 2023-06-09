@@ -12,10 +12,10 @@ import java.io.*;
 import Level1.Level1;
 import Level1.Level1Finish;
 import Level1.Level1Rule;
-import Level2.Level2;
+import Level2.Level2Frame;
 import Level2.Level2Result;
 import Level2.Level2Rule;
-import Level3.Level3Frame;
+import Level3.Level3;
 import Level3.Level3Result;
 import Level3.Level3Rule;
 
@@ -67,7 +67,7 @@ public class Main implements KeyListener {
     /**
      * The Level 3 class
      */
-    public Level3Frame g;
+    public Level2Frame g;
 
     /**
      * Main method
@@ -82,9 +82,9 @@ public class Main implements KeyListener {
      * displayed on the JFrame
      */
     public Main() {
-        win1=true;
-        win2=true;
-        win3=true;
+        win1=false;
+        win2=false;
+        win3=false;
         frame = new JFrame("Race Against Time");
         frame.setLayout(null);
         frame.setDefaultCloseOperation(JFrame.EXIT_ON_CLOSE);
@@ -187,42 +187,9 @@ public class Main implements KeyListener {
                     test.setLocation(0, -15);
                     break;
                 }
+
                 case 11: {
-                    Level2 t = new Level2();
-                    JInternalFrame test = t.frame();
-                    frame.add(test);
-                    test.setLocation(0, -15);
-
-                    try {
-                        Robot bot = new Robot();
-                        bot.mouseMove(100, 100);
-                        bot.mousePress(InputEvent.BUTTON1_DOWN_MASK);
-                        bot.mouseRelease(InputEvent.BUTTON1_DOWN_MASK);
-                        System.out.println("clicked screen");
-                    } catch (AWTException e) {
-                        e.printStackTrace();
-                    }
-
-                    break;
-                }
-                case 12: {
-                    Level2Result t = new Level2Result();
-                    JInternalFrame test = t.frame();
-                    frame.add(test);
-                    test.setLocation(0, -15);
-                    break;
-                }
-
-                case 14: {
-                    Level3Rule t = new Level3Rule();
-                    JInternalFrame test = t.frame();
-                    frame.add(test);
-                    test.setLocation(0, -15);
-                    break;
-                }
-
-                case 15: {
-                    g= new Level3Frame();
+                    g= new Level2Frame();
                     frame.add(g);
                     g.setLocation(0, -15);
                     frame.addKeyListener(g);
@@ -252,6 +219,39 @@ public class Main implements KeyListener {
                     frame.getContentPane().removeAll();
                     frame.requestFocusInWindow();
                 }
+                case 12: {
+                    Level2Result t = new Level2Result();
+                    JInternalFrame test = t.frame();
+                    frame.add(test);
+                    test.setLocation(0, -15);
+                    break;
+                }
+
+                case 14: {
+                    Level3Rule t = new Level3Rule();
+                    JInternalFrame test = t.frame();
+                    frame.add(test);
+                    test.setLocation(0, -15);
+                    break;
+                }
+                case 15: {
+                    Level3 t = new Level3();
+                    JInternalFrame test = t.frame();
+                    frame.add(test);
+                    test.setLocation(0, -15);
+
+                    try {
+                        Robot bot = new Robot();
+                        bot.mouseMove(100, 100);
+                        bot.mousePress(InputEvent.BUTTON1_DOWN_MASK);
+                        bot.mouseRelease(InputEvent.BUTTON1_DOWN_MASK);
+                        System.out.println("clicked screen");
+                    } catch (AWTException e) {
+                        e.printStackTrace();
+                    }
+
+                    break;
+                }
                 case 16: {
                     Level3Result t = new Level3Result();
                     JInternalFrame test = t.frame();
@@ -259,6 +259,8 @@ public class Main implements KeyListener {
                     test.setLocation(0, -15);
                     break;
                 }
+
+                
                 case 17: {
                     if(win1&&win2&&win3){
                         WinCredits t = new WinCredits();
