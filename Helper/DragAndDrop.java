@@ -73,10 +73,6 @@ public class DragAndDrop extends JComponent{
     // Paint method just draws a 400 by 400 red square, with image specified
     super.paintComponent(g);
     g.setColor(getBackground());
-
-    g.setColor(new Color(255, 0, 0, 177));
-    g.drawRect(0, 0, width, height);
-    g.drawString(String.valueOf(image == null), 0, 0);
     g.drawImage(image, 0, 0, width, height, null);
   }
 

@@ -52,11 +52,22 @@ public class CharacterHand extends JComponent{
     public void paintComponent(Graphics g) {
         // Paint method just draws a 400 by 400 red square, with image specified
         super.paintComponent(g);
-        g.setColor(getBackground());
 
-        g.setColor(new Color(255, 0, 0, 177));
-        g.setColor(Color.red);
-        g.drawRect(0, 0, 100, 100);
+        if(!grab){
+            g.setColor(getBackground());
+
+            g.setColor(new Color(255, 0, 0, 177));
+            g.setColor(Color.red);
+            g.fillRect(0, 0, 100, 100);
+        }
+        else{
+            g.setColor(getBackground());
+
+            g.setColor(new Color(255, 0, 0, 177));
+            g.setColor(Color.blue);
+            g.fillRect(0, 0, 100, 100);
+        }
+        
 
     }
 }
