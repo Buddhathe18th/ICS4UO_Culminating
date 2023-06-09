@@ -114,9 +114,10 @@ public class Level1Finish implements ActionListener {
         protected void paintComponent(Graphics g) {
             super.paintComponent(g);
 
-            Image[] iArr = new Image[1];
+            Image[] iArr = new Image[2];
             try {
-                iArr[0] = ImageIO.read(new File("Level2\\Images\\bin.png"));
+                iArr[0] = ImageIO.read(new File("Level2\\Images\\schoolBin.png"));
+                iArr[0] = ImageIO.read(new File("Level2\\Images\\nonschoolBin.png"));
             } catch (IOException e) {
                 e.printStackTrace();
             }
@@ -124,7 +125,7 @@ public class Level1Finish implements ActionListener {
             //The two bins
 
             g.drawImage(iArr[0], 0, 500, 200, 180, null);
-            g.drawImage(iArr[0], 1220, 500, 200, 180, null);
+            g.drawImage(iArr[1], 1220, 500, 200, 180, null);
 
             Image[] iArr1 = new Image[1];
             try {
@@ -134,7 +135,7 @@ public class Level1Finish implements ActionListener {
             }
 
             //The table
-            g.drawImage(iArr1[0], 300, 130, 800, 600, null);
+            g.drawImage(iArr1[0], 200, 200, 1000, 700, null);
 
             g.setColor(new Color(238,238,238,140));
             g.fillRect(0,0,1920,1080);

@@ -36,17 +36,18 @@ public class MoveFrame extends JInternalFrame implements KeyListener {
         protected void paintComponent(Graphics g) {
             super.paintComponent(g);
 
-            Image[] iArr = new Image[1];
+            Image[] iArr = new Image[2];
             try {
-                iArr[0] = ImageIO.read(new File("Level2\\Images\\bin.png"));
+                iArr[0] = ImageIO.read(new File("Level2\\Images\\schoolBin.png"));
+                iArr[1] = ImageIO.read(new File("Level2\\Images\\nonschoolBin.png"));
             } catch (IOException e) {
                 e.printStackTrace();
             }
 
-            // The two bins
+            //The two bins
 
-            g.drawImage(iArr[0], 0, 600, 200, 180, null);
-            g.drawImage(iArr[0], 950, 600, 200, 180, null);
+            g.drawImage(iArr[0], 0, 500, 200, 180, null);
+            g.drawImage(iArr[1], 950, 500, 200, 180, null);
 
             Image[] iArr1 = new Image[1];
             try {
@@ -55,8 +56,8 @@ public class MoveFrame extends JInternalFrame implements KeyListener {
                 System.out.println("broken");
             }
 
-            // The table
-            g.drawImage(iArr1[0], 250, 130, 700, 525, null);
+            //The table
+            g.drawImage(iArr1[0], 200, 180, 800, 450, null);
 
             // Trim size of the arraylist to the size of the current amount of elements
             draggableArrayList.trimToSize();

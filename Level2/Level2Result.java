@@ -118,17 +118,20 @@ public class Level2Result implements ActionListener{
          * Paints the background onto the screen
          */
         protected void paintComponent(Graphics g) {
-            Image[] iArr = new Image[1];
+            super.paintComponent(g);
+            
+            Image[] iArr = new Image[2];
             try {
-                iArr[0] = ImageIO.read(new File("Level2\\Images\\bin.png"));
+                iArr[0] = ImageIO.read(new File("Level2\\Images\\schoolBin.png"));
+                iArr[0] = ImageIO.read(new File("Level2\\Images\\nonschoolBin.png"));
             } catch (IOException e) {
                 e.printStackTrace();
             }
 
-            // The two bins
+            //The two bins
 
-            g.drawImage(iArr[0], 0, 600, 200, 180, null);
-            g.drawImage(iArr[0], 950, 600, 200, 180, null);
+            g.drawImage(iArr[0], 0, 500, 200, 180, null);
+            g.drawImage(iArr[1], 1220, 500, 200, 180, null);
 
             Image[] iArr1 = new Image[1];
             try {
