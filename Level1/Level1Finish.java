@@ -116,7 +116,7 @@ public class Level1Finish implements ActionListener {
 
             Image[] iArr = new Image[1];
             try {
-                iArr[0] = ImageIO.read(new File("Level2\\bin.png"));
+                iArr[0] = ImageIO.read(new File("Level2\\Images\\bin.png"));
             } catch (IOException e) {
                 e.printStackTrace();
             }
@@ -128,9 +128,9 @@ public class Level1Finish implements ActionListener {
 
             Image[] iArr1 = new Image[1];
             try {
-                iArr1[0] = ImageIO.read(new File("Level2\\table.png"));
+                iArr1[0] = ImageIO.read(new File("Level2\\Images\\table.png"));
             } catch (IOException e) {
-                System.out.println("broken");
+                e.printStackTrace();
             }
 
             //The table
