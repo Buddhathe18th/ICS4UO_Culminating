@@ -1,4 +1,5 @@
 package Main;
+
 import java.awt.*;
 import java.awt.event.ActionEvent;
 import java.awt.event.ActionListener;
@@ -8,24 +9,45 @@ import java.io.IOException;
 import javax.imageio.ImageIO;
 import javax.swing.*;
 
+/**
+ * Credit class to give credit to the developers
+ * Time spent: 30 minutes
+ * 
+ * @author Lukas Li
+ * @version 1.0.0
+ * @date 06/09/23
+ */
+
 public class Credits implements ActionListener {
 
+    /**
+     * Frane to be displayed
+     */
     public JInternalFrame frame;
 
+    /**
+     * JPanel to hold all content
+     */
     public Panel innerPanel;
-    
-    JButton mainMenu;
 
-    public JInternalFrame frame(){
+    /**
+     * Button to go to Main Menu
+     */
+    private JButton mainMenu;
+
+    /**
+     * Creates the frame to be displayed
+     * @return The frane to be displayed
+     */
+    public JInternalFrame frame() {
         frame = new JInternalFrame("", false, false, false, false);
         frame.putClientProperty("JInternalFrame.isPalette", Boolean.TRUE);
         frame.setDefaultCloseOperation(JFrame.EXIT_ON_CLOSE);
         frame.getRootPane().setWindowDecorationStyle(0);
-innerPanel = new Panel();
+        innerPanel = new Panel();
         innerPanel.setLayout(null);
 
         frame.add(innerPanel);
-
 
         frame.setSize(1920, 1080);
         frame.setVisible(true);
@@ -33,14 +55,12 @@ innerPanel = new Panel();
         mainMenu = new JButton("Main Menu");
         mainMenu.addActionListener(this);
 
-
         innerPanel.add(mainMenu);
-        mainMenu.setSize(new Dimension(600,50));
+        mainMenu.setSize(new Dimension(600, 50));
         mainMenu.setLocation(305, 505);
 
         return frame;
     }
-
 
     /**
      * Panel class to hold all drawings and components
@@ -48,10 +68,11 @@ innerPanel = new Panel();
     public class Panel extends JPanel {
 
         public Panel() {
-            setSize(1200,900);
+            setSize(1200, 900);
             setOpaque(true);
             setBackground(Color.WHITE);
         }
+
         /**
          * Draws the text boxes to the Game Panel.
          *
@@ -67,7 +88,7 @@ innerPanel = new Panel();
                 e.printStackTrace();
             }
 
-            g.drawImage(iArr[0], 500, 100,200,150, null);
+            g.drawImage(iArr[0], 500, 100, 200, 150, null);
 
             g.setFont(new Font("Courier New", Font.PLAIN, 50));
             g.drawString("LC Studios", 450, 330);
@@ -78,9 +99,12 @@ innerPanel = new Panel();
         }
     }
 
+    /**
+     * Action listener
+     */
     @Override
     public void actionPerformed(ActionEvent e) {
-        Main.screenNum=3;
-        
+        Main.screenNum = 3;
+
     }
 }

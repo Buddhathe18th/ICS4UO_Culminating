@@ -6,12 +6,12 @@ import javax.swing.*;
 import Helper.TextBox;
 
 /**
- * The MainMenu class will create the screen of the main menu
+ * Level 3 rule page to explain how to play level 3
  * Time Spent: 1 hour
  * 
- * @author Alex Zhu
- * @version 0.1.0
- * @date 05/16/2023
+ * @author Alex Zhu & Lukas Li
+ * @version 1.0.0
+ * @date 06/09/2023
  */
 
 public class Level3Rule implements KeyListener{
@@ -77,6 +77,9 @@ public class Level3Rule implements KeyListener{
        
     }
 
+    /**
+     * Panel class to hold all of the items, maze and character
+     */
     public class Panel extends JPanel {
         /**
          * Draws the text boxes to the Game Panel.
@@ -104,6 +107,9 @@ public class Level3Rule implements KeyListener{
         }
     }
 
+    /**
+     * Key Listener methods
+     */
     @Override
     public void keyReleased(KeyEvent e) {
         System.out.println("key");

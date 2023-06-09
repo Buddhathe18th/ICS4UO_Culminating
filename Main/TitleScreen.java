@@ -12,8 +12,8 @@ import javax.swing.*;
  * Time Spent: 45 minutes
  * 
  * @author Alex Zhu
- * @version 0.1.0
- * @date 05/15/2023
+ * @version 1.0.0
+ * @date 06/09/2023
  */
 
 public class TitleScreen implements KeyListener{
@@ -80,14 +80,18 @@ public class TitleScreen implements KeyListener{
             Main.screenNum=2;
         }
     }
-
+/**
+     * Overidded KeyListener methods to listen for the enter key to change screens
+     */
     @Override
     public void keyPressed(KeyEvent e) {
         if (e.getKeyCode()==KeyEvent.VK_ENTER){
             Main.screenNum=2;
         }
     }
-
+/**
+     * Overidded KeyListener methods to listen for the enter key to change screens
+     */
     @Override
     public void keyReleased(KeyEvent e) {
         if (e.getKeyCode()==KeyEvent.VK_ENTER){

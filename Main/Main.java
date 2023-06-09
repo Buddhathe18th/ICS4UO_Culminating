@@ -24,29 +24,62 @@ import Level3.Level3Rule;
 /**
  * The Main class is the class that runs and calls all other classes. This class
  * has complete control on which screen to display.
- * Time Spent: 2 hours
+ * Time Spent: 5 hours
  * 
  * <h2>Modifications</h2>
- * Started adding level 1 to the main class
+ * Added switch with all levels
  * 
  * @author Alex Zhu, Lukas Li
- * @version 0.3.0
- * @date 06/03/2023
+ * @version 1.0.0
+ * @date 06/09/2023
  * 
  */
 
 public class Main implements KeyListener {
+    /**
+     * Screen number that is going to be displayed
+     */
     public static int screenNum = 1;
-    JInternalFrame content = new JInternalFrame();
-    boolean run = true;
-    static JFrame frame;
+
+    /**
+     * The JInternal frame to be displayed
+     */
+    private JInternalFrame content = new JInternalFrame();
+
+    /**
+     * If the program is to be running
+     */
+    private boolean run = true;
+
+    /**
+     * JFrame of the game
+     */
+    private static JFrame frame;
+
+    /**
+     * Whether level 1 is won
+     */
 
     public static boolean win1;
+
+    /**
+     * Whether level 2 is won
+     */
     public static boolean win2;
+
+    /**
+     * Whether level 3 is won
+     */
     public static boolean win3;
 
+    /**
+     * The Level 3 class
+     */
     public Level3Frame g;
 
+    /**
+     * Main method
+     */
     public static void main(String[] args) {
         new Main();
     }
@@ -260,8 +293,8 @@ public class Main implements KeyListener {
             // While the screen has not been changed by the user
             while (pastFrame == screenNum) {
                 try {
-                    // Stops the program from running for 1 second to preserve computer power
-                    Thread.sleep(1000);
+                    // Stops the program from running for 50 milliseconds to preserve computer power
+                    Thread.sleep(50);
                     System.out.println(screenNum);
                 } catch (Exception e) {
                     System.out.println("Sleep method is broken");
@@ -275,6 +308,10 @@ public class Main implements KeyListener {
         }
 
     }
+
+    /**
+     * Key listener methods
+     */
 
     @Override
     public void keyTyped(KeyEvent e) {
