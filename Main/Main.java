@@ -19,6 +19,7 @@ import Level2.Level2Result;
 import Level2.Level2Rule;
 import Level3.Level3Frame;
 import Level3.Level3Result;
+import Level3.Level3Rule;
 
 /**
  * The Main class is the class that runs and calls all other classes. This class
@@ -178,6 +179,14 @@ public class Main implements KeyListener {
                     break;
                 }
 
+                case 14: {
+                    Level3Rule t = new Level3Rule();
+                    JInternalFrame test = t.frame();
+                    frame.add(test);
+                    test.setLocation(0, -15);
+                    break;
+                }
+
                 case 15: {
                     frame.add(g);
                     g.setLocation(0, -15);
@@ -259,7 +268,7 @@ public class Main implements KeyListener {
 
     @Override
     public void keyReleased(KeyEvent e) {
-        if (e.getKeyCode() == KeyEvent.VK_ENTER && (screenNum == 1 || screenNum == 2 || screenNum == 4 || screenNum==10)) {
+        if (e.getKeyCode() == KeyEvent.VK_ENTER && (screenNum == 1 || screenNum == 2 || screenNum == 4 || screenNum==10||screenNum==14)) {
             Main.screenNum++;
         }
 
