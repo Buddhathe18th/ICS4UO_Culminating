@@ -21,7 +21,7 @@ import javax.swing.JPanel;
 import Helper.TextBox;
 import Main.Main;
 
-public class BackStory implements ActionListener {
+public class BackStory {
 
 
     Panel innerPanel = new Panel();
@@ -67,11 +67,6 @@ public class BackStory implements ActionListener {
 
         return frame;
 
-    }
-
-    @Override
-    public void actionPerformed(ActionEvent e) {
-        
     }
 
     /**
