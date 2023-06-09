@@ -58,7 +58,6 @@ public class TitleScreen implements KeyListener{
     /**
      * Drawing class for painting text and images onto the Title Screen
      */
-
     class Drawing extends Canvas {
         public void paint(Graphics g) {
             Image[] iArr = new Image[1];

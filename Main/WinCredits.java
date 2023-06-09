@@ -70,6 +70,11 @@ public class WinCredits implements KeyListener {
      * Drawing class for paiting text onto the Main Menu screen
      */
     class Drawing extends Canvas {
+        /**
+         * Draws the win credits scene to the Game Panel.
+         *
+         * @param g the Graphics context in which to paint
+         */
         public void paint(Graphics g) {
             g.setFont(new Font("Courier New", Font.PLAIN, 80));
             g.drawString("Race Against Time", 0, 0);
