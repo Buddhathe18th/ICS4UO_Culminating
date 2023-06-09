@@ -1,4 +1,5 @@
 package Main;
+
 import java.awt.*;
 import java.awt.event.ActionEvent;
 import java.awt.event.ActionListener;
@@ -8,20 +9,41 @@ import java.io.IOException;
 import javax.imageio.ImageIO;
 import javax.swing.*;
 
+/**
+ * Credit class to give credit to the developers
+ * Time spent: 30 minutes
+ * 
+ * @author Lukas Li
+ * @version 1.0.0
+ */
+
 public class Credits implements ActionListener {
 
+    /**
+     * Frane to be displayed
+     */
     public JInternalFrame frame;
 
+    /**
+     * JPanel to hold all content
+     */
     public Panel innerPanel;
-    
-    JButton mainMenu;
 
     /**
-     *  Makes all components and drawings that will be on the Level 1 game screen
-     * 
-     * @return the JInternalFrame to add to the screen
+     * Button to go to Main Menu
      */
-    public JInternalFrame frame(){
+    private JButton mainMenu;
+
+    /**
+     * Default constructor for the Credits class
+     */
+    public Credits() {}
+
+    /**
+     * Creates the frame to be displayed
+     * @return The frane to be displayed
+     */
+    public JInternalFrame frame() {
         frame = new JInternalFrame("", false, false, false, false);
         frame.putClientProperty("JInternalFrame.isPalette", Boolean.TRUE);
         frame.setDefaultCloseOperation(JFrame.EXIT_ON_CLOSE);
@@ -31,21 +53,18 @@ public class Credits implements ActionListener {
 
         frame.add(innerPanel);
 
-
         frame.setSize(1920, 1080);
         frame.setVisible(true);
 
         mainMenu = new JButton("Main Menu");
         mainMenu.addActionListener(this);
 
-
         innerPanel.add(mainMenu);
-        mainMenu.setSize(new Dimension(600,50));
+        mainMenu.setSize(new Dimension(600, 50));
         mainMenu.setLocation(305, 505);
 
         return frame;
     }
-
 
     /**
      * Panel class to hold all drawings and components
@@ -53,13 +72,14 @@ public class Credits implements ActionListener {
     public class Panel extends JPanel {
 
         /**
-         * No argument constructor for the Panel class 
+         * Default constructor for the Panel class
          */
         public Panel() {
             setSize(1200,900);
             setOpaque(true);
             setBackground(Color.WHITE);
         }
+
         /**
          * Draws the text boxes to the Game Panel.
          *
@@ -75,7 +95,7 @@ public class Credits implements ActionListener {
                 e.printStackTrace();
             }
 
-            g.drawImage(iArr[0], 500, 100,200,150, null);
+            g.drawImage(iArr[0], 500, 100, 200, 150, null);
 
             g.setFont(new Font("Courier New", Font.PLAIN, 50));
             g.drawString("LC Studios", 450, 330);
@@ -86,9 +106,12 @@ public class Credits implements ActionListener {
         }
     }
 
+    /**
+     * Action listener
+     */
     @Override
     public void actionPerformed(ActionEvent e) {
-        Main.screenNum=3;
-        
+        Main.screenNum = 3;
+
     }
 }

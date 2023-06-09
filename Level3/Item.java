@@ -10,7 +10,6 @@ import javax.swing.JComponent;
  * 
  * @author Lukas Li
  * @version 0.1.0
- * @date 05/18/2023
  * 
  */
 

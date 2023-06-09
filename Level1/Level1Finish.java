@@ -23,11 +23,6 @@ import Main.Main;
 public class Level1Finish implements ActionListener {
 
     /**
-     * The drawing that will be on the screen
-     */
-    Drawing draw = new Drawing();
-
-    /**
      * Panel containing all graphics
      */
     Panel innerPanel = new Panel();
@@ -37,15 +32,16 @@ public class Level1Finish implements ActionListener {
      */
     JInternalFrame frame;
 
-    TextBox t = new TextBox(0, 0, 1920, 25,
-            "On the screen, two items will pop up, one will be helpful to Johnny for school work, and the other will be a distraction. Click on the items that are helpful to Johnny!\nPress enter to continue");
+    TextBox t = new TextBox(1, 0, 1185, 25,
+            "You successfully helped Johnny through those tricky situations! Give yourself a pat on the back. ");
 
     JButton buttonL2;
     JButton mainMenu;
 
-    public Level1Finish() {
-        
-    }
+    /**
+     * Default constructor for the Level1Finish class
+     */
+    public Level1Finish() {}
 
     /**
      * Returns the frame to be displayed on the main menu screen. Currently
@@ -62,12 +58,13 @@ public class Level1Finish implements ActionListener {
         frame.getRootPane().setWindowDecorationStyle(0);
 
         innerPanel.setLayout(null);
-        frame.getContentPane().setFocusable(false);
-
+        
         frame.add(innerPanel);
 
         frame.setSize(1920, 1080);
         frame.setVisible(true);
+
+        innerPanel.add(t);
 
         buttonL2 = new JButton("Level 2");
         mainMenu = new JButton("Main menu");
@@ -80,9 +77,9 @@ public class Level1Finish implements ActionListener {
         innerPanel.add(mainMenu);
         buttonL2.setSize(new Dimension(600, 50));
         mainMenu.setSize(new Dimension(600, 50));
-        buttonL2.setLocation(405, 300);
-        mainMenu.setLocation(405, 375);
-        innerPanel.add(t);
+        buttonL2.setLocation(305, 300);
+        mainMenu.setLocation(305, 375);
+        
 
         
 
@@ -90,16 +87,6 @@ public class Level1Finish implements ActionListener {
 
     }
 
-    /**
-     * Drawing class for paiting text onto the Main Menu screen
-     */
-    class Drawing extends Canvas {
-        public void paint(Graphics g) {
-            g.setFont(new Font("Courier New", Font.PLAIN, 80));
-            g.drawString("Race Against Time", 0, 0);
-            g.setColor(new Color(255, 190, 50));
-        }
-    }
 
     @Override
     public void actionPerformed(ActionEvent e) {
@@ -114,15 +101,23 @@ public class Level1Finish implements ActionListener {
      * Panel class to hold all drawings and components
      */
     public class Panel extends JPanel {
+
+        /**
+         * Default constructor for the Panel class
+         */
+        public Panel() {
+        }
+
         /**
          * Paints the background onto the screen
          */
         protected void paintComponent(Graphics g) {
             super.paintComponent(g);
 
-            Image[] iArr = new Image[1];
+            Image[] iArr = new Image[2];
             try {
-                iArr[0] = ImageIO.read(new File("Level2\\Images\\bin.png"));
+                iArr[0] = ImageIO.read(new File("Level2\\Images\\schoolBin.png"));
+                iArr[1] = ImageIO.read(new File("Level2\\Images\\nonschoolBin.png"));
             } catch (IOException e) {
                 e.printStackTrace();
             }
@@ -130,17 +125,17 @@ public class Level1Finish implements ActionListener {
             //The two bins
 
             g.drawImage(iArr[0], 0, 500, 200, 180, null);
-            g.drawImage(iArr[0], 1220, 500, 200, 180, null);
+            g.drawImage(iArr[1], 950, 500, 200, 180, null);
 
             Image[] iArr1 = new Image[1];
             try {
                 iArr1[0] = ImageIO.read(new File("Level2\\Images\\table.png"));
             } catch (IOException e) {
-                e.printStackTrace();
+                System.out.println("broken");
             }
 
             //The table
-            g.drawImage(iArr1[0], 300, 130, 800, 600, null);
+            g.drawImage(iArr1[0], 200, 180, 800, 450, null);
 
             g.setColor(new Color(238,238,238,140));
             g.fillRect(0,0,1920,1080);

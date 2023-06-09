@@ -9,14 +9,13 @@ import java.awt.Graphics;
 import java.awt.event.*;
 
 /**
- * Character class that will be on screen for the Level 2
- * Will be implemented to be movable by the arrow keys and to grab the items
- * Time Spent: ten minutes
+ * Character class that will be on screen for the Level 3
+ * Moves by arrow keys and picks up items
+ * Time Spent: 1.5 hours
  * 
  * 
  * @author Alex Zhu
- * @version 0.3.0
- * @date 06/04/2023
+ * @version 1.0.0
  * 
  */
 
@@ -31,7 +30,14 @@ public class Level3Char extends JComponent{
      */
     public int y = 0;
 
+    /**
+     * Row index in the 2d array of Maze
+     */
     public int row;
+
+    /**
+     * Column index in the 2d array of Maze
+     */
     public int column;
 
     /**

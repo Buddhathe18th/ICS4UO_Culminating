@@ -12,8 +12,7 @@ import javax.swing.*;
  * Time Spent: 45 minutes
  * 
  * @author Alex Zhu
- * @version 0.1.0
- * @date 05/15/2023
+ * @version 1.0.0
  */
 
 public class TitleScreen implements KeyListener{
@@ -29,6 +28,16 @@ public class TitleScreen implements KeyListener{
      * Makes all components and drawings that will be on the Title Screen
      * 
      * @return the JInternalFrame to add to the screen
+     */
+    
+    /**
+     * Default constructor for the TitleScreen class
+     */
+    public TitleScreen() {}
+    
+    /**
+     * Creates the frame to be displayed
+     * @return The frane to be displayed
      */
     public JInternalFrame frame() {
 
@@ -79,14 +88,18 @@ public class TitleScreen implements KeyListener{
             Main.screenNum=2;
         }
     }
-
+/**
+     * Overidded KeyListener methods to listen for the enter key to change screens
+     */
     @Override
     public void keyPressed(KeyEvent e) {
         if (e.getKeyCode()==KeyEvent.VK_ENTER){
             Main.screenNum=2;
         }
     }
-
+/**
+     * Overidded KeyListener methods to listen for the enter key to change screens
+     */
     @Override
     public void keyReleased(KeyEvent e) {
         if (e.getKeyCode()==KeyEvent.VK_ENTER){

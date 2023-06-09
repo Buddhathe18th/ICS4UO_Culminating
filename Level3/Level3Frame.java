@@ -19,6 +19,14 @@ import java.util.*;
 
 import Level2.CharacterHand;
 
+/**
+ * Level 3 class
+ * This class is a JInternalFrame, that can allow for the Level3Char to move from the arrow keys
+ * Time spent: 4 hours
+ * 
+ * @author Alex Zhu
+ * @version 1.0.0
+ */
 public class Level3Frame extends JInternalFrame implements KeyListener {
 
     /**
@@ -49,7 +57,7 @@ public class Level3Frame extends JInternalFrame implements KeyListener {
     /**
      * The amount of items left to be collected
      */
-    public static ArrayList<Item> itemsLeft = new ArrayList<Item>(6);
+    public static ArrayList<Item> itemsLeft;
 
     /**
      * The boolean array fpr the maze, tells where the character can and can't go
@@ -79,14 +87,19 @@ public class Level3Frame extends JInternalFrame implements KeyListener {
             { 1, 0, 0, 0, 0, 0, 1, 0, 1, 0, 0, 0, 1, 0, 1, 0, 0, 1, 0, 0, 0, 0, 0, 1, 0, 1 },
             { 1, 0, 1, 1, 1, 1, 1, 0, 1, 0, 1, 0, 1, 0, 1, 0, 1, 1, 1, 1, 0, 1, 0, 1, 0, 1 },
             { 1, 0, 0, 0, 0, 0, 0, 0, 1, 0, 1, 0, 0, 0, 1, 0, 1, 0, 0, 0, 0, 1, 0, 0, 0, 0 },
-            { 1, 1, 1, 1, 1, 1, 1, 1, 1, 1, 1, 1, 1, 1, 1, 1, 1, 1, 1, 1, 1, 1, 1, 1, 1, 1 }};
+            { 1, 1, 1, 1, 1, 1, 1, 1, 1, 1, 1, 1, 1, 1, 1, 1, 1, 1, 1, 1, 1, 1, 1, 1, 1, 1 } };
 
-    
+    /**
+     * Constructor for the Level3Frame class
+     */
     public Level3Frame() {
         super("", false, false, false, false);
+        win = false;
+
+        itemsLeft = new ArrayList<Item>(6);
 
         Calendar calendar = Calendar.getInstance();
-        timeLeft=100;
+        timeLeft = 100;
         setFocusable(false);
         this.getContentPane().setFocusable(false);
 
@@ -129,6 +142,13 @@ public class Level3Frame extends JInternalFrame implements KeyListener {
         this.requestFocus();
     }
 
+    /**
+     * Adding an item to the screen
+     * 
+     * @param i Image of the item
+     * @param x column index
+     * @param y row index
+     */
     public void addItem(Image i, int x, int y) {
 
         Item i1 = new Item(i);
@@ -138,6 +158,10 @@ public class Level3Frame extends JInternalFrame implements KeyListener {
 
     }
 
+    /**
+     * Key Listener methods
+     */
+
     @Override
     public void keyTyped(KeyEvent e) {
 
@@ -146,8 +170,8 @@ public class Level3Frame extends JInternalFrame implements KeyListener {
     @Override
     public void keyPressed(KeyEvent e) {
         if (e.getKeyCode() == KeyEvent.VK_RIGHT) {
-            if (level3Char.column == 24&&level3Char.row==23) {
-                win=true;
+            if (level3Char.column == 24 && level3Char.row == 23) {
+                win = true;
                 Main.Main.screenNum++;
             }
 
@@ -210,6 +234,13 @@ public class Level3Frame extends JInternalFrame implements KeyListener {
      * Panel class to hold all drawings and components
      */
     public class Panel extends JPanel {
+
+        /**
+         * Default constructor for the Panel class
+         */
+        public Panel() {
+        }
+
         /**
          * Draws the text boxes to the Game Panel.
          *
@@ -219,9 +250,11 @@ public class Level3Frame extends JInternalFrame implements KeyListener {
             super.paintComponent(g);
             for (int row = 0; row < maze.length; row++) {
                 for (int col = 0; col < maze[row].length; col++) {
-                    if (maze[row][col] == 1) g.setColor(Color.BLACK);
-                    else g.setColor(Color.WHITE);
-    
+                    if (maze[row][col] == 1)
+                        g.setColor(Color.BLACK);
+                    else
+                        g.setColor(Color.WHITE);
+
                     int x = col * 20;
                     int y = row * 20;
                     g.fillRect(x, y + 250, 20, 20);
@@ -241,6 +274,6 @@ public class Level3Frame extends JInternalFrame implements KeyListener {
 
     @Override
     public void keyReleased(KeyEvent e) {
-        
+
     }
 }

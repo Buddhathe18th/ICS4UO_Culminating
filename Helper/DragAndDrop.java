@@ -5,27 +5,31 @@ import java.awt.event.*;
 import javax.swing.*;
 
 /**
- * Basic template for all components that are drag and droppable.
+ * Basic template for all components that are grabbable.
  * Basic idea from <a href=
  * "https://stackoverflow.com/questions/874360/swing-creating-a-draggable-component">StackExchange</a>
- * Spent around 1.5 hours on this class.
+ * Spent around 3 hours on this class.
  * 
  * <h2>Modification</h2>
  * Added two new attributes, del and school, and one new method for checking for collisions
  * Spent around 30 minutes
  * 
+ * <h2> Modification </h2> 
+ * Removed drag and drop by mouse, added grabbing by CharactarHand
+ * 
  * @author Alex Zhu
- * @version 0.2.0
- * @date 05/28/2023
+ * @version 1.0.0
  */
-
 public class DragAndDrop extends JComponent{
 
   /**
    * Image of the component
    */
   private Image image;
-
+  
+  /**
+   * If the object is being grabbed
+   */
   public boolean grabbed = false;
 
   /**
@@ -80,6 +84,15 @@ public class DragAndDrop extends JComponent{
     g.setColor(getBackground());
     g.drawImage(image, 0, 0, width, height, null);
   }
+
+  /**
+   * Checks if the current elemnt is overlapping with the element specified
+   * @param binX The top left x coordinate of the other object
+   * @param binY The top left y coordinate of the other object
+   * @param binWidth the width of the object
+   * @param binHeight the height of the object
+   * @return a boolean if the object is overlapping
+   */
 
   public boolean checkCollision(int binX, int binY, int binWidth, int binHeight) {
     //Debuggin print statements, prints coordinates, and the boolean expressions for the two axis

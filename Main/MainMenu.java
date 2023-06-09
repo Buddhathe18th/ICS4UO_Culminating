@@ -6,30 +6,33 @@ import javax.swing.*;
 
 /**
  * The MainMenu class will create the screen of the main menu
- * Time Spent: 1 hour
+ * Time Spent: 2 hour
  * 
  * @author Alex Zhu
- * @version 0.1.0
- * @date 05/16/2023
+ * @version 1.0.0
  */
-
+   
 public class MainMenu implements ActionListener {
 
     /**
      * Buttons that will be on the Main Menu
      */
-    JButton level1 = new JButton("Level 1");
-    JButton level2 = new JButton("Level 2");
-    JButton level3 = new JButton("Level 3");
-    JButton credits = new JButton("Credits");
-    JButton exit = new JButton("Exit");
+    JButton level1 = new JButton("Level 1"), level2 = new JButton("Level 2"), level3 = new JButton("Level 3"), credits = new JButton("Credits"), exit = new JButton("Exit");
 
     /**
      * The frame that will be passed to the Main class
      */
     JInternalFrame frame;
 
+    /**
+     * Panel to display everything
+     */
     Panel innerPanel;
+    
+    /**
+     * Default constructor for the MainMenu class
+     */
+    public MainMenu() {}
 
     /**
      * Returns the frame to be displayed on the main menu screen. Currently
@@ -37,7 +40,6 @@ public class MainMenu implements ActionListener {
      * 
      * @return the frame to be displayed
      */
-
     public JInternalFrame frame() {
         frame = new JInternalFrame("", false, false, false, false);
         frame.putClientProperty("JInternalFrame.isPalette", Boolean.TRUE);

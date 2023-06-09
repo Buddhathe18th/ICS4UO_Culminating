@@ -12,8 +12,6 @@ import java.io.*;
 import Level1.Level1;
 import Level1.Level1Finish;
 import Level1.Level1Rule;
-import Helper.DragAndDrop;
-import Helper.MoveFrame;
 import Level2.Level2;
 import Level2.Level2Result;
 import Level2.Level2Rule;
@@ -24,29 +22,57 @@ import Level3.Level3Rule;
 /**
  * The Main class is the class that runs and calls all other classes. This class
  * has complete control on which screen to display.
- * Time Spent: 2 hours
+ * Time Spent: 5 hours
  * 
  * <h2>Modifications</h2>
- * Started adding level 1 to the main class
+ * Added switch with all levels
  * 
  * @author Alex Zhu, Lukas Li
- * @version 0.3.0
- * @date 06/03/2023
+ * @version 1.0.0
  * 
  */
 
 public class Main implements KeyListener {
+    /**
+     * Screen number that is going to be displayed
+     */
     public static int screenNum = 1;
-    JInternalFrame content = new JInternalFrame();
-    boolean run = true;
-    static JFrame frame;
+
+    /**
+     * If the program is to be running
+     */
+    private boolean run = true;
+
+    /**
+     * JFrame of the game
+     */
+    private static JFrame frame;
+
+    /**
+     * Whether level 1 is won
+     */
 
     public static boolean win1;
+
+    /**
+     * Whether level 2 is won
+     */
     public static boolean win2;
+
+    /**
+     * Whether level 3 is won
+     */
     public static boolean win3;
 
-    public Level3Frame g = new Level3Frame();
+    /**
+     * The Level 3 class
+     */
+    public Level3Frame g;
 
+    /**
+     * Main method
+     * @param args The command line arguments.
+     */
     public static void main(String[] args) {
         new Main();
     }
@@ -196,6 +222,7 @@ public class Main implements KeyListener {
                 }
 
                 case 15: {
+                    g= new Level3Frame();
                     frame.add(g);
                     g.setLocation(0, -15);
                     frame.addKeyListener(g);
@@ -259,7 +286,7 @@ public class Main implements KeyListener {
             // While the screen has not been changed by the user
             while (pastFrame == screenNum) {
                 try {
-                    // Stops the program from running for 1 second to preserve computer power
+                    // Stops the program from running for 50 milliseconds to preserve computer power
                     Thread.sleep(1000);
                     System.out.println(screenNum);
                 } catch (Exception e) {
@@ -275,6 +302,10 @@ public class Main implements KeyListener {
 
     }
 
+    /**
+     * Key listener methods
+     */
+
     @Override
     public void keyTyped(KeyEvent e) {
 
@@ -286,7 +317,6 @@ public class Main implements KeyListener {
     }
 
     // KeyListener methods for when the focus of the user is on the JFrame
-
     @Override
     public void keyReleased(KeyEvent e) {
         if (e.getKeyCode() == KeyEvent.VK_ENTER && (screenNum == 1 || screenNum == 2 || screenNum == 4 || screenNum==10||screenNum==14||screenNum==17)) {

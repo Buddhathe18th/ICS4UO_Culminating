@@ -6,26 +6,27 @@ import Helper.DragAndDrop;
 
 import java.awt.Color;
 import java.awt.Graphics;
-import java.awt.event.*;
 
 /**
  * Character class that will be on screen for the Level 2
- * Will be implemented to be movable by the arrow keys and to grab the items
- * Time Spent: ten minutes
+ * Moves around by the arrow keys and space bar to grab any items
+ * Time Spent: 1 hour
  * 
  * 
  * @author Alex Zhu
- * @version 0.3.0
- * @date 06/04/2023
+ * @version 1.0.0
  * 
  */
-
 public class CharacterHand extends JComponent{
 
     /**
      * Whether or not the character is grabbing an item
      */
     public boolean grab = false;
+
+    /**
+     * Object that the hand has grabbed
+     */
 
     public static DragAndDrop grabbedObj;
 
@@ -39,6 +40,9 @@ public class CharacterHand extends JComponent{
      */
     public int y = 0;
 
+    /**
+     * Contructor for the CharacterHand class
+     */
     public CharacterHand() {
         grabbedObj=null;
         System.out.println("char");
@@ -71,7 +75,5 @@ public class CharacterHand extends JComponent{
             g.setColor(Color.blue);
             g.fillRect(0, 0, 100, 100);
         }
-        
-
     }
 }

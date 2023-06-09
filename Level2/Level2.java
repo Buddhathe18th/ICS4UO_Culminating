@@ -14,7 +14,7 @@ import Helper.MoveFrame;
 
 /**
  * Level 2 game class
- * Time Spent: 0.5 hours
+ * Time Spent: 2 hours
  * 
  * <h2>Modifications</h2>
  * Changed layout of drag and drop items into an arraylist, so far just has the 6 out of the 10 needed
@@ -22,10 +22,13 @@ import Helper.MoveFrame;
  * There are also more attributes such as objLeft and score to be implemented better with the actual game
  * Spent around 3 hours
  * 
+ * <h2> Modifications</h2>
+ * 
+ * Final 8 drag and drops are added, changed collision to the correct bins
+ * 
  * 
  * @author Alex Zhu
- * @version 0.2.0
- * @date 05/28/2023
+ * @version 1.0.0
  * 
  */
 
@@ -64,6 +67,9 @@ public class Level2 {
      */
     public int objLeft=6;
 
+    /**
+     * The hand that grabs items
+     */
     public CharacterHand hand = new CharacterHand();
 
     /**
@@ -74,7 +80,6 @@ public class Level2 {
     /**
      * Constructor for the Level 2 class
      */
-
     public Level2(){
         score=0;
 
@@ -111,6 +116,16 @@ public class Level2 {
         hand.setLocation(0, 0);
     }
 
+    /**
+     * Method to add a new DragAndDrop item to the screen
+     * @param i Image the item would be
+     * @param w width of the item
+     * @param h height of the item
+     * @param school whether or not the item should belong in the school bin
+     * @param x the x coordinates of the top left corner
+     * @param y the y coordinates of the top left corner
+     */
+    
     public void addDrag(Image i,int w, int h, boolean school,int x, int y){
         DragAndDrop d = new DragAndDrop(i, w, h,school);
             draggableArrayList.add(d);
@@ -143,14 +158,21 @@ public class Level2 {
     public class Panel extends JPanel {
 
         /**
+         * Default constructor for the Panel class
+         */
+        public Panel() {
+        }
+
+        /**
          * Paints the background onto the screen
          */
         protected void paintComponent(Graphics g) {
             super.paintComponent(g);
 
-            Image[] iArr = new Image[1];
+            Image[] iArr = new Image[2];
             try {
-                iArr[0] = ImageIO.read(new File("Level2\\Images\\bin.png"));
+                iArr[0] = ImageIO.read(new File("Level2\\Images\\schoolBin.png"));
+                iArr[0] = ImageIO.read(new File("Level2\\Images\\nonschoolBin.png"));
             } catch (IOException e) {
                 e.printStackTrace();
             }
@@ -158,7 +180,7 @@ public class Level2 {
             //The two bins
 
             g.drawImage(iArr[0], 0, 500, 200, 180, null);
-            g.drawImage(iArr[0], 1220, 500, 200, 180, null);
+            g.drawImage(iArr[1], 1220, 500, 200, 180, null);
 
             Image[] iArr1 = new Image[1];
             try {
@@ -168,7 +190,7 @@ public class Level2 {
             }
 
             //The table
-            g.drawImage(iArr1[0], 300, 130, 800, 600, null);
+            g.drawImage(iArr1[0], 300, 230, 800, 600, null);
 
             //Trim size of the arraylist to the size of the current amount of elements
             draggableArrayList.trimToSize();

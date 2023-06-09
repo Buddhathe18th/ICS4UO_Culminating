@@ -6,12 +6,11 @@ import javax.swing.*;
 import Helper.TextBox;
 
 /**
- * The MainMenu class will create the screen of the main menu
+ * Level 3 rule page to explain how to play level 3
  * Time Spent: 1 hour
  * 
- * @author Alex Zhu
- * @version 0.1.0
- * @date 05/16/2023
+ * @author Alex Zhu & Lukas Li
+ * @version 1.0.0
  */
 
 public class Level3Rule implements KeyListener{
@@ -31,6 +30,11 @@ public class Level3Rule implements KeyListener{
      */
     TextBox t = new TextBox(0, 1, 1185, 25, "Almost there! Johnny is at his door, ready to leave, but he needs to pack himself up to go to school, but where is his stuff? He’s left it all around his house, and his belongings are all around the floor! Use the arrow keys to move around, you have 100 seconds to collect all of Johnny’s items and then leave the house. Can you help Johnny navigate the room to collect all of the things on his checklist? newLine newLine Press enter to continue…");
     
+    /**
+     * Default constructor for the Level3Rule class
+     */
+    public Level3Rule() {}
+
     /**
      * Returns the frame to be displayed on the main menu screen. Currently unfinished, button for Level 1 will bring you to the Title Screen
      * @return the frame to be displayed
@@ -77,7 +81,17 @@ public class Level3Rule implements KeyListener{
        
     }
 
+    /**
+     * Panel class to hold all of the items, maze and character
+     */
     public class Panel extends JPanel {
+
+        /**
+         * Default constructor for the Panel class
+         */
+        public Panel() {
+        }
+
         /**
          * Draws the text boxes to the Game Panel.
          *
@@ -104,6 +118,9 @@ public class Level3Rule implements KeyListener{
         }
     }
 
+    /**
+     * Key Listener methods
+     */
     @Override
     public void keyReleased(KeyEvent e) {
         System.out.println("key");

@@ -1,4 +1,5 @@
 package Main;
+
 import java.awt.*;
 import java.awt.event.*;
 import javax.swing.*;
@@ -11,14 +12,13 @@ import Helper.TextBox;
  * 
  * @author Alex Zhu
  * @version 0.1.0
- * @date 05/16/2023
  */
 
-public class WinCredits implements KeyListener{//TODO: Keylistener not workin
+public class WinCredits implements KeyListener {
 
     /**
-     *  The drawing that will be on the screen
-     */ 
+     * The drawing that will be on the screen
+     */
     Drawing draw = new Drawing();
 
     /**
@@ -27,30 +27,38 @@ public class WinCredits implements KeyListener{//TODO: Keylistener not workin
     JInternalFrame frame;
 
     /**
-     * The info text telling what happens after the events of the game
+     * Textbox of the story of the character
      */
-    TextBox t = new TextBox(0, 1, 1185, 25, "Twenty years later… after keeping up the work habits he developed in 8th grade and prioritizing activities that matter to him, Johnny has progressed a long way. Now, Johnny is the CEO of Apple!");
+    TextBox t = new TextBox(0, 1, 1185, 25,
+            "Twenty years later… after keeping up the work habits he developed in 8th grade and prioritizing activities that matter to him, Johnny has progressed a long way. Now, Johnny is the CEO of Apple!");
+
+    /**
+     * Default constructor for the TitleScreen class
+     */
+    public WinCredits() {}
     
     /**
-     * Returns the frame to be displayed on the main menu screen. Currently unfinished, button for Level 1 will bring you to the Title Screen
+     * Returns the frame to be displayed on the main menu screen. Currently
+     * unfinished, button for Level 1 will bring you to the Title Screen
+     * 
      * @return the frame to be displayed
      */
-    public JInternalFrame frame(){
-        
-        frame = new JInternalFrame("",false,false,false,false);
+
+    public JInternalFrame frame() {
+
+        frame = new JInternalFrame("", false, false, false, false);
         frame.putClientProperty("JInternalFrame.isPalette", Boolean.TRUE);
         frame.setDefaultCloseOperation(JFrame.EXIT_ON_CLOSE);
         frame.getRootPane().setWindowDecorationStyle(0);
         frame.setLayout(null);
-        
-        
+
         frame.add(t);
-        
+
         frame.getContentPane().setFocusable(false);
         frame.setFocusable(false);
 
         frame.addKeyListener(this);
-        
+
         frame.add(draw);
 
         frame.setSize(1920, 1080);
@@ -74,19 +82,28 @@ public class WinCredits implements KeyListener{//TODO: Keylistener not workin
         }
     }
 
+    /**
+     * Overidded KeyListener methods to listen for the enter key to change screens
+     */
     @Override
     public void keyTyped(KeyEvent e) {
-        
+
     }
 
+    /**
+     * Overidded KeyListener methods to listen for the enter key to change screens
+     */
     @Override
     public void keyPressed(KeyEvent e) {
-       
+
     }
 
+    /**
+     * Overidded KeyListener methods to listen for the enter key to change screens
+     */
     @Override
     public void keyReleased(KeyEvent e) {
-        if (e.getKeyCode()==KeyEvent.VK_ENTER){
+        if (e.getKeyCode() == KeyEvent.VK_ENTER) {
             Main.screenNum++;
         }
     }
