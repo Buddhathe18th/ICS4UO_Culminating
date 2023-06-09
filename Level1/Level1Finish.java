@@ -38,9 +38,10 @@ public class Level1Finish implements ActionListener {
     JButton buttonL2;
     JButton mainMenu;
 
-    public Level1Finish() {
-        
-    }
+    /**
+     * Default constructor for the Level1Finish class
+     */
+    public Level1Finish() {}
 
     /**
      * Returns the frame to be displayed on the main menu screen. Currently

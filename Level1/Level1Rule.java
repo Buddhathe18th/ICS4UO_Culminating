@@ -29,11 +29,16 @@ public class Level1Rule implements KeyListener{
      * The info text box with instructions
      */
     TextBox t = new TextBox(1, 0, 1185, 25, "On the screen, two items will pop up, one will be helpful to Johnny for school work, and the other will be a distraction. Click on the items that are helpful to Johnny!\nPress enter to continue");
+
+    /**
+     * Default constructor for the Level1Rule class
+     */
+    public Level1Rule() {}
+
     /**
      * Returns the frame to be displayed on the main menu screen. Currently unfinished, button for Level 1 will bring you to the Title Screen
      * @return the frame to be displayed
      */
-
     public JInternalFrame frame(){
         
         frame = new JInternalFrame("",false,false,false,false);

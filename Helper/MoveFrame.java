@@ -44,7 +44,7 @@ public class MoveFrame extends JInternalFrame implements KeyListener {
      * An arraylist of all of the items on the screen
      */
     public ArrayList<DragAndDrop> draggableArrayList = new ArrayList<DragAndDrop>(6);
-
+    
     /**
      * Class to hold all drawings and items
      */

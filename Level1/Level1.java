@@ -55,8 +55,7 @@ public class Level1 extends JComponent {
     /**
      * Default empty constructor for the Level1 class.
      */
-    public Level1() {
-    }
+    public Level1() {}
 
     /**
      * Constructor for the Level1 class.
