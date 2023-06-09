@@ -45,7 +45,7 @@ public class Main implements KeyListener {
     public static boolean win2;
     public static boolean win3;
 
-    public Level3Frame g = new Level3Frame();
+    public Level3Frame g;
 
     public static void main(String[] args) {
         new Main();
@@ -196,6 +196,7 @@ public class Main implements KeyListener {
                 }
 
                 case 15: {
+                    g= new Level3Frame();
                     frame.add(g);
                     g.setLocation(0, -15);
                     frame.addKeyListener(g);

@@ -30,10 +30,10 @@ public class Level3Frame extends JInternalFrame implements KeyListener {
 
     public Level3Char level3Char;
 
-    public static ArrayList<Item> itemsLeft = new ArrayList<Item>(6);
+    public static ArrayList<Item> itemsLeft;
 
     public final static int[][] maze = {
-            { 1, 1, 1, 1, 1, 1, 1, 1, 1, 1, 1, 0, 1, 1, 1, 1, 1, 1, 1, 1, 1, 1, 1, 1, 1, 1 },
+              { 1, 1, 1, 1, 1, 1, 1, 1, 1, 1, 1, 0, 1, 1, 1, 1, 1, 1, 1, 1, 1, 1, 1, 1, 1, 1 },
             { 1, 0, 1, 0, 0, 0, 0, 0, 0, 0, 1, 0, 1, 0, 0, 0, 0, 0, 0, 1, 0, 0, 0, 0, 0, 1 },
             { 1, 0, 1, 0, 1, 1, 0, 1, 1, 1, 1, 0, 1, 0, 1, 1, 1, 1, 0, 1, 1, 1, 1, 1, 0, 1 },
             { 1, 0, 0, 0, 0, 1, 0, 0, 0, 0, 1, 0, 1, 0, 0, 0, 0, 1, 0, 0, 0, 0, 0, 0, 0, 1 },
@@ -61,6 +61,9 @@ public class Level3Frame extends JInternalFrame implements KeyListener {
 
     public Level3Frame() {
         super("", false, false, false, false);
+        win=false;
+
+        itemsLeft = new ArrayList<Item>(6);
 
         Calendar calendar = Calendar.getInstance();
         timeLeft=100;

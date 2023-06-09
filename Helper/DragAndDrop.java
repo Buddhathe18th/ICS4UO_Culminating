@@ -5,18 +5,21 @@ import java.awt.event.*;
 import javax.swing.*;
 
 /**
- * Basic template for all components that are drag and droppable.
+ * Basic template for all components that are grabbable.
  * Basic idea from <a href=
  * "https://stackoverflow.com/questions/874360/swing-creating-a-draggable-component">StackExchange</a>
- * Spent around 1.5 hours on this class.
+ * Spent around 3 hours on this class.
  * 
  * <h2>Modification</h2>
  * Added two new attributes, del and school, and one new method for checking for collisions
  * Spent around 30 minutes
  * 
+ * <h2> Modification </h2> 
+ * Removed drag and drop by mouse, added grabbing by CharactarHand
+ * 
  * @author Alex Zhu
- * @version 0.2.0
- * @date 05/28/2023
+ * @version 1.0.0
+ * @date 06/09/2023
  */
 
 public class DragAndDrop extends JComponent{
