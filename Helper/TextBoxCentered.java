@@ -10,7 +10,6 @@ import java.util.*;
  * 
  * @author Lukas Li
  * @version 0.1.0
- * @date 05/15/2023
  */
 
 public class TextBoxCentered extends TextBox {

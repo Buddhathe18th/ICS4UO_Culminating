@@ -29,7 +29,6 @@ import Helper.MoveFrame;
  * 
  * @author Alex Zhu
  * @version 1.0.0
- * @date 06/09/2023
  * 
  */
 
@@ -81,7 +80,6 @@ public class Level2 {
     /**
      * Constructor for the Level 2 class
      */
-
     public Level2(){
         score=0;
 

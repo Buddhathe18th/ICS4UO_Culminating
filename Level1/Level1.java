@@ -13,7 +13,6 @@ import java.awt.*;
  * 
  * @author Lukas Li
  * @version 1.0.0
- * @date 06/03/2023
  * 
  */
 public class Level1 extends JComponent {

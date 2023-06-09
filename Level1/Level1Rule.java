@@ -11,7 +11,6 @@ import Helper.TextBox;
  * 
  * @author Alex Zhu
  * @version 0.1.0
- * @date 05/16/2023
  */
 
 public class Level1Rule implements KeyListener{

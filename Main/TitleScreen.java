@@ -29,6 +29,16 @@ public class TitleScreen implements KeyListener{
      * 
      * @return the JInternalFrame to add to the screen
      */
+    
+    /**
+     * Default constructor for the TitleScreen class
+     */
+    public TitleScreen() {}
+    
+    /**
+     * Creates the frame to be displayed
+     * @return The frane to be displayed
+     */
     public JInternalFrame frame() {
 
         JInternalFrame frame = new JInternalFrame("", false, false, false, false);

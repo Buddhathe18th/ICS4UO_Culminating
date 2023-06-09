@@ -17,7 +17,6 @@ import java.util.*;
  *  
  * @author Lukas Li
  * @version 1.0.0
- * @date 06/03/2023
  */
 public class Level1Scene extends Level1 implements ActionListener {
 
