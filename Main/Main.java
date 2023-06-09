@@ -12,8 +12,6 @@ import java.io.*;
 import Level1.Level1;
 import Level1.Level1Finish;
 import Level1.Level1Rule;
-import Helper.DragAndDrop;
-import Helper.MoveFrame;
 import Level2.Level2;
 import Level2.Level2Result;
 import Level2.Level2Rule;
@@ -287,7 +285,6 @@ public class Main implements KeyListener {
     }
 
     // KeyListener methods for when the focus of the user is on the JFrame
-
     @Override
     public void keyReleased(KeyEvent e) {
         if (e.getKeyCode() == KeyEvent.VK_ENTER && (screenNum == 1 || screenNum == 2 || screenNum == 4 || screenNum==10||screenNum==14||screenNum==17)) {
