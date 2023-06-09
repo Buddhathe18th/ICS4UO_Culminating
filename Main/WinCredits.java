@@ -33,6 +33,11 @@ public class WinCredits implements KeyListener {
             "Twenty years later… after keeping up the work habits he developed in 8th grade and prioritizing activities that matter to him, Johnny has progressed a long way. Now, Johnny is the CEO of Apple!");
 
     /**
+     * Default constructor for the TitleScreen class
+     */
+    public WinCredits() {}
+    
+    /**
      * Returns the frame to be displayed on the main menu screen. Currently
      * unfinished, button for Level 1 will bring you to the Title Screen
      * 

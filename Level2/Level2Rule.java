@@ -11,7 +11,6 @@ import Helper.TextBox;
  * 
  * @author Alex Zhu
  * @version 1.0.0
- * @date 06/09/2023
  */
 
 public class Level2Rule implements KeyListener{
@@ -35,6 +34,11 @@ public class Level2Rule implements KeyListener{
      * Returns the frame to be displayed on the main menu screen. Currently unfinished, button for Level 1 will bring you to the Title Screen
      * @return the frame to be displayed
      */
+
+    /**
+     * Default constructor for the Level2Rule class
+     */
+    public Level2Rule() {}
 
     public JInternalFrame frame(){
         

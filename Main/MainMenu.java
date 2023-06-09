@@ -30,8 +30,8 @@ public class MainMenu implements ActionListener {
     Panel innerPanel;
     
     /**
-      * Default constructor for the MainMenu class
-      */
+     * Default constructor for the MainMenu class
+     */
     public MainMenu() {}
 
     /**

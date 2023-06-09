@@ -22,7 +22,6 @@ import Helper.TextBox;
  * 
  * @author Alex Zhu
  * @version 1.0.0
- * @date 06/09/2023
  * 
  */
 
@@ -64,12 +63,9 @@ public class Level2Result implements ActionListener{
     TextBox loseText = new TextBox(1, 0, 1185, 25, "Uh oh, you messed up a little bit. Next time, help Johnny clear his desk better so he can work!");
 
     /**
-     * Constructor for the Level 2 class
+     * Default constructor for the Level 2 class
      */
-
-    public Level2Result(){
-        
-    }
+    public Level2Result() {}
 
     /**
      *  Makes all components and drawings that will be on the Level 2 game screen

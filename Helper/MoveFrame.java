@@ -21,7 +21,6 @@ import Level2.CharacterHand;
  * 
  * @author Alex Zhu
  * @version 1.0.0
- * @date 06/09/23
  */
 
 public class MoveFrame extends JInternalFrame implements KeyListener {

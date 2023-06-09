@@ -35,6 +35,11 @@ public class Credits implements ActionListener {
     private JButton mainMenu;
 
     /**
+     * Default constructor for the Credits class
+     */
+    public Credits() {}
+
+    /**
      * Creates the frame to be displayed
      * @return The frane to be displayed
      */

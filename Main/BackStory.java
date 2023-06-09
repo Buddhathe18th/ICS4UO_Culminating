@@ -46,6 +46,10 @@ public class BackStory {
     TextBox t = new TextBox(1, 0, 1185, 25,
             "Johnny is an 8th grade student at Silver Oak Middle School. Each day he spends hours playing video games. He’s currently plagued by the greatest disease of this generation… newLine newLine PROCRASTINATION                                      Press enter to continue");
 
+    /**
+     * Default constructor for the BackStory class
+     */
+    public BackStory() {}
 
     /**
      * Returns the frame to be displayed on the main menu screen. Currently
