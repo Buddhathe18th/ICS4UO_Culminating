@@ -56,7 +56,7 @@ public class Level2Result implements ActionListener{
     /**
      * Winning textbox
      */
-    TextBox winText = new TextBox(0, 0, 1920, 25, "Success! You have successfully cleaned Johnny’s table. He’s now able to work on his homework without distractions!");
+    TextBox winText = new TextBox(0, 0, 1920, 25, "Success! You have successfully cleaned Johnny's table. He's now able to work on his homework without distractions!");
     
     /**
      * Losing textbox
