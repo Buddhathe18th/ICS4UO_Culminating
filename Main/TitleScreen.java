@@ -60,12 +60,15 @@ public class TitleScreen implements KeyListener{
      */
     class Drawing extends Canvas {
         public void paint(Graphics g) {
-            Image[] iArr = new Image[1];
+            Image[] iArr = new Image[2];
             try {
                 iArr[0] = ImageIO.read(getClass().getResource("logo.png"));
+                iArr[1] = ImageIO.read(getClass().getResource("background.png"));
             } catch (IOException e) {
                 e.printStackTrace();
             }
+            
+            g.drawImage(iArr[1], 0, 0,1300,950, null);
             g.drawImage(iArr[0], 30, 82,190,150, null);
 
             g.setFont(new Font("Courier New", Font.PLAIN, 70));

@@ -2,6 +2,9 @@ package Main;
 
 import java.awt.*;
 import java.awt.event.*;
+import java.io.IOException;
+
+import javax.imageio.ImageIO;
 import javax.swing.*;
 
 /**
@@ -102,6 +105,16 @@ public class MainMenu implements ActionListener {
          */
         public void paintComponent(Graphics g){
             super.paintComponent(g);
+
+            Image[] iArr = new Image[1];
+            try {
+                
+                iArr[0] = ImageIO.read(getClass().getResource("background.png"));
+            } catch (IOException e) {
+                e.printStackTrace();
+            }
+            
+            g.drawImage(iArr[0], 0, 0,1300,950, null);
             g.setFont(new Font("Courier New", Font.PLAIN, 100));
             g.drawString("Main Menu",310,200);
         }

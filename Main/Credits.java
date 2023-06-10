@@ -37,10 +37,12 @@ public class Credits implements ActionListener {
     /**
      * Default constructor for the Credits class
      */
-    public Credits() {}
+    public Credits() {
+    }
 
     /**
      * Creates the frame to be displayed
+     * 
      * @return The frane to be displayed
      */
     public JInternalFrame frame() {
@@ -75,7 +77,7 @@ public class Credits implements ActionListener {
          * Default constructor for the Panel class
          */
         public Panel() {
-            setSize(1200,900);
+            setSize(1200, 900);
             setOpaque(true);
             setBackground(Color.WHITE);
         }
@@ -88,13 +90,14 @@ public class Credits implements ActionListener {
         protected void paintComponent(Graphics g) {
             super.paintComponent(g);
 
-            Image[] iArr = new Image[1];
+            Image[] iArr = new Image[2];
             try {
                 iArr[0] = ImageIO.read(getClass().getResource("logo.png"));
+                iArr[1] = ImageIO.read(getClass().getResource("background.png"));
             } catch (IOException e) {
                 e.printStackTrace();
             }
-
+            g.drawImage(iArr[1], 0, 0, 1300, 950, null);
             g.drawImage(iArr[0], 500, 100, 200, 150, null);
 
             g.setFont(new Font("Courier New", Font.PLAIN, 50));
