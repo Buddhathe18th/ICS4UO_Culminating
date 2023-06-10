@@ -49,7 +49,7 @@ public class Level2Char extends JComponent{
         setBounds(0, 0, 100, 100);
         setSize(100, 100);
         setOpaque(false);
-        setLocation(column*20,row*20+250);
+        setLocation(column*20+300,row*20+250);
     }
 
     /**
