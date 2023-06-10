@@ -136,7 +136,7 @@ public class Main implements KeyListener {
                     String[] init = {"Johnny wants to go play basketball, but has a math assignment due tomorrow. Which choice should he make?", 
                         "Johnny has been playing Minecraft with his best friend, Bernie, for two hours now. Johnny also has to finish a journal for English. Which option should Johnny pick?", 
                         "Johnny has a big science project due next week, which he is already 3/4 done. However, he also has some history homework due tomorrow that he hasn't started. Which assignment should he work on?   ", 
-                        "It’s 1am, and Johnny just finished his assignment. He has an urge to watch some Youtube. What should he do?"};
+                        "It's 1am, and Johnny just finished his assignment. He has an urge to watch some Youtube. What should he do?"};
                     String[] c = {"Incorrect! If Johnny has an assignment due tomorrow, delaying it further could be impeding his learning.", 
                                 "Correct! If Johnny has a math assignment due tomorrow, getting started on it will be the better choice.", 
                                 "Correct! If Johnny has an English assignment, he should prioritize doing it over playing video games.", 
@@ -156,14 +156,14 @@ public class Main implements KeyListener {
                                     "Sleep", "Watch Youtube"};
                     Image[] i = new Image[8];
                     try {
-                        i[0] = ImageIO.read(new File("Level1\\Images\\basketball.png"));
-                        i[1] = ImageIO.read(new File("Level1\\Images\\calculator.png"));
-                        i[2] = ImageIO.read(new File("Level1\\Images\\pencil.png"));
-                        i[3] = ImageIO.read(new File("Level1\\Images\\ipad.png"));
-                        i[4] = ImageIO.read(new File("Level1\\Images\\atom.png"));
-                        i[5] = ImageIO.read(new File("Level1\\Images\\history.png"));
-                        i[6] = ImageIO.read(new File("Level1\\Images\\pillow.png"));
-                        i[7] = ImageIO.read(new File("Level1\\Images\\youtube.png"));
+                        i[0] = ImageIO.read(getClass().getResource("..\\Level1\\Images\\basketball.png"));
+                        i[1] = ImageIO.read(getClass().getResource("..\\Level1\\Images\\calculator.png"));
+                        i[2] = ImageIO.read(getClass().getResource("..\\Level1\\Images\\pencil.png"));
+                        i[3] = ImageIO.read(getClass().getResource("..\\Level1\\Images\\ipad.png"));
+                        i[4] = ImageIO.read(getClass().getResource("..\\Level1\\Images\\atom.png"));
+                        i[5] = ImageIO.read(getClass().getResource("..\\Level1\\Images\\history.png"));
+                        i[6] = ImageIO.read(getClass().getResource("..\\Level1\\Images\\pillow.png"));
+                        i[7] = ImageIO.read(getClass().getResource("..\\Level1\\Images\\youtube.png"));
                     } catch (IOException e) {
                         e.printStackTrace();
                     }
@@ -185,7 +185,7 @@ public class Main implements KeyListener {
                 }
 
                 case 10: {
-                    System.out.println("LEvel 2 rule");
+                    System.out.println("Level 2 rule");
                     Level2Rule t = new Level2Rule();
                     JInternalFrame test = t.frame();
                     frame.add(test);
