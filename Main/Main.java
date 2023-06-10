@@ -156,14 +156,14 @@ public class Main implements KeyListener {
                                     "Sleep", "Watch Youtube"};
                     Image[] i = new Image[8];
                     try {
-                        i[0] = ImageIO.read(getClass().getResource("..\\Level1\\Images\\basketball.png"));
-                        i[1] = ImageIO.read(getClass().getResource("..\\Level1\\Images\\calculator.png"));
-                        i[2] = ImageIO.read(getClass().getResource("..\\Level1\\Images\\pencil.png"));
-                        i[3] = ImageIO.read(getClass().getResource("..\\Level1\\Images\\ipad.png"));
-                        i[4] = ImageIO.read(getClass().getResource("..\\Level1\\Images\\atom.png"));
-                        i[5] = ImageIO.read(getClass().getResource("..\\Level1\\Images\\history.png"));
-                        i[6] = ImageIO.read(getClass().getResource("..\\Level1\\Images\\pillow.png"));
-                        i[7] = ImageIO.read(getClass().getResource("..\\Level1\\Images\\youtube.png"));
+                        i[0] = ImageIO.read(getClass().getResource("Images\\basketball.png"));
+                        i[1] = ImageIO.read(getClass().getResource("Images\\calculator.png"));
+                        i[2] = ImageIO.read(getClass().getResource("Images\\pencil.png"));
+                        i[3] = ImageIO.read(getClass().getResource("Images\\ipad.png"));
+                        i[4] = ImageIO.read(getClass().getResource("Images\\atom.png"));
+                        i[5] = ImageIO.read(getClass().getResource("Images\\history.png"));
+                        i[6] = ImageIO.read(getClass().getResource("Images\\pillow.png"));
+                        i[7] = ImageIO.read(getClass().getResource("Images\\youtube.png"));
                     } catch (IOException e) {
                         e.printStackTrace();
                     }
@@ -244,17 +244,7 @@ public class Main implements KeyListener {
                     JInternalFrame test = t.frame();
                     frame.add(test);
                     test.setLocation(0, -15);
-
-                    try {
-                        Robot bot = new Robot();
-                        bot.mouseMove(100, 100);
-                        bot.mousePress(InputEvent.BUTTON1_DOWN_MASK);
-                        bot.mouseRelease(InputEvent.BUTTON1_DOWN_MASK);
-                        System.out.println("clicked screen");
-                    } catch (AWTException e) {
-                        e.printStackTrace();
-                    }
-
+                    test.requestFocus();
                     break;
                 }
                 case 16: {

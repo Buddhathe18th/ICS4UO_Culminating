@@ -62,7 +62,7 @@ public class TitleScreen implements KeyListener{
         public void paint(Graphics g) {
             Image[] iArr = new Image[1];
             try {
-                iArr[0] = ImageIO.read(getClass().getResource("logo.png"));
+                iArr[0] = ImageIO.read(getClass().getResource("Images\\logo.png"));
             } catch (IOException e) {
                 e.printStackTrace();
             }
