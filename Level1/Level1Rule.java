@@ -28,7 +28,7 @@ public class Level1Rule implements KeyListener{
     /**
      * The info text box with instructions
      */
-    TextBox t = new TextBox(1, 0, 1185, 25, "On the screen, two items will pop up, one will be helpful to Johnny for school work, and the other will be a distraction. Click on the items that are helpful to Johnny!\nPress enter to continue");
+    TextBox t = new TextBox(1, 0, 1185, 25, "On the screen, two items will pop up, one will be helpful to Johnny for school work, and the other will be a distraction. Click on the items that are helpful to Johnny! Press enter to continue");
 
     /**
      * Default constructor for the Level1Rule class
