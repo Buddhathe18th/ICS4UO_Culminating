@@ -1,11 +1,13 @@
 package Level1;
 
+import javax.imageio.ImageIO;
 import javax.swing.*;
 import Helper.TextBox;
 import Helper.TextBoxCentered;
 
 import java.awt.*;
 import java.awt.event.*;
+import java.io.IOException;
 import java.util.*;
 
 /**
@@ -188,6 +190,16 @@ public class Level1Scene extends Level1 implements ActionListener {
             // Draws the buttons
             buttons[0].setBounds(200, 250, 300, 300);
             buttons[1].setBounds(780, 250, 300, 300);
+
+            Image[] iArr = new Image[1];
+            try {
+                iArr[0] = ImageIO.read(getClass().getResource("background.png"));
+
+            } catch (IOException e) {
+                e.printStackTrace();
+            }
+
+            g.drawImage(iArr[0], 0, 0, 1185, 900, null);
             
             // Draws the text boxes to be shown on screen
             for (TextBox t: shownBoxes) {
