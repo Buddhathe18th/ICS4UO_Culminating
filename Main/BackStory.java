@@ -102,7 +102,7 @@ public class BackStory {
                 e.printStackTrace();
             }
 
-            g.drawImage(iArr[0], 0, 130, 1200, 900, null);
+            g.drawImage(iArr[0], 0, 130, 1185, 900, null);
 
         }
     }
