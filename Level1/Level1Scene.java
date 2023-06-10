@@ -197,7 +197,11 @@ public class Level1Scene extends Level1 implements ActionListener {
                 text = t.getText();
                 g.setFont(new Font("Courier New", Font.PLAIN, fontSize));
                 // Draws a rectangular box at specified coordinates
-                if (t.isVisible()) g.drawRect(coords[0], coords[1], width, (int)((text.size()+0.25)*fontSize));
+                g.setColor(Color.WHITE);
+                if (t.isVisible()) g.fillRect(coords[0], coords[1], width, (int)((text.size()+0.25)*fontSize));
+                g.setColor(Color.BLACK);
+                // Borders
+                g.drawRect(coords[0], coords[1], width, (int)((text.size()+0.25)*fontSize));
                 // Draws the text in the text boxes, line by line
                 for (int i = 0; i < text.size(); i++) g.drawString(text.get(i), coords[0], coords[1]+(i+1)*fontSize);
             }
