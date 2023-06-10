@@ -90,7 +90,7 @@ public class Credits implements ActionListener {
 
             Image[] iArr = new Image[1];
             try {
-                iArr[0] = ImageIO.read(new File("Main\\logo.png"));
+                iArr[0] = ImageIO.read(getClass().getResource("..\\Main\\logo.png"));
             } catch (IOException e) {
                 e.printStackTrace();
             }

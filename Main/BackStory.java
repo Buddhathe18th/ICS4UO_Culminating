@@ -44,7 +44,7 @@ public class BackStory {
      * Textbox to hold the information
      */
     TextBox t = new TextBox(1, 0, 1185, 25,
-            "Johnny is an 8th grade student at Silver Oak Middle School. Each day he spends hours playing video games. He’s currently plagued by the greatest disease of this generation… newLine newLine PROCRASTINATION                                      Press enter to continue");
+            "Johnny is an 8th grade student at Silver Oak Middle School. Each day he spends hours playing video games. He's currently plagued by the greatest disease of this generation... newLine newLine PROCRASTINATION                                      Press enter to continue");
 
     /**
      * Default constructor for the BackStory class
@@ -96,7 +96,7 @@ public class BackStory {
 
             Image[] iArr = new Image[4];
             try {
-                iArr[0] = ImageIO.read(new File("Main\\gaming.png"));
+                iArr[0] = ImageIO.read(getClass().getResource("gaming.png"));
 
             } catch (IOException e) {
                 e.printStackTrace();

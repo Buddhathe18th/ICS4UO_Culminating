@@ -30,7 +30,7 @@ public class WinCredits implements KeyListener {
      * Textbox of the story of the character
      */
     TextBox t = new TextBox(0, 1, 1185, 25,
-            "Twenty years later… after keeping up the work habits he developed in 8th grade and prioritizing activities that matter to him, Johnny has progressed a long way. Now, Johnny is the CEO of Apple! newLine newLine Press enter to continue");
+            "Twenty years later... after keeping up the work habits he developed in 8th grade and prioritizing activities that matter to him, Johnny has progressed a long way. Now, Johnny is the CEO of Apple! newLine newLine Press enter to continue");
 
     /**
      * Default constructor for the TitleScreen class
