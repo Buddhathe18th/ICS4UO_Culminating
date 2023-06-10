@@ -210,7 +210,7 @@ public class Level1Scene extends Level1 implements ActionListener {
                 g.setFont(new Font("Courier New", Font.PLAIN, fontSize));
                 // Draws a rectangular box at specified coordinates
                 g.setColor(Color.WHITE);
-                if (t.isVisible()) g.fillRect(coords[0], coords[1], width, (int)((text.size()+0.25)*fontSize));
+                g.fillRect(coords[0], coords[1], width, (int)((text.size()+0.25)*fontSize));
                 g.setColor(Color.BLACK);
                 // Borders
                 g.drawRect(coords[0], coords[1], width, (int)((text.size()+0.25)*fontSize));
