@@ -1,6 +1,7 @@
 package Level2;
 
 import java.awt.Color;
+import java.awt.Font;
 import java.awt.Graphics;
 import java.awt.Image;
 import java.awt.event.ItemListener;
@@ -8,7 +9,6 @@ import java.awt.event.KeyEvent;
 import java.awt.event.KeyListener;
 import java.io.File;
 import java.io.IOException;
-import java.util.ArrayList;
 
 import javax.imageio.ImageIO;
 import javax.swing.JFrame;
@@ -22,7 +22,8 @@ import java.util.*;
 
 /**
  * Level 3 class
- * This class is a JInternalFrame, that can allow for the Level3Char to move from the arrow keys
+ * This class is a JInternalFrame, that can allow for the Level3Char to move
+ * from the arrow keys
  * Time spent: 4 hours
  * 
  * @author Alex Zhu
@@ -106,7 +107,7 @@ public class Level2Frame extends JInternalFrame implements KeyListener {
 
         level3Char = new Level2Char();
         innerPanel = new Panel();
-        innerPanel.setLocation(300, 0);
+        innerPanel.setLocation(0, 0);
 
         this.setSize(1200, 900);
         this.setVisible(true);
@@ -119,20 +120,26 @@ public class Level2Frame extends JInternalFrame implements KeyListener {
         this.setLayout(null);
 
         // Image array of the images on the components, so far just one image
-        Image[] iArr = new Image[1];
+        Image[] iArr = new Image[7];
         try {
-            iArr[0] = ImageIO.read(getClass().getResource("a.png"));
+            iArr[0] = ImageIO.read(getClass().getResource("backpack.png"));
+            iArr[1] = ImageIO.read(getClass().getResource("binder.png"));
+            iArr[2] = ImageIO.read(getClass().getResource("calculator.png"));
+            iArr[3] = ImageIO.read(getClass().getResource("pencil.png"));
+            iArr[4] = ImageIO.read(getClass().getResource("laptop.png"));
+            iArr[5] = ImageIO.read(getClass().getResource("phone.png"));
+            iArr[6] = ImageIO.read(getClass().getResource("history.png"));
         } catch (IOException e) {
             e.printStackTrace();
         }
 
         addItem(iArr[0], 4, 7);
-        addItem(iArr[0], 2, 15);
-        addItem(iArr[0], 7, 19);
-        addItem(iArr[0], 9, 12);
-        addItem(iArr[0], 15, 3);
-        addItem(iArr[0], 16, 17);
-        addItem(iArr[0], 20, 17);
+        addItem(iArr[1], 2, 15);
+        addItem(iArr[2], 7, 19);
+        addItem(iArr[3], 9, 12);
+        addItem(iArr[4], 15, 3);
+        addItem(iArr[5], 16, 17);
+        addItem(iArr[6], 20, 17);
 
         innerPanel.setLayout(null);
         innerPanel.setVisible(true);
@@ -154,7 +161,7 @@ public class Level2Frame extends JInternalFrame implements KeyListener {
 
         Item i1 = new Item(i);
         itemsLeft.add(i1);
-        i1.setLocation(20 * x, 250 + 20 * y);
+        i1.setLocation(20 * x+300, 250 + 20 * y);
         innerPanel.add(i1);
 
     }
@@ -217,7 +224,7 @@ public class Level2Frame extends JInternalFrame implements KeyListener {
             repaint();
         }
 
-        level3Char.setLocation(level3Char.column * 20, level3Char.row * 20 + 250);
+        level3Char.setLocation(level3Char.column * 20+300, level3Char.row * 20 + 250);
 
         for (int i = 0; i < itemsLeft.size(); i++) {
             if (level3Char.getX() == itemsLeft.get(i).getX() && level3Char.getY() == itemsLeft.get(i).getY()) {
@@ -249,6 +256,16 @@ public class Level2Frame extends JInternalFrame implements KeyListener {
          */
         protected void paintComponent(Graphics g) {
             super.paintComponent(g);
+
+            Image[] iArr = new Image[1];
+            try {
+                iArr[0] = ImageIO.read(getClass().getResource("background.png"));
+            } catch (IOException e) {
+                e.printStackTrace();
+            }
+
+            g.drawImage(iArr[0], -15, 5, 1200,955,null);
+
             for (int row = 0; row < maze.length; row++) {
                 for (int col = 0; col < maze[row].length; col++) {
                     if (maze[row][col] == 1)
@@ -258,18 +275,14 @@ public class Level2Frame extends JInternalFrame implements KeyListener {
 
                     int x = col * 20;
                     int y = row * 20;
-                    g.fillRect(x, y + 250, 20, 20);
+                    g.fillRect(x+300, y + 250, 20, 20);
                 }
             }
 
-            g.drawString("Objects left: " + itemsLeft.size(), 0, 100);
-            g.drawString("Time left: " + timeLeft, 0, 200);
+            g.setFont(new Font("Courier New", Font.BOLD, 30));
 
-            g.setColor(Color.blue);
-            g.fillPolygon(new int[] { 0, 520, 260 }, new int[] { 250, 250, 50 }, 3);
-
-            g.setColor(getBackground());
-            g.fillPolygon(new int[] { 20, 500, 260 }, new int[] { 240, 240, 60 }, 3);
+            g.drawString("Objects left: " + itemsLeft.size(), 100, 40);
+            g.drawString("Time left: " + timeLeft, 100, 100);
         }
     }
 

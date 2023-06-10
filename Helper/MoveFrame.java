@@ -1,5 +1,6 @@
 package Helper;
 
+import java.awt.Font;
 import java.awt.Graphics;
 import java.awt.Image;
 import java.awt.event.KeyEvent;
@@ -83,6 +84,9 @@ public class MoveFrame extends JInternalFrame implements KeyListener {
             draggableArrayList.trimToSize();
 
             // On screen showing the number of components left
+
+            
+            g.setFont(new Font("Courier New", Font.BOLD, 30));
             g.drawString("Objects remaining: " + String.valueOf(draggableArrayList.size()), 100, 100);
             g.drawString("Score: " + String.valueOf(score), 100, 150);
         }
@@ -208,7 +212,7 @@ public class MoveFrame extends JInternalFrame implements KeyListener {
             innerPanel.repaint();
             if (hand.grab) {
                 if (hand.grabbedObj.school == true) {
-                    if (hand.grabbedObj.checkCollision(innerPanel.getX(), innerPanel.getY() + 600, 200, 180)) {
+                    if (hand.grabbedObj.checkCollision(innerPanel.getX(), innerPanel.getY() + 500, 200, 180)) {
 
                         // Removing and repainting the screens
                         innerPanel.remove(hand.grabbedObj);
@@ -221,7 +225,7 @@ public class MoveFrame extends JInternalFrame implements KeyListener {
                         draggableArrayList.remove(hand.grabbedObj);
                         draggableArrayList.trimToSize();
                         hand.grabbedObj = null;
-                    } else if (hand.grabbedObj.checkCollision(innerPanel.getX() + 950, innerPanel.getY() + 600, 200,
+                    } else if (hand.grabbedObj.checkCollision(innerPanel.getX() + 950, innerPanel.getY() + 500, 200,
                             180)) {
                         innerPanel.remove(hand.grabbedObj);
                         innerPanel.revalidate();
@@ -232,7 +236,7 @@ public class MoveFrame extends JInternalFrame implements KeyListener {
                         hand.grabbedObj = null;
                     }
                 } else {
-                    if (hand.grabbedObj.checkCollision(innerPanel.getX(), innerPanel.getY() + 600, 200, 180)) {
+                    if (hand.grabbedObj.checkCollision(innerPanel.getX(), innerPanel.getY() + 500, 200, 180)) {
 
                         // Removing and repainting the screens
                         innerPanel.remove(hand.grabbedObj);
@@ -244,7 +248,7 @@ public class MoveFrame extends JInternalFrame implements KeyListener {
                         draggableArrayList.remove(hand.grabbedObj);
                         draggableArrayList.trimToSize();
                         hand.grabbedObj = null;
-                    } else if (hand.grabbedObj.checkCollision(innerPanel.getX() + 950, innerPanel.getY() + 600, 200,
+                    } else if (hand.grabbedObj.checkCollision(innerPanel.getX() + 950, innerPanel.getY() + 500, 200,
                             180)) {
                         innerPanel.remove(hand.grabbedObj);
                         innerPanel.revalidate();
