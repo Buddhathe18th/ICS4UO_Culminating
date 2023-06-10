@@ -67,7 +67,7 @@ public class Main implements KeyListener {
     /**
      * The Level 3 class
      */
-    public Level2Frame g;
+    public static Level2Frame g;
 
     /**
      * Main method
@@ -205,7 +205,7 @@ public class Main implements KeyListener {
                             // Stops the program from running for 1 second to preserve computer power
                             Thread.sleep(1000);
                             System.out.println(g.timeLeft + " " + g.win);
-                            if (g.timeLeft >= 0 && !g.win) {
+                            if (g.timeLeft > 0 && !g.win) {
                                 g.timeLeft--;
                                 g.revalidate();
                                 g.repaint();

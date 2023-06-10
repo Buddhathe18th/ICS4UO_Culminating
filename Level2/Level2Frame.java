@@ -101,7 +101,7 @@ public class Level2Frame extends JInternalFrame implements KeyListener {
         itemsLeft = new ArrayList<Item>(6);
 
         Calendar calendar = Calendar.getInstance();
-        timeLeft = 100;
+        timeLeft = 150;
         setFocusable(false);
         this.getContentPane().setFocusable(false);
 
