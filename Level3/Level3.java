@@ -86,15 +86,15 @@ public class Level3 {
         //Image array of the images on the components, so far just one image
         Image[] iArr = new Image[8];
         try {
-            iArr[0] = ImageIO.read(getClass().getResource("..\\Level3\\Images\\nitendoSwitch.png"));
-            iArr[1] = ImageIO.read(getClass().getResource("..\\Level3\\Images\\laptop.png"));
-            iArr[2] = ImageIO.read(getClass().getResource("..\\Level3\\Images\\phone.png"));
-            iArr[3] = ImageIO.read(getClass().getResource("..\\Level3\\Images\\basketball.png"));
+            iArr[0] = ImageIO.read(getClass().getResource("Images\\nitendoSwitch.png"));
+            iArr[1] = ImageIO.read(getClass().getResource("Images\\laptop.png"));
+            iArr[2] = ImageIO.read(getClass().getResource("Images\\phone.png"));
+            iArr[3] = ImageIO.read(getClass().getResource("Images\\basketball.png"));
 
-            iArr[4] = ImageIO.read(getClass().getResource("..\\Level3\\Images\\calculator.png"));
-            iArr[5] = ImageIO.read(getClass().getResource("..\\Level3\\Images\\pencil.png"));
-            iArr[6] = ImageIO.read(getClass().getResource("..\\Level3\\Images\\backPack.png"));
-            iArr[7] = ImageIO.read(getClass().getResource("..\\Level3\\Images\\binder.png"));
+            iArr[4] = ImageIO.read(getClass().getResource("Images\\calculator.png"));
+            iArr[5] = ImageIO.read(getClass().getResource("Images\\pencil.png"));
+            iArr[6] = ImageIO.read(getClass().getResource("Images\\backPack.png"));
+            iArr[7] = ImageIO.read(getClass().getResource("Images\\binder.png"));
         } catch (IOException e) {
             e.printStackTrace();
         }
