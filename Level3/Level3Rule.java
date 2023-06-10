@@ -29,7 +29,7 @@ public class Level3Rule implements KeyListener{
      * Textbox on the top of the screen
      */
 
-    TextBox t = new TextBox(0, 1, 1185, 25, "Now, Johnny is ready to work, but oh no! All of his belongings are on his table! Help Johnny by moving his character with arrow keys and clicking space to grab the items. Move all of the school-related items to the school bin and distractions to the non-school bin! You want to get a score of at least 4! newLine newLine Press enter to continue");
+    TextBox t = new TextBox(0, 1, 1185, 25, "Now, Johnny is ready to work, but oh no! All of his belongings are on his table! Help Johnny by moving his character with arrow keys and clicking space to grab the items. Move all of the school-related items to the school bin and distractions to the non-school bin! Every right sort gives one point, and no deductions for wrong sorts! You want to get a score of at least 4! newLine newLine Press enter to continue");
     /**
      * Returns the frame to be displayed on the main menu screen. Currently unfinished, button for Level 1 will bring you to the Title Screen
      * @return the frame to be displayed

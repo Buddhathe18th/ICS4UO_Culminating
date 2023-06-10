@@ -1,11 +1,14 @@
 package Level3;
 
+import javax.imageio.ImageIO;
 import javax.swing.JComponent;
 
 import Helper.DragAndDrop;
 
 import java.awt.Color;
 import java.awt.Graphics;
+import java.awt.Image;
+import java.io.IOException;
 
 /**
  * Character class that will be on screen for the Level 2
@@ -17,7 +20,7 @@ import java.awt.Graphics;
  * @version 1.0.0
  * 
  */
-public class CharacterHand extends JComponent{
+public class CharacterHand extends JComponent {
 
     /**
      * Whether or not the character is grabbing an item
@@ -44,7 +47,7 @@ public class CharacterHand extends JComponent{
      * Contructor for the CharacterHand class
      */
     public CharacterHand() {
-        grabbedObj=null;
+        grabbedObj = null;
         System.out.println("char");
         setBounds(0, 0, 100, 100);
         setSize(100, 100);
@@ -61,19 +64,19 @@ public class CharacterHand extends JComponent{
         // Paint method just draws a 400 by 400 red square, with image specified
         super.paintComponent(g);
 
-        if(!grab){
-            g.setColor(getBackground());
-
-            g.setColor(new Color(255, 0, 0, 177));
-            g.setColor(Color.red);
-            g.fillRect(0, 0, 100, 100);
+        Image[] iArr = new Image[2];
+        try {
+            iArr[0] = ImageIO.read(getClass().getResource("openHand.png"));
+            iArr[1] = ImageIO.read(getClass().getResource("closedHand.png"));
+        } catch (IOException e) {
+            e.printStackTrace();
         }
-        else{
-            g.setColor(getBackground());
 
-            g.setColor(new Color(255, 0, 0, 177));
-            g.setColor(Color.blue);
-            g.fillRect(0, 0, 100, 100);
+        if (!grab) {
+            g.drawImage(iArr[0], 0, 0, 100, 100, null);
+        } else {
+
+            g.drawImage(iArr[1], 0, 0, 100, 100, null);
         }
     }
 }

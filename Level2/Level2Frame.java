@@ -1,6 +1,7 @@
 package Level2;
 
 import java.awt.Color;
+import java.awt.Font;
 import java.awt.Graphics;
 import java.awt.Image;
 import java.awt.event.ItemListener;
@@ -8,7 +9,6 @@ import java.awt.event.KeyEvent;
 import java.awt.event.KeyListener;
 import java.io.File;
 import java.io.IOException;
-import java.util.ArrayList;
 
 import javax.imageio.ImageIO;
 import javax.swing.JFrame;
@@ -120,20 +120,26 @@ public class Level2Frame extends JInternalFrame implements KeyListener {
         this.setLayout(null);
 
         // Image array of the images on the components, so far just one image
-        Image[] iArr = new Image[1];
+        Image[] iArr = new Image[7];
         try {
-            iArr[0] = ImageIO.read(getClass().getResource("a.png"));
+            iArr[0] = ImageIO.read(getClass().getResource("backpack.png"));
+            iArr[1] = ImageIO.read(getClass().getResource("binder.png"));
+            iArr[2] = ImageIO.read(getClass().getResource("calculator.png"));
+            iArr[3] = ImageIO.read(getClass().getResource("pencil.png"));
+            iArr[4] = ImageIO.read(getClass().getResource("laptop.png"));
+            iArr[5] = ImageIO.read(getClass().getResource("phone.png"));
+            iArr[6] = ImageIO.read(getClass().getResource("history.png"));
         } catch (IOException e) {
             e.printStackTrace();
         }
 
         addItem(iArr[0], 4, 7);
-        addItem(iArr[0], 2, 15);
-        addItem(iArr[0], 7, 19);
-        addItem(iArr[0], 9, 12);
-        addItem(iArr[0], 15, 3);
-        addItem(iArr[0], 16, 17);
-        addItem(iArr[0], 20, 17);
+        addItem(iArr[1], 2, 15);
+        addItem(iArr[2], 7, 19);
+        addItem(iArr[3], 9, 12);
+        addItem(iArr[4], 15, 3);
+        addItem(iArr[5], 16, 17);
+        addItem(iArr[6], 20, 17);
 
         innerPanel.setLayout(null);
         innerPanel.setVisible(true);
@@ -273,8 +279,10 @@ public class Level2Frame extends JInternalFrame implements KeyListener {
                 }
             }
 
-            g.drawString("Objects left: " + itemsLeft.size(), 0, 100);
-            g.drawString("Time left: " + timeLeft, 0, 200);
+            g.setFont(new Font("Courier New", Font.BOLD, 30));
+
+            g.drawString("Objects left: " + itemsLeft.size(), 100, 40);
+            g.drawString("Time left: " + timeLeft, 100, 100);
         }
     }
 
