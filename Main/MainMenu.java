@@ -140,6 +140,7 @@ public class MainMenu implements ActionListener {
                 e.printStackTrace();
             }
             
+            g.setColor(Color.WHITE);
             g.drawImage(iArr[0], 0, 0,1300,950, null);
             g.setFont(new Font("Courier New", Font.BOLD, 100));
             g.drawString("Main Menu",310,200);
