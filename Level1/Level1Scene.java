@@ -62,7 +62,7 @@ public class Level1Scene extends Level1 implements ActionListener {
         textBoxes[0] = new TextBox(0, 0, 1180, 25, initial);
         textBoxes[1] = new TextBox(150, 600, 400, 25, choices[0]);
         textBoxes[2] = new TextBox(730, 600, 400, 25, choices[1]);
-        textBoxes[3] = new TextBoxCentered(0, 900, 1180, 25, info, "bottomleft", false, true);
+        textBoxes[3] = new TextBoxCentered(0, 925, 1180, 25, info, "bottomleft", false, true);
         textBoxes[4] = new TextBoxCentered(150, 225, 400, 25, choiceNames[0], "bottomleft", true, false);
         textBoxes[5] = new TextBoxCentered(730, 225, 400, 25, choiceNames[1], "bottomleft", true, false);
         shownBoxes.add(textBoxes[0]);
@@ -199,7 +199,7 @@ public class Level1Scene extends Level1 implements ActionListener {
                 e.printStackTrace();
             }
 
-            g.drawImage(iArr[0], 0, 0, 1185, 900, null);
+            g.drawImage(iArr[0], 0, 0, 1185, 960, null);
             
             // Draws the text boxes to be shown on screen
             for (TextBox t: shownBoxes) {
