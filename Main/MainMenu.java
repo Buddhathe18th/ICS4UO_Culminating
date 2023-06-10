@@ -71,6 +71,32 @@ public class MainMenu implements ActionListener {
         level2.setSize(new Dimension(600, 50));
         level1.setLocation(405, 300);
         level2.setLocation(405, 375);
+
+        level1.setBackground(new Color(70, 100, 200));
+        level1.setForeground(Color.WHITE);
+        level1.setFocusPainted(false);
+        level1.setFont(new Font("Tahoma", Font.BOLD, 24));
+        level1.setBorder(BorderFactory.createLineBorder(new Color(50, 70, 150), 3));
+        level2.setBackground(new Color(70, 100, 200));
+        level2.setForeground(Color.WHITE);
+        level2.setFocusPainted(false);
+        level2.setFont(new Font("Tahoma", Font.BOLD, 24));
+        level2.setBorder(BorderFactory.createLineBorder(new Color(50, 70, 150), 3));
+        level3.setBackground(new Color(70, 100, 200));
+        level3.setForeground(Color.WHITE);
+        level3.setFocusPainted(false);
+        level3.setFont(new Font("Tahoma", Font.BOLD, 24));
+        level3.setBorder(BorderFactory.createLineBorder(new Color(50, 70, 150), 3));
+        credits.setBackground(new Color(70, 100, 200));
+        credits.setForeground(Color.WHITE);
+        credits.setFocusPainted(false);
+        credits.setFont(new Font("Tahoma", Font.BOLD, 24));
+        credits.setBorder(BorderFactory.createLineBorder(new Color(50, 70, 150), 3));
+        exit.setBackground(new Color(70, 100, 200));
+        exit.setForeground(Color.WHITE);
+        exit.setFocusPainted(false);
+        exit.setFont(new Font("Tahoma", Font.BOLD, 24));
+        exit.setBorder(BorderFactory.createLineBorder(new Color(50, 70, 150), 3));
         
         addButton(level1, 280, 300);
         addButton(level2, 280, 375);
@@ -115,7 +141,7 @@ public class MainMenu implements ActionListener {
             }
             
             g.drawImage(iArr[0], 0, 0,1300,950, null);
-            g.setFont(new Font("Courier New", Font.PLAIN, 100));
+            g.setFont(new Font("Courier New", Font.BOLD, 100));
             g.drawString("Main Menu",310,200);
         }
     }
