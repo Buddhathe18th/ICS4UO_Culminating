@@ -156,14 +156,14 @@ public class Main implements KeyListener {
                                     "Sleep", "Watch Youtube"};
                     Image[] i = new Image[8];
                     try {
-                        i[0] = ImageIO.read(getClass().getResource("Images\\basketball.png"));
-                        i[1] = ImageIO.read(getClass().getResource("Images\\calculator.png"));
-                        i[2] = ImageIO.read(getClass().getResource("Images\\pencil.png"));
-                        i[3] = ImageIO.read(getClass().getResource("Images\\ipad.png"));
-                        i[4] = ImageIO.read(getClass().getResource("Images\\atom.png"));
-                        i[5] = ImageIO.read(getClass().getResource("Images\\history.png"));
-                        i[6] = ImageIO.read(getClass().getResource("Images\\pillow.png"));
-                        i[7] = ImageIO.read(getClass().getResource("Images\\youtube.png"));
+                        i[0] = ImageIO.read(getClass().getResource("basketball.png"));
+                        i[1] = ImageIO.read(getClass().getResource("calculator.png"));
+                        i[2] = ImageIO.read(getClass().getResource("pencil.png"));
+                        i[3] = ImageIO.read(getClass().getResource("ipad.png"));
+                        i[4] = ImageIO.read(getClass().getResource("atom.png"));
+                        i[5] = ImageIO.read(getClass().getResource("history.png"));
+                        i[6] = ImageIO.read(getClass().getResource("pillow.png"));
+                        i[7] = ImageIO.read(getClass().getResource("youtube.png"));
                     } catch (IOException e) {
                         e.printStackTrace();
                     }

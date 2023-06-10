@@ -130,8 +130,8 @@ public class Level3Result implements ActionListener{
             
             Image[] iArr = new Image[2];
             try {
-                iArr[0] = ImageIO.read(getClass().getResource("Images\\schoolBin.png"));
-                iArr[0] = ImageIO.read(getClass().getResource("Images\\nonschoolBin.png"));
+                iArr[0] = ImageIO.read(getClass().getResource("schoolBin.png"));
+                iArr[0] = ImageIO.read(getClass().getResource("nonschoolBin.png"));
             } catch (IOException e) {
                 e.printStackTrace();
             }
@@ -143,7 +143,7 @@ public class Level3Result implements ActionListener{
 
             Image[] iArr1 = new Image[1];
             try {
-                iArr1[0] = ImageIO.read(getClass().getResource("..\\Level3\\Images\\table.png"));
+                iArr1[0] = ImageIO.read(getClass().getResource("table.png"));
             } catch (IOException e) {
                 System.out.println("broken");
             }

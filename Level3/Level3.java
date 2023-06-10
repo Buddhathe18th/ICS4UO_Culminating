@@ -86,15 +86,15 @@ public class Level3 {
         //Image array of the images on the components, so far just one image
         Image[] iArr = new Image[8];
         try {
-            iArr[0] = ImageIO.read(getClass().getResource("Images\\nitendoSwitch.png"));
-            iArr[1] = ImageIO.read(getClass().getResource("Images\\laptop.png"));
-            iArr[2] = ImageIO.read(getClass().getResource("Images\\phone.png"));
-            iArr[3] = ImageIO.read(getClass().getResource("Images\\basketball.png"));
+            iArr[0] = ImageIO.read(getClass().getResource("nitendoSwitch.png"));
+            iArr[1] = ImageIO.read(getClass().getResource("laptop.png"));
+            iArr[2] = ImageIO.read(getClass().getResource("phone.png"));
+            iArr[3] = ImageIO.read(getClass().getResource("basketball.png"));
 
-            iArr[4] = ImageIO.read(getClass().getResource("Images\\calculator.png"));
-            iArr[5] = ImageIO.read(getClass().getResource("Images\\pencil.png"));
-            iArr[6] = ImageIO.read(getClass().getResource("Images\\backPack.png"));
-            iArr[7] = ImageIO.read(getClass().getResource("Images\\binder.png"));
+            iArr[4] = ImageIO.read(getClass().getResource("calculator.png"));
+            iArr[5] = ImageIO.read(getClass().getResource("pencil.png"));
+            iArr[6] = ImageIO.read(getClass().getResource("backPack.png"));
+            iArr[7] = ImageIO.read(getClass().getResource("binder.png"));
         } catch (IOException e) {
             e.printStackTrace();
         }
@@ -171,8 +171,8 @@ public class Level3 {
 
             Image[] iArr = new Image[2];
             try {
-                iArr[0] = ImageIO.read(getClass().getResource("Images\\schoolBin.png"));
-                iArr[0] = ImageIO.read(getClass().getResource("Images\\nonschoolBin.png"));
+                iArr[0] = ImageIO.read(getClass().getResource("schoolBin.png"));
+                iArr[0] = ImageIO.read(getClass().getResource("nonschoolBin.png"));
             } catch (IOException e) {
                 e.printStackTrace();
             }
@@ -184,7 +184,7 @@ public class Level3 {
 
             Image[] iArr1 = new Image[1];
             try {
-                iArr1[0] = ImageIO.read(getClass().getResource("Images\\table.png"));
+                iArr1[0] = ImageIO.read(getClass().getResource("table.png"));
             } catch (IOException e) {
                 System.out.println("broken");
             }
