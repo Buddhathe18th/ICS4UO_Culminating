@@ -159,29 +159,12 @@ public class Level3Result implements ActionListener{
             
             Image[] iArr = new Image[2];
             try {
-                iArr[0] = ImageIO.read(getClass().getResource("schoolBin.png"));
-                iArr[0] = ImageIO.read(getClass().getResource("nonschoolBin.png"));
+                iArr[0] = ImageIO.read(getClass().getResource("mainBackground.png"));
             } catch (IOException e) {
                 e.printStackTrace();
             }
 
-            //The two bins
-
-            g.drawImage(iArr[0], 0, 500, 200, 180, null);
-            g.drawImage(iArr[1], 1220, 500, 200, 180, null);
-
-            Image[] iArr1 = new Image[1];
-            try {
-                iArr1[0] = ImageIO.read(getClass().getResource("table.png"));
-            } catch (IOException e) {
-                System.out.println("broken");
-            }
-
-            // The table
-            g.drawImage(iArr1[0], 250, 130, 700, 525, null);
-
-            g.setColor(new Color(238,238,238,140));
-            g.fillRect(0,0,1920,1080);
+            g.drawImage(iArr[0], 0, 0, 1300, 951, null);
         }
     }
 
