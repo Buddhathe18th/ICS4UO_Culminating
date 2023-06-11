@@ -71,11 +71,12 @@ public class TitleScreen implements KeyListener{
             g.drawImage(iArr[1], 0, 0,1300,950, null);
             g.drawImage(iArr[0], 30, 82,190,150, null);
 
-            g.setFont(new Font("Courier New", Font.PLAIN, 70));
+            g.setColor(Color.WHITE);
+            g.setFont(new Font("Courier New", Font.BOLD, 70));
             g.drawString("LC Studios Presents...", 200, 200);
-            g.setFont(new Font("Courier New", Font.PLAIN, 50));
+            g.setFont(new Font("Courier New", Font.BOLD, 50));
             g.drawString("Race Against Time", 315, 400);
-            g.setFont(new Font("Courier New", Font.PLAIN, 20));
+            g.setFont(new Font("Courier New", Font.BOLD, 20));
             g.drawString("Press enter to continue", 400, 600);
 
         }

@@ -44,6 +44,11 @@ public class Level2Result implements ActionListener{
     JButton buttonL3;
 
     /**
+     * Restart button
+     */
+    JButton restartButton;
+
+    /**
      * Button for main menu
      */
     JButton mainMenu;
@@ -91,7 +96,8 @@ public class Level2Result implements ActionListener{
         frame.setSize(1920, 1080);
         frame.setVisible(true);
 
-        if(level3Win){
+        Main.Main.g.itemsLeft.trimToSize();
+        if(Main.Main.g.timeLeft >= 0 && Main.Main.g.itemsLeft.size()==0){
             innerPanel.add(winText);
             Main.Main.win3=true;
         }
@@ -101,17 +107,27 @@ public class Level2Result implements ActionListener{
 
         buttonL3 = new JButton("Level 3");
         mainMenu = new JButton("Main menu");
+        restartButton = new JButton("Restart");
         buttonL3.addActionListener(this);
         mainMenu.addActionListener(this);
+        restartButton.addActionListener(this);
 
 
 
+        if(Main.Main.win3){
+            innerPanel.add(buttonL3);
+        }
+        else{
+            innerPanel.add(restartButton);
+        }
 
-        innerPanel.add(buttonL3);
+        
         innerPanel.add(mainMenu);
         buttonL3.setSize(new Dimension(600, 50));
+        restartButton.setSize(new Dimension(600, 50));
         mainMenu.setSize(new Dimension(600,50));
         buttonL3.setLocation(405, 300);
+        restartButton.setLocation(405, 300);
         mainMenu.setLocation(405, 375);
 
         return frame;
@@ -172,6 +188,10 @@ public class Level2Result implements ActionListener{
         }
         else if(e.getSource()==mainMenu){
             Main.Main.screenNum=3;//change screen to main menu
+        }
+        else if(e.getSource()==restartButton){
+            Main.Main.screenNum=10;//change screen to main menu
+            Main.Main.g=new Level2Frame();
         }
         
     }

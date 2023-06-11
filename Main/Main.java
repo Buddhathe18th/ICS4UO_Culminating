@@ -67,7 +67,7 @@ public class Main implements KeyListener {
     /**
      * The Level 3 class
      */
-    public Level2Frame g;
+    public static Level2Frame g;
 
     /**
      * Main method
@@ -147,7 +147,7 @@ public class Main implements KeyListener {
                                 "Incorrect! Without sleep, Johnny will be fatigued and very unfocused the next day.", };
                     String[] inf = {"Fun Fact! Sports are good for your mental health, but at times like these, commiting and working is still the overall best choice! Press enter to continue...", 
                                     "Fun Fact! According to research from Brigham Young University, video game breaks can increase productivity by up to 20%. But make sure not to play too much! Too many video games can lead to many problems such as a reduced attention span. Press enter to continue...", 
-                                    "Fun Fact! According to research from Brigham Young University, video game breaks can increase productivity by up to 20%, but make sure not to play too much! Too many video games can lead to many problems such as a decreased attention span and eye strain. Press enter to continue...", 
+                                    "Fun Fact! Prioritisation skills will make you better prepared to make decisions, improve your judgement and make you less stressed! Press enter to continue...", 
                                     "Fun Fact! Being sleep deprived will make you behave in similar ways to being drunk! According to Harvard Medical School, going 48 hours without sleep is equivalent to having a 0.1% blood alcohol content, which is higher than the legal amount to drive! Press enter to continue...", };
                     
                     String[] txt = {"Play basketball", "Do math", 
@@ -185,7 +185,6 @@ public class Main implements KeyListener {
                 }
 
                 case 10: {
-                    System.out.println("Level 2 rule");
                     Level2Rule t = new Level2Rule();
                     JInternalFrame test = t.frame();
                     frame.add(test);
@@ -204,8 +203,8 @@ public class Main implements KeyListener {
 
                             // Stops the program from running for 1 second to preserve computer power
                             Thread.sleep(1000);
-                            System.out.println(g.timeLeft + " " + g.win);
-                            if (g.timeLeft >= 0 && !g.win) {
+                            System.out.println(g.timeLeft + " " + g.finish+" "+g.level3Char.row+" "+g.level3Char.column);
+                            if (g.timeLeft > 0 && !g.finish) {
                                 g.timeLeft--;
                                 g.revalidate();
                                 g.repaint();
@@ -316,9 +315,15 @@ public class Main implements KeyListener {
     // KeyListener methods for when the focus of the user is on the JFrame
     @Override
     public void keyReleased(KeyEvent e) {
-        if (e.getKeyCode() == KeyEvent.VK_ENTER && (screenNum == 1 || screenNum == 2 || screenNum == 4 || screenNum==10||screenNum==14||screenNum==17)) {
-            Main.screenNum++;
+        if(e.getKeyCode() == KeyEvent.VK_ENTER){
+            if (e.getKeyCode() == KeyEvent.VK_ENTER && (screenNum == 1 || screenNum == 2 || screenNum == 4 ||screenNum==14||screenNum==17)) {
+                Main.screenNum++;
+            }
+            else if(e.getKeyCode() == KeyEvent.VK_ENTER && screenNum==10){
+                Main.screenNum=11;
+            }
         }
+        
 
     }
 }

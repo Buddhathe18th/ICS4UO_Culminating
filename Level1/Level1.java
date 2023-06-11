@@ -87,7 +87,7 @@ public class Level1 extends JComponent {
                     changed = false;
                     f.getContentPane().removeAll();
                     f.add(new Level1Scene(new Image[] { images[scene * 2], images[scene * 2 + 1] }, initial[scene],
-                            new String[] { choices[scene * 2], choices[scene * 2 + 1] }, info[scene], new String[] { choiceNames[scene * 2], choiceNames[scene++ * 2 + 1] }).frame());
+                            new String[] { choices[scene * 2], choices[scene * 2 + 1] }, info[scene], new String[] { choiceNames[scene * 2], choiceNames[scene++ * 2 + 1] }).frame()).setLocation(0,-15);
                     f.getContentPane().repaint();
                 }
                 else {
