@@ -82,9 +82,9 @@ public class Main implements KeyListener {
      * displayed on the JFrame
      */
     public Main() {
-        win1=false;
-        win2=false;
-        win3=false;
+        win1=true;
+        win2=true;
+        win3=true;
         frame = new JFrame("Race Against Time");
         frame.setLayout(null);
         frame.setDefaultCloseOperation(JFrame.EXIT_ON_CLOSE);
