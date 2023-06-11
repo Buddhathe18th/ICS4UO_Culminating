@@ -12,6 +12,7 @@ import java.io.File;
 import java.io.IOException;
 
 import javax.imageio.ImageIO;
+import javax.swing.BorderFactory;
 import javax.swing.JButton;
 import javax.swing.JFrame;
 import javax.swing.JInternalFrame;
@@ -71,9 +72,17 @@ public class Level1Finish implements ActionListener {
         mainMenu = new JButton("Main menu");
         buttonL2.addActionListener(this);
         mainMenu.addActionListener(this);
-
-
-
+        
+        buttonL2.setBackground(new Color(70, 100, 200));
+        buttonL2.setForeground(Color.WHITE);
+        buttonL2.setFocusPainted(false);
+        buttonL2.setFont(new Font("Tahoma", Font.BOLD, 24));
+        buttonL2.setBorder(BorderFactory.createLineBorder(new Color(50, 70, 150), 3));
+        mainMenu.setBackground(new Color(70, 100, 200));
+        mainMenu.setForeground(Color.WHITE);
+        mainMenu.setFocusPainted(false);
+        mainMenu.setFont(new Font("Tahoma", Font.BOLD, 24));
+        mainMenu.setBorder(BorderFactory.createLineBorder(new Color(50, 70, 150), 3));
 
         innerPanel.add(buttonL2);
         innerPanel.add(mainMenu);

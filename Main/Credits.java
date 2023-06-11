@@ -60,6 +60,11 @@ public class Credits implements ActionListener {
 
         mainMenu = new JButton("Main Menu");
         mainMenu.addActionListener(this);
+        mainMenu.setBackground(new Color(70, 100, 200));
+        mainMenu.setForeground(Color.WHITE);
+        mainMenu.setFocusPainted(false);
+        mainMenu.setFont(new Font("Tahoma", Font.BOLD, 24));
+        mainMenu.setBorder(BorderFactory.createLineBorder(new Color(50, 70, 150), 3));
 
         innerPanel.add(mainMenu);
         mainMenu.setSize(new Dimension(600, 50));
@@ -100,11 +105,12 @@ public class Credits implements ActionListener {
             g.drawImage(iArr[1], 0, 0, 1300, 950, null);
             g.drawImage(iArr[0], 500, 100, 200, 150, null);
 
-            g.setFont(new Font("Courier New", Font.PLAIN, 50));
+            g.setColor(Color.WHITE);
+            g.setFont(new Font("Courier New", Font.BOLD, 50));
             g.drawString("LC Studios", 450, 330);
-            g.setFont(new Font("Courier New", Font.PLAIN, 70));
+            g.setFont(new Font("Courier New", Font.BOLD, 70));
             g.drawString("Race Against Time", 245, 430);
-            g.setFont(new Font("Courier New", Font.PLAIN, 20));
+            g.setFont(new Font("Courier New", Font.BOLD, 20));
             g.drawString("Developers: Alex Zhu, Lukas Li", 400, 490);
         }
     }
