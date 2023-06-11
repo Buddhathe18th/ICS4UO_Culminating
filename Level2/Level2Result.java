@@ -189,6 +189,10 @@ public class Level2Result implements ActionListener{
         else if(e.getSource()==mainMenu){
             Main.Main.screenNum=3;//change screen to main menu
         }
+        else if(e.getSource()==restartButton){
+            Main.Main.screenNum=10;//change screen to main menu
+            Main.Main.g=new Level2Frame();
+        }
         
     }
 }

@@ -185,7 +185,6 @@ public class Main implements KeyListener {
                 }
 
                 case 10: {
-                    System.out.println("Level 2 rule");
                     Level2Rule t = new Level2Rule();
                     JInternalFrame test = t.frame();
                     frame.add(test);
@@ -204,8 +203,8 @@ public class Main implements KeyListener {
 
                             // Stops the program from running for 1 second to preserve computer power
                             Thread.sleep(1000);
-                            System.out.println(g.timeLeft + " " + g.win);
-                            if (g.timeLeft > 0 && !g.win) {
+                            System.out.println(g.timeLeft + " " + g.finish+" "+g.level3Char.row+" "+g.level3Char.column);
+                            if (g.timeLeft > 0 && !g.finish) {
                                 g.timeLeft--;
                                 g.revalidate();
                                 g.repaint();
@@ -316,9 +315,15 @@ public class Main implements KeyListener {
     // KeyListener methods for when the focus of the user is on the JFrame
     @Override
     public void keyReleased(KeyEvent e) {
-        if (e.getKeyCode() == KeyEvent.VK_ENTER && (screenNum == 1 || screenNum == 2 || screenNum == 4 || screenNum==10||screenNum==14||screenNum==17)) {
-            Main.screenNum++;
+        if(e.getKeyCode() == KeyEvent.VK_ENTER){
+            if (e.getKeyCode() == KeyEvent.VK_ENTER && (screenNum == 1 || screenNum == 2 || screenNum == 4 ||screenNum==14||screenNum==17)) {
+                Main.screenNum++;
+            }
+            else if(e.getKeyCode() == KeyEvent.VK_ENTER && screenNum==10){
+                Main.screenNum=11;
+            }
         }
+        
 
     }
 }

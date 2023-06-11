@@ -34,7 +34,7 @@ public class Level2Frame extends JInternalFrame implements KeyListener {
     /**
      * If the player has won yet
      */
-    public static boolean win = false;
+    public static boolean finish = false;
 
     /**
      * The amount of time the player has left
@@ -96,7 +96,7 @@ public class Level2Frame extends JInternalFrame implements KeyListener {
      */
     public Level2Frame() {
         super("", false, false, false, false);
-        win = false;
+        finish = false;
 
         itemsLeft = new ArrayList<Item>(6);
 
@@ -106,6 +106,8 @@ public class Level2Frame extends JInternalFrame implements KeyListener {
         this.getContentPane().setFocusable(false);
 
         level3Char = new Level2Char();
+        level3Char.column = 11;
+        level3Char.row = 0;
         innerPanel = new Panel();
         innerPanel.setLocation(0, 0);
 
@@ -161,7 +163,7 @@ public class Level2Frame extends JInternalFrame implements KeyListener {
 
         Item i1 = new Item(i);
         itemsLeft.add(i1);
-        i1.setLocation(20 * x+300, 250 + 20 * y);
+        i1.setLocation(20 * x + 300, 250 + 20 * y);
         innerPanel.add(i1);
 
     }
@@ -178,9 +180,13 @@ public class Level2Frame extends JInternalFrame implements KeyListener {
     @Override
     public void keyPressed(KeyEvent e) {
         if (e.getKeyCode() == KeyEvent.VK_RIGHT) {
-            if (level3Char.column == 24 && level3Char.row == 23) {
-                win = true;
-                Main.Main.screenNum++;
+            try {
+                this.removeKeyListener(this);
+                innerPanel.removeKeyListener(this);
+                Thread.sleep(50);
+
+            } catch (Exception ex) {
+                ex.printStackTrace();
             }
 
             // System.out.println("right");
@@ -192,6 +198,8 @@ public class Level2Frame extends JInternalFrame implements KeyListener {
             innerPanel.repaint();
             revalidate();
             repaint();
+            this.addKeyListener(this);
+            innerPanel.addKeyListener(this);
         } else if (e.getKeyCode() == KeyEvent.VK_LEFT) {
             // System.out.println("left");
             if (level3Char.column - 1 > -1
@@ -224,7 +232,7 @@ public class Level2Frame extends JInternalFrame implements KeyListener {
             repaint();
         }
 
-        level3Char.setLocation(level3Char.column * 20+300, level3Char.row * 20 + 250);
+        level3Char.setLocation(level3Char.column * 20 + 300, level3Char.row * 20 + 250);
 
         for (int i = 0; i < itemsLeft.size(); i++) {
             if (level3Char.getX() == itemsLeft.get(i).getX() && level3Char.getY() == itemsLeft.get(i).getY()) {
@@ -234,6 +242,15 @@ public class Level2Frame extends JInternalFrame implements KeyListener {
                 i--;
                 itemsLeft.trimToSize();
             }
+        }
+
+        if (level3Char.column == 25 && level3Char.row == 23) {
+            finish = true;
+            System.out.println("done Game");
+            Main.Main.screenNum=12;
+            level3Char.column=11;
+            level3Char.row=0;
+            return;
         }
 
     }
@@ -264,7 +281,7 @@ public class Level2Frame extends JInternalFrame implements KeyListener {
                 e.printStackTrace();
             }
 
-            g.drawImage(iArr[0], -15, 5, 1200,955,null);
+            g.drawImage(iArr[0], -15, 5, 1200, 955, null);
 
             for (int row = 0; row < maze.length; row++) {
                 for (int col = 0; col < maze[row].length; col++) {
@@ -275,7 +292,7 @@ public class Level2Frame extends JInternalFrame implements KeyListener {
 
                     int x = col * 20;
                     int y = row * 20;
-                    g.fillRect(x+300, y + 250, 20, 20);
+                    g.fillRect(x + 300, y + 250, 20, 20);
                 }
             }
 
