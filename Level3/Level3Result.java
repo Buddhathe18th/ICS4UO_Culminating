@@ -96,14 +96,29 @@ public class Level3Result implements ActionListener{
             innerPanel.add(loseText);
         }
 
-restartButton = new JButton("Restart");
+        restartButton = new JButton("Restart");
         creditButton = new JButton("Credits");
         mainMenu = new JButton("Main menu");
         restartButton.addActionListener(this);
         creditButton.addActionListener(this);
         mainMenu.addActionListener(this);
 
-
+        restartButton.setBackground(new Color(70, 100, 200));
+        restartButton.setForeground(Color.WHITE);
+        restartButton.setFocusPainted(false);
+        restartButton.setFont(new Font("Tahoma", Font.BOLD, 24));
+        restartButton.setBorder(BorderFactory.createLineBorder(new Color(50, 70, 150), 3));
+        creditButton.setBackground(new Color(70, 100, 200));
+        creditButton.setForeground(Color.WHITE);
+        creditButton.setFocusPainted(false);
+        creditButton.setFont(new Font("Tahoma", Font.BOLD, 24));
+        creditButton.setBorder(BorderFactory.createLineBorder(new Color(50, 70, 150), 3));
+        mainMenu.setBackground(new Color(70, 100, 200));
+        mainMenu.setForeground(Color.WHITE);
+        mainMenu.setFocusPainted(false);
+        mainMenu.setFont(new Font("Tahoma", Font.BOLD, 24));
+        mainMenu.setBorder(BorderFactory.createLineBorder(new Color(50, 70, 150), 3));
+        
 
         if(Main.Main.win2){
             innerPanel.add(creditButton);

@@ -84,9 +84,9 @@ public class Main implements KeyListener {
      * displayed on the JFrame
      */
     public Main() {
-        win1=false;;
-        win2=false;;
-        win3=false;;
+        win1=false;
+        win2=false;
+        win3=false;
         frame = new JFrame("Race Against Time");
         frame.setLayout(null);
         frame.setDefaultCloseOperation(JFrame.EXIT_ON_CLOSE);
@@ -211,7 +211,7 @@ public class Main implements KeyListener {
                                 g.revalidate();
                                 g.repaint();
                             } else {
-                                System.out.println("winning teh game");
+                                System.out.println("winning the game");
                                 break;
 
                             }

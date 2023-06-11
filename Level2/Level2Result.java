@@ -112,7 +112,21 @@ public class Level2Result implements ActionListener{
         mainMenu.addActionListener(this);
         restartButton.addActionListener(this);
 
-
+        restartButton.setBackground(new Color(70, 100, 200));
+        restartButton.setForeground(Color.WHITE);
+        restartButton.setFocusPainted(false);
+        restartButton.setFont(new Font("Tahoma", Font.BOLD, 24));
+        restartButton.setBorder(BorderFactory.createLineBorder(new Color(50, 70, 150), 3));
+        buttonL3.setBackground(new Color(70, 100, 200));
+        buttonL3.setForeground(Color.WHITE);
+        buttonL3.setFocusPainted(false);
+        buttonL3.setFont(new Font("Tahoma", Font.BOLD, 24));
+        buttonL3.setBorder(BorderFactory.createLineBorder(new Color(50, 70, 150), 3));
+        mainMenu.setBackground(new Color(70, 100, 200));
+        mainMenu.setForeground(Color.WHITE);
+        mainMenu.setFocusPainted(false);
+        mainMenu.setFont(new Font("Tahoma", Font.BOLD, 24));
+        mainMenu.setBorder(BorderFactory.createLineBorder(new Color(50, 70, 150), 3));
 
         if(Main.Main.win3){
             innerPanel.add(buttonL3);

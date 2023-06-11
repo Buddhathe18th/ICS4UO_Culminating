@@ -121,7 +121,7 @@ public class Level2Frame extends JInternalFrame implements KeyListener {
         this.getRootPane().setWindowDecorationStyle(0);
         this.setLayout(null);
 
-        // Image array of the images on the components, so far just one image
+        // Image array of the images on the components
         Image[] iArr = new Image[7];
         try {
             iArr[0] = ImageIO.read(getClass().getResource("backpack.png"));
