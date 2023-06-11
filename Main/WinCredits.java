@@ -34,10 +34,14 @@ public class WinCredits implements KeyListener {
     /**
      * Default constructor for the TitleScreen class
      */
-    public WinCredits() {}
+    public WinCredits() {
+        Main.win1 = false;
+        Main.win2 = false;
+        Main.win3 = false;
+    }
 
     Panel innerPanel;
-    
+
     /**
      * Returns the frame to be displayed on the main menu screen. Currently
      * unfinished, button for Level 1 will bring you to the Title Screen
@@ -46,20 +50,20 @@ public class WinCredits implements KeyListener {
      */
 
     public JInternalFrame frame() {
-        frame = new JInternalFrame("",false,false,false,false);
+        frame = new JInternalFrame("", false, false, false, false);
         frame.putClientProperty("JInternalFrame.isPalette", Boolean.TRUE);
         frame.setDefaultCloseOperation(JFrame.EXIT_ON_CLOSE);
         frame.getRootPane().setWindowDecorationStyle(0);
         frame.setLayout(null);
-        
-    
-        
+
         frame.getContentPane().setFocusable(false);
         frame.setFocusable(false);
 
         frame.addKeyListener(this);
         innerPanel = new Panel();
-        innerPanel.add(t);//TODO: Add drawing
+        innerPanel.setLayout(null);
+        innerPanel.add(t);// TODO: Add drawing
+        t.setLocation(0, 0);
         frame.add(innerPanel);
         frame.setSize(1920, 1080);
         frame.setVisible(true);
@@ -75,7 +79,7 @@ public class WinCredits implements KeyListener {
          * Default constructor for the Panel class
          */
         public Panel() {
-            setSize(1200, 900);
+            setSize(1200, 960);
             setOpaque(true);
             setBackground(Color.WHITE);
         }
@@ -94,14 +98,7 @@ public class WinCredits implements KeyListener {
             } catch (IOException e) {
                 e.printStackTrace();
             }
-            g.drawImage(iArr[0], 0, 0, 1185, 951, null);
-
-            g.setFont(new Font("Courier New", Font.PLAIN, 50));
-            g.drawString("LC Studios", 450, 330);
-            g.setFont(new Font("Courier New", Font.PLAIN, 70));
-            g.drawString("Race Against Time", 245, 430);
-            g.setFont(new Font("Courier New", Font.PLAIN, 20));
-            g.drawString("Developers: Alex Zhu, Lukas Li", 400, 490);
+            g.drawImage(iArr[0], 0, 130, 1185, 811, null);
         }
     }
 
