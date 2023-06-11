@@ -107,6 +107,8 @@ public class MainMenu implements ActionListener {
         return frame;
     }
 
+    
+
     /**
      *  Adds a button to the innerPanel
      * 

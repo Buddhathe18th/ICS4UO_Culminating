@@ -2,6 +2,8 @@ package Main;
 
 import java.awt.event.*;
 import java.awt.AWTException;
+import java.awt.Color;
+import java.awt.Font;
 import java.awt.Image;
 import java.awt.Robot;
 
@@ -297,7 +299,15 @@ public class Main implements KeyListener {
         }
 
     }
-
+    
+    public static void buttonFormatting(JButton b){
+        b.setBackground(new Color(70, 100, 200));
+        b.setForeground(Color.WHITE);
+        b.setFocusPainted(false);
+        b.setFont(new Font("Tahoma", Font.BOLD, 24));
+        b.setBorder(BorderFactory.createLineBorder(new Color(50, 70, 150), 3));
+    }
+    
     /**
      * Key listener methods
      */

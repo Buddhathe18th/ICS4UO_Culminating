@@ -61,12 +61,12 @@ public class Level2Result implements ActionListener{
     /**
      * Winning textbox
      */
-    TextBox winText = new TextBox(0, 0, 1920, 25, "Success! You have successfully cleaned Johnny's table. He's now able to work on his homework without distractions!");
+    TextBox winText = new TextBox(1, 0, 1185, 25, "Success! Johnny has successfully picked up all of the items he needs. He now can study diligently at school!");
     
     /**
      * Losing textbox
      */
-    TextBox loseText = new TextBox(0, 0, 1920, 25, "Uh oh, you messed up a little bit. Next time, help Johnny clear his desk better so he can work!");
+    TextBox loseText = new TextBox(1, 0, 1185, 25, "Uh oh, you missed a few items and then Johnny missed the bus! Better luck next time!");
 
     /**
      * Constructor for the Level 3 result
@@ -140,9 +140,13 @@ public class Level2Result implements ActionListener{
         buttonL3.setSize(new Dimension(600, 50));
         restartButton.setSize(new Dimension(600, 50));
         mainMenu.setSize(new Dimension(600,50));
-        buttonL3.setLocation(405, 300);
-        restartButton.setLocation(405, 300);
-        mainMenu.setLocation(405, 375);
+        buttonL3.setLocation(300, 300);
+        restartButton.setLocation(300, 300);
+        mainMenu.setLocation(300, 375);
+
+        Main.Main.buttonFormatting(buttonL3);
+        Main.Main.buttonFormatting(restartButton);
+        Main.Main.buttonFormatting(mainMenu);
 
         return frame;
     }
@@ -163,31 +167,16 @@ public class Level2Result implements ActionListener{
          */
         protected void paintComponent(Graphics g) {
             super.paintComponent(g);
-
             Image[] iArr = new Image[1];
             try {
-                iArr[0] = ImageIO.read(getClass().getResource("bin.png"));
+                iArr[0] = ImageIO.read(getClass().getResource("mainBackground.png"));
             } catch (IOException e) {
                 e.printStackTrace();
             }
 
-            //The two bins
+            // The two bins
 
-            g.drawImage(iArr[0], 0, 500, 200, 180, null);
-            g.drawImage(iArr[0], 1220, 500, 200, 180, null);
-
-            Image[] iArr1 = new Image[1];
-            try {
-                iArr1[0] = ImageIO.read(getClass().getResource("table.png"));
-            } catch (IOException e) {
-                System.out.println("broken");
-            }
-
-            //The table
-            g.drawImage(iArr1[0], 300, 130, 800, 600, null);
-
-            g.setColor(new Color(238,238,238,140));
-            g.fillRect(0,0,1920,1080);
+            g.drawImage(iArr[0], 0, 0, 1300, 951, null);
         }
     }
 

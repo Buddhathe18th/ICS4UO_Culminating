@@ -70,6 +70,8 @@ public class Credits implements ActionListener {
         mainMenu.setSize(new Dimension(600, 50));
         mainMenu.setLocation(305, 505);
 
+        Main.buttonFormatting(mainMenu);
+
         return frame;
     }
 
