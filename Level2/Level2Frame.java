@@ -111,7 +111,7 @@ public class Level2Frame extends JInternalFrame implements KeyListener {
         innerPanel = new Panel();
         innerPanel.setLocation(0, 0);
 
-        this.setSize(1200, 900);
+        this.setSize(1200, 950);
         this.setVisible(true);
 
         innerPanel.add(level3Char);
@@ -145,7 +145,7 @@ public class Level2Frame extends JInternalFrame implements KeyListener {
 
         innerPanel.setLayout(null);
         innerPanel.setVisible(true);
-        innerPanel.setSize(1200, 900);
+        innerPanel.setSize(1200, 950);
         this.add(innerPanel);
         this.addKeyListener(this);
         innerPanel.addKeyListener(this);
@@ -281,7 +281,7 @@ public class Level2Frame extends JInternalFrame implements KeyListener {
                 e.printStackTrace();
             }
 
-            g.drawImage(iArr[0], -15, 5, 1200, 955, null);
+            g.drawImage(iArr[0], -15, 5, 1200, 1185, null);
 
             for (int row = 0; row < maze.length; row++) {
                 for (int col = 0; col < maze[row].length; col++) {

@@ -65,6 +65,8 @@ public class Credits implements ActionListener {
         mainMenu.setSize(new Dimension(600, 50));
         mainMenu.setLocation(305, 505);
 
+        Main.buttonFormatting(mainMenu);
+
         return frame;
     }
 
@@ -100,11 +102,13 @@ public class Credits implements ActionListener {
             g.drawImage(iArr[1], 0, 0, 1300, 950, null);
             g.drawImage(iArr[0], 500, 100, 200, 150, null);
 
-            g.setFont(new Font("Courier New", Font.PLAIN, 50));
+            g.setColor(Color.white);
+            g.setFont(new Font("Courier New", Font.BOLD, 50));
             g.drawString("LC Studios", 450, 330);
-            g.setFont(new Font("Courier New", Font.PLAIN, 70));
+            g.setFont(new Font("Courier New", Font.BOLD, 70));
             g.drawString("Race Against Time", 245, 430);
-            g.setFont(new Font("Courier New", Font.PLAIN, 20));
+            g.setFont(new Font("Courier New", Font.BOLD
+            , 20));
             g.drawString("Developers: Alex Zhu, Lukas Li", 400, 490);
         }
     }

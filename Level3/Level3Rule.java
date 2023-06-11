@@ -1,6 +1,9 @@
 package Level3;
 import java.awt.*;
 import java.awt.event.*;
+import java.io.IOException;
+
+import javax.imageio.ImageIO;
 import javax.swing.*;
 
 import Helper.TextBox;
@@ -25,6 +28,8 @@ public class Level3Rule implements KeyListener{
      */
     JInternalFrame frame;
 
+    Panel innerPanel;
+
     /**
      * Textbox on the top of the screen
      */
@@ -40,27 +45,56 @@ public class Level3Rule implements KeyListener{
      */
     public Level3Rule() {}
 
-    public JInternalFrame frame(){
-        
-        frame = new JInternalFrame("",false,false,false,false);
+    public JInternalFrame frame() {
+
+        frame = new JInternalFrame("", false, false, false, false);
         frame.putClientProperty("JInternalFrame.isPalette", Boolean.TRUE);
         frame.setDefaultCloseOperation(JFrame.EXIT_ON_CLOSE);
         frame.getRootPane().setWindowDecorationStyle(0);
-        frame.setLayout(null);
-        
-        
-        frame.add(t);
-        
-        frame.getContentPane().setFocusable(false);
-        frame.setFocusable(false);
 
-        frame.addKeyListener(this);
-        
-        frame.add(draw);
+        innerPanel = new Panel();
+        innerPanel.setLayout(null);
+
+        frame.add(innerPanel);
 
         frame.setSize(1920, 1080);
         frame.setVisible(true);
+
+        innerPanel.add(t);
+
         return frame;
+    }
+
+   
+    /**
+     * Panel class to hold all of the items, maze and character
+     */
+    public class Panel extends JPanel {
+
+        /**
+         * Default constructor for the Panel class
+         */
+        public Panel() {
+        }
+
+        /**
+         * Draws the text boxes to the Game Panel.
+         *
+         * @param g the Graphics context in which to paint
+         */
+        protected void paintComponent(Graphics g) {
+            super.paintComponent(g);
+            Image[] iArr = new Image[1];
+            try {
+                iArr[0] = ImageIO.read(getClass().getResource("mainBackground.png"));
+            } catch (IOException e) {
+                e.printStackTrace();
+            }
+
+            // The two bins
+
+            g.drawImage(iArr[0], 0, 0, 1300, 951, null);
+        }
     }
 
     /**

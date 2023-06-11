@@ -199,7 +199,7 @@ public class Level1Scene extends Level1 implements ActionListener {
                 e.printStackTrace();
             }
 
-            g.drawImage(iArr[0], 0, 0, 1185, 960, null);
+            g.drawImage(iArr[0], 0, 0, 1185, 980, null);
             
             // Draws the text boxes to be shown on screen
             for (TextBox t: shownBoxes) {
