@@ -2,9 +2,13 @@ package Main;
 
 import java.awt.*;
 import java.awt.event.*;
+import java.io.IOException;
+
+import javax.imageio.ImageIO;
 import javax.swing.*;
 
 import Helper.TextBox;
+import Main.TitleScreen.Drawing;
 
 /**
  * The MainMenu class will create the screen of the main menu
@@ -15,11 +19,6 @@ import Helper.TextBox;
  */
 
 public class WinCredits implements KeyListener {
-
-    /**
-     * The drawing that will be on the screen
-     */
-    Drawing draw = new Drawing(); 
 
     /**
      * The frame that will be passed to the Main class
@@ -35,8 +34,14 @@ public class WinCredits implements KeyListener {
     /**
      * Default constructor for the TitleScreen class
      */
-    public WinCredits() {}
-    
+    public WinCredits() {
+        Main.win1 = false;
+        Main.win2 = false;
+        Main.win3 = false;
+    }
+
+    Panel innerPanel;
+
     /**
      * Returns the frame to be displayed on the main menu screen. Currently
      * unfinished, button for Level 1 will bring you to the Title Screen
@@ -45,40 +50,55 @@ public class WinCredits implements KeyListener {
      */
 
     public JInternalFrame frame() {
-
         frame = new JInternalFrame("", false, false, false, false);
         frame.putClientProperty("JInternalFrame.isPalette", Boolean.TRUE);
         frame.setDefaultCloseOperation(JFrame.EXIT_ON_CLOSE);
         frame.getRootPane().setWindowDecorationStyle(0);
         frame.setLayout(null);
 
-        frame.add(t);
-
         frame.getContentPane().setFocusable(false);
         frame.setFocusable(false);
 
         frame.addKeyListener(this);
-
-        frame.add(draw);
-
+        innerPanel = new Panel();
+        innerPanel.setLayout(null);
+        innerPanel.add(t);// TODO: Add drawing
+        t.setLocation(0, 0);
+        frame.add(innerPanel);
         frame.setSize(1920, 1080);
         frame.setVisible(true);
         return frame;
     }
 
     /**
-     * Drawing class for paiting text onto the Main Menu screen
+     * Panel class to hold all drawings and components
      */
-    class Drawing extends Canvas {
+    public class Panel extends JPanel {
+
         /**
-         * Draws the win credits scene to the Game Panel.
+         * Default constructor for the Panel class
+         */
+        public Panel() {
+            setSize(1200, 960);
+            setOpaque(true);
+            setBackground(Color.WHITE);
+        }
+
+        /**
+         * Draws the text boxes to the Game Panel.
          *
          * @param g the Graphics context in which to paint
          */
-        public void paint(Graphics g) {
-            g.setFont(new Font("Courier New", Font.PLAIN, 80));
-            g.drawString("Race Against Time", 0, 0);
-            g.setColor(new Color(255, 190, 50));
+        protected void paintComponent(Graphics g) {
+            super.paintComponent(g);
+
+            Image[] iArr = new Image[2];
+            try {
+                iArr[0] = ImageIO.read(getClass().getResource("ceo.png"));
+            } catch (IOException e) {
+                e.printStackTrace();
+            }
+            g.drawImage(iArr[0], 0, 130, 1185, 811, null);
         }
     }
 

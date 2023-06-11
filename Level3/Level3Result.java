@@ -9,6 +9,7 @@ import java.io.IOException;
 import javax.imageio.ImageIO;
 import javax.swing.*;
 
+import Helper.MoveFrame;
 import Helper.TextBox;
 
 /**
@@ -87,7 +88,7 @@ public class Level3Result implements ActionListener{
         frame.setSize(1920, 1080);
         frame.setVisible(true);
 
-        if(Level3.score>=4){
+        if(MoveFrame.score>=4){
             innerPanel.add(winText);
             Main.Main.win2=true;
         }

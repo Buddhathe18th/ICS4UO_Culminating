@@ -29,7 +29,7 @@ public class MoveFrame extends JInternalFrame implements KeyListener {
     /**
      * Score of the user when playing Level 2
      */
-    public int score = 0;
+    public static int score = 0;
 
     /**
      * Panel containing all graphics
@@ -97,6 +97,7 @@ public class MoveFrame extends JInternalFrame implements KeyListener {
      */
     public MoveFrame() {
         super("", false, false, false, false);
+        score=0;
         this.putClientProperty("JInternalFrame.isPalette", Boolean.TRUE);
         this.setDefaultCloseOperation(JFrame.EXIT_ON_CLOSE);
         this.getRootPane().setWindowDecorationStyle(0);

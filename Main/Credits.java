@@ -79,7 +79,7 @@ public class Credits implements ActionListener {
          * Default constructor for the Panel class
          */
         public Panel() {
-            setSize(1200, 900);
+            setSize(1200, 960);
             setOpaque(true);
             setBackground(Color.WHITE);
         }
