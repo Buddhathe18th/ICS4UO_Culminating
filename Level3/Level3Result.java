@@ -45,12 +45,14 @@ public class Level3Result implements ActionListener{
     /**
      * Button for Level 3
      */
-    JButton buttonL3;
+    JButton creditButton;
 
     /**
      * Button for main menu
      */
     JButton mainMenu;
+
+    JButton restartButton;
 
     /**
      * Textbox of wining
@@ -93,19 +95,30 @@ public class Level3Result implements ActionListener{
             innerPanel.add(loseText);
         }
 
-        buttonL3 = new JButton("Level 3");
+restartButton = new JButton("Restart");
+        creditButton = new JButton("Credits");
         mainMenu = new JButton("Main menu");
-        buttonL3.addActionListener(this);
+        restartButton.addActionListener(this);
+        creditButton.addActionListener(this);
         mainMenu.addActionListener(this);
 
 
 
+        if(Main.Main.win2){
+            innerPanel.add(creditButton);
+        }
+        else{
+            innerPanel.add(restartButton);
+        }
 
-        innerPanel.add(buttonL3);
+
+        
         innerPanel.add(mainMenu);
-        buttonL3.setSize(new Dimension(600, 50));
+        restartButton.setSize(new Dimension(600, 50));
+        creditButton.setSize(new Dimension(600, 50));
         mainMenu.setSize(new Dimension(600,50));
-        buttonL3.setLocation(405, 300);
+        restartButton.setLocation(405, 300);
+        creditButton.setLocation(405, 300);
         mainMenu.setLocation(405, 375);
 
         return frame;
@@ -163,7 +176,7 @@ public class Level3Result implements ActionListener{
     @Override
     public void actionPerformed(ActionEvent e) {
         
-        if(e.getSource()==buttonL3){
+        if(e.getSource()==creditButton){
             Main.Main.screenNum=15;//TODO: change to level 3 number when implemented
         }
         else if(e.getSource()==mainMenu){
