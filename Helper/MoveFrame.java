@@ -172,6 +172,9 @@ public class MoveFrame extends JInternalFrame implements KeyListener {
 
     }
 
+    /**
+     * Key listener methods
+     */
     @Override
     public void keyPressed(KeyEvent e) {
         System.out.println(hand.grab);
@@ -290,6 +293,10 @@ public class MoveFrame extends JInternalFrame implements KeyListener {
         }
         hand.repaint();
     }
+
+    /**
+     * Key listener methods
+     */
 
     @Override
     public void keyReleased(KeyEvent e) {

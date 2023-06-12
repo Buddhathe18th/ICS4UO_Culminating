@@ -21,6 +21,13 @@ import javax.swing.JPanel;
 import Helper.TextBox;
 import Main.Main;
 
+/**
+ * Level 1 finish class creates the screen for when the user finishes Level 1
+ * 
+ * @author Lukas Li
+ * @version 1.0.0
+ */
+
 public class Level1Finish implements ActionListener {
 
     /**
@@ -33,16 +40,27 @@ public class Level1Finish implements ActionListener {
      */
     JInternalFrame frame;
 
+    /**
+     * Textbox shown on the screen
+     */
     TextBox t = new TextBox(1, 0, 1185, 25,
             "You successfully helped Johnny through those tricky situations! Give yourself a pat on the back. ");
 
+    /**
+     * Button to prompt level 2
+     */
     JButton buttonL2;
+
+    /**
+     * Button to prompt Main menu
+     */
     JButton mainMenu;
 
     /**
      * Default constructor for the Level1Finish class
      */
-    public Level1Finish() {}
+    public Level1Finish() {
+    }
 
     /**
      * Returns the frame to be displayed on the main menu screen. Currently
@@ -53,12 +71,11 @@ public class Level1Finish implements ActionListener {
 
     public JInternalFrame frame() {
 
-
         frame = new JInternalFrame("", false, false, false, false);
         frame.putClientProperty("JInternalFrame.isPalette", Boolean.TRUE);
         frame.setDefaultCloseOperation(JFrame.EXIT_ON_CLOSE);
         frame.getRootPane().setWindowDecorationStyle(0);
-        
+
         innerPanel.setLayout(null);
 
         frame.add(innerPanel);
@@ -72,7 +89,7 @@ public class Level1Finish implements ActionListener {
         mainMenu = new JButton("Main menu");
         buttonL2.addActionListener(this);
         mainMenu.addActionListener(this);
-        
+
         buttonL2.setBackground(new Color(70, 100, 200));
         buttonL2.setForeground(Color.WHITE);
         buttonL2.setFocusPainted(false);
@@ -87,7 +104,7 @@ public class Level1Finish implements ActionListener {
         innerPanel.add(buttonL2);
         innerPanel.add(mainMenu);
         buttonL2.setSize(new Dimension(600, 50));
-        mainMenu.setSize(new Dimension(600,50));
+        mainMenu.setSize(new Dimension(600, 50));
         buttonL2.setLocation(305, 300);
         mainMenu.setLocation(305, 375);
 
@@ -95,7 +112,9 @@ public class Level1Finish implements ActionListener {
 
     }
 
-
+    /**
+     * Key Listener Methods
+     */
     @Override
     public void actionPerformed(ActionEvent e) {
         System.out.println("click");
