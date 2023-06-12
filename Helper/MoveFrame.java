@@ -56,6 +56,13 @@ public class MoveFrame extends JInternalFrame implements KeyListener {
          */
         protected void paintComponent(Graphics g) {
             super.paintComponent(g);
+            Image[] background = new Image[1];
+            try {
+                background[0] = ImageIO.read(getClass().getResource("Background.png"));
+            } catch (IOException e) {
+                e.printStackTrace();
+            }
+            g.drawImage(background[0], 0, 0, 1300, 951, null);
 
             Image[] iArr = new Image[2];
             try {
@@ -66,9 +73,10 @@ public class MoveFrame extends JInternalFrame implements KeyListener {
             }
 
             //The two bins
+            g.drawImage(iArr[0], 0, 700, 200, 180, null);
+            g.drawImage(iArr[1], 950, 700, 200, 180, null);
 
-            g.drawImage(iArr[0], 0, 500, 200, 180, null);
-            g.drawImage(iArr[1], 950, 500, 200, 180, null);
+            
 
             Image[] iArr1 = new Image[1];
             try {
@@ -78,7 +86,7 @@ public class MoveFrame extends JInternalFrame implements KeyListener {
             }
 
             //The table
-            g.drawImage(iArr1[0], 200, 180, 800, 450, null);
+            g.drawImage(iArr1[0], 200, 380, 800, 450, null);
 
             // Trim size of the arraylist to the size of the current amount of elements
             draggableArrayList.trimToSize();
@@ -122,17 +130,17 @@ public class MoveFrame extends JInternalFrame implements KeyListener {
             e.printStackTrace();
         }
 
-        addDrag(iArr[0], 100, 50, false, 400, 200);
-        addDrag(iArr[1], 200, 200, false, 550, 75);
-        addDrag(iArr[2], 90, 90, false, 200, 465);
-        addDrag(iArr[3], 120, 120, false, 860, 465);
+        addDrag(iArr[0], 100, 50, false, 400, 400);
+        addDrag(iArr[1], 200, 200, false, 550, 275);
+        addDrag(iArr[2], 90, 90, false, 200, 665);
+        addDrag(iArr[3], 120, 120, false, 860, 665);
 
         // Add all components that belong in the school-related bin
 
-        addDrag(iArr[4], 90, 110, true, 400,495);
-        addDrag(iArr[5], 100, 100, true, 800,185);
-        addDrag(iArr[6], 200, 200, true, 537,486);
-        addDrag(iArr[7], 150, 150, true, 700,426);
+        addDrag(iArr[4], 90, 110, true, 400,695);
+        addDrag(iArr[5], 100, 100, true, 800,385);
+        addDrag(iArr[6], 200, 200, true, 537,686);
+        addDrag(iArr[7], 150, 150, true, 700,626);
 
         innerPanel.setLayout(null);
         innerPanel.setVisible(true);
@@ -213,7 +221,7 @@ public class MoveFrame extends JInternalFrame implements KeyListener {
             innerPanel.repaint();
             if (hand.grab) {
                 if (hand.grabbedObj.school == true) {
-                    if (hand.grabbedObj.checkCollision(innerPanel.getX(), innerPanel.getY() + 500, 200, 180)) {
+                    if (hand.grabbedObj.checkCollision(innerPanel.getX(), innerPanel.getY() + 700, 200, 180)) {
 
                         // Removing and repainting the screens
                         innerPanel.remove(hand.grabbedObj);
@@ -226,7 +234,7 @@ public class MoveFrame extends JInternalFrame implements KeyListener {
                         draggableArrayList.remove(hand.grabbedObj);
                         draggableArrayList.trimToSize();
                         hand.grabbedObj = null;
-                    } else if (hand.grabbedObj.checkCollision(innerPanel.getX() + 950, innerPanel.getY() + 500, 200,
+                    } else if (hand.grabbedObj.checkCollision(innerPanel.getX() + 950, innerPanel.getY() + 700, 200,
                             180)) {
                         innerPanel.remove(hand.grabbedObj);
                         innerPanel.revalidate();
@@ -237,7 +245,7 @@ public class MoveFrame extends JInternalFrame implements KeyListener {
                         hand.grabbedObj = null;
                     }
                 } else {
-                    if (hand.grabbedObj.checkCollision(innerPanel.getX(), innerPanel.getY() + 500, 200, 180)) {
+                    if (hand.grabbedObj.checkCollision(innerPanel.getX(), innerPanel.getY() + 700, 200, 180)) {
 
                         // Removing and repainting the screens
                         innerPanel.remove(hand.grabbedObj);
@@ -249,7 +257,7 @@ public class MoveFrame extends JInternalFrame implements KeyListener {
                         draggableArrayList.remove(hand.grabbedObj);
                         draggableArrayList.trimToSize();
                         hand.grabbedObj = null;
-                    } else if (hand.grabbedObj.checkCollision(innerPanel.getX() + 950, innerPanel.getY() + 500, 200,
+                    } else if (hand.grabbedObj.checkCollision(innerPanel.getX() + 950, innerPanel.getY() + 700, 200,
                             180)) {
                         innerPanel.remove(hand.grabbedObj);
                         innerPanel.revalidate();

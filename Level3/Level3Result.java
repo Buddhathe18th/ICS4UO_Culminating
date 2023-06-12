@@ -157,7 +157,7 @@ public class Level3Result implements ActionListener{
         protected void paintComponent(Graphics g) {
             super.paintComponent(g);
             
-            Image[] iArr = new Image[2];
+            Image[] iArr = new Image[1];
             try {
                 iArr[0] = ImageIO.read(getClass().getResource("mainBackground.png"));
             } catch (IOException e) {
