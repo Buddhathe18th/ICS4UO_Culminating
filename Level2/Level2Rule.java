@@ -29,6 +29,9 @@ public class Level2Rule implements KeyListener {
      */
     JInternalFrame frame;
 
+    /**
+     * JPanel to hold drawings and textboxes
+     */
     Panel innerPanel;
 
     /**
@@ -80,11 +83,17 @@ public class Level2Rule implements KeyListener {
         }
     }
 
+    /**
+     * Key Listener methods
+     */
     @Override
     public void keyTyped(KeyEvent e) {
 
     }
 
+    /**
+     * Key Listener methods
+     */
     @Override
     public void keyPressed(KeyEvent e) {
 
@@ -128,7 +137,7 @@ public class Level2Rule implements KeyListener {
     public void keyReleased(KeyEvent e) {
         System.out.println("key");
         if (e.getKeyCode() == KeyEvent.VK_ENTER) {
-            Main.Main.screenNum=11;
+            Main.Main.screenNum = 11;
         }
     }
 }

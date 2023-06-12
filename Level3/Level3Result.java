@@ -53,6 +53,9 @@ public class Level3Result implements ActionListener{
      */
     JButton mainMenu;
 
+    /**
+     * Button for restarting the level
+     */
     JButton restartButton;
 
     /**

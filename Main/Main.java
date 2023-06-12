@@ -300,6 +300,10 @@ public class Main implements KeyListener {
 
     }
     
+    /**
+     * Format the button to be blue and cool
+     * @param b the JButton to format
+     */
     public static void buttonFormatting(JButton b){
         b.setBackground(new Color(70, 100, 200));
         b.setForeground(Color.WHITE);
@@ -316,6 +320,10 @@ public class Main implements KeyListener {
     public void keyTyped(KeyEvent e) {
 
     }
+
+    /**
+     * Key listener methods
+     */
 
     @Override
     public void keyPressed(KeyEvent e) {

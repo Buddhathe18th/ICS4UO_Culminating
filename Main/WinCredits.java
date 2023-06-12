@@ -40,6 +40,9 @@ public class WinCredits implements KeyListener {
         Main.win3 = false;
     }
 
+    /**
+     * JPanel to hold the drawings and textbox
+     */
     Panel innerPanel;
 
     /**

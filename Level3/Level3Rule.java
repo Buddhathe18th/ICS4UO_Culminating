@@ -1,4 +1,5 @@
 package Level3;
+
 import java.awt.*;
 import java.awt.event.*;
 import java.io.IOException;
@@ -16,11 +17,11 @@ import Helper.TextBox;
  * @version 1.0.0
  */
 
-public class Level3Rule implements KeyListener{
+public class Level3Rule implements KeyListener {
 
     /**
-     *  The drawing that will be on the screen
-     */ 
+     * The drawing that will be on the screen
+     */
     Drawing draw = new Drawing();
 
     /**
@@ -28,23 +29,30 @@ public class Level3Rule implements KeyListener{
      */
     JInternalFrame frame;
 
+    /**
+     * JPanel to draw on and hold textboxes
+     */
     Panel innerPanel;
 
     /**
      * Textbox on the top of the screen
      */
 
-    TextBox t = new TextBox(0, 1, 1185, 25, "Now, Johnny is ready to work, but oh no! All of his belongings are on his table! Help Johnny by moving his character with arrow keys and clicking space to grab the items. Move all of the school-related items to the school bin and distractions to the non-school bin! Every right sort gives one point, and no deductions for wrong sorts! You want to get a score of at least 4! newLine newLine Press enter to continue");
-    /**
-     * Returns the frame to be displayed on the main menu screen. Currently unfinished, button for Level 1 will bring you to the Title Screen
-     * @return the frame to be displayed
-     */
+    TextBox t = new TextBox(0, 1, 1185, 25,
+            "Now, Johnny is ready to work, but oh no! All of his belongings are on his table! Help Johnny by moving his character with arrow keys and clicking space to grab the items. Move all of the school-related items to the school bin and distractions to the non-school bin! Every right sort gives one point, and no deductions for wrong sorts! You want to get a score of at least 4! newLine newLine Press enter to continue");
 
     /**
      * Default constructor for the Level2Rule class
      */
-    public Level3Rule() {}
+    public Level3Rule() {
+    }
 
+    /**
+     * Returns the frame to be displayed on the main menu screen. Currently
+     * unfinished, button for Level 1 will bring you to the Title Screen
+     * 
+     * @return the frame to be displayed
+     */
     public JInternalFrame frame() {
 
         frame = new JInternalFrame("", false, false, false, false);
@@ -65,7 +73,6 @@ public class Level3Rule implements KeyListener{
         return frame;
     }
 
-   
     /**
      * Panel class to hold all of the items, maze and character
      */
@@ -114,18 +121,24 @@ public class Level3Rule implements KeyListener{
 
     @Override
     public void keyTyped(KeyEvent e) {
-        
+
     }
 
+    /**
+     * Key Listener methods
+     */
     @Override
     public void keyPressed(KeyEvent e) {
-       
+
     }
 
+    /**
+     * Key Listener methods
+     */
     @Override
     public void keyReleased(KeyEvent e) {
-        if (e.getKeyCode()==KeyEvent.VK_ENTER){
+        if (e.getKeyCode() == KeyEvent.VK_ENTER) {
             Main.Main.screenNum++;
-           }
+        }
     }
 }

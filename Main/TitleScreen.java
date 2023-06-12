@@ -1,4 +1,5 @@
 package Main;
+
 import java.awt.*;
 import java.awt.event.*;
 import java.io.File;
@@ -15,28 +16,28 @@ import javax.swing.*;
  * @version 1.0.0
  */
 
-public class TitleScreen implements KeyListener{
-
+public class TitleScreen implements KeyListener {
 
     /**
      * Elements that will be drawn on the JInternalFrame with the paint() method
      */
     private Drawing draw = new Drawing();
 
-
     /**
      * Makes all components and drawings that will be on the Title Screen
      * 
      * @return the JInternalFrame to add to the screen
      */
-    
+
     /**
      * Default constructor for the TitleScreen class
      */
-    public TitleScreen() {}
-    
+    public TitleScreen() {
+    }
+
     /**
      * Creates the frame to be displayed
+     * 
      * @return The frane to be displayed
      */
     public JInternalFrame frame() {
@@ -47,7 +48,6 @@ public class TitleScreen implements KeyListener{
         frame.getRootPane().setWindowDecorationStyle(0);
         frame.add(draw);
 
-        
         frame.setSize(1920, 1080);
         frame.setVisible(true);
         draw.addKeyListener(this);
@@ -67,9 +67,9 @@ public class TitleScreen implements KeyListener{
             } catch (IOException e) {
                 e.printStackTrace();
             }
-            
-            g.drawImage(iArr[1], 0, 0,1300,950, null);
-            g.drawImage(iArr[0], 30, 82,190,150, null);
+
+            g.drawImage(iArr[1], 0, 0, 1300, 950, null);
+            g.drawImage(iArr[0], 30, 82, 190, 150, null);
 
             g.setColor(Color.WHITE);
             g.setFont(new Font("Courier New", Font.BOLD, 70));
@@ -88,26 +88,28 @@ public class TitleScreen implements KeyListener{
 
     @Override
     public void keyTyped(KeyEvent e) {
-        if (e.getKeyCode()==KeyEvent.VK_ENTER){
-            Main.screenNum=2;
+        if (e.getKeyCode() == KeyEvent.VK_ENTER) {
+            Main.screenNum = 2;
         }
     }
-/**
+
+    /**
      * Overidded KeyListener methods to listen for the enter key to change screens
      */
     @Override
     public void keyPressed(KeyEvent e) {
-        if (e.getKeyCode()==KeyEvent.VK_ENTER){
-            Main.screenNum=2;
+        if (e.getKeyCode() == KeyEvent.VK_ENTER) {
+            Main.screenNum = 2;
         }
     }
-/**
+
+    /**
      * Overidded KeyListener methods to listen for the enter key to change screens
      */
     @Override
     public void keyReleased(KeyEvent e) {
-        if (e.getKeyCode()==KeyEvent.VK_ENTER){
-            Main.screenNum=2;
+        if (e.getKeyCode() == KeyEvent.VK_ENTER) {
+            Main.screenNum = 2;
         }
     }
 }

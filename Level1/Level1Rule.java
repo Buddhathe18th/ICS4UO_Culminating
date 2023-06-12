@@ -41,6 +41,10 @@ public class Level1Rule implements KeyListener {
     public Level1Rule() {
     }
 
+    /**
+     * JPanel to hold the drawing and text box
+     * 
+     */
     Panel innerPanel;
 
     /**
@@ -64,8 +68,7 @@ public class Level1Rule implements KeyListener {
         frame.setSize(1920, 1080);
         frame.setVisible(true);
 
-
-innerPanel.add(t);
+        innerPanel.add(t);
 
         return frame;
     }
@@ -118,16 +121,25 @@ innerPanel.add(t);
         }
     }
 
+    /**
+     * Key Listener Methods
+     */
     @Override
     public void keyTyped(KeyEvent e) {
 
     }
 
+    /**
+     * Key Listener Methods
+     */
     @Override
     public void keyPressed(KeyEvent e) {
 
     }
 
+    /**
+     * Key Listener Methods
+     */
     @Override
     public void keyReleased(KeyEvent e) {
         if (e.getKeyCode() == KeyEvent.VK_ENTER) {

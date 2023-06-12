@@ -177,6 +177,9 @@ public class Level2Frame extends JInternalFrame implements KeyListener {
 
     }
 
+    /**
+     * Key Listener methods
+     */
     @Override
     public void keyPressed(KeyEvent e) {
         if (e.getKeyCode() == KeyEvent.VK_RIGHT) {
@@ -247,9 +250,9 @@ public class Level2Frame extends JInternalFrame implements KeyListener {
         if (level3Char.column == 25 && level3Char.row == 23) {
             finish = true;
             System.out.println("done Game");
-            Main.Main.screenNum=12;
-            level3Char.column=11;
-            level3Char.row=0;
+            Main.Main.screenNum = 12;
+            level3Char.column = 11;
+            level3Char.row = 0;
             return;
         }
 
@@ -303,6 +306,9 @@ public class Level2Frame extends JInternalFrame implements KeyListener {
         }
     }
 
+    /**
+     * Key Listener methods
+     */
     @Override
     public void keyReleased(KeyEvent e) {
 

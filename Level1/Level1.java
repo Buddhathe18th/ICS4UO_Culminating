@@ -9,7 +9,8 @@ import java.awt.*;
  * Time Spent: 6 hours
  * 
  * <h2>Modifications</h2>
- * Cleaned up code, added more text, and allowed the level to be displayed on a specified JFrame
+ * Cleaned up code, added more text, and allowed the level to be displayed on a
+ * specified JFrame
  * 
  * @author Lukas Li
  * @version 1.0.0
@@ -55,7 +56,8 @@ public class Level1 extends JComponent {
     /**
      * No argument constructor for the Level1 class.
      */
-    public Level1() {}
+    public Level1() {
+    }
 
     /**
      * Constructor for the Level1 class.
@@ -81,19 +83,20 @@ public class Level1 extends JComponent {
         changed = true;
         choiceNames = cN;
         int scene = 0;
-        while (scene < scenarios+1) {
+        while (scene < scenarios + 1) {
             if (changed) {
                 if (scene < scenarios) {
                     changed = false;
                     f.getContentPane().removeAll();
                     f.add(new Level1Scene(new Image[] { images[scene * 2], images[scene * 2 + 1] }, initial[scene],
-                            new String[] { choices[scene * 2], choices[scene * 2 + 1] }, info[scene], new String[] { choiceNames[scene * 2], choiceNames[scene++ * 2 + 1] }).frame()).setLocation(0,-15);
+                            new String[] { choices[scene * 2], choices[scene * 2 + 1] }, info[scene],
+                            new String[] { choiceNames[scene * 2], choiceNames[scene++ * 2 + 1] }).frame())
+                            .setLocation(0, -15);
                     f.getContentPane().repaint();
-                }
-                else {
+                } else {
                     changed = false;
                     f.getContentPane().removeAll();
-                    System.out.println(scene+" "+scenarios);
+                    System.out.println(scene + " " + scenarios);
                     scene++;
                     // f.add(new Level1Finish().frame());
                     // f.getContentPane().repaint();

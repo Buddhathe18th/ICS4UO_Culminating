@@ -90,6 +90,8 @@ public class BackStory {
 
         /**
          * Paints the background onto the screen
+         * 
+         * @param g the Graphics item to draw on
          */
         protected void paintComponent(Graphics g) {
             super.paintComponent(g);
