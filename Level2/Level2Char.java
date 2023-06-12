@@ -1,10 +1,12 @@
 package Level2;
 
+import javax.imageio.ImageIO;
 import javax.swing.JComponent;
-
 
 import java.awt.Color;
 import java.awt.Graphics;
+import java.awt.Image;
+import java.io.IOException;
 
 /**
  * Character class that will be on screen for the Level 3
@@ -17,7 +19,7 @@ import java.awt.Graphics;
  * 
  */
 
-public class Level2Char extends JComponent{
+public class Level2Char extends JComponent {
     /**
      * X coordinates of the top left corner of the component
      */
@@ -42,12 +44,12 @@ public class Level2Char extends JComponent{
      * Constructor for the Level3Char class
      */
     public Level2Char() {
-        row=0;
-        column=11;
+        row = 0;
+        column = 11;
         setBounds(0, 0, 100, 100);
         setSize(100, 100);
         setOpaque(false);
-        setLocation(column*20+300,row*20+250);
+        setLocation(column * 20 + 300, row * 20 + 250);
     }
 
     /**
@@ -58,8 +60,13 @@ public class Level2Char extends JComponent{
     public void paintComponent(Graphics g) {
         // Paint method just draws a 400 by 400 red square, with image specified
         super.paintComponent(g);
-        g.setColor(Color.red);
-        g.fillRect(0, 0, 20, 20);
+        Image[] iArr = new Image[1];
+        try {
+            iArr[0] = ImageIO.read(getClass().getResource("person.png"));
+        } catch (IOException e) {
+            e.printStackTrace();
+        }
 
+        g.drawImage(iArr[0], 0, 0, 20, 20, null);
     }
 }
