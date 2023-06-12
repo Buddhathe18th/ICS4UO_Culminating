@@ -20,7 +20,7 @@ import java.util.*;
  * @author Lukas Li
  * @version 1.0.0
  */
-public class Level1Scene extends Level1 implements ActionListener {
+public class Level1Scene extends Level1 implements ActionListener, KeyListener {
 
     /**
      * Buttons used in the scene
@@ -90,9 +90,7 @@ public class Level1Scene extends Level1 implements ActionListener {
              * @param e The action event coming from the keyboard
              */
             public void actionPerformed(ActionEvent e) {
-                if (pressed) {
-                    changeScene();
-                }
+                if (pressed) changeScene();
             }
         });
         innerPanel.getInputMap(JComponent.WHEN_IN_FOCUSED_WINDOW).put(KeyStroke.getKeyStroke(KeyEvent.VK_ENTER, 0), "changeScene");
@@ -141,6 +139,14 @@ public class Level1Scene extends Level1 implements ActionListener {
             innerPanel.repaint();
         }
         pressed = true;
+    }
+
+    public void keyPressed(KeyEvent e) {}
+    
+    public void keyTyped(KeyEvent e) {}
+
+    public void keyReleased(KeyEvent e) {
+        if (e.getKeyCode() == KeyEvent.VK_ENTER) changeScene();
     }
     
     /**
