@@ -5,7 +5,6 @@ import javax.swing.JComponent;
 
 import Helper.DragAndDrop;
 
-import java.awt.Color;
 import java.awt.Graphics;
 import java.awt.Image;
 import java.io.IOException;

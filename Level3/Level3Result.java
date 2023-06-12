@@ -3,7 +3,6 @@ package Level3;
 import java.awt.*;
 import java.awt.event.ActionEvent;
 import java.awt.event.ActionListener;
-import java.io.File;
 import java.io.IOException;
 
 import javax.imageio.ImageIO;
@@ -179,7 +178,7 @@ public class Level3Result implements ActionListener{
     public void actionPerformed(ActionEvent e) {
         
         if(e.getSource()==creditButton){
-            Main.Main.screenNum=18;//TODO: change to level 3 number when implemented
+            Main.Main.screenNum=18;
         }
         else if(e.getSource()==mainMenu){
             Main.Main.screenNum=3;//change screen to main menu

@@ -8,7 +8,6 @@ import javax.imageio.ImageIO;
 import javax.swing.*;
 
 import Helper.TextBox;
-import Main.TitleScreen.Drawing;
 
 /**
  * The MainMenu class will create the screen of the main menu
@@ -65,7 +64,7 @@ public class WinCredits implements KeyListener {
         frame.addKeyListener(this);
         innerPanel = new Panel();
         innerPanel.setLayout(null);
-        innerPanel.add(t);// TODO: Add drawing
+        innerPanel.add(t);
         t.setLocation(0, 0);
         frame.add(innerPanel);
         frame.setSize(1920, 1080);

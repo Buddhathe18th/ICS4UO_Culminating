@@ -3,7 +3,6 @@ package Level2;
 import java.awt.*;
 import java.awt.event.ActionEvent;
 import java.awt.event.ActionListener;
-import java.io.File;
 import java.io.IOException;
 
 import javax.imageio.ImageIO;
@@ -96,8 +95,8 @@ public class Level2Result implements ActionListener{
         frame.setSize(1920, 1080);
         frame.setVisible(true);
 
-        Main.Main.g.itemsLeft.trimToSize();
-        if(Main.Main.g.timeLeft >= 0 && Main.Main.g.itemsLeft.size()==0){
+        Level2Frame.itemsLeft.trimToSize();
+        if(Main.Main.g.timeLeft >= 0 && Level2Frame.itemsLeft.size()==0){
             innerPanel.add(winText);
             Main.Main.win3=true;
         }
@@ -187,7 +186,7 @@ public class Level2Result implements ActionListener{
     public void actionPerformed(ActionEvent e) {
         
         if(e.getSource()==buttonL3){
-            Main.Main.screenNum=14;//TODO: change to level 3 number when implemented
+            Main.Main.screenNum=14;
         }
         else if(e.getSource()==mainMenu){
             Main.Main.screenNum=3;//change screen to main menu

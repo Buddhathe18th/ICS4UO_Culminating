@@ -4,10 +4,8 @@ import java.awt.Color;
 import java.awt.Font;
 import java.awt.Graphics;
 import java.awt.Image;
-import java.awt.event.ItemListener;
 import java.awt.event.KeyEvent;
 import java.awt.event.KeyListener;
-import java.io.File;
 import java.io.IOException;
 
 import javax.imageio.ImageIO;
@@ -15,9 +13,7 @@ import javax.swing.JFrame;
 import javax.swing.JInternalFrame;
 import javax.swing.JPanel;
 
-import Level3.CharacterHand;
 
-import java.time.*;
 import java.util.*;
 
 /**
@@ -100,7 +96,6 @@ public class Level2Frame extends JInternalFrame implements KeyListener {
 
         itemsLeft = new ArrayList<Item>(6);
 
-        Calendar calendar = Calendar.getInstance();
         timeLeft = 150;
         setFocusable(false);
         this.getContentPane().setFocusable(false);

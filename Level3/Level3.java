@@ -1,8 +1,6 @@
 package Level3;
 
 import java.awt.*;
-import java.awt.event.InputEvent;
-import java.io.File;
 import java.io.IOException;
 import java.util.ArrayList;
 

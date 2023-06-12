@@ -5,7 +5,6 @@ import java.awt.Graphics;
 import java.awt.Image;
 import java.awt.event.KeyEvent;
 import java.awt.event.KeyListener;
-import java.io.File;
 import java.io.IOException;
 import java.util.ArrayList;
 
@@ -179,7 +178,7 @@ public class MoveFrame extends JInternalFrame implements KeyListener {
         if (e.getKeyCode() == KeyEvent.VK_RIGHT) {
             System.out.println("right");
             if (hand.grab) {
-                hand.grabbedObj.setLocation(hand.grabbedObj.getX() + 10, hand.grabbedObj.getY());
+                CharacterHand.grabbedObj.setLocation(CharacterHand.grabbedObj.getX() + 10, CharacterHand.grabbedObj.getY());
             }
             hand.setLocation(hand.x + 10, hand.y);
             hand.x = hand.x + 10;
@@ -188,7 +187,7 @@ public class MoveFrame extends JInternalFrame implements KeyListener {
         } else if (e.getKeyCode() == KeyEvent.VK_LEFT) {
             System.out.println("left");
             if (hand.grab) {
-                hand.grabbedObj.setLocation(hand.grabbedObj.getX() - 10, hand.grabbedObj.getY());
+                CharacterHand.grabbedObj.setLocation(CharacterHand.grabbedObj.getX() - 10, CharacterHand.grabbedObj.getY());
             }
             hand.setLocation(hand.x - 10, hand.y);
             hand.x = hand.x - 10;
@@ -197,7 +196,7 @@ public class MoveFrame extends JInternalFrame implements KeyListener {
         } else if (e.getKeyCode() == KeyEvent.VK_UP) {
             System.out.println("up");
             if (hand.grab) {
-                hand.grabbedObj.setLocation(hand.grabbedObj.getX(), hand.grabbedObj.getY() - 10);
+                CharacterHand.grabbedObj.setLocation(CharacterHand.grabbedObj.getX(), CharacterHand.grabbedObj.getY() - 10);
             }
             hand.setLocation(hand.x, hand.y - 10);
             hand.y = hand.y - 10;
@@ -207,7 +206,7 @@ public class MoveFrame extends JInternalFrame implements KeyListener {
             System.out.println("down");
 
             if (hand.grab) {
-                hand.grabbedObj.setLocation(hand.grabbedObj.getX(), hand.grabbedObj.getY() + 10);
+                CharacterHand.grabbedObj.setLocation(CharacterHand.grabbedObj.getX(), CharacterHand.grabbedObj.getY() + 10);
             }
             hand.setLocation(hand.x, hand.y + 10);
             hand.y = hand.y + 10;
@@ -221,53 +220,53 @@ public class MoveFrame extends JInternalFrame implements KeyListener {
             revalidate();
             innerPanel.repaint();
             if (hand.grab) {
-                if (hand.grabbedObj.school == true) {
-                    if (hand.grabbedObj.checkCollision(innerPanel.getX(), innerPanel.getY() + 700, 200, 180)) {
+                if (CharacterHand.grabbedObj.school == true) {
+                    if (CharacterHand.grabbedObj.checkCollision(innerPanel.getX(), innerPanel.getY() + 700, 200, 180)) {
 
                         // Removing and repainting the screens
-                        innerPanel.remove(hand.grabbedObj);
+                        innerPanel.remove(CharacterHand.grabbedObj);
                         innerPanel.revalidate();
                         revalidate();
                         innerPanel.repaint();
                         score++;
 
                         // To delete this later to not run into a ConcurrentModification exception
-                        draggableArrayList.remove(hand.grabbedObj);
+                        draggableArrayList.remove(CharacterHand.grabbedObj);
                         draggableArrayList.trimToSize();
-                        hand.grabbedObj = null;
-                    } else if (hand.grabbedObj.checkCollision(innerPanel.getX() + 950, innerPanel.getY() + 700, 200,
+                        CharacterHand.grabbedObj = null;
+                    } else if (CharacterHand.grabbedObj.checkCollision(innerPanel.getX() + 950, innerPanel.getY() + 700, 200,
                             180)) {
-                        innerPanel.remove(hand.grabbedObj);
+                        innerPanel.remove(CharacterHand.grabbedObj);
                         innerPanel.revalidate();
                         revalidate();
                         innerPanel.repaint();
-                        draggableArrayList.remove(hand.grabbedObj);
+                        draggableArrayList.remove(CharacterHand.grabbedObj);
                         draggableArrayList.trimToSize();
-                        hand.grabbedObj = null;
+                        CharacterHand.grabbedObj = null;
                     }
                 } else {
-                    if (hand.grabbedObj.checkCollision(innerPanel.getX(), innerPanel.getY() + 700, 200, 180)) {
+                    if (CharacterHand.grabbedObj.checkCollision(innerPanel.getX(), innerPanel.getY() + 700, 200, 180)) {
 
                         // Removing and repainting the screens
-                        innerPanel.remove(hand.grabbedObj);
+                        innerPanel.remove(CharacterHand.grabbedObj);
                         innerPanel.revalidate();
                         revalidate();
                         innerPanel.repaint();
 
                         // To delete this later to not run into a ConcurrentModification exception
-                        draggableArrayList.remove(hand.grabbedObj);
+                        draggableArrayList.remove(CharacterHand.grabbedObj);
                         draggableArrayList.trimToSize();
-                        hand.grabbedObj = null;
-                    } else if (hand.grabbedObj.checkCollision(innerPanel.getX() + 950, innerPanel.getY() + 700, 200,
+                        CharacterHand.grabbedObj = null;
+                    } else if (CharacterHand.grabbedObj.checkCollision(innerPanel.getX() + 950, innerPanel.getY() + 700, 200,
                             180)) {
-                        innerPanel.remove(hand.grabbedObj);
+                        innerPanel.remove(CharacterHand.grabbedObj);
                         innerPanel.revalidate();
                         revalidate();
                         innerPanel.repaint();
                         score++;
-                        draggableArrayList.remove(hand.grabbedObj);
+                        draggableArrayList.remove(CharacterHand.grabbedObj);
                         draggableArrayList.trimToSize();
-                        hand.grabbedObj = null;
+                        CharacterHand.grabbedObj = null;
                     }
                 }
 
@@ -277,14 +276,14 @@ public class MoveFrame extends JInternalFrame implements KeyListener {
 
                 System.out.println("set value 1" + hand.grab);
                 hand.grab = !hand.grab;
-                hand.grabbedObj = null;
+                CharacterHand.grabbedObj = null;
             } else {
                 for (DragAndDrop d : draggableArrayList) {
                     if (d.checkCollision(hand.x, hand.y, 100, 100)) {
                         System.out.println("set value 2" + hand.grab);
                         hand.grab = true;
                         d.grabbed = true;
-                        hand.grabbedObj = d;
+                        CharacterHand.grabbedObj = d;
                     }
                 }
             }

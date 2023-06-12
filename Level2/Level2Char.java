@@ -2,11 +2,9 @@ package Level2;
 
 import javax.swing.JComponent;
 
-import Helper.DragAndDrop;
 
 import java.awt.Color;
 import java.awt.Graphics;
-import java.awt.event.*;
 
 /**
  * Character class that will be on screen for the Level 3

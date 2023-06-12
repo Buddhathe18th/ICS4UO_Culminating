@@ -1,11 +1,9 @@
 package Main;
 
 import java.awt.event.*;
-import java.awt.AWTException;
 import java.awt.Color;
 import java.awt.Font;
 import java.awt.Image;
-import java.awt.Robot;
 
 import javax.swing.*;
 import javax.imageio.*;
@@ -206,7 +204,7 @@ public class Main implements KeyListener {
                             // Stops the program from running for 1 second to preserve computer power
                             Thread.sleep(1000);
                             System.out.println(g.timeLeft + " " + g.finish+" "+g.level3Char.row+" "+g.level3Char.column);
-                            if (g.timeLeft > 0 && !g.finish) {
+                            if (g.timeLeft > 0 && !Level2Frame.finish) {
                                 g.timeLeft--;
                                 g.revalidate();
                                 g.repaint();

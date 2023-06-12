@@ -33,6 +33,7 @@ public class Item extends JComponent {
 
     public Item(Image i) {
         image = i;
+        
         collected = false;
 
         setBounds(0, 0, 20, 20);
