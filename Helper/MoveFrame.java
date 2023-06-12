@@ -58,7 +58,7 @@ public class MoveFrame extends JInternalFrame implements KeyListener {
             super.paintComponent(g);
             Image[] background = new Image[1];
             try {
-                background[0] = ImageIO.read(getClass().getResource("Background.png"));
+                background[0] = ImageIO.read(getClass().getResource("background.png"));
             } catch (IOException e) {
                 e.printStackTrace();
             }
@@ -95,8 +95,8 @@ public class MoveFrame extends JInternalFrame implements KeyListener {
 
             
             g.setFont(new Font("Courier New", Font.BOLD, 30));
-            g.drawString("Objects remaining: " + String.valueOf(draggableArrayList.size()), 100, 100);
-            g.drawString("Score: " + String.valueOf(score), 100, 150);
+            g.drawString("Objects remaining: " + String.valueOf(draggableArrayList.size()), 100, 50);
+            g.drawString("Score: " + String.valueOf(score), 100, 90);
         }
     }
 
