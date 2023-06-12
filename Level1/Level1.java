@@ -95,12 +95,14 @@ public class Level1 extends JComponent {
                     f.getContentPane().removeAll();
                     System.out.println(scene+" "+scenarios);
                     scene++;
-                    // f.add(new Level1Finish().frame());
-                    // f.getContentPane().repaint();
-                    // f.requestFocusInWindow();
                 }
             }
-            System.out.print("");
+            try {
+                Thread.sleep(1000);
+            }
+            catch (Exception e) {
+                e.printStackTrace();
+            }
         }
     }
 

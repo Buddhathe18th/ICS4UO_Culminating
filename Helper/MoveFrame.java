@@ -91,9 +91,7 @@ public class MoveFrame extends JInternalFrame implements KeyListener {
             // Trim size of the arraylist to the size of the current amount of elements
             draggableArrayList.trimToSize();
 
-            // On screen showing the number of components left
-
-            
+            // On screen showing the number of components leftd
             g.setFont(new Font("Courier New", Font.BOLD, 30));
             g.drawString("Objects remaining: " + String.valueOf(draggableArrayList.size()), 100, 50);
             g.drawString("Score: " + String.valueOf(score), 100, 90);
