@@ -176,7 +176,7 @@ public class Main implements KeyListener {
                     Level1Finish t = new Level1Finish();
                     JInternalFrame test = t.frame();
                     frame.add(test);
-                    System.out.println(screenNum);
+                    
                     test.setLocation(0, -15);
                     win1=true;
                     
@@ -203,19 +203,19 @@ public class Main implements KeyListener {
 
                             // Stops the program from running for 1 second to preserve computer power
                             Thread.sleep(1000);
-                            System.out.println(g.timeLeft + " " + g.finish+" "+g.level3Char.row+" "+g.level3Char.column);
+                            
                             if (g.timeLeft > 0 && !Level2Frame.finish) {
                                 g.timeLeft--;
                                 g.revalidate();
                                 g.repaint();
                             } else {
-                                System.out.println("winning the game");
+                                
                                 break;
 
                             }
 
                         } catch (Exception e) {
-                            System.out.println("Sleep method is broken");
+                            e.printStackTrace();
                         }
 
                     }
@@ -284,9 +284,9 @@ public class Main implements KeyListener {
                 try {
                     // Stops the program from running for 50 milliseconds to preserve computer power
                     Thread.sleep(1000);
-                    System.out.println(screenNum);
+                    
                 } catch (Exception e) {
-                    System.out.println("Sleep method is broken");
+                   e.printStackTrace();
                 }
 
             }

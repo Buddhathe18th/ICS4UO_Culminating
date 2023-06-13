@@ -47,7 +47,7 @@ public class CharacterHand extends JComponent {
      */
     public CharacterHand() {
         grabbedObj = null;
-        System.out.println("char");
+        
         setBounds(0, 0, 100, 100);
         setSize(100, 100);
         setOpaque(false);

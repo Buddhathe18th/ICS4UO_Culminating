@@ -184,7 +184,7 @@ public class Level3 {
             try {
                 iArr1[0] = ImageIO.read(getClass().getResource("table.png"));
             } catch (IOException e) {
-                System.out.println("broken");
+                
             }
 
             //The table

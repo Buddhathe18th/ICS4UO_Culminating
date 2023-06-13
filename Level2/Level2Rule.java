@@ -135,7 +135,7 @@ public class Level2Rule implements KeyListener {
      */
     @Override
     public void keyReleased(KeyEvent e) {
-        System.out.println("key");
+        
         if (e.getKeyCode() == KeyEvent.VK_ENTER) {
             Main.Main.screenNum = 11;
         }
