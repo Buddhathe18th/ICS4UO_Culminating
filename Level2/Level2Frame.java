@@ -187,7 +187,7 @@ public class Level2Frame extends JInternalFrame implements KeyListener {
                 ex.printStackTrace();
             }
 
-            // System.out.println("right");
+            // 
             if (level3Char.column + 1 < 26
                     && maze[level3Char.row][level3Char.column + 1] == 0) {
                 level3Char.column++;
@@ -199,7 +199,7 @@ public class Level2Frame extends JInternalFrame implements KeyListener {
             this.addKeyListener(this);
             innerPanel.addKeyListener(this);
         } else if (e.getKeyCode() == KeyEvent.VK_LEFT) {
-            // System.out.println("left");
+            // 
             if (level3Char.column - 1 > -1
                     && maze[level3Char.row][level3Char.column - 1] == 0) {
                 level3Char.column--;
@@ -209,7 +209,7 @@ public class Level2Frame extends JInternalFrame implements KeyListener {
             revalidate();
             repaint();
         } else if (e.getKeyCode() == KeyEvent.VK_UP) {
-            // System.out.println("up");
+            // 
             if (level3Char.row - 1 > -1
                     && maze[level3Char.row - 1][level3Char.column] == 0) {
                 level3Char.row--;
@@ -219,7 +219,7 @@ public class Level2Frame extends JInternalFrame implements KeyListener {
             revalidate();
             repaint();
         } else if (e.getKeyCode() == KeyEvent.VK_DOWN) {
-            // System.out.println("down");
+            // 
             if (level3Char.row + 1 < 26
                     && maze[level3Char.row + 1][level3Char.column] == 0) {
                 level3Char.row++;
@@ -244,7 +244,7 @@ public class Level2Frame extends JInternalFrame implements KeyListener {
 
         if (level3Char.column == 25 && level3Char.row == 23) {
             finish = true;
-            System.out.println("done Game");
+            
             Main.Main.screenNum = 12;
             level3Char.column = 11;
             level3Char.row = 0;

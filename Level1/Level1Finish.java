@@ -115,10 +115,10 @@ public class Level1Finish implements ActionListener {
      */
     @Override
     public void actionPerformed(ActionEvent e) {
-        System.out.println("click");
+        
         if (e.getSource() == buttonL2) {
             Main.screenNum = 10;
-            System.out.println(Main.screenNum);
+            
         } else if (e.getSource() == mainMenu) {
             Main.screenNum = 3;
         }
