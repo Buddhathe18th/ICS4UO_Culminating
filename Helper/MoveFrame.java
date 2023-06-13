@@ -81,7 +81,7 @@ public class MoveFrame extends JInternalFrame implements KeyListener {
             try {
                 iArr1[0] = ImageIO.read(getClass().getResource("table.png"));
             } catch (IOException e) {
-                System.out.println("broken");
+                e.printStackTrace();
             }
 
             //The table
@@ -174,9 +174,8 @@ public class MoveFrame extends JInternalFrame implements KeyListener {
      */
     @Override
     public void keyPressed(KeyEvent e) {
-        System.out.println(hand.grab);
+        
         if (e.getKeyCode() == KeyEvent.VK_RIGHT) {
-            System.out.println("right");
             if (hand.grab) {
                 CharacterHand.grabbedObj.setLocation(CharacterHand.grabbedObj.getX() + 10, CharacterHand.grabbedObj.getY());
             }
@@ -185,7 +184,6 @@ public class MoveFrame extends JInternalFrame implements KeyListener {
             revalidate();
             repaint();
         } else if (e.getKeyCode() == KeyEvent.VK_LEFT) {
-            System.out.println("left");
             if (hand.grab) {
                 CharacterHand.grabbedObj.setLocation(CharacterHand.grabbedObj.getX() - 10, CharacterHand.grabbedObj.getY());
             }
@@ -194,7 +192,6 @@ public class MoveFrame extends JInternalFrame implements KeyListener {
             revalidate();
             repaint();
         } else if (e.getKeyCode() == KeyEvent.VK_UP) {
-            System.out.println("up");
             if (hand.grab) {
                 CharacterHand.grabbedObj.setLocation(CharacterHand.grabbedObj.getX(), CharacterHand.grabbedObj.getY() - 10);
             }
@@ -203,7 +200,6 @@ public class MoveFrame extends JInternalFrame implements KeyListener {
             revalidate();
             repaint();
         } else if (e.getKeyCode() == KeyEvent.VK_DOWN) {
-            System.out.println("down");
 
             if (hand.grab) {
                 CharacterHand.grabbedObj.setLocation(CharacterHand.grabbedObj.getX(), CharacterHand.grabbedObj.getY() + 10);
@@ -215,7 +211,6 @@ public class MoveFrame extends JInternalFrame implements KeyListener {
         }
 
         else if (e.getKeyCode() == KeyEvent.VK_SPACE) {
-            System.out.println("Space bar");
             innerPanel.revalidate();
             revalidate();
             innerPanel.repaint();
@@ -274,13 +269,12 @@ public class MoveFrame extends JInternalFrame implements KeyListener {
                     Main.Main.screenNum++;
                 }
 
-                System.out.println("set value 1" + hand.grab);
+                
                 hand.grab = !hand.grab;
                 CharacterHand.grabbedObj = null;
             } else {
                 for (DragAndDrop d : draggableArrayList) {
                     if (d.checkCollision(hand.x, hand.y, 100, 100)) {
-                        System.out.println("set value 2" + hand.grab);
                         hand.grab = true;
                         d.grabbed = true;
                         CharacterHand.grabbedObj = d;

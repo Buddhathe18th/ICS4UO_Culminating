@@ -163,7 +163,7 @@ public class Level1Scene extends Level1 implements ActionListener, KeyListener {
             return button;
         }
         catch (Exception e) {
-            System.out.println("Error: " + e);
+            e.printStackTrace();
             return null;
         }
     }

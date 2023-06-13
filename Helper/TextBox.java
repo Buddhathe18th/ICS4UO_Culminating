@@ -68,7 +68,7 @@ public class TextBox extends JComponent {
 
         String temp = "";
         for (String l: text) {
-            if(l.equals("newLine")){System.out.println("newline");
+            if(l.equals("newLine")){
                 maxLen = textPerLine;
                 lines.add(temp);
                 temp = "";
@@ -134,8 +134,7 @@ public class TextBox extends JComponent {
         String temp = "";
 
         for (String word : words) {
-            System.out.println("test");
-            if(word.equals("newLine")){System.out.println("newline");
+            if(word.equals("newLine")){
                 maxLen = textPerLine;
                 lines.add(temp);
                 temp = "";

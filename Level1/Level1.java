@@ -96,7 +96,6 @@ public class Level1 extends JComponent {
                 } else {
                     changed = false;
                     f.getContentPane().removeAll();
-                    System.out.println(scene + " " + scenarios);
                     scene++;
                 }
             }
