@@ -178,7 +178,7 @@ public class Level3Result implements ActionListener{
     public void actionPerformed(ActionEvent e) {
         
         if(e.getSource()==creditButton){
-            Main.Main.screenNum=18;
+            Main.Main.screenNum=17;
         }
         else if(e.getSource()==mainMenu){
             Main.Main.screenNum=3;//change screen to main menu

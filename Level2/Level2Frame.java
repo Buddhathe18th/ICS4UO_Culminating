@@ -119,7 +119,7 @@ public class Level2Frame extends JInternalFrame implements KeyListener {
         // Image array of the images on the components
         Image[] iArr = new Image[7];
         try {
-            iArr[0] = ImageIO.read(getClass().getResource("backpack.png"));
+            iArr[0] = ImageIO.read(getClass().getResource("backPack.png"));
             iArr[1] = ImageIO.read(getClass().getResource("binder.png"));
             iArr[2] = ImageIO.read(getClass().getResource("calculator.png"));
             iArr[3] = ImageIO.read(getClass().getResource("pencil.png"));
